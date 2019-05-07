@@ -1,0 +1,185 @@
+﻿<#@ template language="C#" hostspecific="true" debug="true" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Runtime" #>
+<#@ assembly name="$(ProjectDir)..\bin\Debug\OxyPlot.dll" #>
+<#@ assembly name="$(ProjectDir)..\bin\Debug\Horker.PSOxyPlot.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="OxyPlot" #>
+<#@ import namespace="OxyPlot.Series" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Management.Automation;
+using OxyPlot;
+using OxyPlot.Series;
+
+namespace Horker.PSOxyPlot
+{
+<#
+var seriesDefs = new SeriesDefinition[]
+{
+	new SeriesDefinition(typeof(LineSeries), "line", "DataPoint"),
+	new SeriesDefinition(typeof(ScatterSeries), "scat", "ScatterPoint")
+};
+
+var typeAdaptors = new Dictionary<Type, Type> {
+	{ typeof(OxyPlot.OxyColor), typeof(Horker.PSOxyPlot.TypeAdaptors.OxyColor) }
+};
+
+foreach (var def in seriesDefs)
+{
+	var name = def.Type.Name;
+#>
+    [Cmdlet("New", "Oxy<#= name #>")]
+    [Alias("oxy.<#= def.ShortName #>")]
+    [OutputType(typeof(<#= name #>))]
+    public class NewOxy<#= name #> : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 0, Mandatory = false)]
+        public string XName = "X";
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string YName = "Y";
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string GroupName = null;
+
+<#
+	var position = 2;
+	foreach (var prop in def.Type.GetProperties())
+	{
+		if (!prop.CanWrite || prop.SetMethod == null || !prop.SetMethod.IsPublic)
+			continue;
+
+		var type = prop.PropertyType;
+		Type adaptor;
+		if (typeAdaptors.TryGetValue(type, out adaptor))
+			type = adaptor;
+
+		var typeName = FixTypeName(type);
+		var propName = prop.Name;
+
+		++position;
+#>
+        [Parameter(Position = <#= position #>, Mandatory = false)]
+        public <#= typeName #> <#= propName #>;
+
+<#
+	}
+	++position;
+#>
+        [Parameter(Position = <#= position #>, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        private Dictionary<string, List<Tuple<double, double>>> _points;
+
+        protected override void BeginProcessing()
+        {
+            _points = new Dictionary<string, List<Tuple<double, double>>>();
+        }
+
+        protected override void ProcessRecord()
+        {
+	        string group = "Unknown";
+            if (!string.IsNullOrEmpty(GroupName))
+            {
+                var g = InputObject.Properties.Match(GroupName);
+                if (g.Count > 0)
+                    group = g[0].Value.ToString();
+            }
+
+			List<Tuple<double, double>> list;
+			if (!_points.TryGetValue(group, out list))
+			{
+				list = new List<Tuple<double, double>>();
+				_points.Add(group, list);
+			}
+
+			var x = SmartConverter.ToDouble(InputObject.Properties[XName].Value);
+			var y = SmartConverter.ToDouble(InputObject.Properties[YName].Value);
+            list.Add(Tuple.Create(x, y));
+        }
+
+        protected override void EndProcessing()
+        {
+			var bp = MyInvocation.BoundParameters;
+			foreach (var entry in _points)
+			{
+				var series = new <#= name #>();
+				series.Title = entry.Key;
+
+<#
+	foreach (var prop in def.Type.GetProperties())
+	{
+		if (!prop.CanWrite || prop.SetMethod == null || !prop.SetMethod.IsPublic)
+			continue;
+		var propName = prop.Name;
+#>
+				if (bp.ContainsKey("<#= propName #>")) series.<#= propName #> = <#= propName #>;
+<#
+	}
+#>
+
+				foreach (var p in entry.Value)
+					series.Points.Add(new <#= def.PointType #>(p.Item1, p.Item2));
+
+				if (bp.ContainsKey("AddTo"))
+				{
+					var model = AddTo ?? new PlotModel();
+					model.Series.Add(series);
+				}
+				else
+				{
+					WriteObject(series);
+				}
+			}
+        }
+    }
+
+<#
+}
+#>
+}
+<#+
+class SeriesDefinition
+{
+	public Type Type;
+	public string ShortName;
+	public string PointType;
+	public SeriesDefinition(Type type, string shortName, string pointType)
+	{
+		Type = type;
+		ShortName = shortName;
+		PointType = pointType;
+	}
+}
+
+private string FixTypeName(Type type)
+{
+	var t = type.ToString();
+	t = Regex.Replace(t, @"`\d\[", "<");
+
+	var s = new StringBuilder();
+	s.Append(t[0]);
+	for (var i = 1; i < t.Length; ++i)
+	{
+		if (t[i-1] != '[' && t[i] == ']')
+			s.Append('>');
+		else
+			s.Append(t[i]);
+	}
+
+	return s.ToString();
+}
+#>
