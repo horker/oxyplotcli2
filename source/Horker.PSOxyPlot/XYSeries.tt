@@ -13,6 +13,7 @@
 <#@ import namespace="System.Reflection" #>
 <#@ import namespace="OxyPlot" #>
 <#@ import namespace="OxyPlot.Series" #>
+<#@ include file="Common.tt" #>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,32 +56,32 @@ foreach (var def in seriesDefs)
         [Parameter(Position = 2, Mandatory = false)]
         public string GroupName = null;
 
+        [Parameter(Position = 3, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
 <#
-	var position = 2;
-	foreach (var prop in def.Type.GetProperties())
+	var position = 8;
+	foreach (var prop in EnumerateProperties(def.Type, typeAdaptors))
 	{
-		if (!prop.CanWrite || prop.SetMethod == null || !prop.SetMethod.IsPublic)
-			continue;
-
-		var type = prop.PropertyType;
-		Type adaptor;
-		if (typeAdaptors.TryGetValue(type, out adaptor))
-			type = adaptor;
-
-		var typeName = FixTypeName(type);
-		var propName = prop.Name;
-
-		++position;
 #>
-        [Parameter(Position = <#= position #>, Mandatory = false)]
-        public <#= typeName #> <#= propName #>;
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> <#= prop.Name #>;
 
 <#
 	}
-	++position;
 #>
-        [Parameter(Position = <#= position #>, Mandatory = false)]
-        public PlotModel AddTo = null;
 
         private Dictionary<string, List<Tuple<double, double>>> _points;
 
@@ -114,19 +115,21 @@ foreach (var def in seriesDefs)
         protected override void EndProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
+
+			PlotModel model = null;
+			if (bp.ContainsKey("AddTo") || bp.ContainsKey("OutFile"))
+				model = AddTo ?? new PlotModel();
+
 			foreach (var entry in _points)
 			{
 				var series = new <#= name #>();
 				series.Title = entry.Key;
 
 <#
-	foreach (var prop in def.Type.GetProperties())
+	foreach (var prop in EnumerateProperties(def.Type))
 	{
-		if (!prop.CanWrite || prop.SetMethod == null || !prop.SetMethod.IsPublic)
-			continue;
-		var propName = prop.Name;
 #>
-				if (bp.ContainsKey("<#= propName #>")) series.<#= propName #> = <#= propName #>;
+				if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.Name #>;
 <#
 	}
 #>
@@ -134,16 +137,14 @@ foreach (var def in seriesDefs)
 				foreach (var p in entry.Value)
 					series.Points.Add(new <#= def.PointType #>(p.Item1, p.Item2));
 
-				if (bp.ContainsKey("AddTo"))
-				{
-					var model = AddTo ?? new PlotModel();
+				if (model != null)
 					model.Series.Add(series);
-				}
 				else
-				{
 					WriteObject(series);
-				}
 			}
+
+			if (bp.ContainsKey("OutFile"))
+				Exporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 
@@ -163,23 +164,5 @@ class SeriesDefinition
 		ShortName = shortName;
 		PointType = pointType;
 	}
-}
-
-private string FixTypeName(Type type)
-{
-	var t = type.ToString();
-	t = Regex.Replace(t, @"`\d\[", "<");
-
-	var s = new StringBuilder();
-	s.Append(t[0]);
-	for (var i = 1; i < t.Length; ++i)
-	{
-		if (t[i-1] != '[' && t[i] == ']')
-			s.Append('>');
-		else
-			s.Append(t[i]);
-	}
-
-	return s.ToString();
 }
 #>

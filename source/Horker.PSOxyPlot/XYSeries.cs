@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,133 +27,146 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 3, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
+        public PlotModel AddTo = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor BrokenLineColor;
+        public string OutFile = null;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public OxyPlot.LineStyle BrokenLineStyle;
+        public int OutWidth = 800;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public System.Double BrokenLineThickness;
+        public int OutHeight = 600;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] Dashes;
+        public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.String LabelFormatString;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor BrokenLineColor;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public System.Double LabelMargin;
+        public OxyPlot.LineStyle BrokenLineStyle;
 
         [Parameter(Position = 11, Mandatory = false)]
-        public OxyPlot.LineJoin LineJoin;
+        public System.Double BrokenLineThickness;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public OxyPlot.LineStyle LineStyle;
+        public System.Double[] Dashes;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public OxyPlot.Series.LineLegendPosition LineLegendPosition;
+        public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
+        public System.String LabelFormatString;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public OxyPlot.ScreenPoint[] MarkerOutline;
+        public System.Double LabelMargin;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public System.Int32 MarkerResolution;
+        public OxyPlot.LineJoin LineJoin;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Double MarkerSize;
+        public OxyPlot.LineStyle LineStyle;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
+        public OxyPlot.Series.LineLegendPosition LineLegendPosition;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public OxyPlot.MarkerType MarkerType;
+        public OxyPlot.ScreenPoint[] MarkerOutline;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.Double MinimumSegmentLength;
+        public System.Int32 MarkerResolution;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public System.Boolean Smooth;
+        public System.Double MarkerSize;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 24, Mandatory = false)]
-        public System.Boolean CanTrackerInterpolatePoints;
+        public System.Double MarkerStrokeThickness;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.String DataFieldX;
+        public OxyPlot.MarkerType MarkerType;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public System.String DataFieldY;
+        public System.Double MinimumSegmentLength;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.Func<System.Object,OxyPlot.DataPoint> Mapping;
+        public System.Boolean Smooth;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.String XAxisKey;
+        public System.Double StrokeThickness;
 
         [Parameter(Position = 29, Mandatory = false)]
-        public System.String YAxisKey;
+        public System.Boolean CanTrackerInterpolatePoints;
 
         [Parameter(Position = 30, Mandatory = false)]
-        public System.Collections.IEnumerable ItemsSource;
+        public System.String DataFieldX;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+        public System.String DataFieldY;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public System.Func<System.Object,OxyPlot.DataPoint> Mapping;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.String Title;
+        public System.String XAxisKey;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public System.String YAxisKey;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.String TrackerFormatString;
+        public System.Collections.IEnumerable ItemsSource;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.String TrackerKey;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 37, Mandatory = false)]
-        public System.String Font;
+        public System.Boolean IsVisible;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Double FontSize;
+        public System.String Title;
 
         [Parameter(Position = 39, Mandatory = false)]
-        public System.Double FontWeight;
+        public System.Boolean RenderInLegend;
 
         [Parameter(Position = 40, Mandatory = false)]
-        public System.Object Tag;
+        public System.String TrackerFormatString;
 
         [Parameter(Position = 41, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+        public System.String TrackerKey;
 
         [Parameter(Position = 42, Mandatory = false)]
-        public System.String ToolTip;
+        public System.String Font;
 
         [Parameter(Position = 43, Mandatory = false)]
-        public System.Boolean Selectable;
+        public System.Double FontSize;
 
         [Parameter(Position = 44, Mandatory = false)]
-        public OxyPlot.SelectionMode SelectionMode;
+        public System.Double FontWeight;
 
         [Parameter(Position = 45, Mandatory = false)]
-        public PlotModel AddTo = null;
+        public System.Object Tag;
+
+        [Parameter(Position = 46, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 47, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 48, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 49, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
 
         private Dictionary<string, List<Tuple<double, double>>> _points;
 
@@ -186,6 +200,11 @@ namespace Horker.PSOxyPlot
         protected override void EndProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
+
+			PlotModel model = null;
+			if (bp.ContainsKey("AddTo") || bp.ContainsKey("OutFile"))
+				model = AddTo ?? new PlotModel();
+
 			foreach (var entry in _points)
 			{
 				var series = new LineSeries();
@@ -237,16 +256,14 @@ namespace Horker.PSOxyPlot
 				foreach (var p in entry.Value)
 					series.Points.Add(new DataPoint(p.Item1, p.Item2));
 
-				if (bp.ContainsKey("AddTo"))
-				{
-					var model = AddTo ?? new PlotModel();
+				if (model != null)
 					model.Series.Add(series);
-				}
 				else
-				{
 					WriteObject(series);
-				}
 			}
+
+			if (bp.ContainsKey("OutFile"))
+				Exporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 
@@ -268,106 +285,119 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 3, Mandatory = false)]
-        public System.String LabelFormatString;
+        public PlotModel AddTo = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public System.Double LabelMargin;
+        public string OutFile = null;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.Func<System.Object,OxyPlot.Series.ScatterPoint> Mapping;
+        public int OutWidth = 800;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public System.Int32 BinSize;
+        public int OutHeight = 600;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.String ColorAxisKey;
+        public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public System.String DataFieldX;
+        public System.String LabelFormatString;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.String DataFieldY;
+        public System.Double LabelMargin;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public System.String DataFieldSize;
+        public System.Func<System.Object,OxyPlot.Series.ScatterPoint> Mapping;
 
         [Parameter(Position = 11, Mandatory = false)]
-        public System.String DataFieldTag;
+        public System.Int32 BinSize;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public System.String DataFieldValue;
+        public System.String ColorAxisKey;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
+        public System.String DataFieldX;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public OxyPlot.ScreenPoint[] MarkerOutline;
+        public System.String DataFieldY;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public System.Double MarkerSize;
+        public System.String DataFieldSize;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
+        public System.String DataFieldTag;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public System.String DataFieldValue;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public OxyPlot.MarkerType MarkerType;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public System.String XAxisKey;
+        public OxyPlot.ScreenPoint[] MarkerOutline;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public System.String YAxisKey;
+        public System.Double MarkerSize;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.Collections.IEnumerable ItemsSource;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+        public System.Double MarkerStrokeThickness;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public OxyPlot.MarkerType MarkerType;
 
         [Parameter(Position = 24, Mandatory = false)]
-        public System.String Title;
+        public System.String XAxisKey;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public System.String YAxisKey;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public System.String TrackerFormatString;
+        public System.Collections.IEnumerable ItemsSource;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.String TrackerKey;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.String Font;
+        public System.Boolean IsVisible;
 
         [Parameter(Position = 29, Mandatory = false)]
-        public System.Double FontSize;
+        public System.String Title;
 
         [Parameter(Position = 30, Mandatory = false)]
-        public System.Double FontWeight;
+        public System.Boolean RenderInLegend;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.Object Tag;
+        public System.String TrackerFormatString;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+        public System.String TrackerKey;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.String ToolTip;
+        public System.String Font;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.Boolean Selectable;
+        public System.Double FontSize;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public OxyPlot.SelectionMode SelectionMode;
+        public System.Double FontWeight;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public PlotModel AddTo = null;
+        public System.Object Tag;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
 
         private Dictionary<string, List<Tuple<double, double>>> _points;
 
@@ -401,6 +431,11 @@ namespace Horker.PSOxyPlot
         protected override void EndProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
+
+			PlotModel model = null;
+			if (bp.ContainsKey("AddTo") || bp.ContainsKey("OutFile"))
+				model = AddTo ?? new PlotModel();
+
 			foreach (var entry in _points)
 			{
 				var series = new ScatterSeries();
@@ -443,16 +478,14 @@ namespace Horker.PSOxyPlot
 				foreach (var p in entry.Value)
 					series.Points.Add(new ScatterPoint(p.Item1, p.Item2));
 
-				if (bp.ContainsKey("AddTo"))
-				{
-					var model = AddTo ?? new PlotModel();
+				if (model != null)
 					model.Series.Add(series);
-				}
 				else
-				{
 					WriteObject(series);
-				}
 			}
+
+			if (bp.ContainsKey("OutFile"))
+				Exporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 

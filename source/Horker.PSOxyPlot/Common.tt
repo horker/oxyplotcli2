@@ -1,0 +1,61 @@
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Runtime" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#+
+class ObjectProperty
+{
+	public string Name { get; set; }
+	public Type Type { get; set; }
+	public string TypeName { get; set; }
+}
+
+private IEnumerable<ObjectProperty> EnumerateProperties(Type type, IDictionary<Type, Type> typeAdaptors = null)
+{
+	foreach (var prop in type.GetProperties())
+	{
+		if (!prop.CanWrite || prop.SetMethod == null || !prop.SetMethod.IsPublic)
+			continue;
+
+		var propType = prop.PropertyType;
+		Type adaptor;
+		if (!(typeAdaptors is null) && typeAdaptors.TryGetValue(propType, out adaptor))
+			propType = adaptor;
+
+		var typeName = FixTypeName(propType);
+		var propName = prop.Name;
+
+		var op = new ObjectProperty()
+		{
+			Name = propName,
+			Type = type,
+			TypeName = typeName
+		};
+
+		yield return op;
+	}
+}
+
+private string FixTypeName(Type type)
+{
+	var t = type.ToString();
+	t = Regex.Replace(t, @"`\d\[", "<");
+
+	var s = new StringBuilder();
+	s.Append(t[0]);
+	for (var i = 1; i < t.Length; ++i)
+	{
+		if (t[i-1] != '[' && t[i] == ']')
+			s.Append('>');
+		else
+			s.Append(t[i]);
+	}
+
+	return s.ToString();
+}
+#>
