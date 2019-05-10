@@ -201,9 +201,9 @@ namespace Horker.PSOxyPlot
         {
 			var bp = MyInvocation.BoundParameters;
 
-			PlotModel model = null;
-			if (bp.ContainsKey("AddTo") || bp.ContainsKey("OutFile"))
-				model = AddTo ?? new PlotModel();
+			PlotModel model = AddTo;
+			if (model == null && bp.ContainsKey("OutFile"))
+				model = new PlotModel();
 
 			foreach (var entry in _points)
 			{
@@ -432,9 +432,9 @@ namespace Horker.PSOxyPlot
         {
 			var bp = MyInvocation.BoundParameters;
 
-			PlotModel model = null;
-			if (bp.ContainsKey("AddTo") || bp.ContainsKey("OutFile"))
-				model = AddTo ?? new PlotModel();
+			PlotModel model = AddTo;
+			if (model == null && bp.ContainsKey("OutFile"))
+				model = new PlotModel();
 
 			foreach (var entry in _points)
 			{
