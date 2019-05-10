@@ -40,35 +40,41 @@ foreach (var def in seriesDefs)
     [OutputType(typeof(<#= name #>))]
     public class NewOxy<#= name #> : PSCmdlet
     {
-        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        [Parameter(ParameterSetName = "ByPipeline", Position = 0, Mandatory = true, ValueFromPipeline = true)]
         public PSObject InputObject;
 
-        [Parameter(Position = 0, Mandatory = false)]
+        [Parameter(ParameterSetName = "ByPipeline", Position = 1, Mandatory = true)]
         public string XName = "X";
 
-        [Parameter(Position = 1, Mandatory = false)]
+        [Parameter(ParameterSetName = "ByPipeline", Position = 2, Mandatory = true)]
         public string YName = "Y";
 
-        [Parameter(Position = 2, Mandatory = false)]
+        [Parameter(ParameterSetName = "ByPipeline", Position = 3, Mandatory = false)]
         public string GroupName = null;
 
-        [Parameter(Position = 3, Mandatory = false)]
-        public PlotModel AddTo = null;
+        [Parameter(ParameterSetName = "ByArray", Position = 0, Mandatory = true)]
+        public double[] X = null;
+
+        [Parameter(ParameterSetName = "ByArray", Position = 1, Mandatory = true)]
+        public double[] Y = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string OutFile = null;
+        public PlotModel AddTo = null;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public int OutWidth = 800;
+        public string OutFile = null;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public int OutHeight = 600;
+        public int OutWidth = 800;
 
         [Parameter(Position = 7, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 8, Mandatory = false)]
         public SwitchParameter SvgIsDocument = false;
 
 <#
-	var position = 8;
+	var position = 9;
 	foreach (var prop in EnumerateProperties(def.Type, TypeAdaptors.TYPE_ADAPTORS))
 	{
 #>
@@ -78,17 +84,25 @@ foreach (var def in seriesDefs)
 <#
 	}
 #>
-
         private Dictionary<string, List<Tuple<double, double>>> _points;
+
+		private static readonly string DEFAULT_GROUP_NAME = "no groups!!??#$%__";
 
         protected override void BeginProcessing()
         {
+			if (X != null && X.Length != Y.Length)
+				throw new ArgumentException("Arguments X and Y should have the same lengths");
+
             _points = new Dictionary<string, List<Tuple<double, double>>>();
         }
 
         protected override void ProcessRecord()
         {
-	        string group = "Unknown";
+			// ProcessRecord is called once when InputObject is not given.
+			if (InputObject == null)
+				return;
+
+	        string group = DEFAULT_GROUP_NAME;
             if (!string.IsNullOrEmpty(GroupName))
             {
                 var g = InputObject.Properties.Match(GroupName);
@@ -116,10 +130,14 @@ foreach (var def in seriesDefs)
 			if (model == null && bp.ContainsKey("OutFile"))
 				model = new PlotModel();
 
+			if (_points.Count == 0 && X != null)
+				_points.Add(DEFAULT_GROUP_NAME, new List<Tuple<double, double>>());
+
 			foreach (var entry in _points)
 			{
 				var series = new <#= name #>();
-				series.Title = entry.Key;
+				if (entry.Key != DEFAULT_GROUP_NAME)
+					series.Title = entry.Key;
 
 <#
 	foreach (var prop in EnumerateProperties(def.Type))
@@ -132,6 +150,13 @@ foreach (var def in seriesDefs)
 
 				foreach (var p in entry.Value)
 					series.Points.Add(new <#= def.PointType #>(p.Item1, p.Item2));
+
+				if (X != null)
+				{
+					for (var i = 0; i < X.Length; ++i)
+						series.Points.Add(new <#= def.PointType #>(X[i], Y[i]));
+					X = Y = null;
+				}
 
 				if (model != null)
 					model.Series.Add(series);
