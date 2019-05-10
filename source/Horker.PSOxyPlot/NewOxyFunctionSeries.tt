@@ -1,0 +1,149 @@
+﻿<#@ template language="C#" hostspecific="true" debug="true" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Runtime" #>
+<#@ assembly name="$(ProjectDir)..\bin\Debug\OxyPlot.dll" #>
+<#@ assembly name="$(ProjectDir)..\bin\Debug\Horker.PSOxyPlot.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="OxyPlot" #>
+<#@ import namespace="OxyPlot.Series" #>
+<#@ include file="Common.tt" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Management.Automation;
+using OxyPlot;
+using OxyPlot.Series;
+
+namespace Horker.PSOxyPlot
+{
+    [Cmdlet("New", "OxyFunctionSeries")]
+    [Alias("oxy.func")]
+    [OutputType(typeof(FunctionSeries))]
+    public class NewOxyFunctionSeries : PSCmdlet
+    {
+	    [Parameter(ParameterSetName = "Explicit", Position = 0, Mandatory = true)]
+		public ScriptBlock F = null;
+
+        [Parameter(ParameterSetName = "Explicit", Position = 1, Mandatory = false)]
+        public double X0 = -1;
+
+        [Parameter(ParameterSetName = "Explicit", Position = 2, Mandatory = false)]
+        public double X1 = 1;
+
+        [Parameter(ParameterSetName = "Implicit", Position = 0, Mandatory = true)]
+        public ScriptBlock Fx = null;
+
+        [Parameter(ParameterSetName = "Implicit", Position = 1, Mandatory = true)]
+        public ScriptBlock Fy = null;
+
+        [Parameter(ParameterSetName = "Implicit", Position = 2, Mandatory = false)]
+        public double T0 = 0;
+
+        [Parameter(ParameterSetName = "Implicit", Position = 3, Mandatory = false)]
+        public double T1 = 1;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public double N  = 100;
+
+        [Alias("Dt")]
+        [Parameter(Position = 5, Mandatory = false)]
+        public double Dx  =  double.NaN;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+<#
+	var position = 11;
+	foreach (var prop in EnumerateProperties(typeof(FunctionSeries), TypeAdaptors.TYPE_ADAPTORS))
+	{
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> <#= prop.Name #>;
+
+<#
+	}
+#>
+
+        protected override void BeginProcessing()
+        {
+			var bp = MyInvocation.BoundParameters;
+
+			PlotModel model = AddTo;
+			if (model == null && bp.ContainsKey("OutFile"))
+				model = new PlotModel();
+
+			var series = new FunctionSeries();
+
+<#
+	foreach (var prop in EnumerateProperties(typeof(OxyPlot.Series.FunctionSeries)))
+	{
+#>
+			if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.Name #>;
+<#
+	}
+#>
+
+			bool isExplicit = ParameterSetName == "Explicit";
+			if (double.IsNaN(Dx))
+			{
+				if (isExplicit)
+					Dx = (X1 - X0) / (N - 1);
+				else
+					Dx = (T1 - T0) / (N - 1);
+			}
+
+			var va = new List<PSVariable>();
+			if (isExplicit)
+			{
+				series.Title = F.ToString();
+				va.Add(new PSVariable("x"));
+				for (var i = X0; i <= X1 + Dx * .5; i += Dx)
+				{
+					va[0].Value = i;
+					var y = (double)F.InvokeWithContext(null, va, null)[0].BaseObject;
+					series.Points.Add(new DataPoint(i, y));
+				}
+			}
+			else
+			{
+				va.Add(new PSVariable("t"));
+				for (var i = T0; i <= T1 + Dx * .5; i += Dx)
+				{
+					series.Title = Fx.ToString() + ", " + Fy.ToString();
+					va[0].Value = i;
+					var x = (double)Fx.InvokeWithContext(null, va, null)[0].BaseObject;
+					var y = (double)Fy.InvokeWithContext(null, va, null)[0].BaseObject;
+					series.Points.Add(new DataPoint(x, y));
+				}
+			}	
+
+			if (model != null)
+				model.Series.Add(series);
+			else
+				WriteObject(series);
+
+			if (bp.ContainsKey("OutFile"))
+				Exporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+}

@@ -31,10 +31,6 @@ var seriesDefs = new SeriesDefinition[]
 	new SeriesDefinition(typeof(ScatterSeries), "scat", "ScatterPoint")
 };
 
-var typeAdaptors = new Dictionary<Type, Type> {
-	{ typeof(OxyPlot.OxyColor), typeof(Horker.PSOxyPlot.TypeAdaptors.OxyColor) }
-};
-
 foreach (var def in seriesDefs)
 {
 	var name = def.Type.Name;
@@ -73,7 +69,7 @@ foreach (var def in seriesDefs)
 
 <#
 	var position = 8;
-	foreach (var prop in EnumerateProperties(def.Type, typeAdaptors))
+	foreach (var prop in EnumerateProperties(def.Type, TypeAdaptors.TYPE_ADAPTORS))
 	{
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]

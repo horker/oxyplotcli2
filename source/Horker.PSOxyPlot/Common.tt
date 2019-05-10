@@ -15,6 +15,13 @@ class ObjectProperty
 	public string TypeName { get; set; }
 }
 
+class TypeAdaptors
+{
+	public static readonly Dictionary<Type, Type> TYPE_ADAPTORS = new Dictionary<Type, Type> {
+		{ typeof(OxyPlot.OxyColor), typeof(Horker.PSOxyPlot.TypeAdaptors.OxyColor) }
+	};
+}
+
 private IEnumerable<ObjectProperty> EnumerateProperties(Type type, IDictionary<Type, Type> typeAdaptors = null)
 {
 	foreach (var prop in type.GetProperties())
