@@ -51,21 +51,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exporter.cs" />
+    <Compile Include="GridView.cs" />
+    <Compile Include="Exporters\GridViewExporter.cs" />
     <Compile Include="LineSeries.cs" />
-    <Compile Include="NewOxyModel.cs" />
+    <Compile Include="Exporters\ModelExporter.cs" />
+    <Compile Include="Cmdlets\NewOxyGridView.cs" />
+    <Compile Include="Cmdlets\NewOxyModel.cs" />
     <Compile Include="PowerShellMethods\PlotModelMethods.cs" />
     <Compile Include="PowerShellMethods\SeriesMethods.cs" />
     <Compile Include="TypeAdaptors\OxyColor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SmartConverter.cs" />
-    <Compile Include="TypeTest.cs" />
-    <Compile Include="NewOxyFunctionSeries.cs">
+    <Compile Include="Helpers\SmartConverter.cs" />
+    <Compile Include="Helpers\TypeTest.cs" />
+    <Compile Include="Cmdlets\NewOxyFunctionSeries.cs">
       <DependentUpon>NewOxyFunctionSeries.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="XYSeries.cs">
+    <Compile Include="Cmdlets\XYSeries.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>XYSeries.tt</DependentUpon>
@@ -75,12 +78,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Common.tt" />
-    <Content Include="NewOxyFunctionSeries.tt">
+    <Content Include="Cmdlets\Common.tt" />
+    <Content Include="Cmdlets\NewOxyFunctionSeries.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NewOxyFunctionSeries.cs</LastGenOutput>
     </Content>
-    <Content Include="XYSeries.tt">
+    <Content Include="Cmdlets\XYSeries.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>XYSeries.cs</LastGenOutput>
     </Content>

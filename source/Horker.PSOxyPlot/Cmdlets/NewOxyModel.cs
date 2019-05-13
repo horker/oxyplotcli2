@@ -10,6 +10,7 @@ namespace Horker.PSOxyPlot
 {
     [Cmdlet("New", "OxyModel")]
     [Alias("oxy.model")]
+    [OutputType(typeof(PlotModel))]
     public class NewOxyModel : PSCmdlet
     {
         protected override void BeginProcessing()

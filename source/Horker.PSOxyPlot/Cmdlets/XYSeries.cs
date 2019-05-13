@@ -288,7 +288,7 @@ namespace Horker.PSOxyPlot
 			}
 
 			if (bp.ContainsKey("OutFile"))
-				Exporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 
@@ -535,7 +535,7 @@ namespace Horker.PSOxyPlot
 			}
 
 			if (bp.ContainsKey("OutFile"))
-				Exporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 

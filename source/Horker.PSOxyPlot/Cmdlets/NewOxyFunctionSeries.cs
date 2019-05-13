@@ -277,7 +277,7 @@ namespace Horker.PSOxyPlot
 				WriteObject(series);
 
 			if (bp.ContainsKey("OutFile"))
-				Exporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 }

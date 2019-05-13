@@ -16,7 +16,7 @@ $SOLUTION_FILE = "$PSScriptRoot\source\psoxyplot.sln"
 
 $OBJECT_FILES = @(
   "Horker.PSOxyPlot.dll"
-  "Horker.PSOxyPlot.Wpf.dll"
+  "Horker.PSOxyPlot.pdb"
   "OxyPlot.dll"
   "OxyPlot.Wpf.dll"
 )

@@ -9,9 +9,9 @@ using OxyPlot.Wpf;
 
 namespace Horker.PSOxyPlot
 {
-    public static class Exporter
+    public static class ModelExporter
     {
-        public static string ExportToSvgString(PlotModel model, int width = 800, int height = 600, bool isDocument = false)
+        public static string ExportToSvgString(PlotModel model, double width = 800, double height = 600, bool isDocument = false)
         {
             var ex = new OxyPlot.Wpf.SvgExporter()
             {
@@ -23,7 +23,7 @@ namespace Horker.PSOxyPlot
             return ex.ExportToString(model);
         }
 
-        public static void ExportToSvg(PlotModel model, string path, int width = 800, int height = 600, bool isDocument = false)
+        public static void ExportToSvg(PlotModel model, string path, double width = 800, double height = 600, bool isDocument = false)
         {
             var svgString = ExportToSvgString(model, width, height, isDocument);
 
@@ -44,11 +44,11 @@ namespace Horker.PSOxyPlot
             ex.ExportToFile(model, path);
         }
 
-        public static void Export(PlotModel model, string path, int width = 800, int height = 600, bool isDocument = false)
+        public static void Export(PlotModel model, string path, double width = 800, double height = 600, bool isDocument = false)
         {
             var p = path.ToLower();
             if (p.EndsWith(".png"))
-                ExportToPng(model, path, width, height);
+                ExportToPng(model, path, (int)width, (int)height);
             else
                 ExportToSvg(model, path, width, height, isDocument);
         }
