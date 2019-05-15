@@ -51,12 +51,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cmdlets\NewOxyModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewOxyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="GridView.cs" />
     <Compile Include="Exporters\GridViewExporter.cs" />
     <Compile Include="LineSeries.cs" />
     <Compile Include="Exporters\ModelExporter.cs" />
     <Compile Include="Cmdlets\NewOxyGridView.cs" />
-    <Compile Include="Cmdlets\NewOxyModel.cs" />
+    <Content Include="Cmdlets\NewOxyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NewOxyModel1.cs</LastGenOutput>
+    </Content>
     <Compile Include="PowerShellMethods\PlotModelMethods.cs" />
     <Compile Include="PowerShellMethods\SeriesMethods.cs" />
     <Compile Include="TypeAdaptors\OxyColor.cs" />

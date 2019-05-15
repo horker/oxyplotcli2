@@ -1,0 +1,67 @@
+﻿<#@ template language="C#" hostspecific="true" debug="true" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Runtime" #>
+<#@ assembly name="$(ProjectDir)..\bin\Debug\OxyPlot.dll" #>
+<#@ assembly name="$(ProjectDir)..\bin\Debug\Horker.PSOxyPlot.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="OxyPlot" #>
+<#@ import namespace="OxyPlot.Series" #>
+<#@ include file="Common.tt" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using System.Threading.Tasks;
+using OxyPlot;
+using OxyPlot.Series;
+
+namespace Horker.PSOxyPlot
+{
+    [Cmdlet("New", "OxyModel")]
+    [Alias("oxy.model")]
+    [OutputType(typeof(PlotModel))]
+    public class NewOxyModel : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false)]
+        public Series[] Series = new Series[0];
+
+<#
+	var position = 0;
+	foreach (var prop in EnumerateProperties(typeof(PlotModel), TypeAdaptors.TYPE_ADAPTORS))
+	{
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> <#= prop.Name #>;
+
+<#
+	}
+#>
+        protected override void BeginProcessing()
+        {
+			var bp = MyInvocation.BoundParameters;
+            var model = new PlotModel();
+
+<#
+	foreach (var prop in EnumerateProperties(typeof(PlotModel)))
+	{
+#>
+            if (bp.ContainsKey("<#= prop.Name #>")) model.<#= prop.Name #> = <#= prop.Name #>;
+<#
+	}
+#>
+
+            foreach (var s in Series)
+                model.Series.Add(s);
+
+            WriteObject(model);
+        }
+    }
+}
