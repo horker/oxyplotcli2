@@ -1,19 +1,7 @@
 ﻿<#@ template language="C#" hostspecific="true" debug="true" #>
 <#@ output extension=".cs" #>
-<#@ assembly name="System.Core" #>
-<#@ assembly name="System.Runtime" #>
-<#@ assembly name="$(ProjectDir)..\bin\Debug\OxyPlot.dll" #>
-<#@ assembly name="$(ProjectDir)..\bin\Debug\Horker.PSOxyPlot.dll" #>
-<#@ import namespace="System" #>
-<#@ import namespace="System.Collections.Generic" #>
-<#@ import namespace="System.Reflection" #>
-<#@ import namespace="System.Text" #>
-<#@ import namespace="System.Text.RegularExpressions" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Reflection" #>
-<#@ import namespace="OxyPlot" #>
-<#@ import namespace="OxyPlot.Series" #>
 <#@ include file="Common.tt" #>
+<#@ include file="Definitions.tt" #>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +23,7 @@ namespace Horker.PSOxyPlot
 
 <#
 	var position = 0;
-	foreach (var prop in EnumerateProperties(typeof(PlotModel), TypeAdaptors.TYPE_ADAPTORS))
+	foreach (var prop in EnumerateProperties(typeof(PlotModel), Definitions.TypeAdaptors))
 	{
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]

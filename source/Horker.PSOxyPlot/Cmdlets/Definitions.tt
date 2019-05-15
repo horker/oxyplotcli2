@@ -1,0 +1,34 @@
+<#+
+class Definitions
+{
+	public static readonly Dictionary<Type, Type> TypeAdaptors = new Dictionary<Type, Type> {
+		{ typeof(OxyPlot.OxyColor), typeof(Horker.PSOxyPlot.TypeAdaptors.OxyColor) }
+	};
+
+	public static readonly SeriesDefinition[] Series = new SeriesDefinition[]
+	{
+		new SeriesDefinition()
+		{
+			Type = typeof(LineSeries),
+			ShortName = "line",
+			PointType = "DataPoint",
+			PointDefinitions = new PointDefinition[]
+			{
+				new PointDefinition() { Name = "X", Type = typeof(double), Mandatory = true },
+				new PointDefinition() { Name = "Y", Type = typeof(double), Mandatory = true }
+			}
+		},
+		new SeriesDefinition()
+		{
+			Type = typeof(ScatterSeries),
+			ShortName = "scatter",
+			PointType = "ScatterPoint",
+			PointDefinitions = new PointDefinition[]
+			{
+				new PointDefinition() { Name = "X", Type = typeof(double), Mandatory = true },
+				new PointDefinition() { Name = "Y", Type = typeof(double), Mandatory = true }
+			}
+		}
+	};
+}
+#>

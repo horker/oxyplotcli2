@@ -14,6 +14,7 @@
 <#@ import namespace="OxyPlot" #>
 <#@ import namespace="OxyPlot.Series" #>
 <#@ include file="Common.tt" #>
+<#@ include file="Definitions.tt" #>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,13 +26,7 @@ using OxyPlot.Series;
 namespace Horker.PSOxyPlot
 {
 <#
-var seriesDefs = new SeriesDefinition[]
-{
-	new SeriesDefinition(typeof(LineSeries), "line", "DataPoint"),
-	new SeriesDefinition(typeof(ScatterSeries), "scat", "ScatterPoint")
-};
-
-foreach (var def in seriesDefs)
+foreach (var def in Definitions.Series)
 {
 	var name = def.Type.Name;
 #>
@@ -43,39 +38,48 @@ foreach (var def in seriesDefs)
         [Parameter(ParameterSetName = "ByPipeline", Position = 0, Mandatory = true, ValueFromPipeline = true)]
         public PSObject InputObject;
 
-        [Parameter(ParameterSetName = "ByPipeline", Position = 1, Mandatory = true)]
-        public string XName = "X";
+<#
+	int position = 1;
+	var pointDefs = def.PointDefinitions;
+	foreach (var pd in pointDefs)
+	{
+#>
+        [Parameter(ParameterSetName = "ByPipeline", Position = <#= position++ #>, Mandatory = false)]
+        public string <#= pd.Name #>Name = "<#= pd.Name #>";
 
-        [Parameter(ParameterSetName = "ByPipeline", Position = 2, Mandatory = true)]
-        public string YName = "Y";
-
-        [Parameter(ParameterSetName = "ByPipeline", Position = 3, Mandatory = false)]
+<#
+	}
+#>
+        [Parameter(ParameterSetName = "ByPipeline", Position = <#= position++ #>, Mandatory = false)]
         public string GroupName = null;
 
-        [Parameter(ParameterSetName = "ByArray", Position = 0, Mandatory = true)]
-        public double[] X = null;
+<#
+	foreach (var pd in pointDefs)
+	{
+#>
+        [Parameter(ParameterSetName = "ByArray", Position = <#= position++ #>, Mandatory = true)]
+        public <#= pd.Type #>[] <#= pd.Name #>;
 
-        [Parameter(ParameterSetName = "ByArray", Position = 1, Mandatory = true)]
-        public double[] Y = null;
-
-        [Parameter(Position = 4, Mandatory = false)]
+<#
+	}
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public PlotModel AddTo = null;
 
-        [Parameter(Position = 5, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public string OutFile = null;
 
-        [Parameter(Position = 6, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public int OutWidth = 800;
 
-        [Parameter(Position = 7, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public int OutHeight = 600;
 
-        [Parameter(Position = 8, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public SwitchParameter SvgIsDocument = false;
 
 <#
-	var position = 9;
-	foreach (var prop in EnumerateProperties(def.Type, TypeAdaptors.TYPE_ADAPTORS))
+	foreach (var prop in EnumerateProperties(def.Type, Definitions.TypeAdaptors))
 	{
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
@@ -84,21 +88,30 @@ foreach (var def in seriesDefs)
 <#
 	}
 #>
-        private Dictionary<string, List<Tuple<double, double>>> _points;
+        private Dictionary<string, List<<#= def.PointType #>>> _points;
 
 		private static readonly string DEFAULT_GROUP_NAME = "no groups!!??#$%__";
 
+		private void AssignParameters(<#= name #> series, Dictionary<string, object> bp)
+		{
+<#
+	foreach (var prop in EnumerateProperties(def.Type))
+	{
+#>
+			if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.Name #>;
+<#
+	}
+#>
+		}
+
         protected override void BeginProcessing()
         {
-			if (X != null && X.Length != Y.Length)
-				throw new ArgumentException("Arguments X and Y should have the same lengths");
-
-            _points = new Dictionary<string, List<Tuple<double, double>>>();
+            _points = new Dictionary<string, List<<#= def.PointType #>>>();
         }
 
         protected override void ProcessRecord()
         {
-			// ProcessRecord is called once when InputObject is not given.
+			// ProcessRecord is called once when InputObject is not given at all.
 			if (InputObject == null)
 				return;
 
@@ -110,16 +123,15 @@ foreach (var def in seriesDefs)
                     group = g[0].Value.ToString();
             }
 
-			List<Tuple<double, double>> list;
+			List<<#= def.PointType #>> list;
 			if (!_points.TryGetValue(group, out list))
 			{
-				list = new List<Tuple<double, double>>();
+				list = new List<<#= def.PointType #>>();
 				_points.Add(group, list);
 			}
 
-			var x = SmartConverter.ToDouble(InputObject.Properties[XName].Value);
-			var y = SmartConverter.ToDouble(InputObject.Properties[YName].Value);
-            list.Add(Tuple.Create(x, y));
+			var point = PointFactory.Create<#= name #>Point(MyInvocation.BoundParameters, InputObject);
+            list.Add(point);
         }
 
         protected override void EndProcessing()
@@ -130,33 +142,31 @@ foreach (var def in seriesDefs)
 			if (model == null && bp.ContainsKey("OutFile"))
 				model = new PlotModel();
 
-			if (_points.Count == 0 && X != null)
-				_points.Add(DEFAULT_GROUP_NAME, new List<Tuple<double, double>>());
+			if (ParameterSetName == "ByPipeline")
+			{
+				foreach (var entry in _points)
+				{
+					var series = new <#= name #>();
 
-			foreach (var entry in _points)
+					if (entry.Key != DEFAULT_GROUP_NAME)
+						series.Title = entry.Key;
+
+					AssignParameters(series, bp);
+
+					foreach (var p in entry.Value)
+						series.Points.Add(p);
+
+					if (model != null)
+						model.Series.Add(series);
+					else
+						WriteObject(series);
+				}
+			}
+			else
 			{
 				var series = new <#= name #>();
-				if (entry.Key != DEFAULT_GROUP_NAME)
-					series.Title = entry.Key;
-
-<#
-	foreach (var prop in EnumerateProperties(def.Type))
-	{
-#>
-				if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.Name #>;
-<#
-	}
-#>
-
-				foreach (var p in entry.Value)
-					series.Points.Add(new <#= def.PointType #>(p.Item1, p.Item2));
-
-				if (X != null)
-				{
-					for (var i = 0; i < X.Length; ++i)
-						series.Points.Add(new <#= def.PointType #>(X[i], Y[i]));
-					X = Y = null;
-				}
+				AssignParameters(series, bp);
+				PointFactory.Add<#= name #>Points(series, bp);
 
 				if (model != null)
 					model.Series.Add(series);
@@ -173,17 +183,3 @@ foreach (var def in seriesDefs)
 }
 #>
 }
-<#+
-class SeriesDefinition
-{
-	public Type Type;
-	public string ShortName;
-	public string PointType;
-	public SeriesDefinition(Type type, string shortName, string pointType)
-	{
-		Type = type;
-		ShortName = shortName;
-		PointType = pointType;
-	}
-}
-#>

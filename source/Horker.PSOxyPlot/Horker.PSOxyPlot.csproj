@@ -61,10 +61,14 @@
     <Compile Include="LineSeries.cs" />
     <Compile Include="Exporters\ModelExporter.cs" />
     <Compile Include="Cmdlets\NewOxyGridView.cs" />
+    <Content Include="Cmdlets\Definitions.tt">
+      <LastOutputs>.\Definitions.cs</LastOutputs>
+    </Content>
     <Content Include="Cmdlets\NewOxyModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NewOxyModel1.cs</LastGenOutput>
     </Content>
+    <Compile Include="PointFactory.cs" />
     <Compile Include="PowerShellMethods\PlotModelMethods.cs" />
     <Compile Include="PowerShellMethods\SeriesMethods.cs" />
     <Compile Include="TypeAdaptors\OxyColor.cs" />

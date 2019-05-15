@@ -1,5 +1,7 @@
 <#@ assembly name="System.Core" #>
 <#@ assembly name="System.Runtime" #>
+<#@ assembly name="$(ProjectDir)..\bin\Debug\OxyPlot.dll" #>
+<#@ assembly name="$(ProjectDir)..\bin\Debug\Horker.PSOxyPlot.dll" #>
 <#@ import namespace="System" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Reflection" #>
@@ -7,6 +9,8 @@
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Reflection" #>
+<#@ import namespace="OxyPlot" #>
+<#@ import namespace="OxyPlot.Series" #>
 <#+
 class ObjectProperty
 {
@@ -15,11 +19,19 @@ class ObjectProperty
 	public string TypeName { get; set; }
 }
 
-class TypeAdaptors
+class PointDefinition
 {
-	public static readonly Dictionary<Type, Type> TYPE_ADAPTORS = new Dictionary<Type, Type> {
-		{ typeof(OxyPlot.OxyColor), typeof(Horker.PSOxyPlot.TypeAdaptors.OxyColor) }
-	};
+	public Type Type { get; set; }
+	public string Name { get; set; }
+	public bool Mandatory { get; set; }
+}
+
+class SeriesDefinition
+{
+	public Type Type { get; set; }
+	public string ShortName { get; set; }
+	public string PointType { get; set; }
+	public PointDefinition[] PointDefinitions { get; set; }
 }
 
 private IEnumerable<ObjectProperty> EnumerateProperties(Type type, IDictionary<Type, Type> typeAdaptors = null)
