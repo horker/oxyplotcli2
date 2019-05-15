@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Management.Automation;
 using System.Text;
@@ -131,6 +132,16 @@ namespace Horker.PSOxyPlot
             }
 
             return Tuple.Create(w, h);
+        }
+
+        public void Save(string path, int width = 800, int height = 600)
+        {
+            var svgString = GridViewExporter.ExportToSvgString(this, width, height);
+
+            using (var f = new StreamWriter(path))
+            {
+                f.Write(svgString);
+            }
         }
     }
 }
