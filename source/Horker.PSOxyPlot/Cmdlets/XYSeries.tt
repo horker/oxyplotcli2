@@ -44,7 +44,7 @@ foreach (var def in Definitions.Series)
 	foreach (var pd in pointDefs)
 	{
 #>
-        [Parameter(ParameterSetName = "ByPipeline", Position = <#= position++ #>, Mandatory = false)]
+        [Parameter(ParameterSetName = "ByPipeline", Position = <#= position++ #>, Mandatory = <#= pd.Mandatory.ToString().ToLower() #>)]
         public string <#= pd.Name #>Name = "<#= pd.Name #>";
 
 <#
@@ -57,7 +57,7 @@ foreach (var def in Definitions.Series)
 	foreach (var pd in pointDefs)
 	{
 #>
-        [Parameter(ParameterSetName = "ByArray", Position = <#= position++ #>, Mandatory = true)]
+        [Parameter(ParameterSetName = "ByArray", Position = <#= position++ #>, Mandatory = <#= pd.Mandatory.ToString().ToLower() #>)]
         public <#= pd.Type #>[] <#= pd.Name #>;
 
 <#

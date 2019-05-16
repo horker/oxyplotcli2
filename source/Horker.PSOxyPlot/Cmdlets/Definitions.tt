@@ -26,7 +26,9 @@ class Definitions
 			PointDefinitions = new PointDefinition[]
 			{
 				new PointDefinition() { Name = "X", Type = typeof(double), Mandatory = true },
-				new PointDefinition() { Name = "Y", Type = typeof(double), Mandatory = true }
+				new PointDefinition() { Name = "Y", Type = typeof(double), Mandatory = true },
+				new PointDefinition() { Name = "Size", Type = typeof(double), Mandatory = false },
+				new PointDefinition() { Name = "Value", Type = typeof(double), Mandatory = false }
 			}
 		}
 	};

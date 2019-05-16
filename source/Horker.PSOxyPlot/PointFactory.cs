@@ -11,6 +11,15 @@ namespace Horker.PSOxyPlot
 {
     internal class PointFactory
     {
+        internal static double GetOptionalDoubleValue(Dictionary<string, object> boundParameters, PSObject inputObject, string name)
+        {
+            double value = double.NaN;
+            if (boundParameters.ContainsKey(name))
+                value = SmartConverter.ToDouble(inputObject.Properties[(string)boundParameters[name]].Value);
+
+            return value;
+        }
+
         public static DataPoint CreateLineSeriesPoint(Dictionary<string, object> boundParameters, PSObject inputObject)
         {
             var x = SmartConverter.ToDouble(inputObject.Properties[(string)boundParameters["XName"]].Value);
@@ -30,7 +39,11 @@ namespace Horker.PSOxyPlot
         {
             var x = SmartConverter.ToDouble(inputObject.Properties[(string)boundParameters["XName"]].Value);
             var y = SmartConverter.ToDouble(inputObject.Properties[(string)boundParameters["YName"]].Value);
-            return new ScatterPoint(x, y);
+
+            var size = GetOptionalDoubleValue(boundParameters, inputObject, "SizeName");
+            var value = GetOptionalDoubleValue(boundParameters, inputObject, "ValueName");
+
+            return new ScatterPoint(x, y, size, value);
         }
 
         public static void AddScatterSeriesPoints(ScatterSeries series, Dictionary<string, object> boundParameters)
