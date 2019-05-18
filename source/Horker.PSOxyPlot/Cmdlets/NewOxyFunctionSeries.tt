@@ -62,7 +62,7 @@ namespace Horker.PSOxyPlot
 
 <#
 	var position = 11;
-	foreach (var prop in EnumerateProperties(typeof(FunctionSeries), Definitions.TypeAdaptors))
+	foreach (var prop in EnumerateProperties(typeof(FunctionSeries), TypeAdaptorHelper.TypeAdaptors))
 	{
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]

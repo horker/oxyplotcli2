@@ -1,9 +1,16 @@
 <#+
-class Definitions
+class TypeAdaptorHelper
 {
 	public static readonly Dictionary<Type, Type> TypeAdaptors = new Dictionary<Type, Type> {
 		{ typeof(OxyPlot.OxyColor), typeof(Horker.PSOxyPlot.TypeAdaptors.OxyColor) }
 	};
+
+	public static Type GetAdaptorType(Type type)
+	{
+		if (TypeAdaptors.TryGetValue(type, out Type adaptor))
+			return adaptor;
+		return type;
+	}
 }
 
 internal class PointDefinition

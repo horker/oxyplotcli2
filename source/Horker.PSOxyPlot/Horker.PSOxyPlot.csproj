@@ -56,6 +56,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NewOxyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Cmdlets\XYSeries.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XYSeries.tt</DependentUpon>
+    </Compile>
     <Compile Include="GridView.cs" />
     <Compile Include="Exporters\GridViewExporter.cs" />
     <Compile Include="Exporters\ModelExporter.cs" />
@@ -79,11 +84,6 @@
       <DependentUpon>NewOxyFunctionSeries.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Cmdlets\XYSeries.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>XYSeries.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

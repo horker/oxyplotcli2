@@ -13,8 +13,14 @@
 <#@ import namespace="System.Reflection" #>
 <#@ import namespace="OxyPlot" #>
 <#@ import namespace="OxyPlot.Series" #>
+<#@ import namespace="Horker.PSOxyPlot" #>
+<#@ import namespace="Horker.PSOxyPlot.SeriesBuilders" #>
 <#@ include file="Common.tt" #>
 <#@ include file="Definitions.tt" #>
+<#
+var assembly = typeof(Horker.PSOxyPlot.SeriesBuilders.LineSeriesBuilder).Assembly;
+var builderTypes = assembly.DefinedTypes.Where(x => x.Name.EndsWith("SeriesBuilder"));
+#>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,30 +28,38 @@ using System.Text;
 using System.Management.Automation;
 using OxyPlot;
 using OxyPlot.Series;
+using Horker.PSOxyPlot.SeriesBuilders;
 
 namespace Horker.PSOxyPlot
 {
 <#
-foreach (var def in SeriesDefinition.Series)
+foreach (var builderType in builderTypes)
 {
-	var name = def.Type.Name;
+	var baseType = builderType.BaseType;
+	var seriesType = baseType.GenericTypeArguments[0];
+
+	var name = seriesType.Name;
+	var pointItemNames = (string[])builderType.GetField("DataPointItemNames").GetValue(null);
+	var pointItemMandatoriness = (bool[])builderType.GetField("DataPointItemMandatoriness").GetValue(null);
+	var pointItemTypes = baseType.GenericTypeArguments.Where((x, i) => i >= 2).Select(t => TypeAdaptorHelper.GetAdaptorType(t)).ToArray();
+	var itemCount = pointItemNames.Length;
+	var shortName = builderType.GetField("ShortName").GetValue(null);
 #>
     [Cmdlet("New", "Oxy<#= name #>")]
-    [Alias("oxy.<#= def.ShortName #>")]
+    [Alias("oxy.<#= shortName #>")]
     [OutputType(typeof(<#= name #>))]
     public class NewOxy<#= name #> : PSCmdlet
     {
-        [Parameter(Position = 0, Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
 
 <#
 	int position = 1;
-	var pointDefs = def.PointDefinitions;
-	foreach (var pd in pointDefs)
+	for (var i = 0; i < itemCount; ++i)
 	{
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
-        public string <#= pd.Name #>Name = "<#= pd.Name #>";
+        public string <#= pointItemNames[i] #>Name;
 
 <#
 	}
@@ -54,11 +68,11 @@ foreach (var def in SeriesDefinition.Series)
         public string GroupName = null;
 
 <#
-	foreach (var pd in pointDefs)
+	for (var i = 0; i < itemCount; ++i)
 	{
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
-        public <#= pd.Type #>[] <#= pd.Name #>;
+        public <#= pointItemTypes[i] #>[] <#= pointItemNames[i] #>;
 
 <#
 	}
@@ -82,7 +96,7 @@ foreach (var def in SeriesDefinition.Series)
         public SwitchParameter SvgIsDocument = false;
 
 <#
-	foreach (var prop in EnumerateProperties(def.Type, Definitions.TypeAdaptors))
+	foreach (var prop in EnumerateProperties(seriesType, TypeAdaptorHelper.TypeAdaptors))
 	{
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
@@ -96,7 +110,7 @@ foreach (var def in SeriesDefinition.Series)
 		private void AssignParameters(<#= name #> series, Dictionary<string, object> bp)
 		{
 <#
-	foreach (var prop in EnumerateProperties(def.Type))
+	foreach (var prop in EnumerateProperties(seriesType))
 	{
 #>
 			if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.Name #>;

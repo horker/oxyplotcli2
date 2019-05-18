@@ -23,7 +23,7 @@ namespace Horker.PSOxyPlot
 
 <#
 	var position = 0;
-	foreach (var prop in EnumerateProperties(typeof(PlotModel), Definitions.TypeAdaptors))
+	foreach (var prop in EnumerateProperties(typeof(PlotModel), TypeAdaptorHelper.TypeAdaptors))
 	{
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
