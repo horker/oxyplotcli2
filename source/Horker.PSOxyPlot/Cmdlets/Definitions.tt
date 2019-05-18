@@ -4,6 +4,21 @@ class Definitions
 	public static readonly Dictionary<Type, Type> TypeAdaptors = new Dictionary<Type, Type> {
 		{ typeof(OxyPlot.OxyColor), typeof(Horker.PSOxyPlot.TypeAdaptors.OxyColor) }
 	};
+}
+
+internal class PointDefinition
+{
+	public Type Type { get; set; }
+	public string Name { get; set; }
+	public bool Mandatory { get; set; }
+}
+
+internal class SeriesDefinition
+{
+	public Type Type { get; set; }
+	public string ShortName { get; set; }
+	public string PointType { get; set; }
+	public PointDefinition[] PointDefinitions { get; set; }
 
 	public static readonly SeriesDefinition[] Series = new SeriesDefinition[]
 	{

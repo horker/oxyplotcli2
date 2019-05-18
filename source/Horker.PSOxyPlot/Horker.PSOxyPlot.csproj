@@ -58,7 +58,6 @@
     </Compile>
     <Compile Include="GridView.cs" />
     <Compile Include="Exporters\GridViewExporter.cs" />
-    <Compile Include="LineSeries.cs" />
     <Compile Include="Exporters\ModelExporter.cs" />
     <Compile Include="Cmdlets\NewOxyGridView.cs" />
     <Content Include="Cmdlets\Definitions.tt">
@@ -68,9 +67,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NewOxyModel1.cs</LastGenOutput>
     </Content>
-    <Compile Include="PointFactory.cs" />
     <Compile Include="PowerShellMethods\PlotModelMethods.cs" />
     <Compile Include="PowerShellMethods\SeriesMethods.cs" />
+    <Compile Include="SeriesBuilder\XYSeriesBuilder.cs" />
+    <Compile Include="SeriesBuilder\SeriesBuilder.cs" />
     <Compile Include="TypeAdaptors\OxyColor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\SmartConverter.cs" />

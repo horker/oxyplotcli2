@@ -26,7 +26,7 @@ using OxyPlot.Series;
 namespace Horker.PSOxyPlot
 {
 <#
-foreach (var def in Definitions.Series)
+foreach (var def in SeriesDefinition.Series)
 {
 	var name = def.Type.Name;
 #>
@@ -35,7 +35,7 @@ foreach (var def in Definitions.Series)
     [OutputType(typeof(<#= name #>))]
     public class NewOxy<#= name #> : PSCmdlet
     {
-        [Parameter(ParameterSetName = "ByPipeline", Position = 0, Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, Mandatory = true, ValueFromPipeline = true)]
         public PSObject InputObject;
 
 <#
@@ -44,25 +44,28 @@ foreach (var def in Definitions.Series)
 	foreach (var pd in pointDefs)
 	{
 #>
-        [Parameter(ParameterSetName = "ByPipeline", Position = <#= position++ #>, Mandatory = <#= pd.Mandatory.ToString().ToLower() #>)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public string <#= pd.Name #>Name = "<#= pd.Name #>";
 
 <#
 	}
 #>
-        [Parameter(ParameterSetName = "ByPipeline", Position = <#= position++ #>, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public string GroupName = null;
 
 <#
 	foreach (var pd in pointDefs)
 	{
 #>
-        [Parameter(ParameterSetName = "ByArray", Position = <#= position++ #>, Mandatory = <#= pd.Mandatory.ToString().ToLower() #>)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public <#= pd.Type #>[] <#= pd.Name #>;
 
 <#
 	}
 #>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public object[] Group = null;
+
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public PlotModel AddTo = null;
 
@@ -88,9 +91,7 @@ foreach (var def in Definitions.Series)
 <#
 	}
 #>
-        private Dictionary<string, List<<#= def.PointType #>>> _points;
-
-		private static readonly string DEFAULT_GROUP_NAME = "no groups!!??#$%__";
+        private <#= name #>Builder _builder;
 
 		private void AssignParameters(<#= name #> series, Dictionary<string, object> bp)
 		{
@@ -106,7 +107,7 @@ foreach (var def in Definitions.Series)
 
         protected override void BeginProcessing()
         {
-            _points = new Dictionary<string, List<<#= def.PointType #>>>();
+			_builder = new <#= name #>Builder(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
@@ -115,23 +116,7 @@ foreach (var def in Definitions.Series)
 			if (InputObject == null)
 				return;
 
-	        string group = DEFAULT_GROUP_NAME;
-            if (!string.IsNullOrEmpty(GroupName))
-            {
-                var g = InputObject.Properties.Match(GroupName);
-                if (g.Count > 0)
-                    group = g[0].Value.ToString();
-            }
-
-			List<<#= def.PointType #>> list;
-			if (!_points.TryGetValue(group, out list))
-			{
-				list = new List<<#= def.PointType #>>();
-				_points.Add(group, list);
-			}
-
-			var point = PointFactory.Create<#= name #>Point(MyInvocation.BoundParameters, InputObject);
-            list.Add(point);
+			_builder.ReadPSObject(InputObject);
         }
 
         protected override void EndProcessing()
@@ -142,36 +127,20 @@ foreach (var def in Definitions.Series)
 			if (model == null && bp.ContainsKey("OutFile"))
 				model = new PlotModel();
 
-			if (ParameterSetName == "ByPipeline")
+			var series = _builder.CreateSeries();
+
+			foreach (var s in series)
+				AssignParameters(s, bp);
+
+			if (model != null)
 			{
-				foreach (var entry in _points)
-				{
-					var series = new <#= name #>();
-
-					if (entry.Key != DEFAULT_GROUP_NAME)
-						series.Title = entry.Key;
-
-					AssignParameters(series, bp);
-
-					foreach (var p in entry.Value)
-						series.Points.Add(p);
-
-					if (model != null)
-						model.Series.Add(series);
-					else
-						WriteObject(series);
-				}
+				foreach (var s in series)
+					model.Series.Add(s);
 			}
 			else
 			{
-				var series = new <#= name #>();
-				AssignParameters(series, bp);
-				PointFactory.Add<#= name #>Points(series, bp);
-
-				if (model != null)
-					model.Series.Add(series);
-				else
-					WriteObject(series);
+				foreach (var s in series)
+					WriteObject(s);
 			}
 
 			if (bp.ContainsKey("OutFile"))
