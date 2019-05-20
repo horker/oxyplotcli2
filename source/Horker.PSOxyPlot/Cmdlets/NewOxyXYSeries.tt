@@ -47,7 +47,7 @@ foreach (var builderType in builderTypes)
 #>
     [Cmdlet("New", "Oxy<#= name #>")]
     [Alias("oxy.<#= shortName #>")]
-    [OutputType(typeof(<#= name #>))]
+    [OutputType(typeof(SeriesInfo<<#= name #>>))]
     public class NewOxy<#= name #> : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
@@ -143,19 +143,16 @@ foreach (var builderType in builderTypes)
 
 			var series = _builder.CreateSeries();
 
-			foreach (var s in series)
+			foreach (var s in series.Series)
 				AssignParameters(s, bp);
 
 			if (model != null)
 			{
-				foreach (var s in series)
+				foreach (var s in series.Series)
 					model.Series.Add(s);
 			}
 			else
-			{
-				foreach (var s in series)
-					WriteObject(s);
-			}
+				WriteObject(series);
 
 			if (bp.ContainsKey("OutFile"))
 				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);

@@ -58,6 +58,13 @@ namespace Horker.PSOxyPlot
                         model = new PlotModel();
                     model.Series.Add(series);
                 }
+                else if (i is ISeriesInfo si)
+                {
+                    if (model == null)
+                        model = new PlotModel();
+                    foreach (var s in si.GetSeries())
+                        model.Series.Add(s);
+                }
                 else
                     throw new ArgumentException("Specify a PlotModel, a Series or an array of these objects as argument");
             }

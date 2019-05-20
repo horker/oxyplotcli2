@@ -16,6 +16,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     {
         protected abstract string[] GetDataPointItemNames();
         protected abstract bool[] GetDataPointItemMandatoriness();
+        protected abstract int[] GetAxisItemIndexes();
 
         protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6);
 
@@ -30,6 +31,8 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         private string _groupName;
         private List<object> _groups;
+
+        private SeriesInfo<SeriesT> _info;
 
         public static readonly string DefaultGroupName = "default group!!??##$%&' ";
 
@@ -54,6 +57,8 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                     return (string)v;
                 return null;
             }).ToArray();
+
+            _info = new SeriesInfo<SeriesT>();
 
             ReadArguments(boundParameters);
         }
@@ -97,8 +102,9 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             return default(T);
         }
 
-        private void ReadInputObject<T>(List<T> elements, PSObject inputObject, string name)
+        private void ReadInputObject<T>(List<T> elements, PSObject inputObject, int argIndex)
         {
+            var name = _propertyNames[argIndex];
             if (string.IsNullOrEmpty(name) || inputObject.Properties.Match(name).Count == 0)
                 return;
 
@@ -117,21 +123,21 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
             if (typeof(E1) != typeof(VoidT))
             {
-                ReadInputObject(_e1, inputObject, _propertyNames[0]);
+                ReadInputObject(_e1, inputObject, 0);
                 if (typeof(E2) != typeof(VoidT))
                 {
-                    ReadInputObject(_e2, inputObject, _propertyNames[1]);
+                    ReadInputObject(_e2, inputObject, 1);
                     if (typeof(E3) != typeof(VoidT))
                     {
-                        ReadInputObject(_e3, inputObject, _propertyNames[2]);
+                        ReadInputObject(_e3, inputObject, 2);
                         if (typeof(E4) != typeof(VoidT))
                         {
-                            ReadInputObject(_e4, inputObject, _propertyNames[3]);
+                            ReadInputObject(_e4, inputObject, 3);
                             if (typeof(E5) != typeof(VoidT))
                             {
-                                ReadInputObject(_e5, inputObject, _propertyNames[4]);
+                                ReadInputObject(_e5, inputObject, 4);
                                 if (typeof(E6) != typeof(VoidT))
-                                    ReadInputObject(_e6, inputObject, _propertyNames[5]);
+                                    ReadInputObject(_e6, inputObject, 5);
                             }
                         }
                     }
@@ -175,7 +181,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 _groups.AddRange((IEnumerable<object>)groups);
         }
 
-        public SeriesT[] CreateSeries()
+        public SeriesInfo<SeriesT> CreateSeries()
         {
             // Validate data lengths.
 
@@ -264,7 +270,9 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
             var keys = seriesSet.Keys.ToArray();
             Array.Sort(keys);
-            return keys.Select(k => seriesSet[k]).ToArray();
+            _info.Series = keys.Select(k => seriesSet[k]).ToArray();
+
+            return _info;
         }
     }
 }

@@ -12,10 +12,12 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     {
         public static readonly string[] DataPointItemNames = new string[] { "Value", "Category" };
         public static readonly bool[] DataPointItemMandatoriness = new bool[] { true, false };
+        public static readonly int[] AxisItemIndexes = new int[] { 0, 1 };
         public static readonly string ShortName = "bar";
 
         protected override string[] GetDataPointItemNames() => DataPointItemNames;
         protected override bool[] GetDataPointItemMandatoriness() => DataPointItemMandatoriness;
+        protected override int[] GetAxisItemIndexes() => AxisItemIndexes;
 
         protected override void AddDataPointToSeries(BarSeries series, double value, string category, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
         {
@@ -31,10 +33,12 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     {
         public static readonly string[] DataPointItemNames = new string[] { "Value", "Category" };
         public static readonly bool[] DataPointItemMandatoriness = new bool[] { true, false };
+        public static readonly int[] AxisItemIndexes = new int[] { 1, 0 };
         public static readonly string ShortName = "column";
 
         protected override string[] GetDataPointItemNames() => DataPointItemNames;
         protected override bool[] GetDataPointItemMandatoriness() => DataPointItemMandatoriness;
+        protected override int[] GetAxisItemIndexes() => AxisItemIndexes;
 
         protected override void AddDataPointToSeries(ColumnSeries series, double value, string category, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
         {
@@ -50,10 +54,12 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     {
         public static readonly string[] DataPointItemNames = new string[] { "X", "Y" };
         public static readonly bool[] DataPointItemMandatoriness = new bool[] { true, true };
+        public static readonly int[] AxisItemIndexes = new int[] { 0, 1 };
         public static readonly string ShortName = "line";
 
         protected override string[] GetDataPointItemNames() => DataPointItemNames;
         protected override bool[] GetDataPointItemMandatoriness() => DataPointItemMandatoriness;
+        protected override int[] GetAxisItemIndexes() => AxisItemIndexes;
 
         protected override void AddDataPointToSeries(LineSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
         {
@@ -69,10 +75,12 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     {
         public static readonly string[] DataPointItemNames = new string[] { "X", "Y", "Size", "Value" };
         public static readonly bool[] DataPointItemMandatoriness = new bool[] { true, true, false, false };
+        public static readonly int[] AxisItemIndexes = new int[] { 0, 1 };
         public static readonly string ShortName = "scatter";
 
         protected override string[] GetDataPointItemNames() => DataPointItemNames;
         protected override bool[] GetDataPointItemMandatoriness() => DataPointItemMandatoriness;
+        protected override int[] GetAxisItemIndexes() => AxisItemIndexes;
 
         protected override void AddDataPointToSeries(ScatterSeries series, double x, double y, double size, double value, VoidT e5, VoidT e6)
         {
@@ -88,10 +96,12 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     {
         public static readonly string[] DataPointItemNames = new string[] { "Label", "Value", "Fill", "IsExploded" };
         public static readonly bool[] DataPointItemMandatoriness = new bool[] { true, true, false, false };
+        public static readonly int[] AxisItemIndexes = new int[] { 999, 999 };
         public static readonly string ShortName = "pie";
 
         protected override string[] GetDataPointItemNames() => DataPointItemNames;
         protected override bool[] GetDataPointItemMandatoriness() => DataPointItemMandatoriness;
+        protected override int[] GetAxisItemIndexes() => AxisItemIndexes;
 
         protected override void AddDataPointToSeries(PieSeries series, string label, double value, OxyColor fill, bool isExploded, VoidT e5, VoidT e6)
         {

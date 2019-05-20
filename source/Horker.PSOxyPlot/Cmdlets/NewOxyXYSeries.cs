@@ -12,7 +12,7 @@ namespace Horker.PSOxyPlot
 {
     [Cmdlet("New", "OxyBarSeries")]
     [Alias("oxy.bar")]
-    [OutputType(typeof(BarSeries))]
+    [OutputType(typeof(SeriesInfo<BarSeries>))]
     public class NewOxyBarSeries : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
@@ -201,19 +201,16 @@ namespace Horker.PSOxyPlot
 
 			var series = _builder.CreateSeries();
 
-			foreach (var s in series)
+			foreach (var s in series.Series)
 				AssignParameters(s, bp);
 
 			if (model != null)
 			{
-				foreach (var s in series)
+				foreach (var s in series.Series)
 					model.Series.Add(s);
 			}
 			else
-			{
-				foreach (var s in series)
-					WriteObject(s);
-			}
+				WriteObject(series);
 
 			if (bp.ContainsKey("OutFile"))
 				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
@@ -222,7 +219,7 @@ namespace Horker.PSOxyPlot
 
     [Cmdlet("New", "OxyColumnSeries")]
     [Alias("oxy.column")]
-    [OutputType(typeof(ColumnSeries))]
+    [OutputType(typeof(SeriesInfo<ColumnSeries>))]
     public class NewOxyColumnSeries : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
@@ -411,19 +408,16 @@ namespace Horker.PSOxyPlot
 
 			var series = _builder.CreateSeries();
 
-			foreach (var s in series)
+			foreach (var s in series.Series)
 				AssignParameters(s, bp);
 
 			if (model != null)
 			{
-				foreach (var s in series)
+				foreach (var s in series.Series)
 					model.Series.Add(s);
 			}
 			else
-			{
-				foreach (var s in series)
-					WriteObject(s);
-			}
+				WriteObject(series);
 
 			if (bp.ContainsKey("OutFile"))
 				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
@@ -432,7 +426,7 @@ namespace Horker.PSOxyPlot
 
     [Cmdlet("New", "OxyLineSeries")]
     [Alias("oxy.line")]
-    [OutputType(typeof(LineSeries))]
+    [OutputType(typeof(SeriesInfo<LineSeries>))]
     public class NewOxyLineSeries : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
@@ -669,19 +663,16 @@ namespace Horker.PSOxyPlot
 
 			var series = _builder.CreateSeries();
 
-			foreach (var s in series)
+			foreach (var s in series.Series)
 				AssignParameters(s, bp);
 
 			if (model != null)
 			{
-				foreach (var s in series)
+				foreach (var s in series.Series)
 					model.Series.Add(s);
 			}
 			else
-			{
-				foreach (var s in series)
-					WriteObject(s);
-			}
+				WriteObject(series);
 
 			if (bp.ContainsKey("OutFile"))
 				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
@@ -690,7 +681,7 @@ namespace Horker.PSOxyPlot
 
     [Cmdlet("New", "OxyScatterSeries")]
     [Alias("oxy.scatter")]
-    [OutputType(typeof(ScatterSeries))]
+    [OutputType(typeof(SeriesInfo<ScatterSeries>))]
     public class NewOxyScatterSeries : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
@@ -903,19 +894,16 @@ namespace Horker.PSOxyPlot
 
 			var series = _builder.CreateSeries();
 
-			foreach (var s in series)
+			foreach (var s in series.Series)
 				AssignParameters(s, bp);
 
 			if (model != null)
 			{
-				foreach (var s in series)
+				foreach (var s in series.Series)
 					model.Series.Add(s);
 			}
 			else
-			{
-				foreach (var s in series)
-					WriteObject(s);
-			}
+				WriteObject(series);
 
 			if (bp.ContainsKey("OutFile"))
 				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
@@ -924,7 +912,7 @@ namespace Horker.PSOxyPlot
 
     [Cmdlet("New", "OxyPieSeries")]
     [Alias("oxy.pie")]
-    [OutputType(typeof(PieSeries))]
+    [OutputType(typeof(SeriesInfo<PieSeries>))]
     public class NewOxyPieSeries : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
@@ -1157,19 +1145,16 @@ namespace Horker.PSOxyPlot
 
 			var series = _builder.CreateSeries();
 
-			foreach (var s in series)
+			foreach (var s in series.Series)
 				AssignParameters(s, bp);
 
 			if (model != null)
 			{
-				foreach (var s in series)
+				foreach (var s in series.Series)
 					model.Series.Add(s);
 			}
 			else
-			{
-				foreach (var s in series)
-					WriteObject(s);
-			}
+				WriteObject(series);
 
 			if (bp.ContainsKey("OutFile"))
 				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);

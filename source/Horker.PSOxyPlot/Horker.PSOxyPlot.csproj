@@ -56,10 +56,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NewOxyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Cmdlets\XYSeries.cs">
+    <Compile Include="Cmdlets\NewOxyXYSeries.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>XYSeries.tt</DependentUpon>
+      <DependentUpon>NewOxyXYSeries.tt</DependentUpon>
     </Compile>
     <Compile Include="GridView.cs" />
     <Compile Include="Exporters\GridViewExporter.cs" />
@@ -72,10 +72,12 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NewOxyModel1.cs</LastGenOutput>
     </Content>
+    <Compile Include="SeriesInfo\ISeriesInfo.cs" />
     <Compile Include="PowerShellMethods\PlotModelMethods.cs" />
     <Compile Include="PowerShellMethods\SeriesMethods.cs" />
     <Compile Include="SeriesBuilder\XYSeriesBuilder.cs" />
     <Compile Include="SeriesBuilder\SeriesBuilder.cs" />
+    <Compile Include="SeriesInfo\SeriesInfo.cs" />
     <Compile Include="TypeAdaptors\OxyColor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\SmartConverter.cs" />
@@ -95,9 +97,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NewOxyFunctionSeries.cs</LastGenOutput>
     </Content>
-    <Content Include="Cmdlets\XYSeries.tt">
+    <Content Include="Cmdlets\NewOxyXYSeries.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>XYSeries.cs</LastGenOutput>
+      <LastGenOutput>NewOxyXYSeries.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
