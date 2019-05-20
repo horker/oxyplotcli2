@@ -10,6 +10,8 @@ namespace Horker.PSOxyPlot
     public class SeriesInfo<SeriesT> : ISeriesInfo
         where SeriesT: Series
     {
+        Series[] ISeriesInfo.Series => Series;
+
         public SeriesT[] Series;
         public string XAxisTitle;
         public string YAxisTitle;
@@ -17,10 +19,5 @@ namespace Horker.PSOxyPlot
         public Type YAxisType;
         public string GroupName;
         public string[] CategoryNames;
-
-        public SeriesInfo()
-        { }
-
-        public Series[] GetSeries() => Series;
     }
 }

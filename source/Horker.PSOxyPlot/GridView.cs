@@ -62,7 +62,7 @@ namespace Horker.PSOxyPlot
                 {
                     if (model == null)
                         model = new PlotModel();
-                    foreach (var s in si.GetSeries())
+                    foreach (var s in si.Series)
                         model.Series.Add(s);
                 }
                 else

@@ -9,6 +9,6 @@ namespace Horker.PSOxyPlot
 {
     public interface ISeriesInfo
     {
-        Series[] GetSeries();
+        Series[] Series { get; }
     }
 }
