@@ -14,9 +14,10 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     public abstract class SeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6>
         where SeriesT : Series, new()
     {
-        protected abstract string[] GetDataPointItemNames();
-        protected abstract bool[] GetDataPointItemMandatoriness();
-        protected abstract int[] GetAxisItemIndexes();
+        public abstract string[] DataPointItemNames { get; }
+        public abstract bool[] DataPointItemMandatoriness { get; }
+        public abstract int[] AxisItemIndexes { get; }
+        public abstract string ShortName { get; }
 
         protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6);
 
@@ -35,33 +36,6 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         private SeriesInfo<SeriesT> _info;
 
         public static readonly string DefaultGroupName = "default group!!??##$%&' ";
-
-        public SeriesBuilder(Dictionary<string, object> boundParameters)
-        {
-            _groupName = DefaultGroupName;
-            if (boundParameters.TryGetValue("GroupName", out object groupName))
-                _groupName = (string)groupName;
-
-            _groups = new List<object>();
-
-            _e1 = new List<E1>();
-            _e2 = new List<E2>();
-            _e3 = new List<E3>();
-            _e4 = new List<E4>();
-            _e5 = new List<E5>();
-            _e6 = new List<E6>();
-
-            _propertyNames = GetDataPointItemNames().Select(p => {
-                object v;
-                if (boundParameters.TryGetValue(p + "Name", out v))
-                    return (string)v;
-                return null;
-            }).ToArray();
-
-            _info = new SeriesInfo<SeriesT>();
-
-            ReadArguments(boundParameters);
-        }
 
         private T ConvertObjectType<T>(object value)
         {
@@ -105,6 +79,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         private void ReadInputObject<T>(List<T> elements, PSObject inputObject, int argIndex)
         {
             var name = _propertyNames[argIndex];
+
             if (string.IsNullOrEmpty(name) || inputObject.Properties.Match(name).Count == 0)
                 return;
 
@@ -162,7 +137,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         public void ReadArguments(Dictionary<string, object> boundParameters)
         {
-            var argumentNames = GetDataPointItemNames();
+            var argumentNames = DataPointItemNames;
             if (typeof(E1) != typeof(VoidT))
                 ReadArray(_e1, boundParameters, argumentNames[0]);
             if (typeof(E2) != typeof(VoidT))
@@ -181,58 +156,85 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 _groups.AddRange((IEnumerable<object>)groups);
         }
 
+        public void ReadBoundParameters(Dictionary<string, object> boundParameters)
+        {
+            _groupName = DefaultGroupName;
+            if (boundParameters.TryGetValue("GroupName", out object groupName))
+                _groupName = (string)groupName;
+
+            _groups = new List<object>();
+
+            _e1 = new List<E1>();
+            _e2 = new List<E2>();
+            _e3 = new List<E3>();
+            _e4 = new List<E4>();
+            _e5 = new List<E5>();
+            _e6 = new List<E6>();
+
+            _propertyNames = DataPointItemNames.Select(p => {
+                object v;
+                if (boundParameters.TryGetValue(p + "Name", out v))
+                    return (string)v;
+                return null;
+            }).ToArray();
+
+            _info = new SeriesInfo<SeriesT>();
+
+            ReadArguments(boundParameters);
+        }
+
         public SeriesInfo<SeriesT> CreateSeries()
         {
             // Validate data lengths.
 
             int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count }).Max();
-            var ma = GetDataPointItemMandatoriness();
+            var ma = DataPointItemMandatoriness;
             if (typeof(E1) != typeof(VoidT))
             {
                 if (ma[0] && _e1.Count == 0)
-                    throw new ArgumentException($"{GetDataPointItemNames()[0]} is mandatory but not specified");
+                    throw new ArgumentException($"{DataPointItemNames[0]} is mandatory but not specified");
                 if (_e1.Count > 0 && _e1.Count != count)
-                    throw new ArgumentException($"Length of {GetDataPointItemNames()[0]} is different from the other items");
+                    throw new ArgumentException($"Length of {DataPointItemNames[0]} is different from the other items");
             }
 
             if (typeof(E2) != typeof(VoidT))
             {
                 if (ma[1] && _e2.Count == 0)
-                    throw new ArgumentException($"{GetDataPointItemNames()[1]} is mandatory but not specified");
+                    throw new ArgumentException($"{DataPointItemNames[1]} is mandatory but not specified");
                 if (_e2.Count > 0 && _e2.Count != count)
-                    throw new ArgumentException($"Length of {GetDataPointItemNames()[1]} is different from the other items");
+                    throw new ArgumentException($"Length of {DataPointItemNames[1]} is different from the other items");
             }
 
             if (typeof(E3) != typeof(VoidT))
             {
                 if (ma[2] && _e3.Count == 0)
-                    throw new ArgumentException($"{GetDataPointItemNames()[2]} is mandatory but not specified");
+                    throw new ArgumentException($"{DataPointItemNames[2]} is mandatory but not specified");
                 if (_e3.Count > 0 && _e3.Count != count)
-                    throw new ArgumentException($"Length of {GetDataPointItemNames()[2]} is different from the other items");
+                    throw new ArgumentException($"Length of {DataPointItemNames[2]} is different from the other items");
             }
 
             if (typeof(E4) != typeof(VoidT))
             {
                 if (ma[3] && _e4.Count == 0)
-                    throw new ArgumentException($"{GetDataPointItemNames()[3]} is mandatory but not specified");
+                    throw new ArgumentException($"{DataPointItemNames[3]} is mandatory but not specified");
                 if (_e4.Count > 0 && _e4.Count != count)
-                    throw new ArgumentException($"Length of {GetDataPointItemNames()[3]} is different from the other items");
+                    throw new ArgumentException($"Length of {DataPointItemNames[3]} is different from the other items");
             }
 
             if (typeof(E5) != typeof(VoidT))
             {
                 if (ma[4] && _e5.Count == 0)
-                    throw new ArgumentException($"{GetDataPointItemNames()[4]} is mandatory but not specified");
+                    throw new ArgumentException($"{DataPointItemNames[4]} is mandatory but not specified");
                 if (_e5.Count > 0 && _e5.Count != count)
-                    throw new ArgumentException($"Length of {GetDataPointItemNames()[4]} is different from the other items");
+                    throw new ArgumentException($"Length of {DataPointItemNames[4]} is different from the other items");
             }
 
             if (typeof(E6) != typeof(VoidT))
             {
                 if (ma[5] && _e6.Count == 0)
-                    throw new ArgumentException($"{GetDataPointItemNames()[5]} is mandatory but not specified");
+                    throw new ArgumentException($"{DataPointItemNames[5]} is mandatory but not specified");
                 if (_e6.Count > 0 && _e6.Count != count)
-                    throw new ArgumentException($"Length of {GetDataPointItemNames()[5]} is different from the other items");
+                    throw new ArgumentException($"Length of {DataPointItemNames[5]} is different from the other items");
             }
 
             if (!(_groups.Count == count || _groups.Count == 0))

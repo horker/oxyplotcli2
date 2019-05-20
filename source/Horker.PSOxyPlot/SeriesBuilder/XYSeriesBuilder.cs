@@ -10,98 +10,62 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 {
     public class BarSeriesBuilder : SeriesBuilder<BarSeries, BarItem, double, string, VoidT, VoidT, VoidT, VoidT>
     {
-        public static readonly string[] DataPointItemNames = new string[] { "Value", "Category" };
-        public static readonly bool[] DataPointItemMandatoriness = new bool[] { true, false };
-        public static readonly int[] AxisItemIndexes = new int[] { 0, 1 };
-        public static readonly string ShortName = "bar";
-
-        protected override string[] GetDataPointItemNames() => DataPointItemNames;
-        protected override bool[] GetDataPointItemMandatoriness() => DataPointItemMandatoriness;
-        protected override int[] GetAxisItemIndexes() => AxisItemIndexes;
+        public override string[] DataPointItemNames => new string[] { "Value", "Category" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, false };
+        public override int[] AxisItemIndexes => new int[] { 0, 1 };
+        public override string ShortName => "bar";
 
         protected override void AddDataPointToSeries(BarSeries series, double value, string category, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
         {
             series.Items.Add(new BarItem(value));
         }
-
-        public BarSeriesBuilder(Dictionary<string, object> boundParameters)
-            : base(boundParameters)
-        { }
     }
 
     public class ColumnSeriesBuilder : SeriesBuilder<ColumnSeries, ColumnItem, double, string, VoidT, VoidT, VoidT, VoidT>
     {
-        public static readonly string[] DataPointItemNames = new string[] { "Value", "Category" };
-        public static readonly bool[] DataPointItemMandatoriness = new bool[] { true, false };
-        public static readonly int[] AxisItemIndexes = new int[] { 1, 0 };
-        public static readonly string ShortName = "column";
-
-        protected override string[] GetDataPointItemNames() => DataPointItemNames;
-        protected override bool[] GetDataPointItemMandatoriness() => DataPointItemMandatoriness;
-        protected override int[] GetAxisItemIndexes() => AxisItemIndexes;
+        public override string[] DataPointItemNames => new string[] { "Value", "Category" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, false };
+        public override int[] AxisItemIndexes => new int[] { 1, 0 };
+        public override string ShortName => "column";
 
         protected override void AddDataPointToSeries(ColumnSeries series, double value, string category, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
         {
             series.Items.Add(new ColumnItem(value));
         }
-
-        public ColumnSeriesBuilder(Dictionary<string, object> boundParameters)
-            : base(boundParameters)
-        { }
     }
 
     public class LineSeriesBuilder : SeriesBuilder<LineSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT>
     {
-        public static readonly string[] DataPointItemNames = new string[] { "X", "Y" };
-        public static readonly bool[] DataPointItemMandatoriness = new bool[] { true, true };
-        public static readonly int[] AxisItemIndexes = new int[] { 0, 1 };
-        public static readonly string ShortName = "line";
-
-        protected override string[] GetDataPointItemNames() => DataPointItemNames;
-        protected override bool[] GetDataPointItemMandatoriness() => DataPointItemMandatoriness;
-        protected override int[] GetAxisItemIndexes() => AxisItemIndexes;
+        public override string[] DataPointItemNames => new string[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
+        public override int[] AxisItemIndexes => new int[] { 0, 1 };
+        public override string ShortName => "line";
 
         protected override void AddDataPointToSeries(LineSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
         {
             series.Points.Add(new DataPoint(x, y));
         }
-
-        public LineSeriesBuilder(Dictionary<string, object> boundParameters)
-            : base(boundParameters)
-        { }
     }
 
     public class ScatterSeriesBuilder : SeriesBuilder<ScatterSeries, ScatterPoint, double, double, double, double, VoidT, VoidT>
     {
-        public static readonly string[] DataPointItemNames = new string[] { "X", "Y", "Size", "Value" };
-        public static readonly bool[] DataPointItemMandatoriness = new bool[] { true, true, false, false };
-        public static readonly int[] AxisItemIndexes = new int[] { 0, 1 };
-        public static readonly string ShortName = "scatter";
-
-        protected override string[] GetDataPointItemNames() => DataPointItemNames;
-        protected override bool[] GetDataPointItemMandatoriness() => DataPointItemMandatoriness;
-        protected override int[] GetAxisItemIndexes() => AxisItemIndexes;
+        public override string[] DataPointItemNames => new string[] { "X", "Y", "Size", "Value" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false };
+        public override int[] AxisItemIndexes => new int[] { 0, 1 };
+        public override string ShortName => "scatter";
 
         protected override void AddDataPointToSeries(ScatterSeries series, double x, double y, double size, double value, VoidT e5, VoidT e6)
         {
             series.Points.Add(new ScatterPoint(x, y, size, value));
         }
-
-        public ScatterSeriesBuilder(Dictionary<string, object> boundParameters)
-            : base(boundParameters)
-        { }
     }
 
     public class PieSeriesBuilder : SeriesBuilder<PieSeries, PieSlice, string, double, OxyColor, bool, VoidT, VoidT>
     {
-        public static readonly string[] DataPointItemNames = new string[] { "Label", "Value", "Fill", "IsExploded" };
-        public static readonly bool[] DataPointItemMandatoriness = new bool[] { true, true, false, false };
-        public static readonly int[] AxisItemIndexes = new int[] { 999, 999 };
-        public static readonly string ShortName = "pie";
-
-        protected override string[] GetDataPointItemNames() => DataPointItemNames;
-        protected override bool[] GetDataPointItemMandatoriness() => DataPointItemMandatoriness;
-        protected override int[] GetAxisItemIndexes() => AxisItemIndexes;
+        public override string[] DataPointItemNames => new string[] { "Label", "Value", "Fill", "IsExploded" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false };
+        public override int[] AxisItemIndexes => new int[] { 999, 999 };
+        public override string ShortName => "pie";
 
         protected override void AddDataPointToSeries(PieSeries series, string label, double value, OxyColor fill, bool isExploded, VoidT e5, VoidT e6)
         {
@@ -110,9 +74,5 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             slice.IsExploded = isExploded;
             series.Slices.Add(slice);
         }
-
-        public PieSeriesBuilder(Dictionary<string, object> boundParameters)
-            : base(boundParameters)
-        { }
     }
 }

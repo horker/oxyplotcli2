@@ -179,7 +179,8 @@ namespace Horker.PSOxyPlot
 
         protected override void BeginProcessing()
         {
-			_builder = new BarSeriesBuilder(MyInvocation.BoundParameters);
+			_builder = new BarSeriesBuilder();
+			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
@@ -386,7 +387,8 @@ namespace Horker.PSOxyPlot
 
         protected override void BeginProcessing()
         {
-			_builder = new ColumnSeriesBuilder(MyInvocation.BoundParameters);
+			_builder = new ColumnSeriesBuilder();
+			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
@@ -641,7 +643,8 @@ namespace Horker.PSOxyPlot
 
         protected override void BeginProcessing()
         {
-			_builder = new LineSeriesBuilder(MyInvocation.BoundParameters);
+			_builder = new LineSeriesBuilder();
+			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
@@ -872,7 +875,8 @@ namespace Horker.PSOxyPlot
 
         protected override void BeginProcessing()
         {
-			_builder = new ScatterSeriesBuilder(MyInvocation.BoundParameters);
+			_builder = new ScatterSeriesBuilder();
+			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
@@ -1123,7 +1127,8 @@ namespace Horker.PSOxyPlot
 
         protected override void BeginProcessing()
         {
-			_builder = new PieSeriesBuilder(MyInvocation.BoundParameters);
+			_builder = new PieSeriesBuilder();
+			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()

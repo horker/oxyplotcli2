@@ -35,15 +35,17 @@ namespace Horker.PSOxyPlot
 <#
 foreach (var builderType in builderTypes)
 {
+	var builderInstance = builderType.AsType().GetConstructor(new Type[0]).Invoke(new object[0]);
 	var baseType = builderType.BaseType;
 	var seriesType = baseType.GenericTypeArguments[0];
 
 	var name = seriesType.Name;
-	var pointItemNames = (string[])builderType.GetField("DataPointItemNames").GetValue(null);
-	var pointItemMandatoriness = (bool[])builderType.GetField("DataPointItemMandatoriness").GetValue(null);
+	var pointItemNames = (string[])builderType.GetMethod("get_DataPointItemNames").Invoke(builderInstance, null);
+	var pointItemMandatoriness = (bool[])builderType.GetMethod("get_DataPointItemMandatoriness").Invoke(builderInstance, null);
+	var shortName = builderType.GetMethod("get_ShortName").Invoke(builderInstance, null);
+
 	var pointItemTypes = baseType.GenericTypeArguments.Where((x, i) => i >= 2).Select(t => TypeAdaptorHelper.GetAdaptorType(t)).ToArray();
 	var itemCount = pointItemNames.Length;
-	var shortName = builderType.GetField("ShortName").GetValue(null);
 #>
     [Cmdlet("New", "Oxy<#= name #>")]
     [Alias("oxy.<#= shortName #>")]
@@ -121,7 +123,8 @@ foreach (var builderType in builderTypes)
 
         protected override void BeginProcessing()
         {
-			_builder = new <#= name #>Builder(MyInvocation.BoundParameters);
+			_builder = new <#= name #>Builder();
+			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
