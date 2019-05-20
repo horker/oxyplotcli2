@@ -64,7 +64,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     {
         public override string[] DataPointItemNames => new string[] { "Label", "Value", "Fill", "IsExploded" };
         public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false };
-        public override int[] AxisItemIndexes => new int[] { 999, 999 };
+        public override int[] AxisItemIndexes => new int[] { -1, -1 };
         public override string ShortName => "pie";
 
         protected override void AddDataPointToSeries(PieSeries series, string label, double value, OxyColor fill, bool isExploded, VoidT e5, VoidT e6)

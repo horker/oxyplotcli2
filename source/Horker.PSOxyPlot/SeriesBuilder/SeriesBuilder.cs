@@ -91,10 +91,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         public void ReadPSObject(PSObject inputObject)
         {
-            object g = DefaultGroupName;
             if (inputObject.Properties.Match(_groupName).Count > 0)
-                g = inputObject.Properties[_groupName].Value;
-            _groups.Add(g);
+            {
+                var g = inputObject.Properties[_groupName].Value;
+                _groups.Add(g);
+            }
 
             if (typeof(E1) != typeof(VoidT))
             {
@@ -152,7 +153,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 ReadArray(_e6, boundParameters, argumentNames[5]);
 
             object groups;
-            if (boundParameters.TryGetValue(_groupName, out groups))
+            if (boundParameters.TryGetValue("Group", out groups))
                 _groups.AddRange((IEnumerable<object>)groups);
         }
 
@@ -179,6 +180,12 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             }).ToArray();
 
             _info = new SeriesInfo<SeriesT>();
+
+            if (AxisItemIndexes[0] >= 0 && boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[0]] + "Name", out object xName))
+                _info.XAxisTitle = (string)xName;
+
+            if (AxisItemIndexes[1] >= 0 && boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[1]] + "Name", out object yName))
+                _info.YAxisTitle = (string)yName;
 
             ReadArguments(boundParameters);
         }
@@ -238,7 +245,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             }
 
             if (!(_groups.Count == count || _groups.Count == 0))
-                throw new ArgumentException($"Length of grouping items is different from the others");
+                throw new ArgumentException("Length of grouping items is different from the others");
 
             // Create a set of series.
 
