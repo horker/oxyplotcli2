@@ -1,0 +1,73 @@
+﻿<#@ template language="C#" hostspecific="true" debug="true" #>
+<#@ output extension=".cs" #>
+<#@ include file="Common.tt" #>
+<#@ include file="Definitions.tt" #>
+<#
+var axes = new Type[]
+{
+	typeof(OxyPlot.Axes.LinearAxis),
+    typeof(OxyPlot.Axes.LogarithmicAxis),
+    typeof(OxyPlot.Axes.DateTimeAxis),
+    typeof(OxyPlot.Axes.TimeSpanAxis),
+    typeof(OxyPlot.Axes.CategoryAxis),
+    typeof(OxyPlot.Axes.LinearColorAxis),
+    typeof(OxyPlot.Axes.RangeColorAxis),
+    typeof(OxyPlot.Axes.MagnitudeAxis),
+    typeof(OxyPlot.Axes.AngleAxis)
+};
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using System.Threading.Tasks;
+using OxyPlot;
+using OxyPlot.Series;
+
+namespace Horker.PSOxyPlot
+{
+<#
+foreach (var axisType in axes)
+{
+	var name = axisType.Name;
+	var fullName = axisType.FullName;
+	var shortName = name.Replace("Axis", "").ToLower();
+#>
+    [Cmdlet("New", "Oxy<#= name #>")]
+    [Alias("oxy.<#= shortName #>Axis")]
+    [OutputType(typeof(<#= fullName #>))]
+    public class NewOxy<#= name #> : PSCmdlet
+    {
+<#
+	var position = 0;
+	foreach (var prop in EnumerateProperties(axisType, TypeAdaptorHelper.TypeAdaptors))
+	{
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> <#= prop.Name #>;
+
+<#
+	}
+#>
+        protected override void BeginProcessing()
+        {
+			var bp = MyInvocation.BoundParameters;
+            var axis = new <#= fullName #>();
+
+<#
+	foreach (var prop in EnumerateProperties(axisType))
+	{
+#>
+            if (bp.ContainsKey("<#= prop.Name #>")) axis.<#= prop.Name #> = <#= prop.Name #>;
+<#
+	}
+#>
+            WriteObject(axis);
+        }
+    }
+
+<#
+}
+#>
+}
