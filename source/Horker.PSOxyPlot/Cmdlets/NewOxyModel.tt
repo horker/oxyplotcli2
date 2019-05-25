@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Series;
+using OxyPlot.Axes;
+using Horker.PSOxyPlot.ObjectFactories;
 
 namespace Horker.PSOxyPlot
 {
@@ -18,38 +20,79 @@ namespace Horker.PSOxyPlot
     [OutputType(typeof(PlotModel))]
     public class NewOxyModel : PSCmdlet
     {
-        [Parameter(Position = 0, Mandatory = false)]
-        public Series[] Series = new Series[0];
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public Series Series = null;
+
+        [Parameter(Position = 1, Mandatory = false, ValueFromPipeline = true)]
+        public ISeriesInfo SeriesInfo = null;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public Axis[] Axis = null;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
 
 <#
-	var position = 0;
-	foreach (var prop in EnumerateProperties(typeof(PlotModel), TypeAdaptorHelper.TypeAdaptors))
-	{
+    var position = 6;
+    foreach (var prop in EnumerateProperties(typeof(PlotModel), TypeAdaptorHelper.TypeAdaptors))
+    {
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public <#= prop.TypeName #> <#= prop.Name #>;
 
 <#
-	}
+    }
 #>
+        private PlotModel _model;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
-            var model = new PlotModel();
+            _model = new PlotModel();
+
+            if (Axis != null)
+                foreach (var a in Axis)
+                    _model.Axes.Add(a);
+        }
+
+        protected override void ProcessRecord()
+        {
+            if (Series != null)
+                _model.Series.Add(Series);
+
+            if (SeriesInfo != null)
+            {
+                AxisInitializer.WithSeriesInfo(_model, SeriesInfo);
+                foreach (var s in SeriesInfo.Series)
+                    _model.Series.Add(s);
+            }
+        }
+
+        protected override void EndProcessing()
+        {
+            var bp = MyInvocation.BoundParameters;
 
 <#
-	foreach (var prop in EnumerateProperties(typeof(PlotModel)))
-	{
+    foreach (var prop in EnumerateProperties(typeof(PlotModel)))
+    {
 #>
-            if (bp.ContainsKey("<#= prop.Name #>")) model.<#= prop.Name #> = <#= prop.Name #>;
+            if (bp.ContainsKey("<#= prop.Name #>")) _model.<#= prop.Name #> = <#= prop.Name #>;
 <#
-	}
+    }
 #>
 
-            foreach (var s in Series)
-                model.Series.Add(s);
-
-            WriteObject(model);
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(_model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+            else
+                WriteObject(_model);
         }
     }
 }

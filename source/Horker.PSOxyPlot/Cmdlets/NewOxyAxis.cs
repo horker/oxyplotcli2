@@ -312,6 +312,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+
             WriteObject(axis);
         }
     }
@@ -614,6 +615,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+
             WriteObject(axis);
         }
     }
@@ -940,6 +942,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+
             WriteObject(axis);
         }
     }
@@ -1246,6 +1249,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+
             WriteObject(axis);
         }
     }
@@ -1568,6 +1572,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+
             WriteObject(axis);
         }
     }
@@ -1894,6 +1899,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+
             WriteObject(axis);
         }
     }
@@ -2212,6 +2218,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+
             WriteObject(axis);
         }
     }
@@ -2518,6 +2525,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+
             WriteObject(axis);
         }
     }
@@ -2832,6 +2840,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+
             WriteObject(axis);
         }
     }

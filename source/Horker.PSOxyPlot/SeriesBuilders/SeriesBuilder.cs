@@ -11,12 +11,17 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 {
     public class VoidT { }
 
-    public abstract class SeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6>
+    public abstract class SeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6> : ISeriesBuilder
         where SeriesT : Series, new()
     {
+        public Type SeriesType => typeof(SeriesT);
+
+        // Abstract properties
+
         public abstract string[] DataPointItemNames { get; }
         public abstract bool[] DataPointItemMandatoriness { get; }
         public abstract int[] AxisItemIndexes { get; }
+        public abstract Type[] DefaultAxisTypes { get; }
         public abstract string ShortName { get; }
 
         protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6);
@@ -35,7 +40,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         private SeriesInfo<SeriesT> _info;
 
-        public static readonly string DefaultGroupName = "default group!!??##$%&' ";
+        private static readonly string DefaultGroupName = "default group!!??##$%&' ";
 
         private T ConvertObjectType<T>(object value)
         {
@@ -54,7 +59,10 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             if (typeof(T) == typeof(OxyColor))
                 return (T)(object)new TypeAdaptors.OxyColor((string)value);
 
-            throw new ApplicationException("Internal error; type {typeof(T)} is not supported as argument");
+            if (typeof(T) == typeof(TypeAdaptors.Category))
+                return (T)(object)new TypeAdaptors.Category((string)value);
+
+            return (T)value;
         }
 
         private IEnumerable<T> ConvertCollectionType<T>(IEnumerable<object> coll)
@@ -121,8 +129,9 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             }
         }
 
-        private void ReadArray<T>(List<T> elements, Dictionary<string, object> boundParameters, string name)
+        private void ReadArray<T>(List<T> elements, Dictionary<string, object> boundParameters, int index)
         {
+            var name = DataPointItemNames[index];
             if (boundParameters.TryGetValue(name, out object value))
             {
                 if (typeof(T) == typeof(OxyColor))
@@ -138,19 +147,18 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         public void ReadArguments(Dictionary<string, object> boundParameters)
         {
-            var argumentNames = DataPointItemNames;
             if (typeof(E1) != typeof(VoidT))
-                ReadArray(_e1, boundParameters, argumentNames[0]);
+                ReadArray(_e1, boundParameters, 0);
             if (typeof(E2) != typeof(VoidT))
-                ReadArray(_e2, boundParameters, argumentNames[1]);
+                ReadArray(_e2, boundParameters, 1);
             if (typeof(E3) != typeof(VoidT))
-                ReadArray(_e3, boundParameters, argumentNames[2]);
+                ReadArray(_e3, boundParameters, 2);
             if (typeof(E4) != typeof(VoidT))
-                ReadArray(_e4, boundParameters, argumentNames[3]);
+                ReadArray(_e4, boundParameters, 3);
             if (typeof(E5) != typeof(VoidT))
-                ReadArray(_e5, boundParameters, argumentNames[4]);
+                ReadArray(_e5, boundParameters, 4);
             if (typeof(E6) != typeof(VoidT))
-                ReadArray(_e6, boundParameters, argumentNames[5]);
+                ReadArray(_e6, boundParameters, 5);
 
             object groups;
             if (boundParameters.TryGetValue("Group", out groups))
@@ -182,15 +190,15 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             _info = new SeriesInfo<SeriesT>();
 
             if (AxisItemIndexes[0] >= 0 && boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[0]] + "Name", out object xName))
-                _info.XAxisTitle = (string)xName;
+                _info.AxisTitles[0] = (string)xName;
 
             if (AxisItemIndexes[1] >= 0 && boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[1]] + "Name", out object yName))
-                _info.YAxisTitle = (string)yName;
+                _info.AxisTitles[1] = (string)yName;
 
             ReadArguments(boundParameters);
         }
 
-        public SeriesInfo<SeriesT> CreateSeries()
+        public SeriesInfo<SeriesT> CreateSeriesInfo()
         {
             // Validate data lengths.
 
@@ -280,6 +288,21 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             var keys = seriesSet.Keys.ToArray();
             Array.Sort(keys);
             _info.Series = keys.Select(k => seriesSet[k]).ToArray();
+
+            if (typeof(E1) == typeof(TypeAdaptors.Category))
+            {
+                var cat = new string[count];
+                for (var i = 0; i < count; ++i)
+                    cat[i] = (string)(object)_e1[i];
+                _info.CategoryNames = cat;
+            }
+            else if (typeof(E2) == typeof(TypeAdaptors.Category))
+            {
+                var cat = new string[count];
+                for (var i = 0; i < count; ++i)
+                    cat[i] = (TypeAdaptors.Category)(object)_e2[i];
+                _info.CategoryNames = cat;
+            }
 
             return _info;
         }

@@ -17,8 +17,8 @@ namespace Horker.PSOxyPlot
     [OutputType(typeof(FunctionSeries))]
     public class NewOxyFunctionSeries : PSCmdlet
     {
-	    [Parameter(ParameterSetName = "Explicit", Position = 0, Mandatory = true)]
-		public ScriptBlock F = null;
+        [Parameter(ParameterSetName = "Explicit", Position = 0, Mandatory = true)]
+        public ScriptBlock F = null;
 
         [Parameter(ParameterSetName = "Explicit", Position = 1, Mandatory = false)]
         public double X0 = -1;
@@ -61,77 +61,76 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
 <#
-	var position = 11;
-	foreach (var prop in EnumerateProperties(typeof(FunctionSeries), TypeAdaptorHelper.TypeAdaptors))
-	{
+var position = 11;
+foreach (var prop in EnumerateProperties(typeof(FunctionSeries), TypeAdaptorHelper.TypeAdaptors))
+{
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public <#= prop.TypeName #> <#= prop.Name #>;
 
 <#
-	}
+}
 #>
-
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
 
-			PlotModel model = AddTo;
-			if (model == null && bp.ContainsKey("OutFile"))
-				model = new PlotModel();
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = new PlotModel();
 
-			var series = new FunctionSeries();
+            var series = new FunctionSeries();
 
 <#
-	foreach (var prop in EnumerateProperties(typeof(OxyPlot.Series.FunctionSeries)))
-	{
+foreach (var prop in EnumerateProperties(typeof(OxyPlot.Series.FunctionSeries)))
+{
 #>
-			if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.Name #>;
+            if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.Name #>;
 <#
-	}
+}
 #>
 
-			bool isExplicit = ParameterSetName == "Explicit";
-			if (double.IsNaN(Dx))
-			{
-				if (isExplicit)
-					Dx = (X1 - X0) / (N - 1);
-				else
-					Dx = (T1 - T0) / (N - 1);
-			}
+            bool isExplicit = ParameterSetName == "Explicit";
+            if (double.IsNaN(Dx))
+            {
+                if (isExplicit)
+                    Dx = (X1 - X0) / (N - 1);
+                else
+                    Dx = (T1 - T0) / (N - 1);
+            }
 
-			var va = new List<PSVariable>();
-			if (isExplicit)
-			{
-				series.Title = F.ToString();
-				va.Add(new PSVariable("x"));
-				for (var i = X0; i <= X1 + Dx * .5; i += Dx)
-				{
-					va[0].Value = i;
-					var y = (double)F.InvokeWithContext(null, va, null)[0].BaseObject;
-					series.Points.Add(new DataPoint(i, y));
-				}
-			}
-			else
-			{
-				va.Add(new PSVariable("t"));
-				for (var i = T0; i <= T1 + Dx * .5; i += Dx)
-				{
-					series.Title = Fx.ToString() + ", " + Fy.ToString();
-					va[0].Value = i;
-					var x = (double)Fx.InvokeWithContext(null, va, null)[0].BaseObject;
-					var y = (double)Fy.InvokeWithContext(null, va, null)[0].BaseObject;
-					series.Points.Add(new DataPoint(x, y));
-				}
-			}	
+            var va = new List<PSVariable>();
+            if (isExplicit)
+            {
+                series.Title = F.ToString();
+                va.Add(new PSVariable("x"));
+                for (var i = X0; i <= X1 + Dx * .5; i += Dx)
+                {
+                    va[0].Value = i;
+                    var y = (double)F.InvokeWithContext(null, va, null)[0].BaseObject;
+                    series.Points.Add(new DataPoint(i, y));
+                }
+            }
+            else
+            {
+                va.Add(new PSVariable("t"));
+                for (var i = T0; i <= T1 + Dx * .5; i += Dx)
+                {
+                    series.Title = Fx.ToString() + ", " + Fy.ToString();
+                    va[0].Value = i;
+                    var x = (double)Fx.InvokeWithContext(null, va, null)[0].BaseObject;
+                    var y = (double)Fy.InvokeWithContext(null, va, null)[0].BaseObject;
+                    series.Points.Add(new DataPoint(x, y));
+                }
+            }
 
-			if (model != null)
-				model.Series.Add(series);
-			else
-				WriteObject(series);
+            if (model != null)
+                model.Series.Add(series);
+            else
+                WriteObject(series);
 
-			if (bp.ContainsKey("OutFile"))
-				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 }

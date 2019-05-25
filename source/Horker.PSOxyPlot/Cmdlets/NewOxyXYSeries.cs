@@ -7,6 +7,7 @@ using System.Management.Automation;
 using OxyPlot;
 using OxyPlot.Series;
 using Horker.PSOxyPlot.SeriesBuilders;
+using Horker.PSOxyPlot.ObjectFactories;
 
 namespace Horker.PSOxyPlot
 {
@@ -31,7 +32,7 @@ namespace Horker.PSOxyPlot
         public System.Double[] Value;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.String[] Category;
+        public Horker.PSOxyPlot.TypeAdaptors.Category[] Category;
 
         [Parameter(Position = 6, Mandatory = false)]
         public object[] Group = null;
@@ -143,78 +144,77 @@ namespace Horker.PSOxyPlot
 
         private BarSeriesBuilder _builder;
 
-		private void AssignParameters(BarSeries series, Dictionary<string, object> bp)
-		{
-			if (bp.ContainsKey("BarWidth")) series.BarWidth = BarWidth;
-			if (bp.ContainsKey("BaseValue")) series.BaseValue = BaseValue;
-			if (bp.ContainsKey("ColorField")) series.ColorField = ColorField;
-			if (bp.ContainsKey("FillColor")) series.FillColor = FillColor;
-			if (bp.ContainsKey("IsStacked")) series.IsStacked = IsStacked;
-			if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
-			if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
-			if (bp.ContainsKey("LabelPlacement")) series.LabelPlacement = LabelPlacement;
-			if (bp.ContainsKey("NegativeFillColor")) series.NegativeFillColor = NegativeFillColor;
-			if (bp.ContainsKey("StackGroup")) series.StackGroup = StackGroup;
-			if (bp.ContainsKey("StrokeColor")) series.StrokeColor = StrokeColor;
-			if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
-			if (bp.ContainsKey("ValueField")) series.ValueField = ValueField;
-			if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
-			if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
-			if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
-			if (bp.ContainsKey("Background")) series.Background = Background;
-			if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
-			if (bp.ContainsKey("Title")) series.Title = Title;
-			if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
-			if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
-			if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
-			if (bp.ContainsKey("Font")) series.Font = Font;
-			if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
-			if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
-			if (bp.ContainsKey("Tag")) series.Tag = Tag;
-			if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
-			if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
-			if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
-			if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
-		}
+        private void AssignParameters(BarSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("BarWidth")) series.BarWidth = BarWidth;
+            if (bp.ContainsKey("BaseValue")) series.BaseValue = BaseValue;
+            if (bp.ContainsKey("ColorField")) series.ColorField = ColorField;
+            if (bp.ContainsKey("FillColor")) series.FillColor = FillColor;
+            if (bp.ContainsKey("IsStacked")) series.IsStacked = IsStacked;
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("LabelPlacement")) series.LabelPlacement = LabelPlacement;
+            if (bp.ContainsKey("NegativeFillColor")) series.NegativeFillColor = NegativeFillColor;
+            if (bp.ContainsKey("StackGroup")) series.StackGroup = StackGroup;
+            if (bp.ContainsKey("StrokeColor")) series.StrokeColor = StrokeColor;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("ValueField")) series.ValueField = ValueField;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
 
         protected override void BeginProcessing()
         {
-			_builder = new BarSeriesBuilder();
-			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
+            _builder = new BarSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
         {
-			// ProcessRecord is called once when InputObject is not given at all.
-			if (InputObject == null)
-				return;
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
 
-			_builder.ReadPSObject(InputObject);
+            _builder.ReadPSObject(InputObject);
         }
 
         protected override void EndProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var si = _builder.CreateSeriesInfo();
 
-			PlotModel model = AddTo;
-			if (model == null && bp.ContainsKey("OutFile"))
-				model = new PlotModel();
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
 
-			var series = _builder.CreateSeries();
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
 
-			foreach (var s in series.Series)
-				AssignParameters(s, bp);
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
 
-			if (model != null)
-			{
-				foreach (var s in series.Series)
-					model.Series.Add(s);
-			}
-			else
-				WriteObject(series);
-
-			if (bp.ContainsKey("OutFile"))
-				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 
@@ -239,7 +239,7 @@ namespace Horker.PSOxyPlot
         public System.Double[] Value;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.String[] Category;
+        public Horker.PSOxyPlot.TypeAdaptors.Category[] Category;
 
         [Parameter(Position = 6, Mandatory = false)]
         public object[] Group = null;
@@ -351,78 +351,77 @@ namespace Horker.PSOxyPlot
 
         private ColumnSeriesBuilder _builder;
 
-		private void AssignParameters(ColumnSeries series, Dictionary<string, object> bp)
-		{
-			if (bp.ContainsKey("ColumnWidth")) series.ColumnWidth = ColumnWidth;
-			if (bp.ContainsKey("BaseValue")) series.BaseValue = BaseValue;
-			if (bp.ContainsKey("ColorField")) series.ColorField = ColorField;
-			if (bp.ContainsKey("FillColor")) series.FillColor = FillColor;
-			if (bp.ContainsKey("IsStacked")) series.IsStacked = IsStacked;
-			if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
-			if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
-			if (bp.ContainsKey("LabelPlacement")) series.LabelPlacement = LabelPlacement;
-			if (bp.ContainsKey("NegativeFillColor")) series.NegativeFillColor = NegativeFillColor;
-			if (bp.ContainsKey("StackGroup")) series.StackGroup = StackGroup;
-			if (bp.ContainsKey("StrokeColor")) series.StrokeColor = StrokeColor;
-			if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
-			if (bp.ContainsKey("ValueField")) series.ValueField = ValueField;
-			if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
-			if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
-			if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
-			if (bp.ContainsKey("Background")) series.Background = Background;
-			if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
-			if (bp.ContainsKey("Title")) series.Title = Title;
-			if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
-			if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
-			if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
-			if (bp.ContainsKey("Font")) series.Font = Font;
-			if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
-			if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
-			if (bp.ContainsKey("Tag")) series.Tag = Tag;
-			if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
-			if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
-			if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
-			if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
-		}
+        private void AssignParameters(ColumnSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("ColumnWidth")) series.ColumnWidth = ColumnWidth;
+            if (bp.ContainsKey("BaseValue")) series.BaseValue = BaseValue;
+            if (bp.ContainsKey("ColorField")) series.ColorField = ColorField;
+            if (bp.ContainsKey("FillColor")) series.FillColor = FillColor;
+            if (bp.ContainsKey("IsStacked")) series.IsStacked = IsStacked;
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("LabelPlacement")) series.LabelPlacement = LabelPlacement;
+            if (bp.ContainsKey("NegativeFillColor")) series.NegativeFillColor = NegativeFillColor;
+            if (bp.ContainsKey("StackGroup")) series.StackGroup = StackGroup;
+            if (bp.ContainsKey("StrokeColor")) series.StrokeColor = StrokeColor;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("ValueField")) series.ValueField = ValueField;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
 
         protected override void BeginProcessing()
         {
-			_builder = new ColumnSeriesBuilder();
-			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
+            _builder = new ColumnSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
         {
-			// ProcessRecord is called once when InputObject is not given at all.
-			if (InputObject == null)
-				return;
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
 
-			_builder.ReadPSObject(InputObject);
+            _builder.ReadPSObject(InputObject);
         }
 
         protected override void EndProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var si = _builder.CreateSeriesInfo();
 
-			PlotModel model = AddTo;
-			if (model == null && bp.ContainsKey("OutFile"))
-				model = new PlotModel();
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
 
-			var series = _builder.CreateSeries();
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
 
-			foreach (var s in series.Series)
-				AssignParameters(s, bp);
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
 
-			if (model != null)
-			{
-				foreach (var s in series.Series)
-					model.Series.Add(s);
-			}
-			else
-				WriteObject(series);
-
-			if (bp.ContainsKey("OutFile"))
-				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 
@@ -595,90 +594,89 @@ namespace Horker.PSOxyPlot
 
         private LineSeriesBuilder _builder;
 
-		private void AssignParameters(LineSeries series, Dictionary<string, object> bp)
-		{
-			if (bp.ContainsKey("Color")) series.Color = Color;
-			if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
-			if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
-			if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
-			if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
-			if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
-			if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
-			if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
-			if (bp.ContainsKey("LineJoin")) series.LineJoin = LineJoin;
-			if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
-			if (bp.ContainsKey("LineLegendPosition")) series.LineLegendPosition = LineLegendPosition;
-			if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
-			if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
-			if (bp.ContainsKey("MarkerResolution")) series.MarkerResolution = MarkerResolution;
-			if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
-			if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
-			if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
-			if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
-			if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
-			if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
-			if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
-			if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
-			if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
-			if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
-			if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
-			if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
-			if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
-			if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
-			if (bp.ContainsKey("Background")) series.Background = Background;
-			if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
-			if (bp.ContainsKey("Title")) series.Title = Title;
-			if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
-			if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
-			if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
-			if (bp.ContainsKey("Font")) series.Font = Font;
-			if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
-			if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
-			if (bp.ContainsKey("Tag")) series.Tag = Tag;
-			if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
-			if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
-			if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
-			if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
-		}
+        private void AssignParameters(LineSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("Color")) series.Color = Color;
+            if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
+            if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
+            if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("LineJoin")) series.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
+            if (bp.ContainsKey("LineLegendPosition")) series.LineLegendPosition = LineLegendPosition;
+            if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
+            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
+            if (bp.ContainsKey("MarkerResolution")) series.MarkerResolution = MarkerResolution;
+            if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
+            if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
+            if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
+            if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
+            if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
+            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
+            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
+            if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
+            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
 
         protected override void BeginProcessing()
         {
-			_builder = new LineSeriesBuilder();
-			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
+            _builder = new LineSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
         {
-			// ProcessRecord is called once when InputObject is not given at all.
-			if (InputObject == null)
-				return;
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
 
-			_builder.ReadPSObject(InputObject);
+            _builder.ReadPSObject(InputObject);
         }
 
         protected override void EndProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var si = _builder.CreateSeriesInfo();
 
-			PlotModel model = AddTo;
-			if (model == null && bp.ContainsKey("OutFile"))
-				model = new PlotModel();
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
 
-			var series = _builder.CreateSeries();
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
 
-			foreach (var s in series.Series)
-				AssignParameters(s, bp);
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
 
-			if (model != null)
-			{
-				foreach (var s in series.Series)
-					model.Series.Add(s);
-			}
-			else
-				WriteObject(series);
-
-			if (bp.ContainsKey("OutFile"))
-				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 
@@ -836,81 +834,80 @@ namespace Horker.PSOxyPlot
 
         private ScatterSeriesBuilder _builder;
 
-		private void AssignParameters(ScatterSeries series, Dictionary<string, object> bp)
-		{
-			if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
-			if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
-			if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
-			if (bp.ContainsKey("BinSize")) series.BinSize = BinSize;
-			if (bp.ContainsKey("ColorAxisKey")) series.ColorAxisKey = ColorAxisKey;
-			if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
-			if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
-			if (bp.ContainsKey("DataFieldSize")) series.DataFieldSize = DataFieldSize;
-			if (bp.ContainsKey("DataFieldTag")) series.DataFieldTag = DataFieldTag;
-			if (bp.ContainsKey("DataFieldValue")) series.DataFieldValue = DataFieldValue;
-			if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
-			if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
-			if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
-			if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
-			if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
-			if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
-			if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
-			if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
-			if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
-			if (bp.ContainsKey("Background")) series.Background = Background;
-			if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
-			if (bp.ContainsKey("Title")) series.Title = Title;
-			if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
-			if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
-			if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
-			if (bp.ContainsKey("Font")) series.Font = Font;
-			if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
-			if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
-			if (bp.ContainsKey("Tag")) series.Tag = Tag;
-			if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
-			if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
-			if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
-			if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
-		}
+        private void AssignParameters(ScatterSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
+            if (bp.ContainsKey("BinSize")) series.BinSize = BinSize;
+            if (bp.ContainsKey("ColorAxisKey")) series.ColorAxisKey = ColorAxisKey;
+            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
+            if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
+            if (bp.ContainsKey("DataFieldSize")) series.DataFieldSize = DataFieldSize;
+            if (bp.ContainsKey("DataFieldTag")) series.DataFieldTag = DataFieldTag;
+            if (bp.ContainsKey("DataFieldValue")) series.DataFieldValue = DataFieldValue;
+            if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
+            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
+            if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
+            if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
+            if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
+            if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
 
         protected override void BeginProcessing()
         {
-			_builder = new ScatterSeriesBuilder();
-			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
+            _builder = new ScatterSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
         {
-			// ProcessRecord is called once when InputObject is not given at all.
-			if (InputObject == null)
-				return;
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
 
-			_builder.ReadPSObject(InputObject);
+            _builder.ReadPSObject(InputObject);
         }
 
         protected override void EndProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var si = _builder.CreateSeriesInfo();
 
-			PlotModel model = AddTo;
-			if (model == null && bp.ContainsKey("OutFile"))
-				model = new PlotModel();
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
 
-			var series = _builder.CreateSeries();
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
 
-			foreach (var s in series.Series)
-				AssignParameters(s, bp);
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
 
-			if (model != null)
-			{
-				foreach (var s in series.Series)
-					model.Series.Add(s);
-			}
-			else
-				WriteObject(series);
-
-			if (bp.ContainsKey("OutFile"))
-				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 
@@ -1083,86 +1080,85 @@ namespace Horker.PSOxyPlot
 
         private PieSeriesBuilder _builder;
 
-		private void AssignParameters(PieSeries series, Dictionary<string, object> bp)
-		{
-			if (bp.ContainsKey("AngleIncrement")) series.AngleIncrement = AngleIncrement;
-			if (bp.ContainsKey("AngleSpan")) series.AngleSpan = AngleSpan;
-			if (bp.ContainsKey("AreInsideLabelsAngled")) series.AreInsideLabelsAngled = AreInsideLabelsAngled;
-			if (bp.ContainsKey("ColorField")) series.ColorField = ColorField;
-			if (bp.ContainsKey("Diameter")) series.Diameter = Diameter;
-			if (bp.ContainsKey("ExplodedDistance")) series.ExplodedDistance = ExplodedDistance;
-			if (bp.ContainsKey("InnerDiameter")) series.InnerDiameter = InnerDiameter;
-			if (bp.ContainsKey("InsideLabelColor")) series.InsideLabelColor = InsideLabelColor;
-			if (bp.ContainsKey("InsideLabelFormat")) series.InsideLabelFormat = InsideLabelFormat;
-			if (bp.ContainsKey("InsideLabelPosition")) series.InsideLabelPosition = InsideLabelPosition;
-			if (bp.ContainsKey("IsExplodedField")) series.IsExplodedField = IsExplodedField;
-			if (bp.ContainsKey("LabelField")) series.LabelField = LabelField;
-			if (bp.ContainsKey("LegendFormat")) series.LegendFormat = LegendFormat;
-			if (bp.ContainsKey("OutsideLabelFormat")) series.OutsideLabelFormat = OutsideLabelFormat;
-			if (bp.ContainsKey("Slices")) series.Slices = Slices;
-			if (bp.ContainsKey("StartAngle")) series.StartAngle = StartAngle;
-			if (bp.ContainsKey("Stroke")) series.Stroke = Stroke;
-			if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
-			if (bp.ContainsKey("TickDistance")) series.TickDistance = TickDistance;
-			if (bp.ContainsKey("TickHorizontalLength")) series.TickHorizontalLength = TickHorizontalLength;
-			if (bp.ContainsKey("TickLabelDistance")) series.TickLabelDistance = TickLabelDistance;
-			if (bp.ContainsKey("TickRadialLength")) series.TickRadialLength = TickRadialLength;
-			if (bp.ContainsKey("ValueField")) series.ValueField = ValueField;
-			if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
-			if (bp.ContainsKey("Background")) series.Background = Background;
-			if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
-			if (bp.ContainsKey("Title")) series.Title = Title;
-			if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
-			if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
-			if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
-			if (bp.ContainsKey("Font")) series.Font = Font;
-			if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
-			if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
-			if (bp.ContainsKey("Tag")) series.Tag = Tag;
-			if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
-			if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
-			if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
-			if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
-		}
+        private void AssignParameters(PieSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("AngleIncrement")) series.AngleIncrement = AngleIncrement;
+            if (bp.ContainsKey("AngleSpan")) series.AngleSpan = AngleSpan;
+            if (bp.ContainsKey("AreInsideLabelsAngled")) series.AreInsideLabelsAngled = AreInsideLabelsAngled;
+            if (bp.ContainsKey("ColorField")) series.ColorField = ColorField;
+            if (bp.ContainsKey("Diameter")) series.Diameter = Diameter;
+            if (bp.ContainsKey("ExplodedDistance")) series.ExplodedDistance = ExplodedDistance;
+            if (bp.ContainsKey("InnerDiameter")) series.InnerDiameter = InnerDiameter;
+            if (bp.ContainsKey("InsideLabelColor")) series.InsideLabelColor = InsideLabelColor;
+            if (bp.ContainsKey("InsideLabelFormat")) series.InsideLabelFormat = InsideLabelFormat;
+            if (bp.ContainsKey("InsideLabelPosition")) series.InsideLabelPosition = InsideLabelPosition;
+            if (bp.ContainsKey("IsExplodedField")) series.IsExplodedField = IsExplodedField;
+            if (bp.ContainsKey("LabelField")) series.LabelField = LabelField;
+            if (bp.ContainsKey("LegendFormat")) series.LegendFormat = LegendFormat;
+            if (bp.ContainsKey("OutsideLabelFormat")) series.OutsideLabelFormat = OutsideLabelFormat;
+            if (bp.ContainsKey("Slices")) series.Slices = Slices;
+            if (bp.ContainsKey("StartAngle")) series.StartAngle = StartAngle;
+            if (bp.ContainsKey("Stroke")) series.Stroke = Stroke;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("TickDistance")) series.TickDistance = TickDistance;
+            if (bp.ContainsKey("TickHorizontalLength")) series.TickHorizontalLength = TickHorizontalLength;
+            if (bp.ContainsKey("TickLabelDistance")) series.TickLabelDistance = TickLabelDistance;
+            if (bp.ContainsKey("TickRadialLength")) series.TickRadialLength = TickRadialLength;
+            if (bp.ContainsKey("ValueField")) series.ValueField = ValueField;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
 
         protected override void BeginProcessing()
         {
-			_builder = new PieSeriesBuilder();
-			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
+            _builder = new PieSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
         {
-			// ProcessRecord is called once when InputObject is not given at all.
-			if (InputObject == null)
-				return;
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
 
-			_builder.ReadPSObject(InputObject);
+            _builder.ReadPSObject(InputObject);
         }
 
         protected override void EndProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var si = _builder.CreateSeriesInfo();
 
-			PlotModel model = AddTo;
-			if (model == null && bp.ContainsKey("OutFile"))
-				model = new PlotModel();
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
 
-			var series = _builder.CreateSeries();
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
 
-			foreach (var s in series.Series)
-				AssignParameters(s, bp);
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
 
-			if (model != null)
-			{
-				foreach (var s in series.Series)
-					model.Series.Add(s);
-			}
-			else
-				WriteObject(series);
-
-			if (bp.ContainsKey("OutFile"))
-				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 

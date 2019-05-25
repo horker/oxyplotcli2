@@ -26,6 +26,11 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             }
         }
 
+        public OxyColor()
+        {
+            _color = OxyPlot.OxyColors.Automatic;
+        }
+
         public OxyColor(string colorString)
         {
             _color = Parse(colorString);

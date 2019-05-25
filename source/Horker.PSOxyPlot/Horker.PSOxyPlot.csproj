@@ -51,6 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cmdlets\NewOxyAxis.cs">
+      <DependentUpon>NewOxyAxis.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Cmdlets\NewOxyModel1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,16 +73,26 @@
     <Content Include="Cmdlets\Definitions.tt">
       <LastOutputs>.\Definitions.cs</LastOutputs>
     </Content>
+    <Content Include="Cmdlets\NewOxyAxis.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NewOxyAxis.cs</LastGenOutput>
+    </Content>
     <Content Include="Cmdlets\NewOxyModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NewOxyModel1.cs</LastGenOutput>
     </Content>
+    <Compile Include="ObjectFactories\AxisInitializer.cs" />
+    <Compile Include="ObjectFactories\ObjectFactory.cs" />
+    <Compile Include="SeriesBuilders\ISeriesBuilder.cs" />
+    <Compile Include="SeriesBuilders\SeriesBuilderStore.cs" />
     <Compile Include="SeriesInfo\ISeriesInfo.cs" />
     <Compile Include="PowerShellMethods\PlotModelMethods.cs" />
     <Compile Include="PowerShellMethods\SeriesMethods.cs" />
-    <Compile Include="SeriesBuilder\XYSeriesBuilder.cs" />
-    <Compile Include="SeriesBuilder\SeriesBuilder.cs" />
+    <Compile Include="SeriesBuilders\XYSeriesBuilder.cs" />
+    <Compile Include="SeriesBuilders\SeriesBuilder.cs" />
     <Compile Include="SeriesInfo\SeriesInfo.cs" />
+    <Compile Include="Style\Style.cs" />
+    <Compile Include="TypeAdaptors\Category.cs" />
     <Compile Include="TypeAdaptors\OxyColor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\SmartConverter.cs" />

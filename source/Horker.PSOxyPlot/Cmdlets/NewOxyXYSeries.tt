@@ -18,8 +18,11 @@
 <#@ include file="Common.tt" #>
 <#@ include file="Definitions.tt" #>
 <#
-var assembly = typeof(Horker.PSOxyPlot.SeriesBuilders.LineSeriesBuilder).Assembly;
-var builderTypes = assembly.DefinedTypes.Where(x => x.Name.EndsWith("SeriesBuilder"));
+var assembly = typeof(LineSeriesBuilder).Assembly;
+var builderTypes = assembly.DefinedTypes.Where(x => x.Name.EndsWith("SeriesBuilder") && !x.IsAbstract);
+
+// Uncomment this to skip template formatting
+//var builderTypes = new TypeInfo[0];
 #>
 using System;
 using System.Collections.Generic;
@@ -29,23 +32,24 @@ using System.Management.Automation;
 using OxyPlot;
 using OxyPlot.Series;
 using Horker.PSOxyPlot.SeriesBuilders;
+using Horker.PSOxyPlot.ObjectFactories;
 
 namespace Horker.PSOxyPlot
 {
 <#
 foreach (var builderType in builderTypes)
 {
-	var builderInstance = builderType.AsType().GetConstructor(new Type[0]).Invoke(new object[0]);
-	var baseType = builderType.BaseType;
-	var seriesType = baseType.GenericTypeArguments[0];
+    var builderInstance = builderType.AsType().GetConstructor(new Type[0]).Invoke(new object[0]);
+    var baseType = builderType.BaseType;
+    var seriesType = baseType.GenericTypeArguments[0];
 
-	var name = seriesType.Name;
-	var pointItemNames = (string[])builderType.GetMethod("get_DataPointItemNames").Invoke(builderInstance, null);
-	var pointItemMandatoriness = (bool[])builderType.GetMethod("get_DataPointItemMandatoriness").Invoke(builderInstance, null);
-	var shortName = builderType.GetMethod("get_ShortName").Invoke(builderInstance, null);
+    var name = seriesType.Name;
+    var pointItemNames = (string[])builderType.GetMethod("get_DataPointItemNames").Invoke(builderInstance, null);
+    var pointItemMandatoriness = (bool[])builderType.GetMethod("get_DataPointItemMandatoriness").Invoke(builderInstance, null);
+    var shortName = builderType.GetMethod("get_ShortName").Invoke(builderInstance, null);
 
-	var pointItemTypes = baseType.GenericTypeArguments.Where((x, i) => i >= 2).Select(t => TypeAdaptorHelper.GetAdaptorType(t)).ToArray();
-	var itemCount = pointItemNames.Length;
+    var pointItemTypes = baseType.GenericTypeArguments.Where((x, i) => i >= 2).Select(t => TypeAdaptorHelper.GetAdaptorType(t)).ToArray();
+    var itemCount = pointItemNames.Length;
 #>
     [Cmdlet("New", "Oxy<#= name #>")]
     [Alias("oxy.<#= shortName #>")]
@@ -56,28 +60,28 @@ foreach (var builderType in builderTypes)
         public PSObject InputObject;
 
 <#
-	int position = 1;
-	for (var i = 0; i < itemCount; ++i)
-	{
+    int position = 1;
+    for (var i = 0; i < itemCount; ++i)
+    {
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public string <#= pointItemNames[i] #>Name;
 
 <#
-	}
+    }
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public string GroupName = null;
 
 <#
-	for (var i = 0; i < itemCount; ++i)
-	{
+    for (var i = 0; i < itemCount; ++i)
+    {
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public <#= pointItemTypes[i] #>[] <#= pointItemNames[i] #>;
 
 <#
-	}
+    }
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public object[] Group = null;
@@ -98,67 +102,66 @@ foreach (var builderType in builderTypes)
         public SwitchParameter SvgIsDocument = false;
 
 <#
-	foreach (var prop in EnumerateProperties(seriesType, TypeAdaptorHelper.TypeAdaptors))
-	{
+    foreach (var prop in EnumerateProperties(seriesType, TypeAdaptorHelper.TypeAdaptors))
+    {
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public <#= prop.TypeName #> <#= prop.Name #>;
 
 <#
-	}
+    }
 #>
         private <#= name #>Builder _builder;
 
-		private void AssignParameters(<#= name #> series, Dictionary<string, object> bp)
-		{
+        private void AssignParameters(<#= name #> series, Dictionary<string, object> bp)
+        {
 <#
-	foreach (var prop in EnumerateProperties(seriesType))
-	{
+    foreach (var prop in EnumerateProperties(seriesType))
+    {
 #>
-			if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.Name #>;
+            if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.Name #>;
 <#
-	}
+    }
 #>
-		}
+        }
 
         protected override void BeginProcessing()
         {
-			_builder = new <#= name #>Builder();
-			_builder.ReadBoundParameters(MyInvocation.BoundParameters);
+            _builder = new <#= name #>Builder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
         protected override void ProcessRecord()
         {
-			// ProcessRecord is called once when InputObject is not given at all.
-			if (InputObject == null)
-				return;
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
 
-			_builder.ReadPSObject(InputObject);
+            _builder.ReadPSObject(InputObject);
         }
 
         protected override void EndProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var si = _builder.CreateSeriesInfo();
 
-			PlotModel model = AddTo;
-			if (model == null && bp.ContainsKey("OutFile"))
-				model = new PlotModel();
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
 
-			var series = _builder.CreateSeries();
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
 
-			foreach (var s in series.Series)
-				AssignParameters(s, bp);
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
 
-			if (model != null)
-			{
-				foreach (var s in series.Series)
-					model.Series.Add(s);
-			}
-			else
-				WriteObject(series);
-
-			if (bp.ContainsKey("OutFile"))
-				ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 
