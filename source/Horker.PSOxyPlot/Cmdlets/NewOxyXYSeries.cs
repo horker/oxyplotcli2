@@ -1405,6 +1405,213 @@ namespace Horker.PSOxyPlot
         }
     }
 
+    [Cmdlet("New", "OxyIntervalBarSeries")]
+    [Alias("oxy.intervalBar")]
+    [OutputType(typeof(SeriesInfo<IntervalBarSeries>))]
+    public class NewOxyIntervalBarSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string StartName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string EndName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string BarTitleName;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public string CategoryName;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public System.Double[] Start;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public System.Double[] End;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public System.String[] BarTitle;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Category[] Category;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public System.Double BarWidth;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor FillColor;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor LabelColor;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public System.String LabelField;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public System.String LabelFormatString;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public System.Double LabelMargin;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public System.String MaximumField;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public System.String MinimumField;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor StrokeColor;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public System.Double StrokeThickness;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private IntervalBarSeriesBuilder _builder;
+
+        private void AssignParameters(IntervalBarSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("BarWidth")) series.BarWidth = BarWidth;
+            if (bp.ContainsKey("FillColor")) series.FillColor = FillColor;
+            if (bp.ContainsKey("LabelColor")) series.LabelColor = LabelColor;
+            if (bp.ContainsKey("LabelField")) series.LabelField = LabelField;
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("MaximumField")) series.MaximumField = MaximumField;
+            if (bp.ContainsKey("MinimumField")) series.MinimumField = MinimumField;
+            if (bp.ContainsKey("StrokeColor")) series.StrokeColor = StrokeColor;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new IntervalBarSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
     [Cmdlet("New", "OxyLineSeries")]
     [Alias("oxy.line")]
     [OutputType(typeof(SeriesInfo<LineSeries>))]

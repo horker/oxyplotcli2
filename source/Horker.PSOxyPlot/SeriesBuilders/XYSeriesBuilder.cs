@@ -94,13 +94,13 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
-    public class IntervalBarBuilder : SeriesBuilder<IntervalBarSeries, IntervalBarItem, double, double, string, TypeAdaptors.Category, VoidT, VoidT>
+    public class IntervalBarSeriesBuilder : SeriesBuilder<IntervalBarSeries, IntervalBarItem, double, double, string, TypeAdaptors.Category, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new string[] { "Start", "End", "BarTitle", "Category" };
         public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false };
         public override int[] AxisItemIndexes => new int[] { 1, -1, -1, 0 };
         public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(CategoryAxis) };
-        public override string ShortName => "itervalBar";
+        public override string ShortName => "intervalBar";
 
         protected override void AddDataPointToSeries(IntervalBarSeries series, double start, double end, string barTitle, TypeAdaptors.Category category, VoidT e5, VoidT e6)
         {
@@ -170,9 +170,9 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     public class TornadoBarSeriesBuilder : SeriesBuilder<TornadoBarSeries, TornadoBarItem, double, double, double, OxyColor, OxyColor, TypeAdaptors.Category>
     {
         public override string[] DataPointItemNames => new string[] { "Minimum", "Maximum", "BarBaseValue", "MinimumColor", "MaximumColor", "Category" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true, true, false };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, false, false, false };
         public override int[] AxisItemIndexes => new int[] { 0, -1, -1, -1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis) };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(CategoryAxis) };
         public override string ShortName => "tornadoBar";
 
         protected override void AddDataPointToSeries(TornadoBarSeries series, double minimum, double maximum, double barBaseValue, OxyColor minimumColor, OxyColor maximumColor, TypeAdaptors.Category category)
