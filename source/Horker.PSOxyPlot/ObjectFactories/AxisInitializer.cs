@@ -36,7 +36,7 @@ namespace Horker.PSOxyPlot.ObjectFactories
             }
             else
             {
-                if (axis is CategoryAxis ca)
+                if (axis is CategoryAxis ca && si.CategoryNames != null)
                 {
                     foreach (var n in si.CategoryNames)
                         ca.Labels.Add(n);
