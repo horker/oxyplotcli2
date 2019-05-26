@@ -21,8 +21,8 @@
 var assembly = typeof(LineSeriesBuilder).Assembly;
 var builderTypes = assembly.DefinedTypes.Where(x => x.Name.EndsWith("SeriesBuilder") && !x.IsAbstract);
 
-// Uncomment this to skip template formatting
-//var builderTypes = new TypeInfo[0];
+// Uncomment this line to skip template generating
+// builderTypes = new TypeInfo[0];
 #>
 using System;
 using System.Collections.Generic;

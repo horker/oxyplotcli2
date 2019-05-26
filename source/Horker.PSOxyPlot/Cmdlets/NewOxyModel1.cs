@@ -12,10 +12,10 @@ using Horker.PSOxyPlot.ObjectFactories;
 
 namespace Horker.PSOxyPlot
 {
-    [Cmdlet("New", "OxyModel")]
+    [Cmdlet("New", "OxyPlotModel")]
     [Alias("oxy.model")]
     [OutputType(typeof(PlotModel))]
-    public class NewOxyModel : PSCmdlet
+    public class NewOxyPlotModel : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public Series Series = null;
