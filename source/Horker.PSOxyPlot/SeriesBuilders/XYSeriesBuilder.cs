@@ -11,16 +11,26 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 {
     public class AreaSeriesBuilder : SeriesBuilder<AreaSeries, DataPoint, double, double, double, double, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X0", "Y0", "X1", "Y1" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true };
+        public override string[] DataPointItemNames => new string[] { "X1", "Y1", "X2", "Y2" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { false, false, false, false };
         public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1 };
         public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
         public override string ShortName => "area";
 
-        protected override void AddDataPointToSeries(AreaSeries series, double x0, double y0, double x1, double y1, VoidT e5, VoidT e6)
+        protected override void AddDataPointToSeries(AreaSeries series, double x1, double y1, double x2, double y2, VoidT e5, VoidT e6)
         {
-            series.Points.Add(new DataPoint(x0, y0));
-            series.Points2.Add(new DataPoint(x1, y1));
+            series.Points.Add(new DataPoint(x1, y1));
+            if (!double.IsNaN(x2))
+                series.Points2.Add(new DataPoint(x2, y2));
+        }
+
+        protected override void ValidateInputData()
+        {
+            if (_e1.Count > 0 && _e1.Count != _e2.Count)
+                throw new ArgumentException($"Length of X1 and Y1 is different from each other");
+
+            if (_e3.Count > 0 && _e3.Count != _e4.Count)
+                throw new ArgumentException($"Length of X2 and Y2 is different from each other");
         }
     }
 
@@ -149,6 +159,20 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
+    public class HighLowSeriesBuilder : SeriesBuilder<HighLowSeries, HighLowItem, double, double, double, double, double, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[] { "X", "High", "Low", "Open", "Close" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true, true };
+        public override int[] AxisItemIndexes => new int[] { 0, -1, -1, -1, 1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "highLow";
+
+        protected override void AddDataPointToSeries(HighLowSeries series, double x, double high, double low, double open, double close, VoidT e6)
+        {
+            series.Items.Add(new HighLowItem(x, high, low, open, close));
+        }
+    }
+
     public class IntervalBarSeriesBuilder : SeriesBuilder<IntervalBarSeries, IntervalBarItem, double, double, string, TypeAdaptors.Category, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new string[] { "Start", "End", "BarTitle", "Category" };
@@ -163,6 +187,20 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
+    public class LinearBarSeriesBuilder : SeriesBuilder<LinearBarSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
+        public override int[] AxisItemIndexes => new int[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "linearBar";
+
+        protected override void AddDataPointToSeries(LinearBarSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
+        {
+            series.Points.Add(new DataPoint(x, y));
+        }
+    }
+
     public class LineSeriesBuilder : SeriesBuilder<LineSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new string[] { "X", "Y" };
@@ -174,20 +212,6 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         protected override void AddDataPointToSeries(LineSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
         {
             series.Points.Add(new DataPoint(x, y));
-        }
-    }
-
-    public class ScatterSeriesBuilder : SeriesBuilder<ScatterSeries, ScatterPoint, double, double, double, double, VoidT, VoidT>
-    {
-        public override string[] DataPointItemNames => new string[] { "X", "Y", "Size", "Value" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false };
-        public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "scatter";
-
-        protected override void AddDataPointToSeries(ScatterSeries series, double x, double y, double size, double value, VoidT e5, VoidT e6)
-        {
-            series.Points.Add(new ScatterPoint(x, y, size, value));
         }
     }
 
@@ -222,6 +246,76 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
+    public class ScatterSeriesBuilder : SeriesBuilder<ScatterSeries, ScatterPoint, double, double, double, double, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[] { "X", "Y", "Size", "Value" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false };
+        public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "scatter";
+
+        protected override void AddDataPointToSeries(ScatterSeries series, double x, double y, double size, double value, VoidT e5, VoidT e6)
+        {
+            series.Points.Add(new ScatterPoint(x, y, size, value));
+        }
+    }
+
+    public class ScatterErrorSeriesBuilder : SeriesBuilder<ScatterErrorSeries, ScatterPoint, double, double, double, double, double, double>
+    {
+        public override string[] DataPointItemNames => new string[] { "X", "Y", "ErrorX", "ErrorY", "Size", "Value" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false, false, false };
+        public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "scatterError";
+
+        protected override void AddDataPointToSeries(ScatterErrorSeries series, double x, double y, double errorX, double errorY, double size, double value)
+        {
+            series.Points.Add(new ScatterErrorPoint(x, y, errorX, errorY, size, value));
+        }
+    }
+
+    public class StairStepSeriesBuilder : SeriesBuilder<StairStepSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
+        public override int[] AxisItemIndexes => new int[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "stairStep";
+
+        protected override void AddDataPointToSeries(StairStepSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
+        {
+            series.Points.Add(new DataPoint(x, y));
+        }
+    }
+
+    public class StemSeriesBuilder : SeriesBuilder<StemSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
+        public override int[] AxisItemIndexes => new int[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "stem";
+
+        protected override void AddDataPointToSeries(StemSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
+        {
+            series.Points.Add(new DataPoint(x, y));
+        }
+    }
+
+    public class ThreeColorLineSeriesBuilder : SeriesBuilder<ThreeColorLineSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
+        public override int[] AxisItemIndexes => new int[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "threeColorLine";
+
+        protected override void AddDataPointToSeries(ThreeColorLineSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
+        {
+            series.Points.Add(new DataPoint(x, y));
+        }
+    }
+
     public class TornadoBarSeriesBuilder : SeriesBuilder<TornadoBarSeries, TornadoBarItem, double, double, double, OxyColor, OxyColor, TypeAdaptors.Category>
     {
         public override string[] DataPointItemNames => new string[] { "Minimum", "Maximum", "BarBaseValue", "MinimumColor", "MaximumColor", "Category" };
@@ -241,6 +335,59 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 MaximumColor = maximumColor
             };
             series.Items.Add(item);
+        }
+    }
+
+    public class TwoColorAreaSeriesBuilder : SeriesBuilder<TwoColorAreaSeries, DataPoint, double, double, double, double, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[] { "X1", "Y1", "X2", "Y2" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { false, false, false, false };
+        public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "twoColorArea";
+
+        protected override void AddDataPointToSeries(TwoColorAreaSeries series, double x1, double y1, double x2, double y2, VoidT e5, VoidT e6)
+        {
+            series.Points.Add(new DataPoint(x1, y1));
+            if (!double.IsNaN(x2))
+                series.Points2.Add(new DataPoint(x2, y2));
+        }
+
+        protected override void ValidateInputData()
+        {
+            if (_e1.Count > 0 && _e1.Count != _e2.Count)
+                throw new ArgumentException($"Length of X1 and Y1 is different from each other");
+
+            if (_e3.Count > 0 && _e3.Count != _e4.Count)
+                throw new ArgumentException($"Length of X2 and Y2 is different from each other");
+        }
+    }
+
+    public class TwoColorLineSeriesBuilder : SeriesBuilder<TwoColorLineSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
+        public override int[] AxisItemIndexes => new int[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "twoColorLine";
+
+        protected override void AddDataPointToSeries(TwoColorLineSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6)
+        {
+            series.Points.Add(new DataPoint(x, y));
+        }
+    }
+
+    public class VolumeSeriesBuilder : SeriesBuilder<VolumeSeries, OhlcvItem, double, double, double, VoidT, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[] { "X", "BuyVolume", "SellVolume" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true };
+        public override int[] AxisItemIndexes => new int[] { 0, 1, -1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "volume";
+
+        protected override void AddDataPointToSeries(VolumeSeries series, double x, double buyVolume, double sellVolume, VoidT e4, VoidT e5, VoidT e6)
+        {
+            series.Items.Add(new OhlcvItem(x, double.NaN, double.NaN, double.NaN, double.NaN, buyVolume, sellVolume));
         }
     }
 }

@@ -8,3 +8,5 @@ stocktaking of oxyplotcli v1 features
 -PassThru
 RectangleBarSeries category?
 HeapMap and Contour series cmdlet interfaces
+volume charts in CandleStickAndVolume and Volume series
+parameter lengths check for AreaSeries

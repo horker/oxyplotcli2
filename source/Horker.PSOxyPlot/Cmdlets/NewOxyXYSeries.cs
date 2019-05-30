@@ -20,31 +20,31 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string X0Name;
-
-        [Parameter(Position = 2, Mandatory = false)]
-        public string Y0Name;
-
-        [Parameter(Position = 3, Mandatory = false)]
         public string X1Name;
 
-        [Parameter(Position = 4, Mandatory = false)]
+        [Parameter(Position = 2, Mandatory = false)]
         public string Y1Name;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string X2Name;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public string Y2Name;
 
         [Parameter(Position = 5, Mandatory = false)]
         public string GroupName = null;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public System.Double[] X0;
-
-        [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] Y0;
-
-        [Parameter(Position = 8, Mandatory = false)]
         public System.Double[] X1;
 
-        [Parameter(Position = 9, Mandatory = false)]
+        [Parameter(Position = 7, Mandatory = false)]
         public System.Double[] Y1;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public System.Double[] X2;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public System.Double[] Y2;
 
         [Parameter(Position = 10, Mandatory = false)]
         public object[] Group = null;
@@ -1618,6 +1618,227 @@ namespace Horker.PSOxyPlot
         }
     }
 
+    [Cmdlet("New", "OxyHighLowSeries")]
+    [Alias("oxy.highLow")]
+    [OutputType(typeof(SeriesInfo<HighLowSeries>))]
+    public class NewOxyHighLowSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string XName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string HighName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string LowName;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public string OpenName;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public string CloseName;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public System.Double[] X;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public System.Double[] High;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public System.Double[] Low;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public System.Double[] Open;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public System.Double[] Close;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public System.Double[] Dashes;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public System.String DataFieldClose;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public System.String DataFieldHigh;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public System.String DataFieldLow;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public System.String DataFieldOpen;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public System.String DataFieldX;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public OxyPlot.LineJoin LineJoin;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyle;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public System.Func<System.Object,OxyPlot.Series.HighLowItem> Mapping;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public System.Double StrokeThickness;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public System.Double TickLength;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 43, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 44, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 45, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 46, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private HighLowSeriesBuilder _builder;
+
+        private void AssignParameters(HighLowSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("Color")) series.Color = Color;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("DataFieldClose")) series.DataFieldClose = DataFieldClose;
+            if (bp.ContainsKey("DataFieldHigh")) series.DataFieldHigh = DataFieldHigh;
+            if (bp.ContainsKey("DataFieldLow")) series.DataFieldLow = DataFieldLow;
+            if (bp.ContainsKey("DataFieldOpen")) series.DataFieldOpen = DataFieldOpen;
+            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
+            if (bp.ContainsKey("LineJoin")) series.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
+            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("TickLength")) series.TickLength = TickLength;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new HighLowSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
     [Cmdlet("New", "OxyIntervalBarSeries")]
     [Alias("oxy.intervalBar")]
     [OutputType(typeof(SeriesInfo<IntervalBarSeries>))]
@@ -1788,6 +2009,201 @@ namespace Horker.PSOxyPlot
         protected override void BeginProcessing()
         {
             _builder = new IntervalBarSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
+    [Cmdlet("New", "OxyLinearBarSeries")]
+    [Alias("oxy.linearBar")]
+    [OutputType(typeof(SeriesInfo<LinearBarSeries>))]
+    public class NewOxyLinearBarSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string XName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string YName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public System.Double[] X;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public System.Double[] Y;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor FillColor;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public System.Double BarWidth;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public System.Double StrokeThickness;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor StrokeColor;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor NegativeFillColor;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor NegativeStrokeColor;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public System.Boolean CanTrackerInterpolatePoints;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public System.String DataFieldX;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public System.String DataFieldY;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public System.Func<System.Object,OxyPlot.DataPoint> Mapping;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private LinearBarSeriesBuilder _builder;
+
+        private void AssignParameters(LinearBarSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("FillColor")) series.FillColor = FillColor;
+            if (bp.ContainsKey("BarWidth")) series.BarWidth = BarWidth;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("StrokeColor")) series.StrokeColor = StrokeColor;
+            if (bp.ContainsKey("NegativeFillColor")) series.NegativeFillColor = NegativeFillColor;
+            if (bp.ContainsKey("NegativeStrokeColor")) series.NegativeStrokeColor = NegativeStrokeColor;
+            if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
+            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
+            if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
+            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new LinearBarSeriesBuilder();
             _builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
@@ -2043,237 +2459,6 @@ namespace Horker.PSOxyPlot
         protected override void BeginProcessing()
         {
             _builder = new LineSeriesBuilder();
-            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
-        }
-
-        protected override void ProcessRecord()
-        {
-            // ProcessRecord is called once when InputObject is not given at all.
-            if (InputObject == null)
-                return;
-
-            _builder.ReadPSObject(InputObject);
-        }
-
-        protected override void EndProcessing()
-        {
-            var si = _builder.CreateSeriesInfo();
-
-            var bp = MyInvocation.BoundParameters;
-            foreach (var s in si.Series)
-                AssignParameters(s, bp);
-
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-            }
-            else
-                WriteObject(si);
-
-            if (bp.ContainsKey("OutFile"))
-                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-        }
-    }
-
-    [Cmdlet("New", "OxyScatterSeries")]
-    [Alias("oxy.scatter")]
-    [OutputType(typeof(SeriesInfo<ScatterSeries>))]
-    public class NewOxyScatterSeries : PSCmdlet
-    {
-        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
-        public PSObject InputObject;
-
-        [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
-
-        [Parameter(Position = 2, Mandatory = false)]
-        public string YName;
-
-        [Parameter(Position = 3, Mandatory = false)]
-        public string SizeName;
-
-        [Parameter(Position = 4, Mandatory = false)]
-        public string ValueName;
-
-        [Parameter(Position = 5, Mandatory = false)]
-        public string GroupName = null;
-
-        [Parameter(Position = 6, Mandatory = false)]
-        public System.Double[] X;
-
-        [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] Y;
-
-        [Parameter(Position = 8, Mandatory = false)]
-        public System.Double[] Size;
-
-        [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] Value;
-
-        [Parameter(Position = 10, Mandatory = false)]
-        public object[] Group = null;
-
-        [Parameter(Position = 11, Mandatory = false)]
-        public PlotModel AddTo = null;
-
-        [Parameter(Position = 12, Mandatory = false)]
-        public string OutFile = null;
-
-        [Parameter(Position = 13, Mandatory = false)]
-        public int OutWidth = 800;
-
-        [Parameter(Position = 14, Mandatory = false)]
-        public int OutHeight = 600;
-
-        [Parameter(Position = 15, Mandatory = false)]
-        public SwitchParameter SvgIsDocument = false;
-
-        [Parameter(Position = 16, Mandatory = false)]
-        public System.String LabelFormatString;
-
-        [Parameter(Position = 17, Mandatory = false)]
-        public System.Double LabelMargin;
-
-        [Parameter(Position = 18, Mandatory = false)]
-        public System.Func<System.Object,OxyPlot.Series.ScatterPoint> Mapping;
-
-        [Parameter(Position = 19, Mandatory = false)]
-        public System.Int32 BinSize;
-
-        [Parameter(Position = 20, Mandatory = false)]
-        public System.String ColorAxisKey;
-
-        [Parameter(Position = 21, Mandatory = false)]
-        public System.String DataFieldX;
-
-        [Parameter(Position = 22, Mandatory = false)]
-        public System.String DataFieldY;
-
-        [Parameter(Position = 23, Mandatory = false)]
-        public System.String DataFieldSize;
-
-        [Parameter(Position = 24, Mandatory = false)]
-        public System.String DataFieldTag;
-
-        [Parameter(Position = 25, Mandatory = false)]
-        public System.String DataFieldValue;
-
-        [Parameter(Position = 26, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
-
-        [Parameter(Position = 27, Mandatory = false)]
-        public OxyPlot.ScreenPoint[] MarkerOutline;
-
-        [Parameter(Position = 28, Mandatory = false)]
-        public System.Double MarkerSize;
-
-        [Parameter(Position = 29, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
-
-        [Parameter(Position = 30, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
-
-        [Parameter(Position = 31, Mandatory = false)]
-        public OxyPlot.MarkerType MarkerType;
-
-        [Parameter(Position = 32, Mandatory = false)]
-        public System.String XAxisKey;
-
-        [Parameter(Position = 33, Mandatory = false)]
-        public System.String YAxisKey;
-
-        [Parameter(Position = 34, Mandatory = false)]
-        public System.Collections.IEnumerable ItemsSource;
-
-        [Parameter(Position = 35, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
-
-        [Parameter(Position = 36, Mandatory = false)]
-        public System.Boolean IsVisible;
-
-        [Parameter(Position = 37, Mandatory = false)]
-        public System.String Title;
-
-        [Parameter(Position = 38, Mandatory = false)]
-        public System.Boolean RenderInLegend;
-
-        [Parameter(Position = 39, Mandatory = false)]
-        public System.String TrackerFormatString;
-
-        [Parameter(Position = 40, Mandatory = false)]
-        public System.String TrackerKey;
-
-        [Parameter(Position = 41, Mandatory = false)]
-        public System.String Font;
-
-        [Parameter(Position = 42, Mandatory = false)]
-        public System.Double FontSize;
-
-        [Parameter(Position = 43, Mandatory = false)]
-        public System.Double FontWeight;
-
-        [Parameter(Position = 44, Mandatory = false)]
-        public System.Object Tag;
-
-        [Parameter(Position = 45, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
-
-        [Parameter(Position = 46, Mandatory = false)]
-        public System.String ToolTip;
-
-        [Parameter(Position = 47, Mandatory = false)]
-        public System.Boolean Selectable;
-
-        [Parameter(Position = 48, Mandatory = false)]
-        public OxyPlot.SelectionMode SelectionMode;
-
-        private ScatterSeriesBuilder _builder;
-
-        private void AssignParameters(ScatterSeries series, Dictionary<string, object> bp)
-        {
-            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
-            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
-            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
-            if (bp.ContainsKey("BinSize")) series.BinSize = BinSize;
-            if (bp.ContainsKey("ColorAxisKey")) series.ColorAxisKey = ColorAxisKey;
-            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
-            if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
-            if (bp.ContainsKey("DataFieldSize")) series.DataFieldSize = DataFieldSize;
-            if (bp.ContainsKey("DataFieldTag")) series.DataFieldTag = DataFieldTag;
-            if (bp.ContainsKey("DataFieldValue")) series.DataFieldValue = DataFieldValue;
-            if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
-            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
-            if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
-            if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
-            if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
-            if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
-            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
-            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
-            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
-            if (bp.ContainsKey("Background")) series.Background = Background;
-            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
-            if (bp.ContainsKey("Title")) series.Title = Title;
-            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
-            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
-            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
-            if (bp.ContainsKey("Font")) series.Font = Font;
-            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) series.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
-        }
-
-        protected override void BeginProcessing()
-        {
-            _builder = new ScatterSeriesBuilder();
             _builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 
@@ -2755,6 +2940,1313 @@ namespace Horker.PSOxyPlot
         }
     }
 
+    [Cmdlet("New", "OxyScatterSeries")]
+    [Alias("oxy.scatter")]
+    [OutputType(typeof(SeriesInfo<ScatterSeries>))]
+    public class NewOxyScatterSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string XName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string YName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string SizeName;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public string ValueName;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public System.Double[] X;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public System.Double[] Y;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public System.Double[] Size;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public System.Double[] Value;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public System.String LabelFormatString;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public System.Double LabelMargin;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public System.Func<System.Object,OxyPlot.Series.ScatterPoint> Mapping;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public System.Int32 BinSize;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public System.String ColorAxisKey;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public System.String DataFieldX;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public System.String DataFieldY;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public System.String DataFieldSize;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public System.String DataFieldTag;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public System.String DataFieldValue;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public OxyPlot.ScreenPoint[] MarkerOutline;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public System.Double MarkerSize;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public System.Double MarkerStrokeThickness;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public OxyPlot.MarkerType MarkerType;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 43, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 44, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 45, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 46, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 47, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 48, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private ScatterSeriesBuilder _builder;
+
+        private void AssignParameters(ScatterSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
+            if (bp.ContainsKey("BinSize")) series.BinSize = BinSize;
+            if (bp.ContainsKey("ColorAxisKey")) series.ColorAxisKey = ColorAxisKey;
+            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
+            if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
+            if (bp.ContainsKey("DataFieldSize")) series.DataFieldSize = DataFieldSize;
+            if (bp.ContainsKey("DataFieldTag")) series.DataFieldTag = DataFieldTag;
+            if (bp.ContainsKey("DataFieldValue")) series.DataFieldValue = DataFieldValue;
+            if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
+            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
+            if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
+            if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
+            if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
+            if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new ScatterSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
+    [Cmdlet("New", "OxyScatterErrorSeries")]
+    [Alias("oxy.scatterError")]
+    [OutputType(typeof(SeriesInfo<ScatterErrorSeries>))]
+    public class NewOxyScatterErrorSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string XName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string YName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string ErrorXName;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public string ErrorYName;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public string SizeName;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public string ValueName;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public System.Double[] X;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public System.Double[] Y;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public System.Double[] ErrorX;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public System.Double[] ErrorY;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public System.Double[] Size;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public System.Double[] Value;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public System.String DataFieldErrorX;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public System.String DataFieldErrorY;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor ErrorBarColor;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public System.Double ErrorBarStopWidth;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public System.Double ErrorBarStrokeThickness;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public System.Double MinimumErrorSize;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public System.String LabelFormatString;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public System.Double LabelMargin;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public System.Func<System.Object,OxyPlot.Series.ScatterErrorPoint> Mapping;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public System.Int32 BinSize;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public System.String ColorAxisKey;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public System.String DataFieldX;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public System.String DataFieldY;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public System.String DataFieldSize;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.String DataFieldTag;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public System.String DataFieldValue;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public OxyPlot.ScreenPoint[] MarkerOutline;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.Double MarkerSize;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public System.Double MarkerStrokeThickness;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public OxyPlot.MarkerType MarkerType;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 43, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 44, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 45, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 46, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 47, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 48, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 49, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 50, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 51, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 52, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 53, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 54, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 55, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 56, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 57, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 58, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private ScatterErrorSeriesBuilder _builder;
+
+        private void AssignParameters(ScatterErrorSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("DataFieldErrorX")) series.DataFieldErrorX = DataFieldErrorX;
+            if (bp.ContainsKey("DataFieldErrorY")) series.DataFieldErrorY = DataFieldErrorY;
+            if (bp.ContainsKey("ErrorBarColor")) series.ErrorBarColor = ErrorBarColor;
+            if (bp.ContainsKey("ErrorBarStopWidth")) series.ErrorBarStopWidth = ErrorBarStopWidth;
+            if (bp.ContainsKey("ErrorBarStrokeThickness")) series.ErrorBarStrokeThickness = ErrorBarStrokeThickness;
+            if (bp.ContainsKey("MinimumErrorSize")) series.MinimumErrorSize = MinimumErrorSize;
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
+            if (bp.ContainsKey("BinSize")) series.BinSize = BinSize;
+            if (bp.ContainsKey("ColorAxisKey")) series.ColorAxisKey = ColorAxisKey;
+            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
+            if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
+            if (bp.ContainsKey("DataFieldSize")) series.DataFieldSize = DataFieldSize;
+            if (bp.ContainsKey("DataFieldTag")) series.DataFieldTag = DataFieldTag;
+            if (bp.ContainsKey("DataFieldValue")) series.DataFieldValue = DataFieldValue;
+            if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
+            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
+            if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
+            if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
+            if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
+            if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new ScatterErrorSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
+    [Cmdlet("New", "OxyStairStepSeries")]
+    [Alias("oxy.stairStep")]
+    [OutputType(typeof(SeriesInfo<StairStepSeries>))]
+    public class NewOxyStairStepSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string XName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string YName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public System.Double[] X;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public System.Double[] Y;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public System.Double VerticalStrokeThickness;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public OxyPlot.LineStyle VerticalLineStyle;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor BrokenLineColor;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public OxyPlot.LineStyle BrokenLineStyle;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public System.Double BrokenLineThickness;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public System.Double[] Dashes;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public System.String LabelFormatString;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public System.Double LabelMargin;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public OxyPlot.LineJoin LineJoin;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyle;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public OxyPlot.Series.LineLegendPosition LineLegendPosition;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public OxyPlot.ScreenPoint[] MarkerOutline;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public System.Int32 MarkerResolution;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public System.Double MarkerSize;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public System.Double MarkerStrokeThickness;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public OxyPlot.MarkerType MarkerType;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public System.Double MinimumSegmentLength;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public System.Boolean Smooth;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.Double StrokeThickness;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public System.Boolean CanTrackerInterpolatePoints;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public System.String DataFieldX;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public System.String DataFieldY;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.Func<System.Object,OxyPlot.DataPoint> Mapping;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 43, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 44, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 45, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 46, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 47, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 48, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 49, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 50, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 51, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 52, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 53, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 54, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 55, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private StairStepSeriesBuilder _builder;
+
+        private void AssignParameters(StairStepSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("VerticalStrokeThickness")) series.VerticalStrokeThickness = VerticalStrokeThickness;
+            if (bp.ContainsKey("VerticalLineStyle")) series.VerticalLineStyle = VerticalLineStyle;
+            if (bp.ContainsKey("Color")) series.Color = Color;
+            if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
+            if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
+            if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("LineJoin")) series.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
+            if (bp.ContainsKey("LineLegendPosition")) series.LineLegendPosition = LineLegendPosition;
+            if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
+            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
+            if (bp.ContainsKey("MarkerResolution")) series.MarkerResolution = MarkerResolution;
+            if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
+            if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
+            if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
+            if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
+            if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
+            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
+            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
+            if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
+            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new StairStepSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
+    [Cmdlet("New", "OxyStemSeries")]
+    [Alias("oxy.stem")]
+    [OutputType(typeof(SeriesInfo<StemSeries>))]
+    public class NewOxyStemSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string XName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string YName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public System.Double[] X;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public System.Double[] Y;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public System.Double Base;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor BrokenLineColor;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public OxyPlot.LineStyle BrokenLineStyle;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public System.Double BrokenLineThickness;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public System.Double[] Dashes;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public System.String LabelFormatString;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public System.Double LabelMargin;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public OxyPlot.LineJoin LineJoin;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyle;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public OxyPlot.Series.LineLegendPosition LineLegendPosition;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public OxyPlot.ScreenPoint[] MarkerOutline;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public System.Int32 MarkerResolution;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public System.Double MarkerSize;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public System.Double MarkerStrokeThickness;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public OxyPlot.MarkerType MarkerType;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public System.Double MinimumSegmentLength;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public System.Boolean Smooth;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public System.Double StrokeThickness;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.Boolean CanTrackerInterpolatePoints;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public System.String DataFieldX;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public System.String DataFieldY;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public System.Func<System.Object,OxyPlot.DataPoint> Mapping;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 43, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 44, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 45, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 46, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 47, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 48, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 49, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 50, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 51, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 52, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 53, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 54, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private StemSeriesBuilder _builder;
+
+        private void AssignParameters(StemSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("Base")) series.Base = Base;
+            if (bp.ContainsKey("Color")) series.Color = Color;
+            if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
+            if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
+            if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("LineJoin")) series.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
+            if (bp.ContainsKey("LineLegendPosition")) series.LineLegendPosition = LineLegendPosition;
+            if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
+            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
+            if (bp.ContainsKey("MarkerResolution")) series.MarkerResolution = MarkerResolution;
+            if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
+            if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
+            if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
+            if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
+            if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
+            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
+            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
+            if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
+            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new StemSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
+    [Cmdlet("New", "OxyThreeColorLineSeries")]
+    [Alias("oxy.threeColorLine")]
+    [OutputType(typeof(SeriesInfo<ThreeColorLineSeries>))]
+    public class NewOxyThreeColorLineSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string XName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string YName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public System.Double[] X;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public System.Double[] Y;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor ColorLo;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor ColorHi;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public System.Double LimitHi;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public System.Double LimitLo;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public System.Double[] DashesHi;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public System.Double[] DashesLo;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyleHi;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyleLo;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor BrokenLineColor;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public OxyPlot.LineStyle BrokenLineStyle;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public System.Double BrokenLineThickness;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public System.Double[] Dashes;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public System.String LabelFormatString;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public System.Double LabelMargin;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public OxyPlot.LineJoin LineJoin;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyle;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public OxyPlot.Series.LineLegendPosition LineLegendPosition;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public OxyPlot.ScreenPoint[] MarkerOutline;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public System.Int32 MarkerResolution;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.Double MarkerSize;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public System.Double MarkerStrokeThickness;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public OxyPlot.MarkerType MarkerType;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.Double MinimumSegmentLength;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public System.Boolean Smooth;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public System.Double StrokeThickness;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public System.Boolean CanTrackerInterpolatePoints;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public System.String DataFieldX;
+
+        [Parameter(Position = 43, Mandatory = false)]
+        public System.String DataFieldY;
+
+        [Parameter(Position = 44, Mandatory = false)]
+        public System.Func<System.Object,OxyPlot.DataPoint> Mapping;
+
+        [Parameter(Position = 45, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 46, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 47, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 48, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 49, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 50, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 51, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 52, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 53, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 54, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 55, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 56, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 57, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 58, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 59, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 60, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 61, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private ThreeColorLineSeriesBuilder _builder;
+
+        private void AssignParameters(ThreeColorLineSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("ColorLo")) series.ColorLo = ColorLo;
+            if (bp.ContainsKey("ColorHi")) series.ColorHi = ColorHi;
+            if (bp.ContainsKey("LimitHi")) series.LimitHi = LimitHi;
+            if (bp.ContainsKey("LimitLo")) series.LimitLo = LimitLo;
+            if (bp.ContainsKey("DashesHi")) series.DashesHi = DashesHi;
+            if (bp.ContainsKey("DashesLo")) series.DashesLo = DashesLo;
+            if (bp.ContainsKey("LineStyleHi")) series.LineStyleHi = LineStyleHi;
+            if (bp.ContainsKey("LineStyleLo")) series.LineStyleLo = LineStyleLo;
+            if (bp.ContainsKey("Color")) series.Color = Color;
+            if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
+            if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
+            if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("LineJoin")) series.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
+            if (bp.ContainsKey("LineLegendPosition")) series.LineLegendPosition = LineLegendPosition;
+            if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
+            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
+            if (bp.ContainsKey("MarkerResolution")) series.MarkerResolution = MarkerResolution;
+            if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
+            if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
+            if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
+            if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
+            if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
+            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
+            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
+            if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
+            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new ThreeColorLineSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
     [Cmdlet("New", "OxyTornadoBarSeries")]
     [Alias("oxy.tornadoBar")]
     [OutputType(typeof(SeriesInfo<TornadoBarSeries>))]
@@ -2949,6 +4441,801 @@ namespace Horker.PSOxyPlot
         protected override void BeginProcessing()
         {
             _builder = new TornadoBarSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
+    [Cmdlet("New", "OxyTwoColorAreaSeries")]
+    [Alias("oxy.twoColorArea")]
+    [OutputType(typeof(SeriesInfo<TwoColorAreaSeries>))]
+    public class NewOxyTwoColorAreaSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string X1Name;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string Y1Name;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string X2Name;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public string Y2Name;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public System.Double[] X1;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public System.Double[] Y1;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public System.Double[] X2;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public System.Double[] Y2;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Fill2;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public System.Double[] Dashes2;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyle2;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill2;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke2;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public System.Double Limit;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public System.Double ConstantY2;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public System.String DataFieldX2;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public System.String DataFieldY2;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color2;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Fill;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public System.Boolean Reverse2;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor BrokenLineColor;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public OxyPlot.LineStyle BrokenLineStyle;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public System.Double BrokenLineThickness;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public System.Double[] Dashes;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.String LabelFormatString;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public System.Double LabelMargin;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public OxyPlot.LineJoin LineJoin;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyle;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public OxyPlot.Series.LineLegendPosition LineLegendPosition;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public OxyPlot.ScreenPoint[] MarkerOutline;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public System.Int32 MarkerResolution;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public System.Double MarkerSize;
+
+        [Parameter(Position = 43, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
+
+        [Parameter(Position = 44, Mandatory = false)]
+        public System.Double MarkerStrokeThickness;
+
+        [Parameter(Position = 45, Mandatory = false)]
+        public OxyPlot.MarkerType MarkerType;
+
+        [Parameter(Position = 46, Mandatory = false)]
+        public System.Double MinimumSegmentLength;
+
+        [Parameter(Position = 47, Mandatory = false)]
+        public System.Boolean Smooth;
+
+        [Parameter(Position = 48, Mandatory = false)]
+        public System.Double StrokeThickness;
+
+        [Parameter(Position = 49, Mandatory = false)]
+        public System.Boolean CanTrackerInterpolatePoints;
+
+        [Parameter(Position = 50, Mandatory = false)]
+        public System.String DataFieldX;
+
+        [Parameter(Position = 51, Mandatory = false)]
+        public System.String DataFieldY;
+
+        [Parameter(Position = 52, Mandatory = false)]
+        public System.Func<System.Object,OxyPlot.DataPoint> Mapping;
+
+        [Parameter(Position = 53, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 54, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 55, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 56, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 57, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 58, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 59, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 60, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 61, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 62, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 63, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 64, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 65, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 66, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 67, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 68, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 69, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private TwoColorAreaSeriesBuilder _builder;
+
+        private void AssignParameters(TwoColorAreaSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("Fill2")) series.Fill2 = Fill2;
+            if (bp.ContainsKey("Dashes2")) series.Dashes2 = Dashes2;
+            if (bp.ContainsKey("LineStyle2")) series.LineStyle2 = LineStyle2;
+            if (bp.ContainsKey("MarkerFill2")) series.MarkerFill2 = MarkerFill2;
+            if (bp.ContainsKey("MarkerStroke2")) series.MarkerStroke2 = MarkerStroke2;
+            if (bp.ContainsKey("Limit")) series.Limit = Limit;
+            if (bp.ContainsKey("ConstantY2")) series.ConstantY2 = ConstantY2;
+            if (bp.ContainsKey("DataFieldX2")) series.DataFieldX2 = DataFieldX2;
+            if (bp.ContainsKey("DataFieldY2")) series.DataFieldY2 = DataFieldY2;
+            if (bp.ContainsKey("Color2")) series.Color2 = Color2;
+            if (bp.ContainsKey("Fill")) series.Fill = Fill;
+            if (bp.ContainsKey("Reverse2")) series.Reverse2 = Reverse2;
+            if (bp.ContainsKey("Color")) series.Color = Color;
+            if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
+            if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
+            if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("LineJoin")) series.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
+            if (bp.ContainsKey("LineLegendPosition")) series.LineLegendPosition = LineLegendPosition;
+            if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
+            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
+            if (bp.ContainsKey("MarkerResolution")) series.MarkerResolution = MarkerResolution;
+            if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
+            if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
+            if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
+            if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
+            if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
+            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
+            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
+            if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
+            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new TwoColorAreaSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
+    [Cmdlet("New", "OxyTwoColorLineSeries")]
+    [Alias("oxy.twoColorLine")]
+    [OutputType(typeof(SeriesInfo<TwoColorLineSeries>))]
+    public class NewOxyTwoColorLineSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string XName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string YName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public System.Double[] X;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public System.Double[] Y;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color2;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public System.Double Limit;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public System.Double[] Dashes2;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyle2;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor BrokenLineColor;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public OxyPlot.LineStyle BrokenLineStyle;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public System.Double BrokenLineThickness;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public System.Double[] Dashes;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public System.String LabelFormatString;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public System.Double LabelMargin;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public OxyPlot.LineJoin LineJoin;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyle;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public OxyPlot.Series.LineLegendPosition LineLegendPosition;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public OxyPlot.ScreenPoint[] MarkerOutline;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public System.Int32 MarkerResolution;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public System.Double MarkerSize;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public System.Double MarkerStrokeThickness;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public OxyPlot.MarkerType MarkerType;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.Double MinimumSegmentLength;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public System.Boolean Smooth;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public System.Double StrokeThickness;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public System.Boolean CanTrackerInterpolatePoints;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.String DataFieldX;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public System.String DataFieldY;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public System.Func<System.Object,OxyPlot.DataPoint> Mapping;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 43, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 44, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 45, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 46, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 47, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 48, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 49, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 50, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 51, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 52, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 53, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 54, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 55, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 56, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 57, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private TwoColorLineSeriesBuilder _builder;
+
+        private void AssignParameters(TwoColorLineSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("Color2")) series.Color2 = Color2;
+            if (bp.ContainsKey("Limit")) series.Limit = Limit;
+            if (bp.ContainsKey("Dashes2")) series.Dashes2 = Dashes2;
+            if (bp.ContainsKey("LineStyle2")) series.LineStyle2 = LineStyle2;
+            if (bp.ContainsKey("Color")) series.Color = Color;
+            if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
+            if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
+            if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
+            if (bp.ContainsKey("LineJoin")) series.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
+            if (bp.ContainsKey("LineLegendPosition")) series.LineLegendPosition = LineLegendPosition;
+            if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
+            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
+            if (bp.ContainsKey("MarkerResolution")) series.MarkerResolution = MarkerResolution;
+            if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
+            if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;
+            if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
+            if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
+            if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
+            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
+            if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
+            if (bp.ContainsKey("DataFieldY")) series.DataFieldY = DataFieldY;
+            if (bp.ContainsKey("Mapping")) series.Mapping = Mapping;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new TwoColorLineSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
+    [Cmdlet("New", "OxyVolumeSeries")]
+    [Alias("oxy.volume")]
+    [OutputType(typeof(SeriesInfo<VolumeSeries>))]
+    public class NewOxyVolumeSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string XName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string BuyVolumeName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string SellVolumeName;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public System.Double[] X;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public System.Double[] BuyVolume;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public System.Double[] SellVolume;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public System.Collections.Generic.List<OxyPlot.Series.OhlcvItem> Items;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public OxyPlot.Series.VolumeStyle VolumeStyle;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public System.Double StrokeThickness;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public System.Double StrokeIntensity;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor PositiveColor;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor NegativeColor;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor InterceptColor;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public System.Double InterceptStrokeThickness;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public OxyPlot.LineStyle InterceptLineStyle;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public System.Boolean PositiveHollow;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public System.Boolean NegativeHollow;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public System.Double BarWidth;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private VolumeSeriesBuilder _builder;
+
+        private void AssignParameters(VolumeSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("Items")) series.Items = Items;
+            if (bp.ContainsKey("VolumeStyle")) series.VolumeStyle = VolumeStyle;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("StrokeIntensity")) series.StrokeIntensity = StrokeIntensity;
+            if (bp.ContainsKey("PositiveColor")) series.PositiveColor = PositiveColor;
+            if (bp.ContainsKey("NegativeColor")) series.NegativeColor = NegativeColor;
+            if (bp.ContainsKey("InterceptColor")) series.InterceptColor = InterceptColor;
+            if (bp.ContainsKey("InterceptStrokeThickness")) series.InterceptStrokeThickness = InterceptStrokeThickness;
+            if (bp.ContainsKey("InterceptLineStyle")) series.InterceptLineStyle = InterceptLineStyle;
+            if (bp.ContainsKey("PositiveHollow")) series.PositiveHollow = PositiveHollow;
+            if (bp.ContainsKey("NegativeHollow")) series.NegativeHollow = NegativeHollow;
+            if (bp.ContainsKey("BarWidth")) series.BarWidth = BarWidth;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new VolumeSeriesBuilder();
             _builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 

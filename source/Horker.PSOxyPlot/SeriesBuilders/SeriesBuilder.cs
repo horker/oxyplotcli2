@@ -27,22 +27,21 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6);
         protected virtual void Postprocess(SeriesT series) { }
 
+        protected string[] _propertyNames;
 
-        private string[] _propertyNames;
+        protected List<E1> _e1;
+        protected List<E2> _e2;
+        protected List<E3> _e3;
+        protected List<E4> _e4;
+        protected List<E5> _e5;
+        protected List<E6> _e6;
 
-        private List<E1> _e1;
-        private List<E2> _e2;
-        private List<E3> _e3;
-        private List<E4> _e4;
-        private List<E5> _e5;
-        private List<E6> _e6;
-
-        private string _groupName;
-        private List<object> _groups;
+        protected string _groupName;
+        protected List<object> _groups;
 
         private SeriesInfo<SeriesT> _info;
 
-        private static readonly string DefaultGroupName = "default group!!??##$%&' ";
+        protected static readonly string DefaultGroupName = "default group!!??##$%&' ";
 
         private T ConvertObjectType<T>(object value)
         {
@@ -200,12 +199,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             ReadArguments(boundParameters);
         }
 
-        public SeriesInfo<SeriesT> CreateSeriesInfo()
+        protected virtual void ValidateInputData()
         {
-            // Validate data lengths.
-
             int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count }).Max();
             var ma = DataPointItemMandatoriness;
+
             if (typeof(E1) != typeof(VoidT))
             {
                 if (ma[0] && _e1.Count == 0)
@@ -257,8 +255,16 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             if (!(_groups.Count == count || _groups.Count == 0))
                 throw new ArgumentException("Length of grouping items is different from the others");
 
+        }
+
+        public SeriesInfo<SeriesT> CreateSeriesInfo()
+        {
+            // Validate data lengths.
+            ValidateInputData();
+
             // Create a set of series.
 
+            int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count }).Max();
             var seriesSet = new Dictionary<object, SeriesT>();
 
             for (var i = 0; i < count; ++i)
