@@ -54,7 +54,7 @@ private string FixTypeName(Type type)
 	s.Append(t[0]);
 	for (var i = 1; i < t.Length; ++i)
 	{
-		if (t[i-1] != '[' && t[i] == ']')
+		if (t[i-1] != '[' && t[i-1] != ',' && t[i] == ']')
 			s.Append('>');
 		else
 			s.Append(t[i]);

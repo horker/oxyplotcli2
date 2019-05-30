@@ -1,0 +1,10 @@
+DataTime and TimeSpan support
+IntervalBarSeries category?
+grid view output for png images
+annotation
+interop with pscanvas
+OxyPlot v2.0 support
+stocktaking of oxyplotcli v1 features
+-PassThru
+RectangleBarSeries category?
+HeapMap and Contour series cmdlet interfaces

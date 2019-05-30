@@ -25,6 +25,8 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public abstract string ShortName { get; }
 
         protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6);
+        protected virtual void Postprocess(SeriesT series) { }
+
 
         private string[] _propertyNames;
 
@@ -145,7 +147,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             }
         }
 
-        public void ReadArguments(Dictionary<string, object> boundParameters)
+        private void ReadArguments(Dictionary<string, object> boundParameters)
         {
             if (typeof(E1) != typeof(VoidT))
                 ReadArray(_e1, boundParameters, 0);
@@ -283,6 +285,8 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                     i < _e5.Count ? _e5[i] : GetNaN<E5>(),
                     i < _e6.Count ? _e6[i] : GetNaN<E6>()
                 );
+
+                Postprocess(s);
             }
 
             var keys = seriesSet.Keys.ToArray();

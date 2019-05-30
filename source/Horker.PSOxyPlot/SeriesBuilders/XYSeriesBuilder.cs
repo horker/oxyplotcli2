@@ -80,6 +80,61 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
+    public class ContourSeriesBuilder : SeriesBuilder<ContourSeries, DataPoint, double, double, double, VoidT, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[] { "X", "Y", "Z" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true };
+        public override int[] AxisItemIndexes => new int[] { 0, 1, -1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "contour";
+
+        private List<double> _x;
+        private List<double> _y;
+        private List<double> _z;
+
+        public ContourSeriesBuilder()
+            : base()
+        {
+            _x = new List<double>();
+            _y = new List<double>();
+            _z = new List<double>();
+        }
+
+        protected override void AddDataPointToSeries(ContourSeries series, double x, double y, double z, VoidT e4, VoidT e5, VoidT e6)
+        {
+            _x.Add(x);
+            _y.Add(y);
+            _z.Add(z);
+        }
+
+        protected override void Postprocess(ContourSeries series)
+        {
+            var xSorted = _x.Distinct().ToArray();
+            Array.Sort(xSorted);
+
+            var ySorted = _y.Distinct().ToArray();
+            Array.Sort(ySorted);
+
+            var xToIndex = new Dictionary<double, int>();
+            var yToIndex = new Dictionary<double, int>();
+
+            for (var i = 0; i < xSorted.Length; ++i)
+                xToIndex.Add(xSorted[i], i);
+
+            for (var i = 0; i < ySorted.Length; ++i)
+                yToIndex.Add(ySorted[i], i);
+
+            var data = new double[xSorted.Length, ySorted.Length];
+
+            for (var i = 0; i < _x.Count; ++i)
+                data[xToIndex[_x[i]], yToIndex[_y[i]]] = _z[i];
+
+            series.ColumnCoordinates = xSorted;
+            series.RowCoordinates = ySorted;
+            series.Data = data;
+        }
+    }
+
     public class ErrorColumnSeriesBuilder : SeriesBuilder<ErrorColumnSeries, ErrorColumnItem, double, double, TypeAdaptors.Category, VoidT, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new string[] { "Value", "Error", "Category" };

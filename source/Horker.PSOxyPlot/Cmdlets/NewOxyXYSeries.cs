@@ -1184,6 +1184,219 @@ namespace Horker.PSOxyPlot
         }
     }
 
+    [Cmdlet("New", "OxyContourSeries")]
+    [Alias("oxy.contour")]
+    [OutputType(typeof(SeriesInfo<ContourSeries>))]
+    public class NewOxyContourSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string XName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string YName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string ZName;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public System.Double[] X;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public System.Double[] Y;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public System.Double[] Z;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public System.Double[] ColumnCoordinates;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public System.Double ContourLevelStep;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public System.Double[] ContourLevels;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public OxyPlot.OxyColor[] ContourColors;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public System.Double[,] Data;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor LabelBackground;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public System.String LabelFormatString;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public System.Double LabelSpacing;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public System.Int32 LabelStep;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyle;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public System.Double[] RowCoordinates;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public System.Double StrokeThickness;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 43, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private ContourSeriesBuilder _builder;
+
+        private void AssignParameters(ContourSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("Color")) series.Color = Color;
+            if (bp.ContainsKey("ColumnCoordinates")) series.ColumnCoordinates = ColumnCoordinates;
+            if (bp.ContainsKey("ContourLevelStep")) series.ContourLevelStep = ContourLevelStep;
+            if (bp.ContainsKey("ContourLevels")) series.ContourLevels = ContourLevels;
+            if (bp.ContainsKey("ContourColors")) series.ContourColors = ContourColors;
+            if (bp.ContainsKey("Data")) series.Data = Data;
+            if (bp.ContainsKey("LabelBackground")) series.LabelBackground = LabelBackground;
+            if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
+            if (bp.ContainsKey("LabelSpacing")) series.LabelSpacing = LabelSpacing;
+            if (bp.ContainsKey("LabelStep")) series.LabelStep = LabelStep;
+            if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
+            if (bp.ContainsKey("RowCoordinates")) series.RowCoordinates = RowCoordinates;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new ContourSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
     [Cmdlet("New", "OxyErrorColumnSeries")]
     [Alias("oxy.errorColumn")]
     [OutputType(typeof(SeriesInfo<ErrorColumnSeries>))]
