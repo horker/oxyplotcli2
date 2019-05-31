@@ -140,7 +140,7 @@ namespace Horker.PSOxyPlot
         public System.Double MinimumSegmentLength;
 
         [Parameter(Position = 41, Mandatory = false)]
-        public System.Boolean Smooth;
+        public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 42, Mandatory = false)]
         public System.Double StrokeThickness;
@@ -237,7 +237,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
             if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
             if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
-            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("InterpolationAlgorithm")) series.InterpolationAlgorithm = InterpolationAlgorithm;
             if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
             if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
@@ -2346,7 +2346,7 @@ namespace Horker.PSOxyPlot
         public System.Double MinimumSegmentLength;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.Boolean Smooth;
+        public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 32, Mandatory = false)]
         public System.Double StrokeThickness;
@@ -2437,7 +2437,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
             if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
             if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
-            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("InterpolationAlgorithm")) series.InterpolationAlgorithm = InterpolationAlgorithm;
             if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
             if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
@@ -2774,108 +2774,102 @@ namespace Horker.PSOxyPlot
         public string Y1Name;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public string CategoryName;
-
-        [Parameter(Position = 6, Mandatory = false)]
         public string GroupName = null;
 
-        [Parameter(Position = 7, Mandatory = false)]
+        [Parameter(Position = 6, Mandatory = false)]
         public System.Double[] X0;
 
-        [Parameter(Position = 8, Mandatory = false)]
+        [Parameter(Position = 7, Mandatory = false)]
         public System.Double[] Y0;
 
-        [Parameter(Position = 9, Mandatory = false)]
+        [Parameter(Position = 8, Mandatory = false)]
         public System.Double[] X1;
 
-        [Parameter(Position = 10, Mandatory = false)]
+        [Parameter(Position = 9, Mandatory = false)]
         public System.Double[] Y1;
 
-        [Parameter(Position = 11, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.Category[] Category;
-
-        [Parameter(Position = 12, Mandatory = false)]
+        [Parameter(Position = 10, Mandatory = false)]
         public object[] Group = null;
 
-        [Parameter(Position = 13, Mandatory = false)]
+        [Parameter(Position = 11, Mandatory = false)]
         public PlotModel AddTo = null;
 
-        [Parameter(Position = 14, Mandatory = false)]
+        [Parameter(Position = 12, Mandatory = false)]
         public string OutFile = null;
 
-        [Parameter(Position = 15, Mandatory = false)]
+        [Parameter(Position = 13, Mandatory = false)]
         public int OutWidth = 800;
 
-        [Parameter(Position = 16, Mandatory = false)]
+        [Parameter(Position = 14, Mandatory = false)]
         public int OutHeight = 600;
 
-        [Parameter(Position = 17, Mandatory = false)]
+        [Parameter(Position = 15, Mandatory = false)]
         public SwitchParameter SvgIsDocument = false;
 
-        [Parameter(Position = 18, Mandatory = false)]
+        [Parameter(Position = 16, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor FillColor;
 
-        [Parameter(Position = 19, Mandatory = false)]
+        [Parameter(Position = 17, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor LabelColor;
 
-        [Parameter(Position = 20, Mandatory = false)]
+        [Parameter(Position = 18, Mandatory = false)]
         public System.String LabelFormatString;
 
-        [Parameter(Position = 21, Mandatory = false)]
+        [Parameter(Position = 19, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor StrokeColor;
 
-        [Parameter(Position = 22, Mandatory = false)]
+        [Parameter(Position = 20, Mandatory = false)]
         public System.Double StrokeThickness;
 
-        [Parameter(Position = 23, Mandatory = false)]
+        [Parameter(Position = 21, Mandatory = false)]
         public System.String XAxisKey;
 
-        [Parameter(Position = 24, Mandatory = false)]
+        [Parameter(Position = 22, Mandatory = false)]
         public System.String YAxisKey;
 
-        [Parameter(Position = 25, Mandatory = false)]
+        [Parameter(Position = 23, Mandatory = false)]
         public System.Collections.IEnumerable ItemsSource;
 
-        [Parameter(Position = 26, Mandatory = false)]
+        [Parameter(Position = 24, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
-        [Parameter(Position = 27, Mandatory = false)]
+        [Parameter(Position = 25, Mandatory = false)]
         public System.Boolean IsVisible;
 
-        [Parameter(Position = 28, Mandatory = false)]
+        [Parameter(Position = 26, Mandatory = false)]
         public System.String Title;
 
-        [Parameter(Position = 29, Mandatory = false)]
+        [Parameter(Position = 27, Mandatory = false)]
         public System.Boolean RenderInLegend;
 
-        [Parameter(Position = 30, Mandatory = false)]
+        [Parameter(Position = 28, Mandatory = false)]
         public System.String TrackerFormatString;
 
-        [Parameter(Position = 31, Mandatory = false)]
+        [Parameter(Position = 29, Mandatory = false)]
         public System.String TrackerKey;
 
-        [Parameter(Position = 32, Mandatory = false)]
+        [Parameter(Position = 30, Mandatory = false)]
         public System.String Font;
 
-        [Parameter(Position = 33, Mandatory = false)]
+        [Parameter(Position = 31, Mandatory = false)]
         public System.Double FontSize;
 
-        [Parameter(Position = 34, Mandatory = false)]
+        [Parameter(Position = 32, Mandatory = false)]
         public System.Double FontWeight;
 
-        [Parameter(Position = 35, Mandatory = false)]
+        [Parameter(Position = 33, Mandatory = false)]
         public System.Object Tag;
 
-        [Parameter(Position = 36, Mandatory = false)]
+        [Parameter(Position = 34, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
 
-        [Parameter(Position = 37, Mandatory = false)]
+        [Parameter(Position = 35, Mandatory = false)]
         public System.String ToolTip;
 
-        [Parameter(Position = 38, Mandatory = false)]
+        [Parameter(Position = 36, Mandatory = false)]
         public System.Boolean Selectable;
 
-        [Parameter(Position = 39, Mandatory = false)]
+        [Parameter(Position = 37, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
         private RectangleBarSeriesBuilder _builder;
@@ -3549,7 +3543,7 @@ namespace Horker.PSOxyPlot
         public System.Double MinimumSegmentLength;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.Boolean Smooth;
+        public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 34, Mandatory = false)]
         public System.Double StrokeThickness;
@@ -3642,7 +3636,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
             if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
             if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
-            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("InterpolationAlgorithm")) series.InterpolationAlgorithm = InterpolationAlgorithm;
             if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
             if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
@@ -3809,7 +3803,7 @@ namespace Horker.PSOxyPlot
         public System.Double MinimumSegmentLength;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Boolean Smooth;
+        public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 33, Mandatory = false)]
         public System.Double StrokeThickness;
@@ -3901,7 +3895,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
             if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
             if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
-            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("InterpolationAlgorithm")) series.InterpolationAlgorithm = InterpolationAlgorithm;
             if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
             if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
@@ -4089,7 +4083,7 @@ namespace Horker.PSOxyPlot
         public System.Double MinimumSegmentLength;
 
         [Parameter(Position = 39, Mandatory = false)]
-        public System.Boolean Smooth;
+        public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 40, Mandatory = false)]
         public System.Double StrokeThickness;
@@ -4188,7 +4182,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
             if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
             if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
-            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("InterpolationAlgorithm")) series.InterpolationAlgorithm = InterpolationAlgorithm;
             if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
             if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
@@ -4631,7 +4625,7 @@ namespace Horker.PSOxyPlot
         public System.Double MinimumSegmentLength;
 
         [Parameter(Position = 47, Mandatory = false)]
-        public System.Boolean Smooth;
+        public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 48, Mandatory = false)]
         public System.Double StrokeThickness;
@@ -4734,7 +4728,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
             if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
             if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
-            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("InterpolationAlgorithm")) series.InterpolationAlgorithm = InterpolationAlgorithm;
             if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
             if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
@@ -4910,7 +4904,7 @@ namespace Horker.PSOxyPlot
         public System.Double MinimumSegmentLength;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.Boolean Smooth;
+        public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 36, Mandatory = false)]
         public System.Double StrokeThickness;
@@ -5005,7 +4999,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("MarkerStrokeThickness")) series.MarkerStrokeThickness = MarkerStrokeThickness;
             if (bp.ContainsKey("MarkerType")) series.MarkerType = MarkerType;
             if (bp.ContainsKey("MinimumSegmentLength")) series.MinimumSegmentLength = MinimumSegmentLength;
-            if (bp.ContainsKey("Smooth")) series.Smooth = Smooth;
+            if (bp.ContainsKey("InterpolationAlgorithm")) series.InterpolationAlgorithm = InterpolationAlgorithm;
             if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("CanTrackerInterpolatePoints")) series.CanTrackerInterpolatePoints = CanTrackerInterpolatePoints;
             if (bp.ContainsKey("DataFieldX")) series.DataFieldX = DataFieldX;
