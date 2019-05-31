@@ -273,6 +273,15 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         }
 
+        private void SetCategoryNames<T>(List<T> values)
+        {
+            var count = values.Count;
+            var cat = new string[count];
+            for (var i = 0; i < count; ++i)
+                cat[i] = values[i].ToString();
+            _info.CategoryNames = cat;
+        }
+
         public SeriesInfo<SeriesT> CreateSeriesInfo()
         {
             // Validate data lengths.
@@ -317,19 +326,19 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             _info.Series = keys.Select(k => seriesSet[k]).ToArray();
 
             if (typeof(E1) == typeof(TypeAdaptors.Category))
-            {
-                var cat = new string[count];
-                for (var i = 0; i < count; ++i)
-                    cat[i] = (string)(object)_e1[i];
-                _info.CategoryNames = cat;
-            }
-            else if (typeof(E2) == typeof(TypeAdaptors.Category))
-            {
-                var cat = new string[count];
-                for (var i = 0; i < count; ++i)
-                    cat[i] = (TypeAdaptors.Category)(object)_e2[i];
-                _info.CategoryNames = cat;
-            }
+                SetCategoryNames(_e1);
+            if (typeof(E2) == typeof(TypeAdaptors.Category))
+                SetCategoryNames(_e2);
+            if (typeof(E3) == typeof(TypeAdaptors.Category))
+                SetCategoryNames(_e3);
+            if (typeof(E4) == typeof(TypeAdaptors.Category))
+                SetCategoryNames(_e4);
+            if (typeof(E5) == typeof(TypeAdaptors.Category))
+                SetCategoryNames(_e5);
+            if (typeof(E6) == typeof(TypeAdaptors.Category))
+                SetCategoryNames(_e6);
+            if (typeof(E7) == typeof(TypeAdaptors.Category))
+                SetCategoryNames(_e7);
 
             return _info;
         }

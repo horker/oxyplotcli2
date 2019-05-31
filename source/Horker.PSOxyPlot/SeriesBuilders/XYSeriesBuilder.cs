@@ -232,15 +232,15 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
-    public class RectangleBarSeriesBuilder : SeriesBuilder<RectangleBarSeries, RectangleBarItem, double, double, double, double, TypeAdaptors.Category, VoidT, VoidT>
+    public class RectangleBarSeriesBuilder : SeriesBuilder<RectangleBarSeries, RectangleBarItem, double, double, double, double, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X0", "Y0", "X1", "Y1", "Category" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true, false };
-        public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1, -1 };
+        public override string[] DataPointItemNames => new string[] { "X0", "Y0", "X1", "Y1" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true };
+        public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1 };
         public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
         public override string ShortName => "rectangleBar";
 
-        protected override void AddDataPointToSeries(RectangleBarSeries series, double x0, double y0, double x1, double y1, TypeAdaptors.Category category, VoidT e6, VoidT e7)
+        protected override void AddDataPointToSeries(RectangleBarSeries series, double x0, double y0, double x1, double y1, VoidT e5, VoidT e6, VoidT e7)
         {
             series.Items.Add(new RectangleBarItem(x0, y0, x1, y1));
         }

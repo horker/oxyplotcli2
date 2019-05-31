@@ -22,5 +22,10 @@ namespace Horker.PSOxyPlot.TypeAdaptors
         {
             return category.CategoryName;
         }
+
+        public override string ToString()
+        {
+            return CategoryName;
+        }
     }
 }
