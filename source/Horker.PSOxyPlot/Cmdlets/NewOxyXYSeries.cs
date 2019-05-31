@@ -769,135 +769,141 @@ namespace Horker.PSOxyPlot
         public string BuyVolumeName;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public string GroupName = null;
+        public string SellVolumeName;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public System.Double[] X;
+        public string GroupName = null;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] Open;
+        public System.Double[] X;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public System.Double[] High;
+        public System.Double[] Open;
 
         [Parameter(Position = 11, Mandatory = false)]
-        public System.Double[] Low;
+        public System.Double[] High;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public System.Double[] Close;
+        public System.Double[] Low;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public System.Double[] BuyVolume;
+        public System.Double[] Close;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public object[] Group = null;
+        public System.Double[] BuyVolume;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public PlotModel AddTo = null;
+        public System.Double[] SellVolume;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public string OutFile = null;
+        public object[] Group = null;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public int OutWidth = 800;
+        public PlotModel AddTo = null;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public int OutHeight = 600;
+        public string OutFile = null;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public SwitchParameter SvgIsDocument = false;
+        public int OutWidth = 800;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public System.Collections.Generic.List<OxyPlot.Series.OhlcvItem> Items;
+        public int OutHeight = 600;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.String VolumeAxisKey;
+        public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public System.String BarAxisKey;
+        public System.Collections.Generic.List<OxyPlot.Series.OhlcvItem> Items;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public OxyPlot.Series.VolumeStyle VolumeStyle;
+        public System.String VolumeAxisKey;
 
         [Parameter(Position = 24, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public System.String BarAxisKey;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.Double StrokeIntensity;
+        public OxyPlot.Series.VolumeStyle VolumeStyle;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public System.Double SeparatorStrokeThickness;
+        public System.Double StrokeThickness;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public OxyPlot.LineStyle SeparatorLineStyle;
+        public System.Double StrokeIntensity;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor PositiveColor;
+        public System.Double SeparatorStrokeThickness;
 
         [Parameter(Position = 29, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor NegativeColor;
+        public OxyPlot.LineStyle SeparatorLineStyle;
 
         [Parameter(Position = 30, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor SeparatorColor;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor PositiveColor;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.Boolean PositiveHollow;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor NegativeColor;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Boolean NegativeHollow;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor SeparatorColor;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.Double CandleWidth;
+        public System.Boolean PositiveHollow;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.String XAxisKey;
+        public System.Boolean NegativeHollow;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.String YAxisKey;
+        public System.Double CandleWidth;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Collections.IEnumerable ItemsSource;
+        public System.String XAxisKey;
 
         [Parameter(Position = 37, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+        public System.String YAxisKey;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public System.Collections.IEnumerable ItemsSource;
 
         [Parameter(Position = 39, Mandatory = false)]
-        public System.String Title;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 40, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public System.Boolean IsVisible;
 
         [Parameter(Position = 41, Mandatory = false)]
-        public System.String TrackerFormatString;
+        public System.String Title;
 
         [Parameter(Position = 42, Mandatory = false)]
-        public System.String TrackerKey;
+        public System.Boolean RenderInLegend;
 
         [Parameter(Position = 43, Mandatory = false)]
-        public System.String Font;
+        public System.String TrackerFormatString;
 
         [Parameter(Position = 44, Mandatory = false)]
-        public System.Double FontSize;
+        public System.String TrackerKey;
 
         [Parameter(Position = 45, Mandatory = false)]
-        public System.Double FontWeight;
+        public System.String Font;
 
         [Parameter(Position = 46, Mandatory = false)]
-        public System.Object Tag;
+        public System.Double FontSize;
 
         [Parameter(Position = 47, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+        public System.Double FontWeight;
 
         [Parameter(Position = 48, Mandatory = false)]
-        public System.String ToolTip;
+        public System.Object Tag;
 
         [Parameter(Position = 49, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
 
         [Parameter(Position = 50, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 51, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 52, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
         private CandleStickAndVolumeSeriesBuilder _builder;
@@ -5076,126 +5082,150 @@ namespace Horker.PSOxyPlot
         public string XName;
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string BuyVolumeName;
+        public string OpenName;
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string SellVolumeName;
+        public string HighName;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string GroupName = null;
+        public string LowName;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.Double[] X;
+        public string CloseName;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public System.Double[] BuyVolume;
+        public string BuyVolumeName;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] SellVolume;
+        public string SellVolumeName;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public object[] Group = null;
+        public string GroupName = null;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public PlotModel AddTo = null;
+        public System.Double[] X;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public string OutFile = null;
+        public System.Double[] Open;
 
         [Parameter(Position = 11, Mandatory = false)]
-        public int OutWidth = 800;
+        public System.Double[] High;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public int OutHeight = 600;
+        public System.Double[] Low;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public SwitchParameter SvgIsDocument = false;
+        public System.Double[] Close;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public System.Collections.Generic.List<OxyPlot.Series.OhlcvItem> Items;
+        public System.Double[] BuyVolume;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public OxyPlot.Series.VolumeStyle VolumeStyle;
+        public System.Double[] SellVolume;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public object[] Group = null;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Double StrokeIntensity;
+        public PlotModel AddTo = null;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor PositiveColor;
+        public string OutFile = null;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor NegativeColor;
+        public int OutWidth = 800;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor InterceptColor;
+        public int OutHeight = 600;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.Double InterceptStrokeThickness;
+        public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public OxyPlot.LineStyle InterceptLineStyle;
+        public System.Collections.Generic.List<OxyPlot.Series.OhlcvItem> Items;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Boolean PositiveHollow;
+        public OxyPlot.Series.VolumeStyle VolumeStyle;
 
         [Parameter(Position = 24, Mandatory = false)]
-        public System.Boolean NegativeHollow;
+        public System.Double StrokeThickness;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.Double BarWidth;
+        public System.Double StrokeIntensity;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public System.String XAxisKey;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor PositiveColor;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.String YAxisKey;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor NegativeColor;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.Collections.IEnumerable ItemsSource;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor InterceptColor;
 
         [Parameter(Position = 29, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+        public System.Double InterceptStrokeThickness;
 
         [Parameter(Position = 30, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public OxyPlot.LineStyle InterceptLineStyle;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.String Title;
+        public System.Boolean PositiveHollow;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public System.Boolean NegativeHollow;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.String TrackerFormatString;
+        public System.Double BarWidth;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.String TrackerKey;
+        public System.String XAxisKey;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.String Font;
+        public System.String YAxisKey;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Double FontSize;
+        public System.Collections.IEnumerable ItemsSource;
 
         [Parameter(Position = 37, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Object Tag;
+        public System.Boolean IsVisible;
 
         [Parameter(Position = 39, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+        public System.String Title;
 
         [Parameter(Position = 40, Mandatory = false)]
-        public System.String ToolTip;
+        public System.Boolean RenderInLegend;
 
         [Parameter(Position = 41, Mandatory = false)]
-        public System.Boolean Selectable;
+        public System.String TrackerFormatString;
 
         [Parameter(Position = 42, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 43, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 44, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 45, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 46, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 47, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 48, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 49, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 50, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
         private VolumeSeriesBuilder _builder;

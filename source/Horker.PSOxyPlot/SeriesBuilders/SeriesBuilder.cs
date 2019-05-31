@@ -11,7 +11,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 {
     public class VoidT { }
 
-    public abstract class SeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6> : ISeriesBuilder
+    public abstract class SeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6, E7> : ISeriesBuilder
         where SeriesT : Series, new()
     {
         public Type SeriesType => typeof(SeriesT);
@@ -24,7 +24,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public abstract Type[] DefaultAxisTypes { get; }
         public abstract string ShortName { get; }
 
-        protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6);
+        protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6, E7 e7);
         protected virtual void Postprocess(SeriesT series) { }
 
         protected string[] _propertyNames;
@@ -35,11 +35,12 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         protected List<E4> _e4;
         protected List<E5> _e5;
         protected List<E6> _e6;
+        protected List<E7> _e7;
 
         protected string _groupName;
         protected List<object> _groups;
 
-        private SeriesInfo<SeriesT> _info;
+        protected SeriesInfo<SeriesT> _info;
 
         protected static readonly string DefaultGroupName = "default group!!??##$%&' ";
 
@@ -122,7 +123,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                             {
                                 ReadInputObject(_e5, inputObject, 4);
                                 if (typeof(E6) != typeof(VoidT))
+                                {
                                     ReadInputObject(_e6, inputObject, 5);
+                                    if (typeof(E7) != typeof(VoidT))
+                                        ReadInputObject(_e7, inputObject, 6);
+                                }
                             }
                         }
                     }
@@ -160,6 +165,8 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 ReadArray(_e5, boundParameters, 4);
             if (typeof(E6) != typeof(VoidT))
                 ReadArray(_e6, boundParameters, 5);
+            if (typeof(E7) != typeof(VoidT))
+                ReadArray(_e7, boundParameters, 6);
 
             object groups;
             if (boundParameters.TryGetValue("Group", out groups))
@@ -180,6 +187,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             _e4 = new List<E4>();
             _e5 = new List<E5>();
             _e6 = new List<E6>();
+            _e7 = new List<E7>();
 
             _propertyNames = DataPointItemNames.Select(p => {
                 object v;
@@ -201,7 +209,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         protected virtual void ValidateInputData()
         {
-            int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count }).Max();
+            int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count, _e7.Count }).Max();
             var ma = DataPointItemMandatoriness;
 
             if (typeof(E1) != typeof(VoidT))
@@ -252,6 +260,14 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                     throw new ArgumentException($"Length of {DataPointItemNames[5]} is different from the other items");
             }
 
+            if (typeof(E7) != typeof(VoidT))
+            {
+                if (ma[6] && _e7.Count == 0)
+                    throw new ArgumentException($"{DataPointItemNames[6]} is mandatory but not specified");
+                if (_e7.Count > 0 && _e7.Count != count)
+                    throw new ArgumentException($"Length of {DataPointItemNames[6]} is different from the other items");
+            }
+
             if (!(_groups.Count == count || _groups.Count == 0))
                 throw new ArgumentException("Length of grouping items is different from the others");
 
@@ -264,7 +280,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
             // Create a set of series.
 
-            int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count }).Max();
+            int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count, _e7.Count }).Max();
             var seriesSet = new Dictionary<object, SeriesT>();
 
             for (var i = 0; i < count; ++i)
@@ -289,7 +305,8 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                     i < _e3.Count ? _e3[i] : GetNaN<E3>(),
                     i < _e4.Count ? _e4[i] : GetNaN<E4>(),
                     i < _e5.Count ? _e5[i] : GetNaN<E5>(),
-                    i < _e6.Count ? _e6[i] : GetNaN<E6>()
+                    i < _e6.Count ? _e6[i] : GetNaN<E6>(),
+                    i < _e7.Count ? _e7[i] : GetNaN<E7>()
                 );
 
                 Postprocess(s);
