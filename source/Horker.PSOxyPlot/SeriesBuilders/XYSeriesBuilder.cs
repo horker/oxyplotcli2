@@ -60,10 +60,8 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         {
             var item = new BoxPlotItem(series.Items.Count, lowerWhisker, boxBottom, median, boxTop, upperWhisker);
             if (outliers != null)
-            {
-                var l = new TypeAdaptors.DoubleList(outliers);
-                item.Outliers = l.Values;
-            }
+                item.Outliers = new TypeAdaptors.DoubleList(outliers).Values;
+
             series.Items.Add(item);
         }
     }

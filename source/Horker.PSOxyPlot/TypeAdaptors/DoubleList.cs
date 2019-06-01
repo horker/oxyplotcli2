@@ -11,10 +11,20 @@ namespace Horker.PSOxyPlot.TypeAdaptors
     {
         public List<double> Values { get; private set; }
 
-        public DoubleList(object values)
+        public DoubleList()
         {
             Values = new List<double>();
+        }
 
+        public DoubleList(IEnumerable<double> values)
+            : this()
+        {
+            Values.AddRange(values);
+        }
+
+        public DoubleList(object values)
+            : this()
+        {
             object v = values;
             if (values is PSObject psobj)
                 v = psobj.BaseObject;
@@ -36,6 +46,16 @@ namespace Horker.PSOxyPlot.TypeAdaptors
         public static implicit operator List<double>(DoubleList values)
         {
             return values.Values;
+        }
+
+        public static implicit operator DoubleList(Array values)
+        {
+            return new DoubleList(values);
+        }
+
+        public static implicit operator DoubleList(List<double> values)
+        {
+            return new DoubleList(values);
         }
     }
 }
