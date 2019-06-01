@@ -509,6 +509,263 @@ namespace Horker.PSOxyPlot
         }
     }
 
+    [Cmdlet("New", "OxyBoxPlotSeries")]
+    [Alias("oxy.boxPlot")]
+    [OutputType(typeof(SeriesInfo<BoxPlotSeries>))]
+    public class NewOxyBoxPlotSeries : PSCmdlet
+    {
+        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
+        public PSObject InputObject;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string CategoryName;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string LowerWhiskerName;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string BoxBottomName;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public string MedianName;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public string BoxTopName;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public string UpperWhiskerName;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public string OutliersName;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public string GroupName = null;
+
+        [Parameter(Position = 9, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Category[] Category;
+
+        [Parameter(Position = 10, Mandatory = false)]
+        public System.Double[] LowerWhisker;
+
+        [Parameter(Position = 11, Mandatory = false)]
+        public System.Double[] BoxBottom;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public System.Double[] Median;
+
+        [Parameter(Position = 13, Mandatory = false)]
+        public System.Double[] BoxTop;
+
+        [Parameter(Position = 14, Mandatory = false)]
+        public System.Double[] UpperWhisker;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public System.Object[] Outliers;
+
+        [Parameter(Position = 16, Mandatory = false)]
+        public object[] Group = null;
+
+        [Parameter(Position = 17, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 18, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 19, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 20, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 21, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public System.Double BoxWidth;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Fill;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public System.Collections.Generic.IList<OxyPlot.Series.BoxPlotItem> Items;
+
+        [Parameter(Position = 25, Mandatory = false)]
+        public OxyPlot.LineStyle LineStyle;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public System.Double MedianPointSize;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public System.Double MedianThickness;
+
+        [Parameter(Position = 28, Mandatory = false)]
+        public System.Double MeanPointSize;
+
+        [Parameter(Position = 29, Mandatory = false)]
+        public System.Double MeanThickness;
+
+        [Parameter(Position = 30, Mandatory = false)]
+        public System.Double OutlierSize;
+
+        [Parameter(Position = 31, Mandatory = false)]
+        public System.String OutlierTrackerFormatString;
+
+        [Parameter(Position = 32, Mandatory = false)]
+        public OxyPlot.MarkerType OutlierType;
+
+        [Parameter(Position = 33, Mandatory = false)]
+        public OxyPlot.ScreenPoint[] OutlierOutline;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public System.Boolean ShowBox;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public System.Boolean ShowMedianAsDot;
+
+        [Parameter(Position = 36, Mandatory = false)]
+        public System.Boolean ShowMeanAsDot;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Stroke;
+
+        [Parameter(Position = 38, Mandatory = false)]
+        public System.Double StrokeThickness;
+
+        [Parameter(Position = 39, Mandatory = false)]
+        public System.Double WhiskerWidth;
+
+        [Parameter(Position = 40, Mandatory = false)]
+        public System.String XAxisKey;
+
+        [Parameter(Position = 41, Mandatory = false)]
+        public System.String YAxisKey;
+
+        [Parameter(Position = 42, Mandatory = false)]
+        public System.Collections.IEnumerable ItemsSource;
+
+        [Parameter(Position = 43, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
+
+        [Parameter(Position = 44, Mandatory = false)]
+        public System.Boolean IsVisible;
+
+        [Parameter(Position = 45, Mandatory = false)]
+        public System.String Title;
+
+        [Parameter(Position = 46, Mandatory = false)]
+        public System.Boolean RenderInLegend;
+
+        [Parameter(Position = 47, Mandatory = false)]
+        public System.String TrackerFormatString;
+
+        [Parameter(Position = 48, Mandatory = false)]
+        public System.String TrackerKey;
+
+        [Parameter(Position = 49, Mandatory = false)]
+        public System.String Font;
+
+        [Parameter(Position = 50, Mandatory = false)]
+        public System.Double FontSize;
+
+        [Parameter(Position = 51, Mandatory = false)]
+        public System.Double FontWeight;
+
+        [Parameter(Position = 52, Mandatory = false)]
+        public System.Object Tag;
+
+        [Parameter(Position = 53, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
+
+        [Parameter(Position = 54, Mandatory = false)]
+        public System.String ToolTip;
+
+        [Parameter(Position = 55, Mandatory = false)]
+        public System.Boolean Selectable;
+
+        [Parameter(Position = 56, Mandatory = false)]
+        public OxyPlot.SelectionMode SelectionMode;
+
+        private BoxPlotSeriesBuilder _builder;
+
+        private void AssignParameters(BoxPlotSeries series, Dictionary<string, object> bp)
+        {
+            if (bp.ContainsKey("BoxWidth")) series.BoxWidth = BoxWidth;
+            if (bp.ContainsKey("Fill")) series.Fill = Fill;
+            if (bp.ContainsKey("Items")) series.Items = Items;
+            if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
+            if (bp.ContainsKey("MedianPointSize")) series.MedianPointSize = MedianPointSize;
+            if (bp.ContainsKey("MedianThickness")) series.MedianThickness = MedianThickness;
+            if (bp.ContainsKey("MeanPointSize")) series.MeanPointSize = MeanPointSize;
+            if (bp.ContainsKey("MeanThickness")) series.MeanThickness = MeanThickness;
+            if (bp.ContainsKey("OutlierSize")) series.OutlierSize = OutlierSize;
+            if (bp.ContainsKey("OutlierTrackerFormatString")) series.OutlierTrackerFormatString = OutlierTrackerFormatString;
+            if (bp.ContainsKey("OutlierType")) series.OutlierType = OutlierType;
+            if (bp.ContainsKey("OutlierOutline")) series.OutlierOutline = OutlierOutline;
+            if (bp.ContainsKey("ShowBox")) series.ShowBox = ShowBox;
+            if (bp.ContainsKey("ShowMedianAsDot")) series.ShowMedianAsDot = ShowMedianAsDot;
+            if (bp.ContainsKey("ShowMeanAsDot")) series.ShowMeanAsDot = ShowMeanAsDot;
+            if (bp.ContainsKey("Stroke")) series.Stroke = Stroke;
+            if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("WhiskerWidth")) series.WhiskerWidth = WhiskerWidth;
+            if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("ItemsSource")) series.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("Background")) series.Background = Background;
+            if (bp.ContainsKey("IsVisible")) series.IsVisible = IsVisible;
+            if (bp.ContainsKey("Title")) series.Title = Title;
+            if (bp.ContainsKey("RenderInLegend")) series.RenderInLegend = RenderInLegend;
+            if (bp.ContainsKey("TrackerFormatString")) series.TrackerFormatString = TrackerFormatString;
+            if (bp.ContainsKey("TrackerKey")) series.TrackerKey = TrackerKey;
+            if (bp.ContainsKey("Font")) series.Font = Font;
+            if (bp.ContainsKey("FontSize")) series.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) series.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) series.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) series.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            _builder = new BoxPlotSeriesBuilder();
+            _builder.ReadBoundParameters(MyInvocation.BoundParameters);
+        }
+
+        protected override void ProcessRecord()
+        {
+            // ProcessRecord is called once when InputObject is not given at all.
+            if (InputObject == null)
+                return;
+
+            _builder.ReadPSObject(InputObject);
+        }
+
+        protected override void EndProcessing()
+        {
+            var si = _builder.CreateSeriesInfo();
+
+            var bp = MyInvocation.BoundParameters;
+            foreach (var s in si.Series)
+                AssignParameters(s, bp);
+
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
+            if (model != null)
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
+            else
+                WriteObject(si);
+
+            if (bp.ContainsKey("OutFile"))
+                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+        }
+    }
+
     [Cmdlet("New", "OxyCandleStickSeries")]
     [Alias("oxy.candleStick")]
     [OutputType(typeof(SeriesInfo<CandleStickSeries>))]

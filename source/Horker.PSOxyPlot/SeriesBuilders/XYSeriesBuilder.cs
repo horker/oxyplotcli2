@@ -12,7 +12,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     public class AreaSeriesBuilder : SeriesBuilder<AreaSeries, DataPoint, double, double, double, double, VoidT, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new string[] { "X1", "Y1", "X2", "Y2" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { false, false, false, false };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false };
         public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1 };
         public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
         public override string ShortName => "area";
@@ -45,6 +45,26 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         protected override void AddDataPointToSeries(BarSeries series, double value, TypeAdaptors.Category category, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
             series.Items.Add(new BarItem(value));
+        }
+    }
+
+    public class BoxPlotSeriesBuilder : SeriesBuilder<BoxPlotSeries, BoxPlotItem, TypeAdaptors.Category, double, double, double, double, double, object>
+    {
+        public override string[] DataPointItemNames => new string[] { "Category", "LowerWhisker", "BoxBottom", "Median", "BoxTop", "UpperWhisker", "Outliers" };
+        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true, true, true, false };
+        public override int[] AxisItemIndexes => new int[] { 0, -1, -1, 1, -1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(CategoryAxis), typeof(LinearAxis) };
+        public override string ShortName => "boxPlot";
+
+        protected override void AddDataPointToSeries(BoxPlotSeries series, TypeAdaptors.Category category, double lowerWhisker, double boxBottom, double median, double boxTop, double upperWhisker, object outliers)
+        {
+            var item = new BoxPlotItem(series.Items.Count, lowerWhisker, boxBottom, median, boxTop, upperWhisker);
+            if (outliers != null)
+            {
+                var l = new TypeAdaptors.DoubleList(outliers);
+                item.Outliers = l.Values;
+            }
+            series.Items.Add(item);
         }
     }
 
