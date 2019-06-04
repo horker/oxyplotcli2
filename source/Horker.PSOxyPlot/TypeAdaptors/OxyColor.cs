@@ -13,6 +13,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
         private OxyPlot.OxyColor _color;
 
         public static IDictionary<string, OxyPlot.OxyColor> Colors => _colorMap;
+        public OxyPlot.OxyColor Value => _color;
 
         static OxyColor()
         {
@@ -36,11 +37,23 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             _color = Parse(colorString);
         }
 
+        public OxyColor(object value)
+        {
+            if (value is OxyPlot.OxyColor oxyColor)
+                _color = oxyColor;
+            else if (value is OxyColor typeAdaptor)
+                _color = typeAdaptor.Value;
+            else
+                _color = Parse(value.ToString());
+        }
+
         private OxyPlot.OxyColor Parse(string colorString)
         {
             OxyPlot.OxyColor color;
             if (_colorMap.TryGetValue(colorString.ToLower(), out color))
                 return color;
+
+            // TODO:  #rrggbbaa format
 
             throw new ArgumentException($"Unknown color name: {colorString}");
         }
