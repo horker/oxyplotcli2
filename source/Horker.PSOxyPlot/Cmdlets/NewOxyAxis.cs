@@ -11,7 +11,7 @@ using OxyPlot.Series;
 namespace Horker.PSOxyPlot
 {
     [Cmdlet("New", "OxyLinearAxis")]
-    [Alias("oxy.linearAxis")]
+    [Alias("oxy.linearAxis", "oxylinearAxis")]
     [OutputType(typeof(OxyPlot.Axes.LinearAxis))]
     public class NewOxyLinearAxis : PSCmdlet
     {
@@ -318,7 +318,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyLogarithmicAxis")]
-    [Alias("oxy.logarithmicAxis")]
+    [Alias("oxy.logarithmicAxis", "oxylogarithmicAxis")]
     [OutputType(typeof(OxyPlot.Axes.LogarithmicAxis))]
     public class NewOxyLogarithmicAxis : PSCmdlet
     {
@@ -621,7 +621,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyDateTimeAxis")]
-    [Alias("oxy.datetimeAxis")]
+    [Alias("oxy.datetimeAxis", "oxydatetimeAxis")]
     [OutputType(typeof(OxyPlot.Axes.DateTimeAxis))]
     public class NewOxyDateTimeAxis : PSCmdlet
     {
@@ -948,7 +948,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyTimeSpanAxis")]
-    [Alias("oxy.timespanAxis")]
+    [Alias("oxy.timespanAxis", "oxytimespanAxis")]
     [OutputType(typeof(OxyPlot.Axes.TimeSpanAxis))]
     public class NewOxyTimeSpanAxis : PSCmdlet
     {
@@ -1255,7 +1255,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyCategoryAxis")]
-    [Alias("oxy.categoryAxis")]
+    [Alias("oxy.categoryAxis", "oxycategoryAxis")]
     [OutputType(typeof(OxyPlot.Axes.CategoryAxis))]
     public class NewOxyCategoryAxis : PSCmdlet
     {
@@ -1578,7 +1578,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyLinearColorAxis")]
-    [Alias("oxy.linearcolorAxis")]
+    [Alias("oxy.linearcolorAxis", "oxylinearcolorAxis")]
     [OutputType(typeof(OxyPlot.Axes.LinearColorAxis))]
     public class NewOxyLinearColorAxis : PSCmdlet
     {
@@ -1905,7 +1905,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyRangeColorAxis")]
-    [Alias("oxy.rangecolorAxis")]
+    [Alias("oxy.rangecolorAxis", "oxyrangecolorAxis")]
     [OutputType(typeof(OxyPlot.Axes.RangeColorAxis))]
     public class NewOxyRangeColorAxis : PSCmdlet
     {
@@ -2224,7 +2224,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyMagnitudeAxis")]
-    [Alias("oxy.magnitudeAxis")]
+    [Alias("oxy.magnitudeAxis", "oxymagnitudeAxis")]
     [OutputType(typeof(OxyPlot.Axes.MagnitudeAxis))]
     public class NewOxyMagnitudeAxis : PSCmdlet
     {
@@ -2531,7 +2531,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyAngleAxis")]
-    [Alias("oxy.angleAxis")]
+    [Alias("oxy.angleAxis", "oxyangleAxis")]
     [OutputType(typeof(OxyPlot.Axes.AngleAxis))]
     public class NewOxyAngleAxis : PSCmdlet
     {

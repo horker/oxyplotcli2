@@ -13,7 +13,7 @@ using Horker.PSOxyPlot.ObjectFactories;
 namespace Horker.PSOxyPlot
 {
     [Cmdlet("New", "OxyPlotModel")]
-    [Alias("oxy.model")]
+    [Alias("oxy.model", "oxymodel")]
     [OutputType(typeof(PlotModel))]
     public class NewOxyPlotModel : PSCmdlet
     {

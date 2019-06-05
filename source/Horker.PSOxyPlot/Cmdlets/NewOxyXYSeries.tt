@@ -52,7 +52,7 @@ foreach (var builderType in builderTypes)
     var itemCount = pointItemNames.Length;
 #>
     [Cmdlet("New", "Oxy<#= name #>")]
-    [Alias("oxy.<#= shortName #>")]
+    [Alias("oxy.<#= shortName #>", "oxy<#= shortName#>")]
     [OutputType(typeof(SeriesInfo<<#= name #>>))]
     public class NewOxy<#= name #> : PSCmdlet
     {

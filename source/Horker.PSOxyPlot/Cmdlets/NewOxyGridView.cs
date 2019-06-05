@@ -9,7 +9,7 @@ using OxyPlot;
 namespace Horker.PSOxyPlot
 {
     [Cmdlet("New", "OxyGridView")]
-    [Alias("oxy.grid")]
+    [Alias("oxy.gridView")]
     [OutputType(typeof(GridView))]
     public class NewOxyGridView : PSCmdlet
     {

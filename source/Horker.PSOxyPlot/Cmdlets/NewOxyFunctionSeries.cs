@@ -10,7 +10,7 @@ using OxyPlot.Series;
 namespace Horker.PSOxyPlot
 {
     [Cmdlet("New", "OxyFunctionSeries")]
-    [Alias("oxy.func")]
+    [Alias("oxy.func", "oxyfunc")]
     [OutputType(typeof(FunctionSeries))]
     public class NewOxyFunctionSeries : PSCmdlet
     {

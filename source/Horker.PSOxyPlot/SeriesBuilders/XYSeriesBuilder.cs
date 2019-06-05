@@ -326,7 +326,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
         public override int[] AxisItemIndexes => new int[] { 0, 1 };
         public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "threeColorLine";
+        public override string ShortName => "3colorLine";
 
         protected override void AddDataPointToSeries(ThreeColorLineSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -362,7 +362,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public override bool[] DataPointItemMandatoriness => new bool[] { false, false, false, false };
         public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1 };
         public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "twoColorArea";
+        public override string ShortName => "2colorArea";
 
         protected override void AddDataPointToSeries(TwoColorAreaSeries series, double x1, double y1, double x2, double y2, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -387,7 +387,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
         public override int[] AxisItemIndexes => new int[] { 0, 1 };
         public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "twoColorLine";
+        public override string ShortName => "2colorLine";
 
         protected override void AddDataPointToSeries(TwoColorLineSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {

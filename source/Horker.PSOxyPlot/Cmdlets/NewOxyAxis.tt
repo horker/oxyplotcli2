@@ -35,7 +35,7 @@ foreach (var axisType in axes)
 	var shortName = name.Replace("Axis", "").ToLower();
 #>
     [Cmdlet("New", "Oxy<#= name #>")]
-    [Alias("oxy.<#= shortName #>Axis")]
+    [Alias("oxy.<#= shortName #>Axis", "oxy<#= shortName#>Axis")]
     [OutputType(typeof(<#= fullName #>))]
     public class NewOxy<#= name #> : PSCmdlet
     {
