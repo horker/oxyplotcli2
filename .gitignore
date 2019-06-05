@@ -8,6 +8,7 @@ private/
 bin/
 obj/
 packages/
+/**/_site/
 *.user
 *.psess
 *.vspx
