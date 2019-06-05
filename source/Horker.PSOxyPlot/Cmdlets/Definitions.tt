@@ -12,47 +12,4 @@ class TypeAdaptorHelper
 		return type;
 	}
 }
-
-internal class PointDefinition
-{
-	public Type Type { get; set; }
-	public string Name { get; set; }
-	public bool Mandatory { get; set; }
-}
-
-internal class SeriesDefinition
-{
-	public Type Type { get; set; }
-	public string ShortName { get; set; }
-	public string PointType { get; set; }
-	public PointDefinition[] PointDefinitions { get; set; }
-
-	public static readonly SeriesDefinition[] Series = new SeriesDefinition[]
-	{
-		new SeriesDefinition()
-		{
-			Type = typeof(LineSeries),
-			ShortName = "line",
-			PointType = "DataPoint",
-			PointDefinitions = new PointDefinition[]
-			{
-				new PointDefinition() { Name = "X", Type = typeof(double), Mandatory = true },
-				new PointDefinition() { Name = "Y", Type = typeof(double), Mandatory = true }
-			}
-		},
-		new SeriesDefinition()
-		{
-			Type = typeof(ScatterSeries),
-			ShortName = "scatter",
-			PointType = "ScatterPoint",
-			PointDefinitions = new PointDefinition[]
-			{
-				new PointDefinition() { Name = "X", Type = typeof(double), Mandatory = true },
-				new PointDefinition() { Name = "Y", Type = typeof(double), Mandatory = true },
-				new PointDefinition() { Name = "Size", Type = typeof(double), Mandatory = false },
-				new PointDefinition() { Name = "Value", Type = typeof(double), Mandatory = false }
-			}
-		}
-	};
-}
 #>
