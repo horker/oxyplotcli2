@@ -57,8 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cmdlets\NewOxyAxis.cs">
-      <DependentUpon>NewOxyAxis.tt</DependentUpon>
+    <Compile Include="Cmdlets\NewOxyXYAxis.cs">
+      <DependentUpon>NewOxyXYAxis.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -84,9 +84,9 @@
     <Content Include="Cmdlets\Definitions.tt">
       <LastOutputs>.\Definitions.cs</LastOutputs>
     </Content>
-    <Content Include="Cmdlets\NewOxyAxis.tt">
+    <Content Include="Cmdlets\NewOxyXYAxis.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>NewOxyAxis.cs</LastGenOutput>
+      <LastGenOutput>NewOxyXYAxis.cs</LastGenOutput>
     </Content>
     <Content Include="Cmdlets\NewOxyModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
