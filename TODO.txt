@@ -1,7 +1,6 @@
 DataTime and TimeSpan support
 IntervalBarSeries category?
 grid view output for png images
-annotation
 interop with pscanvas
 -PassThru
 RectangleBarSeries category?
@@ -24,6 +23,10 @@ gridview paramters: -OutFile and friends
 -Options
 help document
 latest build for HistogramSeries support
+OxyImage in oxy.ann.image
+ScreenVector
+DataPoint in oxy.ann.text
 
 DONE OxyPlot v2.0 support
 DONE oxyplotcli v1 features
+DONE annotation

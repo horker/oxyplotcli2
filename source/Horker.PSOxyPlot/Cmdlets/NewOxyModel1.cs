@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Series;
 using OxyPlot.Axes;
+using OxyPlot.Annotations;
 using Horker.PSOxyPlot.ObjectFactories;
 
 namespace Horker.PSOxyPlot
@@ -26,16 +27,19 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 2, Mandatory = false)]
         public Axis[] Axis = null;
 
-        [Parameter(Position = 2, Mandatory = false)]
-        public string OutFile = null;
-
         [Parameter(Position = 3, Mandatory = false)]
-        public int OutWidth = 800;
+        public Annotation[] Annotation = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public int OutHeight = 600;
+        public string OutFile = null;
 
         [Parameter(Position = 5, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 7, Mandatory = false)]
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 6, Mandatory = false)]
@@ -215,6 +219,10 @@ namespace Horker.PSOxyPlot
             if (Axis != null)
                 foreach (var a in Axis)
                     _model.Axes.Add(a);
+
+            if (Annotation != null)
+                foreach (var a in Annotation)
+                    _model.Annotations.Add(a);
         }
 
         protected override void ProcessRecord()

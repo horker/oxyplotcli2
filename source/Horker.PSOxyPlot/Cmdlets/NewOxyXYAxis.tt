@@ -3,18 +3,7 @@
 <#@ include file="Common.tt" #>
 <#@ include file="Definitions.tt" #>
 <#
-var axes = new Type[]
-{
-	typeof(OxyPlot.Axes.LinearAxis),
-    typeof(OxyPlot.Axes.LogarithmicAxis),
-    typeof(OxyPlot.Axes.DateTimeAxis),
-    typeof(OxyPlot.Axes.TimeSpanAxis),
-    typeof(OxyPlot.Axes.CategoryAxis),
-    typeof(OxyPlot.Axes.LinearColorAxis),
-    typeof(OxyPlot.Axes.RangeColorAxis),
-    typeof(OxyPlot.Axes.MagnitudeAxis),
-    typeof(OxyPlot.Axes.AngleAxis)
-};
+var axes = typeof(OxyPlot.Axes.LinearAxis).Assembly.GetTypes().Where(t => (t.Name.EndsWith("Axis") || t.Name.EndsWith("Annotation")) && !t.IsAbstract).ToArray();
 #>
 using System;
 using System.Collections.Generic;
@@ -32,10 +21,14 @@ foreach (var axisType in axes)
 {
 	var name = axisType.Name;
 	var fullName = axisType.FullName;
-	var shortName = name.Replace("Axis", "").ToLower();
+	string shortName;
+    if (name.EndsWith("Axis"))
+        shortName = "axis." + name.Replace("Axis", "").ToLower();
+    else
+        shortName = "ann." + name.Replace("Annotation", "").ToLower();
 #>
     [Cmdlet("New", "Oxy<#= name #>")]
-    [Alias("oxy.<#= shortName #>Axis", "oxy<#= shortName#>Axis")]
+    [Alias("oxy.<#= shortName #>")]
     [OutputType(typeof(<#= fullName #>))]
     public class NewOxy<#= name #> : PSCmdlet
     {
