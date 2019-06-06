@@ -68,7 +68,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle BrokenLineStyle;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public System.Double BrokenLineThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 15, Mandatory = false)]
         public System.Double[] Dashes;
@@ -80,7 +80,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 19, Mandatory = false)]
         public OxyPlot.LineJoin LineJoin;
@@ -101,25 +101,25 @@ namespace Horker.PSOxyPlot
         public System.Int32 MarkerResolution;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.Double MarkerSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerSize;
 
         [Parameter(Position = 26, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerStrokeThickness;
 
         [Parameter(Position = 28, Mandatory = false)]
         public OxyPlot.MarkerType MarkerType;
 
         [Parameter(Position = 29, Mandatory = false)]
-        public System.Double MinimumSegmentLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MinimumSegmentLength;
 
         [Parameter(Position = 30, Mandatory = false)]
         public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 32, Mandatory = false)]
         public System.Boolean CanTrackerInterpolatePoints;
@@ -164,10 +164,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 46, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 47, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 48, Mandatory = false)]
         public System.Object Tag;

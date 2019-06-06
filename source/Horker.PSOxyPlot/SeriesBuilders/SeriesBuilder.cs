@@ -140,7 +140,13 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             var name = DataPointItemNames[index];
             if (boundParameters.TryGetValue(name, out object value))
             {
-                if (typeof(T) == typeof(OxyColor))
+                if (typeof(T) == typeof(double))
+                {
+                    var array = (IEnumerable<TypeAdaptors.Double>)value;
+                    foreach (var e in array)
+                        elements.Add((T)(object)(double)e);
+                }
+                else if (typeof(T) == typeof(OxyColor))
                 {
                     var array = (IEnumerable<TypeAdaptors.OxyColor>)value;
                     foreach (var e in array)

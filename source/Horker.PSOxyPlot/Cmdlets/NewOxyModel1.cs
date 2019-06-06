@@ -46,7 +46,7 @@ namespace Horker.PSOxyPlot
         public System.String DefaultFont;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double DefaultFontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double DefaultFontSize;
 
         [Parameter(Position = 8, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
@@ -67,22 +67,22 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor LegendBorder;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public System.Double LegendBorderThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendBorderThickness;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public System.Double LegendColumnSpacing;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendColumnSpacing;
 
         [Parameter(Position = 16, Mandatory = false)]
         public System.String LegendFont;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Double LegendFontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendFontSize;
 
         [Parameter(Position = 18, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor LegendTextColor;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public System.Double LegendFontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendFontWeight;
 
         [Parameter(Position = 20, Mandatory = false)]
         public OxyPlot.HorizontalAlignment LegendItemAlignment;
@@ -91,25 +91,25 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LegendItemOrder LegendItemOrder;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public System.Double LegendItemSpacing;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendItemSpacing;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Double LegendLineSpacing;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendLineSpacing;
 
         [Parameter(Position = 24, Mandatory = false)]
-        public System.Double LegendMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendMargin;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.Double LegendMaxWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendMaxWidth;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public System.Double LegendMaxHeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendMaxHeight;
 
         [Parameter(Position = 27, Mandatory = false)]
         public OxyPlot.LegendOrientation LegendOrientation;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.Double LegendPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendPadding;
 
         [Parameter(Position = 29, Mandatory = false)]
         public OxyPlot.LegendPlacement LegendPlacement;
@@ -118,10 +118,10 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LegendPosition LegendPosition;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.Double LegendSymbolLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendSymbolLength;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Double LegendSymbolMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendSymbolMargin;
 
         [Parameter(Position = 33, Mandatory = false)]
         public OxyPlot.LegendSymbolPlacement LegendSymbolPlacement;
@@ -136,16 +136,16 @@ namespace Horker.PSOxyPlot
         public System.String LegendTitleFont;
 
         [Parameter(Position = 37, Mandatory = false)]
-        public System.Double LegendTitleFontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendTitleFontSize;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Double LegendTitleFontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LegendTitleFontWeight;
 
         [Parameter(Position = 39, Mandatory = false)]
         public OxyPlot.OxyThickness Padding;
 
         [Parameter(Position = 40, Mandatory = false)]
-        public System.Double AxisTierDistance;
+        public Horker.PSOxyPlot.TypeAdaptors.Double AxisTierDistance;
 
         [Parameter(Position = 41, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor PlotAreaBackground;
@@ -172,10 +172,10 @@ namespace Horker.PSOxyPlot
         public System.String SubtitleFont;
 
         [Parameter(Position = 49, Mandatory = false)]
-        public System.Double SubtitleFontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double SubtitleFontSize;
 
         [Parameter(Position = 50, Mandatory = false)]
-        public System.Double SubtitleFontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double SubtitleFontWeight;
 
         [Parameter(Position = 51, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor TextColor;
@@ -199,13 +199,13 @@ namespace Horker.PSOxyPlot
         public System.String TitleFont;
 
         [Parameter(Position = 58, Mandatory = false)]
-        public System.Double TitleFontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double TitleFontSize;
 
         [Parameter(Position = 59, Mandatory = false)]
-        public System.Double TitleFontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double TitleFontWeight;
 
         [Parameter(Position = 60, Mandatory = false)]
-        public System.Double TitlePadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Double TitlePadding;
 
         [Parameter(Position = 61, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor SelectionColor;

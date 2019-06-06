@@ -16,6 +16,7 @@ static class TypeAdaptorHelper
 {
 	public static readonly Tuple<Type, Type, string>[] TypeAdaptors = new Tuple<Type, Type, string>[]
     {
+		Tuple.Create(typeof(double), typeof(Horker.PSOxyPlot.TypeAdaptors.Double), "{0}"),
 		Tuple.Create(typeof(OxyPlot.OxyColor), typeof(Horker.PSOxyPlot.TypeAdaptors.OxyColor), "{0}")
 	};
 

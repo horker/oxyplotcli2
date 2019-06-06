@@ -35,16 +35,16 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public System.Double[] X1;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X1;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] Y1;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y1;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public System.Double[] X2;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X2;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] Y2;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y2;
 
         [Parameter(Position = 10, Mandatory = false)]
         public object[] Group = null;
@@ -65,7 +65,7 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public System.Double ConstantY2;
+        public Horker.PSOxyPlot.TypeAdaptors.Double ConstantY2;
 
         [Parameter(Position = 17, Mandatory = false)]
         public System.String DataFieldX2;
@@ -92,7 +92,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle BrokenLineStyle;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.Double BrokenLineThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 26, Mandatory = false)]
         public System.Double[] Dashes;
@@ -104,7 +104,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 29, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 30, Mandatory = false)]
         public OxyPlot.LineJoin LineJoin;
@@ -125,25 +125,25 @@ namespace Horker.PSOxyPlot
         public System.Int32 MarkerResolution;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Double MarkerSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerSize;
 
         [Parameter(Position = 37, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerStrokeThickness;
 
         [Parameter(Position = 39, Mandatory = false)]
         public OxyPlot.MarkerType MarkerType;
 
         [Parameter(Position = 40, Mandatory = false)]
-        public System.Double MinimumSegmentLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MinimumSegmentLength;
 
         [Parameter(Position = 41, Mandatory = false)]
         public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 42, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 43, Mandatory = false)]
         public System.Boolean CanTrackerInterpolatePoints;
@@ -188,10 +188,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 57, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 58, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 59, Mandatory = false)]
         public System.Object Tag;
@@ -320,7 +320,7 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public System.Double[] Value;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Value;
 
         [Parameter(Position = 5, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Category[] Category;
@@ -344,10 +344,10 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public System.Double BarWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BarWidth;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public System.Double BaseValue;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BaseValue;
 
         [Parameter(Position = 14, Mandatory = false)]
         public System.String ColorField;
@@ -362,7 +362,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 19, Mandatory = false)]
         public OxyPlot.Series.LabelPlacement LabelPlacement;
@@ -377,7 +377,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor StrokeColor;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 24, Mandatory = false)]
         public System.String ValueField;
@@ -413,10 +413,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 37, Mandatory = false)]
         public System.Object Tag;
@@ -545,19 +545,19 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Category[] Category;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public System.Double[] LowerWhisker;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] LowerWhisker;
 
         [Parameter(Position = 11, Mandatory = false)]
-        public System.Double[] BoxBottom;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] BoxBottom;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public System.Double[] Median;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Median;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public System.Double[] BoxTop;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] BoxTop;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public System.Double[] UpperWhisker;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] UpperWhisker;
 
         [Parameter(Position = 15, Mandatory = false)]
         public System.Object[] Outliers;
@@ -581,7 +581,7 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public System.Double BoxWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BoxWidth;
 
         [Parameter(Position = 23, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Fill;
@@ -593,19 +593,19 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle LineStyle;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public System.Double MedianPointSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MedianPointSize;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.Double MedianThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MedianThickness;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.Double MeanPointSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MeanPointSize;
 
         [Parameter(Position = 29, Mandatory = false)]
-        public System.Double MeanThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MeanThickness;
 
         [Parameter(Position = 30, Mandatory = false)]
-        public System.Double OutlierSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double OutlierSize;
 
         [Parameter(Position = 31, Mandatory = false)]
         public System.String OutlierTrackerFormatString;
@@ -629,10 +629,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Stroke;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 39, Mandatory = false)]
-        public System.Double WhiskerWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double WhiskerWidth;
 
         [Parameter(Position = 40, Mandatory = false)]
         public System.String XAxisKey;
@@ -665,10 +665,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 50, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 51, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 52, Mandatory = false)]
         public System.Object Tag;
@@ -793,19 +793,19 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public System.Double[] High;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] High;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] Low;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Low;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public System.Double[] Open;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Open;
 
         [Parameter(Position = 11, Mandatory = false)]
-        public System.Double[] Close;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Close;
 
         [Parameter(Position = 12, Mandatory = false)]
         public object[] Group = null;
@@ -832,7 +832,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor DecreasingColor;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public System.Double CandleWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double CandleWidth;
 
         [Parameter(Position = 21, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
@@ -865,10 +865,10 @@ namespace Horker.PSOxyPlot
         public System.Func<System.Object,OxyPlot.Series.HighLowItem> Mapping;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Double TickLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double TickLength;
 
         [Parameter(Position = 33, Mandatory = false)]
         public System.String XAxisKey;
@@ -901,10 +901,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 43, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 44, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 45, Mandatory = false)]
         public System.Object Tag;
@@ -1032,25 +1032,25 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public System.Double[] Open;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Open;
 
         [Parameter(Position = 11, Mandatory = false)]
-        public System.Double[] High;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] High;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public System.Double[] Low;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Low;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public System.Double[] Close;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Close;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public System.Double[] BuyVolume;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] BuyVolume;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public System.Double[] SellVolume;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] SellVolume;
 
         [Parameter(Position = 16, Mandatory = false)]
         public object[] Group = null;
@@ -1083,13 +1083,13 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Series.VolumeStyle VolumeStyle;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.Double StrokeIntensity;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeIntensity;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.Double SeparatorStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double SeparatorStrokeThickness;
 
         [Parameter(Position = 29, Mandatory = false)]
         public OxyPlot.LineStyle SeparatorLineStyle;
@@ -1110,7 +1110,7 @@ namespace Horker.PSOxyPlot
         public System.Boolean NegativeHollow;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.Double CandleWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double CandleWidth;
 
         [Parameter(Position = 36, Mandatory = false)]
         public System.String XAxisKey;
@@ -1143,10 +1143,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 46, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 47, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 48, Mandatory = false)]
         public System.Object Tag;
@@ -1258,7 +1258,7 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public System.Double[] Value;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Value;
 
         [Parameter(Position = 5, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Category[] Category;
@@ -1282,10 +1282,10 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public System.Double ColumnWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double ColumnWidth;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public System.Double BaseValue;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BaseValue;
 
         [Parameter(Position = 14, Mandatory = false)]
         public System.String ColorField;
@@ -1300,7 +1300,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 19, Mandatory = false)]
         public OxyPlot.Series.LabelPlacement LabelPlacement;
@@ -1315,7 +1315,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor StrokeColor;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 24, Mandatory = false)]
         public System.String ValueField;
@@ -1351,10 +1351,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 37, Mandatory = false)]
         public System.Object Tag;
@@ -1468,13 +1468,13 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public System.Double[] Y;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] Z;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Z;
 
         [Parameter(Position = 8, Mandatory = false)]
         public object[] Group = null;
@@ -1501,7 +1501,7 @@ namespace Horker.PSOxyPlot
         public System.Double[] ColumnCoordinates;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public System.Double ContourLevelStep;
+        public Horker.PSOxyPlot.TypeAdaptors.Double ContourLevelStep;
 
         [Parameter(Position = 17, Mandatory = false)]
         public System.Double[] ContourLevels;
@@ -1519,7 +1519,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public System.Double LabelSpacing;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelSpacing;
 
         [Parameter(Position = 23, Mandatory = false)]
         public System.Int32 LabelStep;
@@ -1531,7 +1531,7 @@ namespace Horker.PSOxyPlot
         public System.Double[] RowCoordinates;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 27, Mandatory = false)]
         public System.String XAxisKey;
@@ -1564,10 +1564,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 37, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 39, Mandatory = false)]
         public System.Object Tag;
@@ -1681,10 +1681,10 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.Double[] Value;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Value;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public System.Double[] Error;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Error;
 
         [Parameter(Position = 7, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Category[] Category;
@@ -1708,16 +1708,16 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public System.Double ErrorStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double ErrorStrokeThickness;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public System.Double ErrorWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double ErrorWidth;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public System.Double ColumnWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double ColumnWidth;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Double BaseValue;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BaseValue;
 
         [Parameter(Position = 18, Mandatory = false)]
         public System.String ColorField;
@@ -1732,7 +1732,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 23, Mandatory = false)]
         public OxyPlot.Series.LabelPlacement LabelPlacement;
@@ -1747,7 +1747,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor StrokeColor;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 28, Mandatory = false)]
         public System.String ValueField;
@@ -1783,10 +1783,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 39, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 40, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 41, Mandatory = false)]
         public System.Object Tag;
@@ -1908,19 +1908,19 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public System.Double[] High;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] High;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] Low;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Low;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public System.Double[] Open;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Open;
 
         [Parameter(Position = 11, Mandatory = false)]
-        public System.Double[] Close;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Close;
 
         [Parameter(Position = 12, Mandatory = false)]
         public object[] Group = null;
@@ -1971,10 +1971,10 @@ namespace Horker.PSOxyPlot
         public System.Func<System.Object,OxyPlot.Series.HighLowItem> Mapping;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 29, Mandatory = false)]
-        public System.Double TickLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double TickLength;
 
         [Parameter(Position = 30, Mandatory = false)]
         public System.String XAxisKey;
@@ -2007,10 +2007,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 40, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 41, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 42, Mandatory = false)]
         public System.Object Tag;
@@ -2126,10 +2126,10 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public System.Double[] Start;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Start;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] End;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] End;
 
         [Parameter(Position = 8, Mandatory = false)]
         public System.String[] BarTitle;
@@ -2156,7 +2156,7 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public System.Double BarWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BarWidth;
 
         [Parameter(Position = 17, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor FillColor;
@@ -2171,7 +2171,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 22, Mandatory = false)]
         public System.String MaximumField;
@@ -2183,7 +2183,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor StrokeColor;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 26, Mandatory = false)]
         public System.String XAxisKey;
@@ -2216,10 +2216,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 37, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 38, Mandatory = false)]
         public System.Object Tag;
@@ -2327,10 +2327,10 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.Double[] Y;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y;
 
         [Parameter(Position = 6, Mandatory = false)]
         public object[] Group = null;
@@ -2354,10 +2354,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor FillColor;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public System.Double BarWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BarWidth;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 15, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor StrokeColor;
@@ -2411,10 +2411,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 34, Mandatory = false)]
         public System.Object Tag;
@@ -2522,10 +2522,10 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.Double[] Y;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y;
 
         [Parameter(Position = 6, Mandatory = false)]
         public object[] Group = null;
@@ -2555,7 +2555,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle BrokenLineStyle;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public System.Double BrokenLineThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 16, Mandatory = false)]
         public System.Double[] Dashes;
@@ -2567,7 +2567,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 20, Mandatory = false)]
         public OxyPlot.LineJoin LineJoin;
@@ -2588,25 +2588,25 @@ namespace Horker.PSOxyPlot
         public System.Int32 MarkerResolution;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public System.Double MarkerSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerSize;
 
         [Parameter(Position = 27, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerStrokeThickness;
 
         [Parameter(Position = 29, Mandatory = false)]
         public OxyPlot.MarkerType MarkerType;
 
         [Parameter(Position = 30, Mandatory = false)]
-        public System.Double MinimumSegmentLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MinimumSegmentLength;
 
         [Parameter(Position = 31, Mandatory = false)]
         public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 33, Mandatory = false)]
         public System.Boolean CanTrackerInterpolatePoints;
@@ -2651,10 +2651,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 47, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 48, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 49, Mandatory = false)]
         public System.Object Tag;
@@ -2786,7 +2786,7 @@ namespace Horker.PSOxyPlot
         public System.String[] Label;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] Value;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Value;
 
         [Parameter(Position = 8, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor[] Fill;
@@ -2813,10 +2813,10 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public System.Double AngleIncrement;
+        public Horker.PSOxyPlot.TypeAdaptors.Double AngleIncrement;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Double AngleSpan;
+        public Horker.PSOxyPlot.TypeAdaptors.Double AngleSpan;
 
         [Parameter(Position = 18, Mandatory = false)]
         public System.Boolean AreInsideLabelsAngled;
@@ -2825,13 +2825,13 @@ namespace Horker.PSOxyPlot
         public System.String ColorField;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public System.Double Diameter;
+        public Horker.PSOxyPlot.TypeAdaptors.Double Diameter;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.Double ExplodedDistance;
+        public Horker.PSOxyPlot.TypeAdaptors.Double ExplodedDistance;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public System.Double InnerDiameter;
+        public Horker.PSOxyPlot.TypeAdaptors.Double InnerDiameter;
 
         [Parameter(Position = 23, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor InsideLabelColor;
@@ -2840,7 +2840,7 @@ namespace Horker.PSOxyPlot
         public System.String InsideLabelFormat;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.Double InsideLabelPosition;
+        public Horker.PSOxyPlot.TypeAdaptors.Double InsideLabelPosition;
 
         [Parameter(Position = 26, Mandatory = false)]
         public System.String IsExplodedField;
@@ -2858,25 +2858,25 @@ namespace Horker.PSOxyPlot
         public System.Collections.Generic.IList<OxyPlot.Series.PieSlice> Slices;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.Double StartAngle;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StartAngle;
 
         [Parameter(Position = 32, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Stroke;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.Double TickDistance;
+        public Horker.PSOxyPlot.TypeAdaptors.Double TickDistance;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.Double TickHorizontalLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double TickHorizontalLength;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Double TickLabelDistance;
+        public Horker.PSOxyPlot.TypeAdaptors.Double TickLabelDistance;
 
         [Parameter(Position = 37, Mandatory = false)]
-        public System.Double TickRadialLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double TickRadialLength;
 
         [Parameter(Position = 38, Mandatory = false)]
         public System.String ValueField;
@@ -2906,10 +2906,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 47, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 48, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 49, Mandatory = false)]
         public System.Object Tag;
@@ -3034,16 +3034,16 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public System.Double[] X0;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X0;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] Y0;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y0;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public System.Double[] X1;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X1;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] Y1;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y1;
 
         [Parameter(Position = 10, Mandatory = false)]
         public object[] Group = null;
@@ -3076,7 +3076,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor StrokeColor;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 21, Mandatory = false)]
         public System.String XAxisKey;
@@ -3109,10 +3109,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 33, Mandatory = false)]
         public System.Object Tag;
@@ -3221,16 +3221,16 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] Y;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public System.Double[] Size;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Size;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] Value;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Value;
 
         [Parameter(Position = 10, Mandatory = false)]
         public object[] Group = null;
@@ -3254,7 +3254,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 18, Mandatory = false)]
         public System.Func<System.Object,OxyPlot.Series.ScatterPoint> Mapping;
@@ -3287,13 +3287,13 @@ namespace Horker.PSOxyPlot
         public OxyPlot.ScreenPoint[] MarkerOutline;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.Double MarkerSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerSize;
 
         [Parameter(Position = 29, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 30, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerStrokeThickness;
 
         [Parameter(Position = 31, Mandatory = false)]
         public OxyPlot.MarkerType MarkerType;
@@ -3329,10 +3329,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 42, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 43, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 44, Mandatory = false)]
         public System.Object Tag;
@@ -3458,22 +3458,22 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] Y;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public System.Double[] ErrorX;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ErrorX;
 
         [Parameter(Position = 11, Mandatory = false)]
-        public System.Double[] ErrorY;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ErrorY;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public System.Double[] Size;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Size;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public System.Double[] Value;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Value;
 
         [Parameter(Position = 14, Mandatory = false)]
         public object[] Group = null;
@@ -3503,19 +3503,19 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor ErrorBarColor;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Double ErrorBarStopWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double ErrorBarStopWidth;
 
         [Parameter(Position = 24, Mandatory = false)]
-        public System.Double ErrorBarStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double ErrorBarStrokeThickness;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.Double MinimumErrorSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MinimumErrorSize;
 
         [Parameter(Position = 26, Mandatory = false)]
         public System.String LabelFormatString;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 28, Mandatory = false)]
         public System.Func<System.Object,OxyPlot.Series.ScatterErrorPoint> Mapping;
@@ -3548,13 +3548,13 @@ namespace Horker.PSOxyPlot
         public OxyPlot.ScreenPoint[] MarkerOutline;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Double MarkerSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerSize;
 
         [Parameter(Position = 39, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 40, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerStrokeThickness;
 
         [Parameter(Position = 41, Mandatory = false)]
         public OxyPlot.MarkerType MarkerType;
@@ -3590,10 +3590,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 52, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 53, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 54, Mandatory = false)]
         public System.Object Tag;
@@ -3713,10 +3713,10 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.Double[] Y;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y;
 
         [Parameter(Position = 6, Mandatory = false)]
         public object[] Group = null;
@@ -3737,7 +3737,7 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public System.Double VerticalStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double VerticalStrokeThickness;
 
         [Parameter(Position = 13, Mandatory = false)]
         public OxyPlot.LineStyle VerticalLineStyle;
@@ -3752,7 +3752,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle BrokenLineStyle;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Double BrokenLineThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 18, Mandatory = false)]
         public System.Double[] Dashes;
@@ -3764,7 +3764,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 22, Mandatory = false)]
         public OxyPlot.LineJoin LineJoin;
@@ -3785,25 +3785,25 @@ namespace Horker.PSOxyPlot
         public System.Int32 MarkerResolution;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.Double MarkerSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerSize;
 
         [Parameter(Position = 29, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 30, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerStrokeThickness;
 
         [Parameter(Position = 31, Mandatory = false)]
         public OxyPlot.MarkerType MarkerType;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Double MinimumSegmentLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MinimumSegmentLength;
 
         [Parameter(Position = 33, Mandatory = false)]
         public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 35, Mandatory = false)]
         public System.Boolean CanTrackerInterpolatePoints;
@@ -3848,10 +3848,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 49, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 50, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 51, Mandatory = false)]
         public System.Object Tag;
@@ -3976,10 +3976,10 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.Double[] Y;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y;
 
         [Parameter(Position = 6, Mandatory = false)]
         public object[] Group = null;
@@ -4000,7 +4000,7 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public System.Double Base;
+        public Horker.PSOxyPlot.TypeAdaptors.Double Base;
 
         [Parameter(Position = 13, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
@@ -4012,7 +4012,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle BrokenLineStyle;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public System.Double BrokenLineThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 17, Mandatory = false)]
         public System.Double[] Dashes;
@@ -4024,7 +4024,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 21, Mandatory = false)]
         public OxyPlot.LineJoin LineJoin;
@@ -4045,25 +4045,25 @@ namespace Horker.PSOxyPlot
         public System.Int32 MarkerResolution;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.Double MarkerSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerSize;
 
         [Parameter(Position = 28, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 29, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerStrokeThickness;
 
         [Parameter(Position = 30, Mandatory = false)]
         public OxyPlot.MarkerType MarkerType;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.Double MinimumSegmentLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MinimumSegmentLength;
 
         [Parameter(Position = 32, Mandatory = false)]
         public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 34, Mandatory = false)]
         public System.Boolean CanTrackerInterpolatePoints;
@@ -4108,10 +4108,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 48, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 49, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 50, Mandatory = false)]
         public System.Object Tag;
@@ -4235,10 +4235,10 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.Double[] Y;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y;
 
         [Parameter(Position = 6, Mandatory = false)]
         public object[] Group = null;
@@ -4265,10 +4265,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor ColorHi;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public System.Double LimitHi;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LimitHi;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public System.Double LimitLo;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LimitLo;
 
         [Parameter(Position = 16, Mandatory = false)]
         public System.Double[] DashesHi;
@@ -4292,7 +4292,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle BrokenLineStyle;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Double BrokenLineThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 24, Mandatory = false)]
         public System.Double[] Dashes;
@@ -4304,7 +4304,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 28, Mandatory = false)]
         public OxyPlot.LineJoin LineJoin;
@@ -4325,25 +4325,25 @@ namespace Horker.PSOxyPlot
         public System.Int32 MarkerResolution;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.Double MarkerSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerSize;
 
         [Parameter(Position = 35, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerStrokeThickness;
 
         [Parameter(Position = 37, Mandatory = false)]
         public OxyPlot.MarkerType MarkerType;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Double MinimumSegmentLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MinimumSegmentLength;
 
         [Parameter(Position = 39, Mandatory = false)]
         public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 40, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 41, Mandatory = false)]
         public System.Boolean CanTrackerInterpolatePoints;
@@ -4388,10 +4388,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 55, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 56, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 57, Mandatory = false)]
         public System.Object Tag;
@@ -4534,13 +4534,13 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public System.Double[] Minimum;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Minimum;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] Maximum;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Maximum;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public System.Double[] BarBaseValue;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] BarBaseValue;
 
         [Parameter(Position = 11, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor[] MinimumColor;
@@ -4570,10 +4570,10 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public System.Double BarWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BarWidth;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.Double BaseValue;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BaseValue;
 
         [Parameter(Position = 22, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor LabelColor;
@@ -4582,7 +4582,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelField;
 
         [Parameter(Position = 24, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 25, Mandatory = false)]
         public System.String MaximumField;
@@ -4606,7 +4606,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor StrokeColor;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 33, Mandatory = false)]
         public System.String XAxisKey;
@@ -4639,10 +4639,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 43, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 44, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 45, Mandatory = false)]
         public System.Object Tag;
@@ -4759,16 +4759,16 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public System.Double[] X1;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X1;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public System.Double[] Y1;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y1;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public System.Double[] X2;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X2;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] Y2;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y2;
 
         [Parameter(Position = 10, Mandatory = false)]
         public object[] Group = null;
@@ -4804,10 +4804,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke2;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.Double Limit;
+        public Horker.PSOxyPlot.TypeAdaptors.Double Limit;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public System.Double ConstantY2;
+        public Horker.PSOxyPlot.TypeAdaptors.Double ConstantY2;
 
         [Parameter(Position = 23, Mandatory = false)]
         public System.String DataFieldX2;
@@ -4834,7 +4834,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle BrokenLineStyle;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.Double BrokenLineThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 32, Mandatory = false)]
         public System.Double[] Dashes;
@@ -4846,7 +4846,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 36, Mandatory = false)]
         public OxyPlot.LineJoin LineJoin;
@@ -4867,25 +4867,25 @@ namespace Horker.PSOxyPlot
         public System.Int32 MarkerResolution;
 
         [Parameter(Position = 42, Mandatory = false)]
-        public System.Double MarkerSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerSize;
 
         [Parameter(Position = 43, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 44, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerStrokeThickness;
 
         [Parameter(Position = 45, Mandatory = false)]
         public OxyPlot.MarkerType MarkerType;
 
         [Parameter(Position = 46, Mandatory = false)]
-        public System.Double MinimumSegmentLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MinimumSegmentLength;
 
         [Parameter(Position = 47, Mandatory = false)]
         public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 48, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 49, Mandatory = false)]
         public System.Boolean CanTrackerInterpolatePoints;
@@ -4930,10 +4930,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 63, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 64, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 65, Mandatory = false)]
         public System.Object Tag;
@@ -5068,10 +5068,10 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public System.Double[] Y;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Y;
 
         [Parameter(Position = 6, Mandatory = false)]
         public object[] Group = null;
@@ -5095,7 +5095,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color2;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public System.Double Limit;
+        public Horker.PSOxyPlot.TypeAdaptors.Double Limit;
 
         [Parameter(Position = 14, Mandatory = false)]
         public System.Double[] Dashes2;
@@ -5113,7 +5113,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle BrokenLineStyle;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public System.Double BrokenLineThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 20, Mandatory = false)]
         public System.Double[] Dashes;
@@ -5125,7 +5125,7 @@ namespace Horker.PSOxyPlot
         public System.String LabelFormatString;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Double LabelMargin;
+        public Horker.PSOxyPlot.TypeAdaptors.Double LabelMargin;
 
         [Parameter(Position = 24, Mandatory = false)]
         public OxyPlot.LineJoin LineJoin;
@@ -5146,25 +5146,25 @@ namespace Horker.PSOxyPlot
         public System.Int32 MarkerResolution;
 
         [Parameter(Position = 30, Mandatory = false)]
-        public System.Double MarkerSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerSize;
 
         [Parameter(Position = 31, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerStroke;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Double MarkerStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MarkerStrokeThickness;
 
         [Parameter(Position = 33, Mandatory = false)]
         public OxyPlot.MarkerType MarkerType;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.Double MinimumSegmentLength;
+        public Horker.PSOxyPlot.TypeAdaptors.Double MinimumSegmentLength;
 
         [Parameter(Position = 35, Mandatory = false)]
         public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 37, Mandatory = false)]
         public System.Boolean CanTrackerInterpolatePoints;
@@ -5209,10 +5209,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 51, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 52, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 53, Mandatory = false)]
         public System.Object Tag;
@@ -5354,25 +5354,25 @@ namespace Horker.PSOxyPlot
         public string GroupName = null;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Double[] X;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] X;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public System.Double[] Open;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Open;
 
         [Parameter(Position = 11, Mandatory = false)]
-        public System.Double[] High;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] High;
 
         [Parameter(Position = 12, Mandatory = false)]
-        public System.Double[] Low;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Low;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public System.Double[] Close;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Close;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public System.Double[] BuyVolume;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] BuyVolume;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public System.Double[] SellVolume;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] SellVolume;
 
         [Parameter(Position = 16, Mandatory = false)]
         public object[] Group = null;
@@ -5399,10 +5399,10 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Series.VolumeStyle VolumeStyle;
 
         [Parameter(Position = 24, Mandatory = false)]
-        public System.Double StrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.Double StrokeIntensity;
+        public Horker.PSOxyPlot.TypeAdaptors.Double StrokeIntensity;
 
         [Parameter(Position = 26, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor PositiveColor;
@@ -5414,7 +5414,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor InterceptColor;
 
         [Parameter(Position = 29, Mandatory = false)]
-        public System.Double InterceptStrokeThickness;
+        public Horker.PSOxyPlot.TypeAdaptors.Double InterceptStrokeThickness;
 
         [Parameter(Position = 30, Mandatory = false)]
         public OxyPlot.LineStyle InterceptLineStyle;
@@ -5426,7 +5426,7 @@ namespace Horker.PSOxyPlot
         public System.Boolean NegativeHollow;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.Double BarWidth;
+        public Horker.PSOxyPlot.TypeAdaptors.Double BarWidth;
 
         [Parameter(Position = 34, Mandatory = false)]
         public System.String XAxisKey;
@@ -5459,10 +5459,10 @@ namespace Horker.PSOxyPlot
         public System.String Font;
 
         [Parameter(Position = 44, Mandatory = false)]
-        public System.Double FontSize;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontSize;
 
         [Parameter(Position = 45, Mandatory = false)]
-        public System.Double FontWeight;
+        public Horker.PSOxyPlot.TypeAdaptors.Double FontWeight;
 
         [Parameter(Position = 46, Mandatory = false)]
         public System.Object Tag;
