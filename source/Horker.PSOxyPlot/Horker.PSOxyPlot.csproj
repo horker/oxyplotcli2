@@ -81,9 +81,7 @@
     <Compile Include="Exporters\GridViewExporter.cs" />
     <Compile Include="Exporters\ModelExporter.cs" />
     <Compile Include="Cmdlets\NewOxyGridView.cs" />
-    <Content Include="Cmdlets\Definitions.tt">
-      <LastOutputs>.\Definitions.cs</LastOutputs>
-    </Content>
+    <Compile Include="TypeAdaptors\OxyColorArray.cs" />
     <Content Include="Cmdlets\NewOxyXYAxis.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NewOxyXYAxis.cs</LastGenOutput>

@@ -1,7 +1,6 @@
 ﻿<#@ template language="C#" hostspecific="true" debug="true" #>
 <#@ output extension=".cs" #>
 <#@ include file="Common.tt" #>
-<#@ include file="Definitions.tt" #>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,7 +62,7 @@ namespace Horker.PSOxyPlot
 
 <#
 var position = 11;
-foreach (var prop in EnumerateProperties(typeof(FunctionSeries), TypeAdaptorHelper.TypeAdaptors))
+foreach (var prop in EnumerateProperties(typeof(FunctionSeries)))
 {
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
@@ -78,7 +77,7 @@ foreach (var prop in EnumerateProperties(typeof(FunctionSeries), TypeAdaptorHelp
     foreach (var prop in EnumerateProperties(typeof(OxyPlot.Series.FunctionSeries)))
     {
 #>
-            if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.Name #>;
+            if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.ConversionString #>;
 <#
     }
 #>

@@ -12,33 +12,58 @@
 <#@ import namespace="OxyPlot" #>
 <#@ import namespace="OxyPlot.Series" #>
 <#+
+static class TypeAdaptorHelper
+{
+	public static readonly Tuple<Type, Type, string>[] TypeAdaptors = new Tuple<Type, Type, string>[]
+    {
+		Tuple.Create(typeof(OxyPlot.OxyColor), typeof(Horker.PSOxyPlot.TypeAdaptors.OxyColor), "{0}")
+	};
+
+	public static Type GetAdaptorType(Type type)
+	{
+        var a = TypeAdaptors.Where(t => t.Item1 == type).ToArray();
+        if (a.Length > 0)
+			return a[0].Item2;
+		return type;
+	}
+
+	public static string GetConversionString(Type type)
+	{
+        var a = TypeAdaptors.Where(t => t.Item1 == type).ToArray();
+        if (a.Length > 0)
+            return a[0].Item3;
+        else
+            return "{0}";
+	}
+}
+
 class ObjectProperty
 {
 	public string Name { get; set; }
 	public Type Type { get; set; }
 	public string TypeName { get; set; }
+    public string ConversionString { get; set; }
 }
 
-private IEnumerable<ObjectProperty> EnumerateProperties(Type type, IDictionary<Type, Type> typeAdaptors = null)
+private IEnumerable<ObjectProperty> EnumerateProperties(Type type, Tuple<Type, Type> typeAdaptors = null)
 {
 	foreach (var prop in type.GetProperties())
 	{
 		if (!prop.CanWrite || prop.SetMethod == null || !prop.SetMethod.IsPublic)
 			continue;
 
-		var propType = prop.PropertyType;
-		Type adaptor;
-		if (!(typeAdaptors is null) && typeAdaptors.TryGetValue(propType, out adaptor))
-			propType = adaptor;
+		var propType = TypeAdaptorHelper.GetAdaptorType(prop.PropertyType);
 
 		var typeName = FixTypeName(propType);
 		var propName = prop.Name;
+        var conversionString = string.Format(TypeAdaptorHelper.GetConversionString(prop.PropertyType), propName);
 
 		var op = new ObjectProperty()
 		{
 			Name = propName,
 			Type = type,
-			TypeName = typeName
+			TypeName = typeName,
+            ConversionString = conversionString
 		};
 
 		yield return op;

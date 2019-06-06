@@ -59,7 +59,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 return (T)(object)value.ToString();
 
             if (typeof(T) == typeof(OxyColor))
-                return (T)(object)new TypeAdaptors.OxyColor((string)value);
+                return (T)(object)new TypeAdaptors.OxyColor(value);
 
             if (typeof(T) == typeof(TypeAdaptors.Category))
                 return (T)(object)new TypeAdaptors.Category((string)value);

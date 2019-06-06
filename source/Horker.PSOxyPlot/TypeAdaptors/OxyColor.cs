@@ -58,6 +58,11 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             throw new ArgumentException($"Unknown color name: {colorString}");
         }
 
+        public static implicit operator OxyColor(string value)
+        {
+            return new OxyColor(value);
+        }
+
         public static implicit operator OxyPlot.OxyColor(OxyColor adaptor)
         {
             return adaptor._color;

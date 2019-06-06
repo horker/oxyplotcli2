@@ -16,7 +16,6 @@
 <#@ import namespace="Horker.PSOxyPlot" #>
 <#@ import namespace="Horker.PSOxyPlot.SeriesBuilders" #>
 <#@ include file="Common.tt" #>
-<#@ include file="Definitions.tt" #>
 <#
 var assembly = typeof(LineSeriesBuilder).Assembly;
 var builderTypes = assembly.DefinedTypes.Where(x => x.Name.EndsWith("SeriesBuilder") && !x.IsAbstract && !x.Name.Contains("Function"));
@@ -102,7 +101,7 @@ foreach (var builderType in builderTypes)
         public SwitchParameter SvgIsDocument = false;
 
 <#
-    foreach (var prop in EnumerateProperties(seriesType, TypeAdaptorHelper.TypeAdaptors))
+    foreach (var prop in EnumerateProperties(seriesType))
     {
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
@@ -119,7 +118,7 @@ foreach (var builderType in builderTypes)
     foreach (var prop in EnumerateProperties(seriesType))
     {
 #>
-            if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.Name #>;
+            if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.ConversionString #>;
 <#
     }
 #>

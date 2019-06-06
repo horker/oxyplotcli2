@@ -1,7 +1,6 @@
 ﻿<#@ template language="C#" hostspecific="true" debug="true" #>
 <#@ output extension=".cs" #>
 <#@ include file="Common.tt" #>
-<#@ include file="Definitions.tt" #>
 <#
 var axes = typeof(OxyPlot.Axes.LinearAxis).Assembly.GetTypes().Where(t => (t.Name.EndsWith("Axis") || t.Name.EndsWith("Annotation")) && !t.IsAbstract).ToArray();
 #>
@@ -34,7 +33,7 @@ foreach (var axisType in axes)
     {
 <#
 	var position = 0;
-	foreach (var prop in EnumerateProperties(axisType, TypeAdaptorHelper.TypeAdaptors))
+	foreach (var prop in EnumerateProperties(axisType))
 	{
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
@@ -52,7 +51,7 @@ foreach (var axisType in axes)
 	foreach (var prop in EnumerateProperties(axisType))
 	{
 #>
-            if (bp.ContainsKey("<#= prop.Name #>")) axis.<#= prop.Name #> = <#= prop.Name #>;
+            if (bp.ContainsKey("<#= prop.Name #>")) axis.<#= prop.Name #> = <#= prop.ConversionString #>;
 <#
 	}
 #>
