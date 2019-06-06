@@ -3,10 +3,27 @@ IntervalBarSeries category?
 grid view output for png images
 annotation
 interop with pscanvas
-OxyPlot v2.0 support
-stocktaking of oxyplotcli v1 features
 -PassThru
 RectangleBarSeries category?
 HeapMap and Contour series cmdlet interfaces
 volume charts in CandleStickAndVolume and Volume series
 parameter lengths check for AreaSeries
+Tensor support
+Stype support
+ggplot stype
+axis parameters for series and model cmdlets
+partial axis name support
+thickness
+oxypalette
+aliases compatible with v1
+type conversions for bool, double[,], OxyPlatte, OxyThickness, OxyColor[] and others
+numeric values with units
+collection support
+AddOxyAxisShare
+gridview paramters: -OutFile and friends
+-Options
+help document
+latest build for HistogramSeries support
+
+DONE OxyPlot v2.0 support
+DONE oxyplotcli v1 features
