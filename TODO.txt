@@ -1,4 +1,4 @@
-DataTime and TimeSpan support
+DateTime and TimeSpan support
 IntervalBarSeries category?
 grid view output for png images
 interop with pscanvas
