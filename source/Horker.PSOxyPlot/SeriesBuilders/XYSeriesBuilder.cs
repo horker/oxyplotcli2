@@ -177,6 +177,19 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
+    public class FunctionSeriesBuilder : SeriesBuilder<FunctionSeries, DataPoint, VoidT, VoidT, VoidT, VoidT, VoidT, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[] { };
+        public override bool[] DataPointItemMandatoriness => new bool[] { };
+        public override int[] AxisItemIndexes => new int[] { };
+        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string ShortName => "func";
+
+        protected override void AddDataPointToSeries(FunctionSeries series, VoidT e1, VoidT e2, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
+        {
+        }
+    }
+
     public class HighLowSeriesBuilder : SeriesBuilder<HighLowSeries, HighLowItem, double, double, double, double, double, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new string[] { "X", "High", "Low", "Open", "Close" };

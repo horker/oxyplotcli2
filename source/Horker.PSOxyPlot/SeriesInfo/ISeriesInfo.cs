@@ -9,7 +9,7 @@ namespace Horker.PSOxyPlot
 {
     public interface ISeriesInfo
     {
-        Series[] Series { get; set;  }
+        IList<Series> Series { get; set;  }
         string[] AxisTitles { get; set; }
         Type[] DataTypes { get; set; }
         string GroupName { get; set; }

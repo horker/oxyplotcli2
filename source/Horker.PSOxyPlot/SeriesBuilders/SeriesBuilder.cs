@@ -198,10 +198,10 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
             _info = new SeriesInfo<SeriesT>();
 
-            if (AxisItemIndexes[0] >= 0 && boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[0]] + "Name", out object xName))
+            if (AxisItemIndexes.Length > 0 && AxisItemIndexes[0] >= 0 && boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[0]] + "Name", out object xName))
                 _info.AxisTitles[0] = (string)xName;
 
-            if (AxisItemIndexes[1] >= 0 && boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[1]] + "Name", out object yName))
+            if (AxisItemIndexes.Length > 1 && AxisItemIndexes[1] >= 0 && boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[1]] + "Name", out object yName))
                 _info.AxisTitles[1] = (string)yName;
 
             ReadArguments(boundParameters);
@@ -282,7 +282,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             _info.CategoryNames = cat;
         }
 
-        public SeriesInfo<SeriesT> CreateSeriesInfo()
+        public virtual SeriesInfo<SeriesT> CreateSeriesInfo()
         {
             // Validate data lengths.
             ValidateInputData();

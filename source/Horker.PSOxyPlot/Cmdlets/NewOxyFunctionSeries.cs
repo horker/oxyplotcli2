@@ -6,6 +6,7 @@ using System.Text;
 using System.Management.Automation;
 using OxyPlot;
 using OxyPlot.Series;
+using Horker.PSOxyPlot.ObjectFactories;
 
 namespace Horker.PSOxyPlot
 {
@@ -15,7 +16,7 @@ namespace Horker.PSOxyPlot
     public class NewOxyFunctionSeries : PSCmdlet
     {
         [Parameter(ParameterSetName = "Explicit", Position = 0, Mandatory = true)]
-        public ScriptBlock F = null;
+        public ScriptBlock[] F = null;
 
         [Parameter(ParameterSetName = "Explicit", Position = 1, Mandatory = false)]
         public double X0 = -1;
@@ -24,10 +25,10 @@ namespace Horker.PSOxyPlot
         public double X1 = 1;
 
         [Parameter(ParameterSetName = "Implicit", Position = 0, Mandatory = true)]
-        public ScriptBlock Fx = null;
+        public ScriptBlock[] Fx = null;
 
         [Parameter(ParameterSetName = "Implicit", Position = 1, Mandatory = true)]
-        public ScriptBlock Fy = null;
+        public ScriptBlock[] Fy = null;
 
         [Parameter(ParameterSetName = "Implicit", Position = 2, Mandatory = false)]
         public double T0 = 0;
@@ -183,16 +184,8 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 52, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
-        protected override void BeginProcessing()
+        private void AssignParameters(FunctionSeries series, Dictionary<string, object> bp)
         {
-            var bp = MyInvocation.BoundParameters;
-
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = new PlotModel();
-
-            var series = new FunctionSeries();
-
             if (bp.ContainsKey("Color")) series.Color = Color;
             if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
             if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
@@ -235,6 +228,13 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ToolTip")) series.ToolTip = ToolTip;
             if (bp.ContainsKey("Selectable")) series.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) series.SelectionMode = SelectionMode;
+        }
+
+        protected override void BeginProcessing()
+        {
+            var si = new SeriesInfo<FunctionSeries>();
+
+            var bp = MyInvocation.BoundParameters;
 
             bool isExplicit = ParameterSetName == "Explicit";
             if (double.IsNaN(Dx))
@@ -245,35 +245,57 @@ namespace Horker.PSOxyPlot
                     Dx = (T1 - T0) / (N - 1);
             }
 
+            si.Series = new List<FunctionSeries>();
             var va = new List<PSVariable>();
             if (isExplicit)
             {
-                series.Title = F.ToString();
                 va.Add(new PSVariable("x"));
-                for (var i = X0; i <= X1 + Dx * .5; i += Dx)
-                {
-                    va[0].Value = i;
-                    var y = (double)F.InvokeWithContext(null, va, null)[0].BaseObject;
-                    series.Points.Add(new DataPoint(i, y));
+				foreach (var f in F)
+				{
+					var series = new FunctionSeries();
+					series.Title = f.ToString();
+                    AssignParameters(series, bp);
+                    si.Series.Add(series);
+
+					for (var i = X0; i <= X1 + Dx * .5; i += Dx)
+					{
+						va[0].Value = i;
+						var y = (double)f.InvokeWithContext(null, va, null)[0].BaseObject;
+						series.Points.Add(new DataPoint(i, y));
+					}
                 }
             }
             else
             {
                 va.Add(new PSVariable("t"));
-                for (var i = T0; i <= T1 + Dx * .5; i += Dx)
-                {
-                    series.Title = Fx.ToString() + ", " + Fy.ToString();
-                    va[0].Value = i;
-                    var x = (double)Fx.InvokeWithContext(null, va, null)[0].BaseObject;
-                    var y = (double)Fy.InvokeWithContext(null, va, null)[0].BaseObject;
-                    series.Points.Add(new DataPoint(x, y));
+				for (var i = 0; i < Fx.Length; ++i)
+				{
+					var series = new FunctionSeries();
+					series.Title = Fx[i].ToString() + ", " + Fy[i].ToString();
+                    AssignParameters(series, bp);
+                    si.Series.Add(series);
+
+                    for (var j = T0; j <= T1 + Dx * .5; j += Dx)
+                    {
+                        va[0].Value = j;
+                        var x = (double)Fx[i].InvokeWithContext(null, va, null)[0].BaseObject;
+                        var y = (double)Fy[i].InvokeWithContext(null, va, null)[0].BaseObject;
+                        series.Points.Add(new DataPoint(x, y));
+                    }
                 }
             }
 
+            PlotModel model = AddTo;
+            if (model == null && bp.ContainsKey("OutFile"))
+                model = ObjectFactory.CreatePlotModel(si);
+
             if (model != null)
-                model.Series.Add(series);
+            {
+                foreach (var s in si.Series)
+                    model.Series.Add(s);
+            }
             else
-                WriteObject(series);
+                WriteObject(si);
 
             if (bp.ContainsKey("OutFile"))
                 ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);

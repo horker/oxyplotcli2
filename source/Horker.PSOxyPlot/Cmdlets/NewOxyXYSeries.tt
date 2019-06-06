@@ -19,7 +19,7 @@
 <#@ include file="Definitions.tt" #>
 <#
 var assembly = typeof(LineSeriesBuilder).Assembly;
-var builderTypes = assembly.DefinedTypes.Where(x => x.Name.EndsWith("SeriesBuilder") && !x.IsAbstract);
+var builderTypes = assembly.DefinedTypes.Where(x => x.Name.EndsWith("SeriesBuilder") && !x.IsAbstract && !x.Name.Contains("Function"));
 
 // Uncomment this line to skip template generating.
 // builderTypes = new TypeInfo[0];

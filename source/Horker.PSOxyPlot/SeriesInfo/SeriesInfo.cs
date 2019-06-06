@@ -10,8 +10,8 @@ namespace Horker.PSOxyPlot
     public class SeriesInfo<SeriesT> : ISeriesInfo
         where SeriesT: Series
     {
-        Series[] ISeriesInfo.Series { get => Series; set => Series = (SeriesT[])value; }
-        public SeriesT[] Series { get; set; }
+        IList<Series> ISeriesInfo.Series { get => Series.Cast<Series>().ToList(); set => Series = (IList<SeriesT>)value; }
+        public IList<SeriesT> Series { get; set; }
 
         public string[] AxisTitles { get; set; }
         public Type[] DataTypes { get; set; }
