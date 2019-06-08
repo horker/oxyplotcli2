@@ -18,9 +18,9 @@ namespace Horker.PSOxyPlot.ObjectFactories
             if (axisType == null)
                 return null;
 
-            if (si.DataTypes[index] == typeof(DateTime))
+            if (si.AxisTypes[index] == AxisType.DateTime)
                 axisType = typeof(DateTimeAxis);
-            else if (si.DataTypes[index] == typeof(TimeSpan))
+            else if (si.AxisTypes[index] == AxisType.TimeSpan)
                 axisType = typeof(TimeSpan);
 
             var axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);

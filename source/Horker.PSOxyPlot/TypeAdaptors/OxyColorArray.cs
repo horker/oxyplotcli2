@@ -15,7 +15,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             if (value is IEnumerable<OxyPlot.OxyColor> c)
                 Value = c.ToArray();
             else if (value is IEnumerable<object> o)
-                Value = o.Select(x => new OxyColor(x).Value).ToArray();
+                Value = o.Select(x => (OxyPlot.OxyColor)(OxyColor)x).ToArray();
             else
                 throw new ArgumentException("Can't convert to a OxyColor array");
         }

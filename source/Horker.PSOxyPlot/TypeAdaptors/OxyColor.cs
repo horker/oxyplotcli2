@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Horker.PSOxyPlot.TypeAdaptors
@@ -10,6 +11,8 @@ namespace Horker.PSOxyPlot.TypeAdaptors
     public class OxyColor
     {
         private static readonly Dictionary<string, OxyPlot.OxyColor> _colorMap;
+        private static readonly Regex ColorFormat = new Regex("^(.+)-([\\d.]+)$");
+
         private OxyPlot.OxyColor _color;
 
         public static IDictionary<string, OxyPlot.OxyColor> Colors => _colorMap;
@@ -32,40 +35,53 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             _color = OxyPlot.OxyColors.Automatic;
         }
 
-        public OxyColor(string colorString)
+        public OxyColor(OxyPlot.OxyColor color)
         {
-            _color = Parse(colorString);
+            _color = color;
         }
-
+        
         public OxyColor(object value)
         {
-            if (value is OxyPlot.OxyColor oxyColor)
-                _color = oxyColor;
-            else if (value is OxyColor typeAdaptor)
-                _color = typeAdaptor.Value;
-            else
+            if (value is OxyPlot.OxyColor c)
+                _color = c;
+            else 
                 _color = Parse(value.ToString());
         }
 
-        private OxyPlot.OxyColor Parse(string colorString)
+        public static OxyPlot.OxyColor Parse(string colorString)
         {
+            double alpha = double.NaN;
+
+            var m = ColorFormat.Match(colorString);
+            if (m.Success)
+            {
+                colorString = m.Groups[1].Value;
+                alpha = double.Parse(m.Groups[2].Value);
+            }
+
             OxyPlot.OxyColor color;
-            if (_colorMap.TryGetValue(colorString.ToLower(), out color))
-                return color;
+            if (!_colorMap.TryGetValue(colorString.ToLower(), out color))
+                color = OxyPlot.OxyColor.Parse(colorString);
 
-            // TODO:  #rrggbbaa format
+            if (!double.IsNaN(alpha))
+                color = OxyPlot.OxyColor.FromAColor((byte)(alpha * 255), color);
 
-            throw new ArgumentException($"Unknown color name: {colorString}");
+            return color;
+        }
+
+        public static implicit operator OxyPlot.OxyColor(OxyColor value)
+        {
+            return value._color;
         }
 
         public static implicit operator OxyColor(string value)
         {
-            return new OxyColor(value);
+            return new OxyColor(Parse(value));
         }
 
-        public static implicit operator OxyPlot.OxyColor(OxyColor adaptor)
+        public static implicit operator OxyColor(OxyPlot.OxyColor value)
         {
-            return adaptor._color;
+            return new OxyColor(value);
         }
     }
 }

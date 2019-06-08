@@ -81,6 +81,7 @@
     <Compile Include="Exporters\GridViewExporter.cs" />
     <Compile Include="Exporters\ModelExporter.cs" />
     <Compile Include="Cmdlets\NewOxyGridView.cs" />
+    <Compile Include="SeriesInfo\AxisType.cs" />
     <Compile Include="TypeAdaptors\Double.cs" />
     <Compile Include="TypeAdaptors\OxyColorArray.cs" />
     <Content Include="Cmdlets\NewOxyXYAxis.tt">

@@ -14,14 +14,14 @@ namespace Horker.PSOxyPlot
         public IList<SeriesT> Series { get; set; }
 
         public string[] AxisTitles { get; set; }
-        public Type[] DataTypes { get; set; }
+        public AxisType[] AxisTypes { get; set; }
         public string GroupName { get; set; }
         public string[] CategoryNames { get; set; }
 
         public SeriesInfo()
         {
             AxisTitles = new string[] { null, null };
-            DataTypes = new Type[] { null, null };
+            AxisTypes = new AxisType[] { AxisType.Unspecified, AxisType.Unspecified };
         }
     }
 }

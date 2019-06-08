@@ -12,7 +12,7 @@ $SCRIPT_PATH = "$PSScriptRoot\scripts"
 $MODULE_PATH = "$PSScriptRoot\module\psoxyplot"
 $MODULE_PATH_DEBUG = "$PSScriptRoot\module\debug\psoxyplot"
 
-$SOLUTION_FILE = "$PSScriptRoot\source\psoxyplot.sln"
+$SOLUTION_FILE = "$PSScriptRoot\source\oxyplotcli.sln"
 
 $OBJECT_FILES = @(
   "Horker.PSOxyPlot.dll"

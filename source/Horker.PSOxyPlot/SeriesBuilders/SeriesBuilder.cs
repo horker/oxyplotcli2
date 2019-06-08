@@ -47,7 +47,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         private T ConvertObjectType<T>(object value)
         {
             if (typeof(T) == typeof(double))
-                return (T)(object)SmartConverter.ToDouble(value);
+                return (T)(object)new TypeAdaptors.Double(value).Value;
 
             if (typeof(T) == typeof(int))
                 return (T)(object)SmartConverter.ToInt(value);
@@ -59,7 +59,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 return (T)(object)value.ToString();
 
             if (typeof(T) == typeof(OxyColor))
-                return (T)(object)new TypeAdaptors.OxyColor(value);
+                return (T)(object)new TypeAdaptors.OxyColor(value).Value;
 
             if (typeof(T) == typeof(TypeAdaptors.Category))
                 return (T)(object)new TypeAdaptors.Category((string)value);
@@ -84,6 +84,49 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 return (T)(object)OxyColors.Automatic;
 
             return default(T);
+        }
+
+        private AxisType InferAxisType<T>(object value)
+        {
+            if (typeof(T) != typeof(double))
+                return AxisType.Numeric;
+
+            var t = value.GetType();
+            if (t == typeof(double) || t == typeof(float) || t == typeof(long) || t == typeof(int) ||
+                t == typeof(short) || t == typeof(byte) || t == typeof(sbyte))
+                return AxisType.Numeric;
+
+            if (t == typeof(DateTime) || t == typeof(DateTimeOffset))
+                return AxisType.DateTime;
+
+            if (t == typeof(TimeSpan))
+                return AxisType.TimeSpan;
+
+            try
+            {
+                var dummy = SmartConverter.ToDouble(value);
+                return AxisType.Numeric;
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    var dummy = DateTime.Parse(value.ToString());
+                    return AxisType.DateTime;
+                }
+                catch (Exception)
+                {
+                    try
+                    {
+                        var dummy = TimeSpan.Parse(value.ToString());
+                        return AxisType.TimeSpan;
+                    }
+                    catch (Exception)
+                    {
+                        return AxisType.Numeric;
+                    }
+                }
+            }
         }
 
         private void ReadInputObject<T>(List<T> elements, PSObject inputObject, int argIndex)
