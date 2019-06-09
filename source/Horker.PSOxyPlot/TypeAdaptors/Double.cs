@@ -22,38 +22,41 @@ namespace Horker.PSOxyPlot.TypeAdaptors
 
         public Double(string value)
         {
-            Value = Parse(value);
+            Value = ConvertFrom(value);
         }
 
-        public Double(object value)
+        public static double ConvertFrom(object value)
         {
+            double v;
             if (value is byte b)
-                Value = b;
+                v = b;
             else if (value is sbyte sb)
-                Value = sb;
+                v = sb;
             else if (value is short s)
-                Value = s;
+                v = s;
             else if (value is int i)
-                Value = i;
+                v = i;
             else if (value is long l)
-                Value = l;
+                v = l;
             else if (value is float f)
-                Value = f;
+                v = f;
             else if (value is double d)
-                Value = d;
+                v = d;
             else if (value is decimal dec)
-                Value = (double)dec;
+                v = (double)dec;
             else if (value is DateTime dt)
-                Value = Parse(dt);
+                v = ConvertFrom(dt);
             else if (value is DateTimeOffset dto)
-                Value = Parse(dto);
+                v = ConvertFrom(dto);
             else if (value is TimeSpan ts)
-                Value = Parse(ts);
+                v = ConvertFrom(ts);
+            else
+                v = ConvertFrom(value.ToString());
 
-            Value = Parse(value.ToString());
+            return v;
         }
 
-        public static double Parse(string value)
+        public static double ConvertFrom(string value)
         {
             try
             {
@@ -79,17 +82,17 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             }
         }
 
-        public static double Parse(DateTime value)
+        public static double ConvertFrom(DateTime value)
         {
             return OxyPlot.Axes.DateTimeAxis.ToDouble(value);
         }
 
-        public static double Parse(DateTimeOffset value)
+        public static double ConvertFrom(DateTimeOffset value)
         {
             return OxyPlot.Axes.DateTimeAxis.ToDouble(value.DateTime);
         }
 
-        public static double Parse(TimeSpan value)
+        public static double ConvertFrom(TimeSpan value)
         {
             return OxyPlot.Axes.TimeSpanAxis.ToDouble(value);
         }
@@ -141,22 +144,22 @@ namespace Horker.PSOxyPlot.TypeAdaptors
 
         public static implicit operator Double(DateTime value)
         {
-            return new Double(Parse(value));
+            return new Double(ConvertFrom(value));
         }
 
         public static implicit operator Double(DateTimeOffset value)
         {
-            return new Double(Parse(value));
+            return new Double(ConvertFrom(value));
         }
 
         public static implicit operator Double(TimeSpan value)
         {
-            return new Double(Parse(value));
+            return new Double(ConvertFrom(value));
         }
 
         public static implicit operator Double(string value)
         {
-            return new Double(Parse(value));
+            return new Double(ConvertFrom(value));
         }
     }
 }

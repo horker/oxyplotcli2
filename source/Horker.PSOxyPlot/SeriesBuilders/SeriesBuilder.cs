@@ -47,7 +47,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         private T ConvertObjectType<T>(object value)
         {
             if (typeof(T) == typeof(double))
-                return (T)(object)new TypeAdaptors.Double(value).Value;
+                return (T)(object)TypeAdaptors.Double.ConvertFrom(value);
 
             if (typeof(T) == typeof(int))
                 return (T)(object)SmartConverter.ToInt(value);
@@ -59,7 +59,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 return (T)(object)value.ToString();
 
             if (typeof(T) == typeof(OxyColor))
-                return (T)(object)new TypeAdaptors.OxyColor(value).Value;
+                return (T)(object)TypeAdaptors.OxyColor.ConvertFrom(value);
 
             if (typeof(T) == typeof(TypeAdaptors.Category))
                 return (T)(object)new TypeAdaptors.Category((string)value);

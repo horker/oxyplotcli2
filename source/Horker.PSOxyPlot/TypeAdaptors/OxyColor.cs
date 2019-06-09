@@ -40,15 +40,20 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             _color = color;
         }
         
-        public OxyColor(object value)
+        public OxyColor(string value)
         {
-            if (value is OxyPlot.OxyColor c)
-                _color = c;
-            else 
-                _color = Parse(value.ToString());
+            _color = ConvertFrom(value);
         }
 
-        public static OxyPlot.OxyColor Parse(string colorString)
+        public static OxyPlot.OxyColor ConvertFrom(object value)
+        {
+            if (value is OxyPlot.OxyColor c)
+                return c;
+            else 
+                return ConvertFrom(value.ToString());
+        }
+
+        public static OxyPlot.OxyColor ConvertFrom(string colorString)
         {
             double alpha = double.NaN;
 
@@ -56,7 +61,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             if (m.Success)
             {
                 colorString = m.Groups[1].Value;
-                alpha = double.Parse(m.Groups[2].Value);
+                alpha = double.Parse(m.Groups[2].Value) / 100;
             }
 
             OxyPlot.OxyColor color;
@@ -76,7 +81,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
 
         public static implicit operator OxyColor(string value)
         {
-            return new OxyColor(Parse(value));
+            return new OxyColor(ConvertFrom(value));
         }
 
         public static implicit operator OxyColor(OxyPlot.OxyColor value)
