@@ -13,6 +13,6 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         bool[] DataPointItemMandatoriness { get; }
         int[] AxisItemIndexes { get; }
         Type[] DefaultAxisTypes { get; }
-        string ShortName { get; }
+        string[] Aliases { get; }
     }
 }

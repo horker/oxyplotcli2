@@ -528,7 +528,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyBoxPlotSeries")]
-    [Alias("oxy.boxPlot", "oxyboxPlot")]
+    [Alias("oxy.boxPlot", "oxy.box", "oxybox")]
     [OutputType(typeof(SeriesInfo<BoxPlotSeries>))]
     public class NewOxyBoxPlotSeries : PSCmdlet
     {
@@ -794,7 +794,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyCandleStickSeries")]
-    [Alias("oxy.candleStick", "oxycandleStick")]
+    [Alias("oxy.candleStick", "oxy.cnadle", "oxycandle")]
     [OutputType(typeof(SeriesInfo<CandleStickSeries>))]
     public class NewOxyCandleStickSeries : PSCmdlet
     {
@@ -1036,7 +1036,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyCandleStickAndVolumeSeries")]
-    [Alias("oxy.candleStickAndVolume", "oxycandleStickAndVolume")]
+    [Alias("oxy.candlev", "oxycandlev")]
     [OutputType(typeof(SeriesInfo<CandleStickAndVolumeSeries>))]
     public class NewOxyCandleStickAndVolumeSeries : PSCmdlet
     {
@@ -1286,7 +1286,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyColumnSeries")]
-    [Alias("oxy.column", "oxycolumn")]
+    [Alias("oxy.column", "oxy.col", "oxycolumn")]
     [OutputType(typeof(SeriesInfo<ColumnSeries>))]
     public class NewOxyColumnSeries : PSCmdlet
     {
@@ -1724,7 +1724,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyErrorColumnSeries")]
-    [Alias("oxy.errorColumn", "oxyerrorColumn")]
+    [Alias("oxy.errorColumn", "oxy.ecol", "oxyecol")]
     [OutputType(typeof(SeriesInfo<ErrorColumnSeries>))]
     public class NewOxyErrorColumnSeries : PSCmdlet
     {
@@ -1954,7 +1954,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyHighLowSeries")]
-    [Alias("oxy.highLow", "oxyhighLow")]
+    [Alias("oxy.highLow", "oxyhighlow")]
     [OutputType(typeof(SeriesInfo<HighLowSeries>))]
     public class NewOxyHighLowSeries : PSCmdlet
     {
@@ -2184,7 +2184,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyIntervalBarSeries")]
-    [Alias("oxy.intervalBar", "oxyintervalBar")]
+    [Alias("oxy.intervalBar", "oxy.ibar", "oxyibar")]
     [OutputType(typeof(SeriesInfo<IntervalBarSeries>))]
     public class NewOxyIntervalBarSeries : PSCmdlet
     {
@@ -2400,7 +2400,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyLinearBarSeries")]
-    [Alias("oxy.linearBar", "oxylinearBar")]
+    [Alias("oxy.linearBar", "oxy.lbar", "oxylbar")]
     [OutputType(typeof(SeriesInfo<LinearBarSeries>))]
     public class NewOxyLinearBarSeries : PSCmdlet
     {
@@ -3128,7 +3128,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyRectangleBarSeries")]
-    [Alias("oxy.rectangleBar", "oxyrectangleBar")]
+    [Alias("oxy.rectangleBar", "oxy.rbar", "oxyrbar")]
     [OutputType(typeof(SeriesInfo<RectangleBarSeries>))]
     public class NewOxyRectangleBarSeries : PSCmdlet
     {
@@ -3324,7 +3324,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyScatterSeries")]
-    [Alias("oxy.scatter", "oxyscatter")]
+    [Alias("oxy.scatter", "oxy.scat", "oxyscat")]
     [OutputType(typeof(SeriesInfo<ScatterSeries>))]
     public class NewOxyScatterSeries : PSCmdlet
     {
@@ -3564,7 +3564,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyScatterErrorSeries")]
-    [Alias("oxy.scatterError", "oxyscatterError")]
+    [Alias("oxy.scatterError", "oxy.scate", "oxyscate")]
     [OutputType(typeof(SeriesInfo<ScatterErrorSeries>))]
     public class NewOxyScatterErrorSeries : PSCmdlet
     {
@@ -3840,7 +3840,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyStairStepSeries")]
-    [Alias("oxy.stairStep", "oxystairStep")]
+    [Alias("oxy.stairStep", "oxy.stair", "oxystart")]
     [OutputType(typeof(SeriesInfo<StairStepSeries>))]
     public class NewOxyStairStepSeries : PSCmdlet
     {
@@ -4380,7 +4380,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyThreeColorLineSeries")]
-    [Alias("oxy.3colorLine", "oxy3colorLine")]
+    [Alias("oxy.ThreeColorLine", "oxy.3cLine", "oxy3cline")]
     [OutputType(typeof(SeriesInfo<ThreeColorLineSeries>))]
     public class NewOxyThreeColorLineSeries : PSCmdlet
     {
@@ -4676,7 +4676,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyTornadoBarSeries")]
-    [Alias("oxy.tornadoBar", "oxytornadoBar")]
+    [Alias("oxy.tornadoBar", "oxy.tornado", "oxytornado")]
     [OutputType(typeof(SeriesInfo<TornadoBarSeries>))]
     public class NewOxyTornadoBarSeries : PSCmdlet
     {
@@ -4916,7 +4916,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyTwoColorAreaSeries")]
-    [Alias("oxy.2colorArea", "oxy2colorArea")]
+    [Alias("oxy.twoColorArea", "oxy.2cArea", "oxy2carea")]
     [OutputType(typeof(SeriesInfo<TwoColorAreaSeries>))]
     public class NewOxyTwoColorAreaSeries : PSCmdlet
     {
@@ -5240,7 +5240,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyTwoColorLineSeries")]
-    [Alias("oxy.2colorLine", "oxy2colorLine")]
+    [Alias("oxy.twoColorLine", "oxy.2cLine", "oxy2cline")]
     [OutputType(typeof(SeriesInfo<TwoColorLineSeries>))]
     public class NewOxyTwoColorLineSeries : PSCmdlet
     {

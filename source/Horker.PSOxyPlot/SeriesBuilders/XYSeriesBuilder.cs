@@ -11,11 +11,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 {
     public class AreaSeriesBuilder : SeriesBuilder<AreaSeries, DataPoint, double, double, double, double, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X1", "Y1", "X2", "Y2" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false };
-        public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "area";
+        public override string[] DataPointItemNames => new[] { "X1", "Y1", "X2", "Y2" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, false, false };
+        public override int[] AxisItemIndexes => new[] { 0, 1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.area", "oxyarea" };
 
         protected override void AddDataPointToSeries(AreaSeries series, double x1, double y1, double x2, double y2, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -36,11 +36,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class BarSeriesBuilder : SeriesBuilder<BarSeries, BarItem, double, TypeAdaptors.Category, VoidT, VoidT, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "Value", "Category" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, false };
-        public override int[] AxisItemIndexes => new int[] { 0, 1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(CategoryAxis) };
-        public override string ShortName => "bar";
+        public override string[] DataPointItemNames => new[] { "Value", "Category" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, false };
+        public override int[] AxisItemIndexes => new[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(CategoryAxis) };
+        public override string[] Aliases => new[] { "oxy.bar", "oxybar" };
 
         protected override void AddDataPointToSeries(BarSeries series, double value, TypeAdaptors.Category category, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -50,11 +50,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class BoxPlotSeriesBuilder : SeriesBuilder<BoxPlotSeries, BoxPlotItem, TypeAdaptors.Category, double, double, double, double, double, object>
     {
-        public override string[] DataPointItemNames => new string[] { "Category", "LowerWhisker", "BoxBottom", "Median", "BoxTop", "UpperWhisker", "Outliers" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true, true, true, false };
-        public override int[] AxisItemIndexes => new int[] { 0, -1, -1, 1, -1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(CategoryAxis), typeof(LinearAxis) };
-        public override string ShortName => "boxPlot";
+        public override string[] DataPointItemNames => new[] { "Category", "LowerWhisker", "BoxBottom", "Median", "BoxTop", "UpperWhisker", "Outliers" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true, true, false };
+        public override int[] AxisItemIndexes => new[] { 0, -1, -1, 1, -1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(CategoryAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.boxPlot", "oxy.box", "oxybox" };
 
         protected override void AddDataPointToSeries(BoxPlotSeries series, TypeAdaptors.Category category, double lowerWhisker, double boxBottom, double median, double boxTop, double upperWhisker, object outliers)
         {
@@ -68,11 +68,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class CandleStickSeriesBuilder : SeriesBuilder<CandleStickSeries, HighLowItem, double, double, double, double, double, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "High", "Low", "Open", "Close" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true, true };
-        public override int[] AxisItemIndexes => new int[] { 0, -1, -1, -1, 1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "candleStick";
+        public override string[] DataPointItemNames => new[] { "X", "High", "Low", "Open", "Close" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true };
+        public override int[] AxisItemIndexes => new[] { 0, -1, -1, -1, 1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.candleStick", "oxy.cnadle", "oxycandle" };
 
         protected override void AddDataPointToSeries(CandleStickSeries series, double x, double high, double low, double open, double close, VoidT e6, VoidT e7)
         {
@@ -82,11 +82,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class CandleStickAndVolumeSeriesBuilder : SeriesBuilder<CandleStickAndVolumeSeries, OhlcvItem, double, double, double, double, double, double, double>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "Open", "High", "Low", "Close", "BuyVolume", "SellVolume" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true, true, false, false };
-        public override int[] AxisItemIndexes => new int[] { 0, -1, -1, -1, 1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "candleStickAndVolume";
+        public override string[] DataPointItemNames => new[] { "X", "Open", "High", "Low", "Close", "BuyVolume", "SellVolume" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true, false, false };
+        public override int[] AxisItemIndexes => new[] { 0, -1, -1, -1, 1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.candlev", "oxycandlev" };
 
         protected override void AddDataPointToSeries(CandleStickAndVolumeSeries series, double x, double open, double high, double low, double close, double buyVolume, double sellVolume)
         {
@@ -96,11 +96,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class ColumnSeriesBuilder : SeriesBuilder<ColumnSeries, ColumnItem, double, TypeAdaptors.Category, VoidT, VoidT, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "Value", "Category" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, false };
-        public override int[] AxisItemIndexes => new int[] { 1, 0 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(CategoryAxis), typeof(LinearAxis) };
-        public override string ShortName => "column";
+        public override string[] DataPointItemNames => new[] { "Value", "Category" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, false };
+        public override int[] AxisItemIndexes => new[] { 1, 0 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(CategoryAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.column", "oxy.col", "oxycolumn" };
 
         protected override void AddDataPointToSeries(ColumnSeries series, double value, TypeAdaptors.Category category, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -110,11 +110,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class ContourSeriesBuilder : SeriesBuilder<ContourSeries, DataPoint, double, double, double, VoidT, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "Y", "Z" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true };
-        public override int[] AxisItemIndexes => new int[] { 0, 1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "contour";
+        public override string[] DataPointItemNames => new[] { "X", "Y", "Z" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, true };
+        public override int[] AxisItemIndexes => new[] { 0, 1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.contour", "oxycontour" };
 
         private List<double> _x;
         private List<double> _y;
@@ -165,11 +165,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class ErrorColumnSeriesBuilder : SeriesBuilder<ErrorColumnSeries, ErrorColumnItem, double, double, TypeAdaptors.Category, VoidT, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "Value", "Error", "Category" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false };
-        public override int[] AxisItemIndexes => new int[] { 1, -1, 0 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(CategoryAxis), typeof(LinearAxis) };
-        public override string ShortName => "errorColumn";
+        public override string[] DataPointItemNames => new[] { "Value", "Error", "Category" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, false };
+        public override int[] AxisItemIndexes => new[] { 1, -1, 0 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(CategoryAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.errorColumn", "oxy.ecol", "oxyecol" };
 
         protected override void AddDataPointToSeries(ErrorColumnSeries series, double value, double error, TypeAdaptors.Category category, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -182,8 +182,8 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public override string[] DataPointItemNames => new string[] { };
         public override bool[] DataPointItemMandatoriness => new bool[] { };
         public override int[] AxisItemIndexes => new int[] { };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "func";
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.function", "oxy.func", "oxyfunc" };
 
         protected override void AddDataPointToSeries(FunctionSeries series, VoidT e1, VoidT e2, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -192,11 +192,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class HighLowSeriesBuilder : SeriesBuilder<HighLowSeries, HighLowItem, double, double, double, double, double, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "High", "Low", "Open", "Close" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true, true };
-        public override int[] AxisItemIndexes => new int[] { 0, -1, -1, -1, 1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "highLow";
+        public override string[] DataPointItemNames => new[] { "X", "High", "Low", "Open", "Close" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true };
+        public override int[] AxisItemIndexes => new[] { 0, -1, -1, -1, 1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.highLow", "oxyhighlow" };
 
         protected override void AddDataPointToSeries(HighLowSeries series, double x, double high, double low, double open, double close, VoidT e6, VoidT e7)
         {
@@ -206,11 +206,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class IntervalBarSeriesBuilder : SeriesBuilder<IntervalBarSeries, IntervalBarItem, double, double, string, TypeAdaptors.Category, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "Start", "End", "BarTitle", "Category" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false };
-        public override int[] AxisItemIndexes => new int[] { 1, -1, -1, 0 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(CategoryAxis) };
-        public override string ShortName => "intervalBar";
+        public override string[] DataPointItemNames => new[] { "Start", "End", "BarTitle", "Category" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, false, false };
+        public override int[] AxisItemIndexes => new[] { 1, -1, -1, 0 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(CategoryAxis) };
+        public override string[] Aliases => new[] { "oxy.intervalBar", "oxy.ibar", "oxyibar" };
 
         protected override void AddDataPointToSeries(IntervalBarSeries series, double start, double end, string barTitle, TypeAdaptors.Category category, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -220,11 +220,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class LinearBarSeriesBuilder : SeriesBuilder<LinearBarSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "Y" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
-        public override int[] AxisItemIndexes => new int[] { 0, 1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "linearBar";
+        public override string[] DataPointItemNames => new[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true };
+        public override int[] AxisItemIndexes => new[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.linearBar", "oxy.lbar", "oxylbar" };
 
         protected override void AddDataPointToSeries(LinearBarSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -234,11 +234,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class LineSeriesBuilder : SeriesBuilder<LineSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "Y" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
-        public override int[] AxisItemIndexes => new int[] { 0, 1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "line";
+        public override string[] DataPointItemNames => new[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true };
+        public override int[] AxisItemIndexes => new[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.line", "oxyline" };
 
         protected override void AddDataPointToSeries(LineSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -248,11 +248,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class PieSeriesBuilder : SeriesBuilder<PieSeries, PieSlice, string, double, OxyColor, bool, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "Label", "Value", "Fill", "IsExploded" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false };
-        public override int[] AxisItemIndexes => new int[] { -1, -1, -1, -1 };
+        public override string[] DataPointItemNames => new[] { "Label", "Value", "Fill", "IsExploded" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, false, false };
+        public override int[] AxisItemIndexes => new[] { -1, -1, -1, -1 };
         public override Type[] DefaultAxisTypes => new Type[] { null, null };
-        public override string ShortName => "pie";
+        public override string[] Aliases => new[] { "oxy.pie", "oxypie" };
 
         protected override void AddDataPointToSeries(PieSeries series, string label, double value, OxyColor fill, bool isExploded, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -265,11 +265,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class RectangleBarSeriesBuilder : SeriesBuilder<RectangleBarSeries, RectangleBarItem, double, double, double, double, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X0", "Y0", "X1", "Y1" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true };
-        public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "rectangleBar";
+        public override string[] DataPointItemNames => new[] { "X0", "Y0", "X1", "Y1" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true };
+        public override int[] AxisItemIndexes => new[] { 0, 1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.rectangleBar", "oxy.rbar", "oxyrbar" };
 
         protected override void AddDataPointToSeries(RectangleBarSeries series, double x0, double y0, double x1, double y1, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -279,11 +279,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class ScatterSeriesBuilder : SeriesBuilder<ScatterSeries, ScatterPoint, double, double, double, double, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "Y", "Size", "Value" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false };
-        public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "scatter";
+        public override string[] DataPointItemNames => new[] { "X", "Y", "Size", "Value" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, false, false };
+        public override int[] AxisItemIndexes => new[] { 0, 1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.scatter", "oxy.scat", "oxyscat" };
 
         protected override void AddDataPointToSeries(ScatterSeries series, double x, double y, double size, double value, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -293,11 +293,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class ScatterErrorSeriesBuilder : SeriesBuilder<ScatterErrorSeries, ScatterPoint, double, double, double, double, double, double, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "Y", "ErrorX", "ErrorY", "Size", "Value" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, false, false, false, false };
-        public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "scatterError";
+        public override string[] DataPointItemNames => new[] { "X", "Y", "ErrorX", "ErrorY", "Size", "Value" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, false, false, false, false };
+        public override int[] AxisItemIndexes => new[] { 0, 1, -1, -1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.scatterError", "oxy.scate", "oxyscate" };
 
         protected override void AddDataPointToSeries(ScatterErrorSeries series, double x, double y, double errorX, double errorY, double size, double value, VoidT e7)
         {
@@ -307,11 +307,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class StairStepSeriesBuilder : SeriesBuilder<StairStepSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "Y" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
-        public override int[] AxisItemIndexes => new int[] { 0, 1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "stairStep";
+        public override string[] DataPointItemNames => new[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true };
+        public override int[] AxisItemIndexes => new[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.stairStep", "oxy.stair", "oxystart" };
 
         protected override void AddDataPointToSeries(StairStepSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -321,11 +321,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class StemSeriesBuilder : SeriesBuilder<StemSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "Y" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
-        public override int[] AxisItemIndexes => new int[] { 0, 1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "stem";
+        public override string[] DataPointItemNames => new[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true };
+        public override int[] AxisItemIndexes => new[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.stem", "oxystem" };
 
         protected override void AddDataPointToSeries(StemSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -335,11 +335,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class ThreeColorLineSeriesBuilder : SeriesBuilder<ThreeColorLineSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "Y" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
-        public override int[] AxisItemIndexes => new int[] { 0, 1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "3colorLine";
+        public override string[] DataPointItemNames => new[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true };
+        public override int[] AxisItemIndexes => new[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.ThreeColorLine", "oxy.3cLine", "oxy3cline" };
 
         protected override void AddDataPointToSeries(ThreeColorLineSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -349,11 +349,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class TornadoBarSeriesBuilder : SeriesBuilder<TornadoBarSeries, TornadoBarItem, double, double, double, OxyColor, OxyColor, TypeAdaptors.Category, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "Minimum", "Maximum", "BarBaseValue", "MinimumColor", "MaximumColor", "Category" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, false, false, false };
-        public override int[] AxisItemIndexes => new int[] { 0, -1, -1, -1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(CategoryAxis) };
-        public override string ShortName => "tornadoBar";
+        public override string[] DataPointItemNames => new[] { "Minimum", "Maximum", "BarBaseValue", "MinimumColor", "MaximumColor", "Category" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, true, false, false, false };
+        public override int[] AxisItemIndexes => new[] { 0, -1, -1, -1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(CategoryAxis) };
+        public override string[] Aliases => new[] { "oxy.tornadoBar", "oxy.tornado", "oxytornado" };
 
         protected override void AddDataPointToSeries(TornadoBarSeries series, double minimum, double maximum, double barBaseValue, OxyColor minimumColor, OxyColor maximumColor, TypeAdaptors.Category category, VoidT e7)
         {
@@ -371,11 +371,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class TwoColorAreaSeriesBuilder : SeriesBuilder<TwoColorAreaSeries, DataPoint, double, double, double, double, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X1", "Y1", "X2", "Y2" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { false, false, false, false };
-        public override int[] AxisItemIndexes => new int[] { 0, 1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "2colorArea";
+        public override string[] DataPointItemNames => new[] { "X1", "Y1", "X2", "Y2" };
+        public override bool[] DataPointItemMandatoriness => new[] { false, false, false, false };
+        public override int[] AxisItemIndexes => new[] { 0, 1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.twoColorArea", "oxy.2cArea", "oxy2carea" };
 
         protected override void AddDataPointToSeries(TwoColorAreaSeries series, double x1, double y1, double x2, double y2, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -396,11 +396,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class TwoColorLineSeriesBuilder : SeriesBuilder<TwoColorLineSeries, DataPoint, double, double, VoidT, VoidT, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "Y" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true };
-        public override int[] AxisItemIndexes => new int[] { 0, 1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "2colorLine";
+        public override string[] DataPointItemNames => new[] { "X", "Y" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true };
+        public override int[] AxisItemIndexes => new[] { 0, 1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.twoColorLine", "oxy.2cLine", "oxy2cline" };
 
         protected override void AddDataPointToSeries(TwoColorLineSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -410,11 +410,11 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class VolumeSeriesBuilder : SeriesBuilder<VolumeSeries, OhlcvItem, double, double, double, double, double, double, double>
     {
-        public override string[] DataPointItemNames => new string[] { "X", "Open", "High", "Low", "Close", "BuyVolume", "SellVolume" };
-        public override bool[] DataPointItemMandatoriness => new bool[] { true, true, true, true, true, false, false };
-        public override int[] AxisItemIndexes => new int[] { 0, -1, -1, -1, 1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new Type[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string ShortName => "volume";
+        public override string[] DataPointItemNames => new[] { "X", "Open", "High", "Low", "Close", "BuyVolume", "SellVolume" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true, false, false };
+        public override int[] AxisItemIndexes => new[] { 0, -1, -1, -1, 1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.volume", "oxyvolume" };
 
         protected override void AddDataPointToSeries(VolumeSeries series, double x, double open, double high, double low, double close, double buyVolume, double sellVolume)
         {

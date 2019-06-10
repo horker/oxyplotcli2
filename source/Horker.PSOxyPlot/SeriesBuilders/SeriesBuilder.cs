@@ -22,7 +22,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public abstract bool[] DataPointItemMandatoriness { get; }
         public abstract int[] AxisItemIndexes { get; }
         public abstract Type[] DefaultAxisTypes { get; }
-        public abstract string ShortName { get; }
+        public abstract string[] Aliases { get; }
 
         protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6, E7 e7);
         protected virtual void Postprocess(SeriesT series) { }

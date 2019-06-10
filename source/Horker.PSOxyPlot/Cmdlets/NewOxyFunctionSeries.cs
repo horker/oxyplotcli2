@@ -11,7 +11,7 @@ using Horker.PSOxyPlot.ObjectFactories;
 namespace Horker.PSOxyPlot
 {
     [Cmdlet("New", "OxyFunctionSeries")]
-    [Alias("oxy.func", "oxyfunc")]
+    [Alias("oxy.function", "oxy.func", "oxyfunc")]
     [OutputType(typeof(FunctionSeries))]
     public class NewOxyFunctionSeries : PSCmdlet
     {
