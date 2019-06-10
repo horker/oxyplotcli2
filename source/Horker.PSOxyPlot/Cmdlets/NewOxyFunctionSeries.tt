@@ -60,6 +60,9 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 10, Mandatory = false)]
         public SwitchParameter SvgIsDocument = false;
 
+        [Parameter(Position = 11, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
 <#
 var position = 11;
 foreach (var prop in EnumerateProperties(typeof(FunctionSeries)))
@@ -146,12 +149,18 @@ foreach (var prop in EnumerateProperties(typeof(FunctionSeries)))
             {
                 foreach (var s in si.Series)
                     model.Series.Add(s);
+
+                if (bp.ContainsKey("OutFile"))
+                {
+                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+                    if (!PassThru)
+                        return;
+                }
+
+                WriteObject(model);
             }
             else
                 WriteObject(si);
-
-            if (bp.ContainsKey("OutFile"))
-                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 }

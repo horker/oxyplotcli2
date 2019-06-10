@@ -1,5 +1,4 @@
 interop with pscanvas
--PassThru
 RectangleBarSeries category?
 HeapMap and Contour series cmdlet interfaces
 volume charts in CandleStickAndVolume and Volume series
@@ -33,3 +32,4 @@ DONE DateTime and TimeSpan support
 DONE IntervalBarSeries category?
 DONE grid view output for png images
 DONE gridview paramters: -OutFile and friends
+DONE -PassThru

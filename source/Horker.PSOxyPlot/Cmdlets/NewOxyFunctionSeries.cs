@@ -59,6 +59,9 @@ namespace Horker.PSOxyPlot
         public SwitchParameter SvgIsDocument = false;
 
         [Parameter(Position = 11, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
+        [Parameter(Position = 11, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
 
         [Parameter(Position = 12, Mandatory = false)]
@@ -293,12 +296,18 @@ namespace Horker.PSOxyPlot
             {
                 foreach (var s in si.Series)
                     model.Series.Add(s);
+
+                if (bp.ContainsKey("OutFile"))
+                {
+                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
+                    if (!PassThru)
+                        return;
+                }
+
+                WriteObject(model);
             }
             else
                 WriteObject(si);
-
-            if (bp.ContainsKey("OutFile"))
-                ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
         }
     }
 }

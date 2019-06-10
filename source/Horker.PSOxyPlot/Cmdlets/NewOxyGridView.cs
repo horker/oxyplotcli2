@@ -40,6 +40,9 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 8, Mandatory = false)]
         public SwitchParameter SvgIsDocument = false;
 
+        [Parameter(Position = 9, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
             var grid = new GridView();
@@ -59,9 +62,13 @@ namespace Horker.PSOxyPlot
                 grid.SetHeights(Enumerable.Range(0, RowCount).Select(x => 1.0).ToArray());
 
             if (MyInvocation.BoundParameters.ContainsKey("OutFile"))
+            {
                 GridViewExporter.Export(grid, OutFile, OutWidth, OutHeight, SvgIsDocument);
-            else
-                WriteObject(grid);
+                if (!PassThru)
+                    return;
+            }
+
+            WriteObject(grid);
         }
     }
 }
