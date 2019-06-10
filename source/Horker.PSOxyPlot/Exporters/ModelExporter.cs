@@ -13,7 +13,7 @@ namespace Horker.PSOxyPlot
     {
         public static string ExportToSvgString(PlotModel model, double width = 800, double height = 600, bool isDocument = false)
         {
-            var ex = new OxyPlot.Wpf.SvgExporter()
+            var ex = new OxyPlot.SvgExporter()
             {
                 Width = width,
                 Height = height,

@@ -58,9 +58,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cmdlets\NewOxyXYAxis.cs">
@@ -83,7 +80,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NewOxyXYSeries.tt</DependentUpon>
     </Compile>
-    <Compile Include="Exporters\WpfVisualRenderer.cs" />
     <Compile Include="GridView\GridView.cs" />
     <Compile Include="Exporters\GridViewExporter.cs" />
     <Compile Include="Exporters\ModelExporter.cs" />

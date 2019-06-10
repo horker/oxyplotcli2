@@ -25,8 +25,7 @@ ScreenVector
 DataPoint in oxy.ann.text
 unit support
 SvgIsDocument
-Snazzy Bandit
-background color
+background color in png and grid view
 
 DONE OxyPlot v2.0 support
 DONE oxyplotcli v1 features
