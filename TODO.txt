@@ -1,4 +1,3 @@
-grid view output for png images
 interop with pscanvas
 -PassThru
 RectangleBarSeries category?
@@ -25,9 +24,13 @@ OxyImage in oxy.ann.image
 ScreenVector
 DataPoint in oxy.ann.text
 unit support
+SvgIsDocument
+Snazzy Bandit
+background color
 
 DONE OxyPlot v2.0 support
 DONE oxyplotcli v1 features
 DONE annotation
 DONE DateTime and TimeSpan support
 DONE IntervalBarSeries category?
+DONE grid view output for png images

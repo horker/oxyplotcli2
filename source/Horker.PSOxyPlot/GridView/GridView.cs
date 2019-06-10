@@ -141,7 +141,7 @@ namespace Horker.PSOxyPlot
             return Tuple.Create(w, h);
         }
 
-        public void Save(string path, int width = 800, int height = 600)
+        public void SaveAsSvg(string path, int width = 800, int height = 600, bool isDocument = true)
         {
             var svgString = GridViewExporter.ExportToSvgString(this, width, height);
 
@@ -149,6 +149,20 @@ namespace Horker.PSOxyPlot
             {
                 f.Write(svgString);
             }
+        }
+
+        public void SaveAsPngImage(string path, int width = 800, int height = 600)
+        {
+            GridViewExporter.ExportToPng(this, path, width, height);
+        }
+
+        public void Save(string path, int width = 800, int height = 600, bool isDocument = true)
+        {
+            var p = path.ToLower();
+            if (p.EndsWith(".png"))
+                GridViewExporter.ExportToPng(this, path, width, height);
+            else
+                GridViewExporter.ExportToSvg(this, path, width, height, isDocument);
         }
     }
 }
