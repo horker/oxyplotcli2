@@ -109,5 +109,14 @@ namespace Horker.PSOxyPlot
 
             File.Delete(file);
         }
+
+        public static void Export(GridView gridView, string path, int width = 800, int height = 600, bool isDocument = true)
+        {
+            var p = path.ToLower();
+            if (p.EndsWith(".png"))
+                ExportToPng(gridView, path, width, height);
+            else
+                ExportToSvg(gridView, path, width, height, isDocument);
+        }
     }
 }

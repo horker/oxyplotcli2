@@ -16,7 +16,6 @@ type conversions for bool, double[,], OxyPlatte, OxyThickness, OxyColor[] and ot
 numeric values with units
 collection support
 AddOxyAxisShare
-gridview paramters: -OutFile and friends
 -Options
 help document
 latest build for HistogramSeries support
@@ -33,3 +32,4 @@ DONE annotation
 DONE DateTime and TimeSpan support
 DONE IntervalBarSeries category?
 DONE grid view output for png images
+DONE gridview paramters: -OutFile and friends

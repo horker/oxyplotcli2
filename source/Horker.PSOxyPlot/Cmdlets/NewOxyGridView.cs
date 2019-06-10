@@ -28,6 +28,18 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 4, Mandatory = false)]
         public int RowCount;
 
+        [Parameter(Position = 5, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 6, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 7, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 8, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
         protected override void BeginProcessing()
         {
             var grid = new GridView();
@@ -46,7 +58,10 @@ namespace Horker.PSOxyPlot
             if (MyInvocation.BoundParameters.ContainsKey("RowCount"))
                 grid.SetHeights(Enumerable.Range(0, RowCount).Select(x => 1.0).ToArray());
 
-            WriteObject(grid);
+            if (MyInvocation.BoundParameters.ContainsKey("OutFile"))
+                GridViewExporter.Export(grid, OutFile, OutWidth, OutHeight, SvgIsDocument);
+            else
+                WriteObject(grid);
         }
     }
 }
