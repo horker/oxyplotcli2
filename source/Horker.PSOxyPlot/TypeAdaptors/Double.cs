@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Horker.PSOxyPlot.TypeAdaptors
 {
@@ -56,6 +59,22 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             return v;
         }
 
+        private static readonly Regex UnitPattern = new Regex("^(.+)(px|in|cm|pt)\\w*$", RegexOptions.IgnoreCase);
+
+        private static readonly int DpiX;
+        private static readonly int DpiY;
+
+        static Double()
+        {
+            // ref. https://stackoverflow.com/questions/1918877/how-can-i-get-the-dpi-in-wpf
+
+            var dpiXProperty = typeof(SystemParameters).GetProperty("DpiX", BindingFlags.NonPublic | BindingFlags.Static);
+            var dpiYProperty = typeof(SystemParameters).GetProperty("Dpi", BindingFlags.NonPublic | BindingFlags.Static);
+
+            DpiX = (int)dpiXProperty.GetValue(null, null);
+            DpiY = (int)dpiYProperty.GetValue(null, null);
+        }
+
         public static double ConvertFrom(string value)
         {
             try
@@ -76,7 +95,31 @@ namespace Horker.PSOxyPlot.TypeAdaptors
                     }
                     catch (Exception)
                     {
-                        throw new ArgumentException($"Can't convert to double, DateTime nor TimeSpan: {value}");
+                        try
+                        {
+                            var m = UnitPattern.Match(value);
+                            if (m.Success)
+                            {
+                                value = m.Groups[1].Value;
+                                var unit = m.Groups[2].Value.ToLower();
+                                var unitMultiply = 1.0;
+                                if (unit == "px")
+                                    unitMultiply = 1.0;
+                                else if (unit == "in")
+                                    unitMultiply = DpiX;
+                                else if (unit == "cm")
+                                    unitMultiply = DpiX / 2.54;
+                                else if (unit == "pt")
+                                    unitMultiply = DpiX / 72.0;
+
+                                return SmartConverter.ToDouble(value) * unitMultiply;
+                            }
+                            throw new ArgumentException($"Can't convert to double, DateTime nor TimeSpan: {value}");
+                        }
+                        catch (Exception)
+                        {
+                            throw new ArgumentException($"Can't convert to double, DateTime nor TimeSpan: {value}");
+                        }
                     }
                 }
             }

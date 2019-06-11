@@ -2,16 +2,13 @@ interop with pscanvas
 RectangleBarSeries category?
 HeapMap and Contour series cmdlet interfaces
 volume charts in CandleStickAndVolume and Volume series
-parameter lengths check for AreaSeries
 Tensor support
 Stype support
 ggplot stype
 axis parameters for series and model cmdlets
 partial axis name support
-thickness
 oxypalette
 type conversions for bool, double[,], OxyPlatte, OxyThickness, OxyColor[] and others
-numeric values with units
 collection support
 AddOxyAxisShare
 -Options
@@ -20,7 +17,6 @@ latest build for HistogramSeries support
 OxyImage in oxy.ann.image
 ScreenVector
 DataPoint in oxy.ann.text
-unit support
 SvgIsDocument
 background color in png and grid view
 C# syntax for expressions in FunctionSeries
@@ -34,3 +30,6 @@ DONE grid view output for png images
 DONE gridview paramters: -OutFile and friends
 DONE -PassThru
 DONE aliases compatible with v1
+DONE thickness
+DONE parameter lengths check for AreaSeries
+DONE unit support
