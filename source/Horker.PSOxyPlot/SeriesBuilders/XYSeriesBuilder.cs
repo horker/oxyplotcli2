@@ -86,7 +86,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true, false, false };
         public override int[] AxisItemIndexes => new[] { 0, -1, -1, -1, 1, -1, -1 };
         public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string[] Aliases => new[] { "oxy.candlev", "oxycandlev" };
+        public override string[] Aliases => new[] { "oxy.candleStickAndVolume", "oxy.candlev", "oxycandlev" };
 
         protected override void AddDataPointToSeries(CandleStickAndVolumeSeries series, double x, double open, double high, double low, double close, double buyVolume, double sellVolume)
         {

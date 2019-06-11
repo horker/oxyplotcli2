@@ -1036,7 +1036,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyCandleStickAndVolumeSeries")]
-    [Alias("oxy.candlev", "oxycandlev")]
+    [Alias("oxy.candleStickAndVolume", "oxy.candlev", "oxycandlev")]
     [OutputType(typeof(SeriesInfo<CandleStickAndVolumeSeries>))]
     public class NewOxyCandleStickAndVolumeSeries : PSCmdlet
     {

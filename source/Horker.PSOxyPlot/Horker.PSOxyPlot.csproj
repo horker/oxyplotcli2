@@ -87,6 +87,7 @@
     <Compile Include="SeriesInfo\AxisType.cs" />
     <Compile Include="TypeAdaptors\Double.cs" />
     <Compile Include="TypeAdaptors\OxyColorArray.cs" />
+    <Compile Include="TypeAdaptors\OxyThickness.cs" />
     <Content Include="Cmdlets\NewOxyXYAxis.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NewOxyXYAxis.cs</LastGenOutput>
