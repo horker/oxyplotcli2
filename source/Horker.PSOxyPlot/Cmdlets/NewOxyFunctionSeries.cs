@@ -16,7 +16,7 @@ namespace Horker.PSOxyPlot
     public class NewOxyFunctionSeries : PSCmdlet
     {
         [Parameter(ParameterSetName = "Explicit", Position = 0, Mandatory = true)]
-        public ScriptBlock[] F = null;
+        public Horker.PSOxyPlot.TypeAdaptors.ScriptBlock[] F = null;
 
         [Parameter(ParameterSetName = "Explicit", Position = 1, Mandatory = false)]
         public double X0 = -1;
@@ -25,10 +25,10 @@ namespace Horker.PSOxyPlot
         public double X1 = 1;
 
         [Parameter(ParameterSetName = "Implicit", Position = 0, Mandatory = true)]
-        public ScriptBlock[] Fx = null;
+        public Horker.PSOxyPlot.TypeAdaptors.ScriptBlock[] Fx = null;
 
         [Parameter(ParameterSetName = "Implicit", Position = 1, Mandatory = true)]
-        public ScriptBlock[] Fy = null;
+        public Horker.PSOxyPlot.TypeAdaptors.ScriptBlock[] Fy = null;
 
         [Parameter(ParameterSetName = "Implicit", Position = 2, Mandatory = false)]
         public double T0 = 0;
@@ -249,10 +249,8 @@ namespace Horker.PSOxyPlot
             }
 
             si.Series = new List<FunctionSeries>();
-            var va = new List<PSVariable>();
             if (isExplicit)
             {
-                va.Add(new PSVariable("x"));
 				foreach (var f in F)
 				{
 					var series = new FunctionSeries();
@@ -260,17 +258,16 @@ namespace Horker.PSOxyPlot
                     AssignParameters(series, bp);
                     si.Series.Add(series);
 
+                    f.SetParameterName("x");
 					for (var i = X0; i <= X1 + Dx * .5; i += Dx)
 					{
-						va[0].Value = i;
-						var y = (double)f.InvokeWithContext(null, va, null)[0].BaseObject;
+						var y = f.Invoke(i);
 						series.Points.Add(new DataPoint(i, y));
 					}
                 }
             }
             else
             {
-                va.Add(new PSVariable("t"));
 				for (var i = 0; i < Fx.Length; ++i)
 				{
 					var series = new FunctionSeries();
@@ -278,11 +275,12 @@ namespace Horker.PSOxyPlot
                     AssignParameters(series, bp);
                     si.Series.Add(series);
 
+                    Fx[i].SetParameterName("t");
+                    Fy[i].SetParameterName("t");
                     for (var j = T0; j <= T1 + Dx * .5; j += Dx)
                     {
-                        va[0].Value = j;
-                        var x = (double)Fx[i].InvokeWithContext(null, va, null)[0].BaseObject;
-                        var y = (double)Fy[i].InvokeWithContext(null, va, null)[0].BaseObject;
+                        var x = Fx[i].Invoke(j);
+                        var y = Fy[i].Invoke(j);
                         series.Points.Add(new DataPoint(x, y));
                     }
                 }
