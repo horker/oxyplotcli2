@@ -23,6 +23,7 @@ DataPoint in oxy.ann.text
 unit support
 SvgIsDocument
 background color in png and grid view
+C# syntax for expressions in FunctionSeries
 
 DONE OxyPlot v2.0 support
 DONE oxyplotcli v1 features

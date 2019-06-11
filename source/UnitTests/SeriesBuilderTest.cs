@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Horker.PSOxyPlot.SeriesBuilders;
 using System.Collections.Generic;
+using Horker.PSOxyPlot;
 
 namespace UnitTests
 {
@@ -14,9 +15,9 @@ namespace UnitTests
             var sb = new ContourSeriesBuilder();
 
             var arguments = new Dictionary<string, object>();
-            arguments["X"] = new double[] { 1, 5, 0 };
-            arguments["Y"] = new double[] { 0, 3, 5 };
-            arguments["Z"] = new double[] { 5, 4, 3 };
+            arguments["X"] = new Horker.PSOxyPlot.TypeAdaptors.Double[] { 1, 5, 0 };
+            arguments["Y"] = new Horker.PSOxyPlot.TypeAdaptors.Double[] { 0, 3, 5 };
+            arguments["Z"] = new Horker.PSOxyPlot.TypeAdaptors.Double[] { 5, 4, 3 };
 
             sb.ReadBoundParameters(arguments);
             var si = sb.CreateSeriesInfo();
