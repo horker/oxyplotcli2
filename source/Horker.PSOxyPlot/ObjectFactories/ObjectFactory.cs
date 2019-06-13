@@ -11,10 +11,11 @@ namespace Horker.PSOxyPlot.ObjectFactories
 {
     public class ObjectFactory
     {
-        public static PlotModel CreatePlotModel(ISeriesInfo si)
+        public static PlotModel CreatePlotModel(ISeriesInfo si, Dictionary<string, object> parameters)
         {
             var model = new PlotModel();
             AxisInitializer.WithSeriesInfo(model, si);
+            AxisInitializer.AssignParametersToModelAxes(model, parameters);
 
             return model;
         }

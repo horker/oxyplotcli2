@@ -73,6 +73,24 @@ foreach (var prop in EnumerateProperties(typeof(FunctionSeries)))
 
 <#
 }
+
+foreach (var prop in AxisProperty.Enumerate())
+{
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> Ax<#= prop.Name #>;
+
+<#
+}
+
+foreach (var prop in AxisProperty.Enumerate())
+{
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> Ay<#= prop.Name #>;
+
+<#
+}
 #>
         private void AssignParameters(FunctionSeries series, Dictionary<string, object> bp)
         {
@@ -141,7 +159,7 @@ foreach (var prop in EnumerateProperties(typeof(FunctionSeries)))
 
             PlotModel model = AddTo;
             if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si);
+                model = ObjectFactory.CreatePlotModel(si, bp);
 
             if (model != null)
             {

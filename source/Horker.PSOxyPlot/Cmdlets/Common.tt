@@ -12,7 +12,28 @@
 <#@ import namespace="OxyPlot" #>
 <#@ import namespace="OxyPlot.Series" #>
 <#+
-static class TypeAdaptorHelper
+private static class Helper
+{
+    public static string FixTypeName(Type type)
+    {
+        var t = type.ToString();
+        t = Regex.Replace(t, @"`\d\[", "<");
+
+        var s = new StringBuilder();
+        s.Append(t[0]);
+        for (var i = 1; i < t.Length; ++i)
+        {
+            if (t[i-1] != '[' && t[i-1] != ',' && t[i] == ']')
+                s.Append('>');
+            else
+                s.Append(t[i]);
+        }
+
+        return s.ToString();
+    }
+}
+
+private static class TypeAdaptorHelper
 {
 	public static readonly Tuple<Type, Type, string>[] TypeAdaptors = new Tuple<Type, Type, string>[]
     {
@@ -39,7 +60,7 @@ static class TypeAdaptorHelper
 	}
 }
 
-class ObjectProperty
+private class ObjectProperty
 {
 	public string Name { get; set; }
 	public Type Type { get; set; }
@@ -56,7 +77,7 @@ private IEnumerable<ObjectProperty> EnumerateProperties(Type type, Tuple<Type, T
 
 		var propType = TypeAdaptorHelper.GetAdaptorType(prop.PropertyType);
 
-		var typeName = FixTypeName(propType);
+		var typeName = Helper.FixTypeName(propType);
 		var propName = prop.Name;
         var conversionString = string.Format(TypeAdaptorHelper.GetConversionString(prop.PropertyType), propName);
 
@@ -72,21 +93,39 @@ private IEnumerable<ObjectProperty> EnumerateProperties(Type type, Tuple<Type, T
 	}
 }
 
-private string FixTypeName(Type type)
+private class AxisProperty
 {
-	var t = type.ToString();
-	t = Regex.Replace(t, @"`\d\[", "<");
+    public string Name;
+    public Type Type;
+    public string TypeName => Helper.FixTypeName(Type);
 
-	var s = new StringBuilder();
-	s.Append(t[0]);
-	for (var i = 1; i < t.Length; ++i)
-	{
-		if (t[i-1] != '[' && t[i-1] != ',' && t[i] == ']')
-			s.Append('>');
-		else
-			s.Append(t[i]);
-	}
+    public static IEnumerable<AxisProperty> Enumerate()
+    {
+        var nameSet = new HashSet<string>();
 
-	return s.ToString();
+        foreach (var t in typeof(OxyPlot.Axes.LinearAxis).Assembly.GetTypes())
+        {
+            if (!t.Name.EndsWith("Axis") || !t.IsPublic || t.IsAbstract)
+                continue;
+
+            foreach (var prop in t.GetProperties())
+            {
+                if (!prop.CanWrite || prop.SetMethod == null || !prop.SetMethod.IsPublic)
+                    continue;
+
+                if (nameSet.Contains(prop.Name))
+                    continue;
+                nameSet.Add(prop.Name);
+
+                var ap = new AxisProperty()
+                {
+                    Name = prop.Name,
+                    Type = TypeAdaptorHelper.GetAdaptorType(prop.PropertyType)
+                };
+
+                yield return ap;
+            }
+        }
+    }
 }
 #>

@@ -106,5 +106,30 @@ namespace Horker.PSOxyPlot.ObjectFactories
                 }
             }
         }
+
+        public static void AssignParameters(Axis axis, Dictionary<string, object> parameters, string prefix)
+        {
+            foreach (var prop in axis.GetType().GetProperties())
+            {
+                if (!prop.CanWrite || prop.SetMethod == null || !prop.SetMethod.IsPublic)
+                    continue;
+
+                if (!parameters.TryGetValue(prefix + prop.Name, out var value))
+                    continue;
+
+                prop.SetValue(axis, TypeAdaptors.Helpers.ConvertObjectType(value));
+            }
+        }
+
+        public static void AssignParametersToModelAxes(PlotModel model, Dictionary<string, object> parameters)
+        {
+            foreach (var a in model.Axes)
+            {
+                if (a.Position == AxisPosition.Top || a.Position == AxisPosition.Bottom)
+                    AxisInitializer.AssignParameters(a, parameters, "Ax");
+                if (a.Position == AxisPosition.Left || a.Position == AxisPosition.Right)
+                    AxisInitializer.AssignParameters(a, parameters, "Ay");
+            }
+        }
     }
 }

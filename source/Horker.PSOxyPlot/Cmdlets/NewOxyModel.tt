@@ -57,6 +57,24 @@ namespace Horker.PSOxyPlot
 
 <#
     }
+
+    foreach (var prop in AxisProperty.Enumerate())
+    {
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> Ax<#= prop.Name #>;
+
+<#
+    }
+
+    foreach (var prop in AxisProperty.Enumerate())
+    {
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> Ay<#= prop.Name #>;
+
+<#
+    }
 #>
         private PlotModel _model;
 
@@ -81,6 +99,8 @@ namespace Horker.PSOxyPlot
             if (SeriesInfo != null)
             {
                 AxisInitializer.WithSeriesInfo(_model, SeriesInfo);
+                AxisInitializer.AssignParametersToModelAxes(_model, MyInvocation.BoundParameters);
+
                 foreach (var s in SeriesInfo.Series)
                     _model.Series.Add(s);
             }

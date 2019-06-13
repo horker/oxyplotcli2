@@ -5,8 +5,7 @@ volume charts in CandleStickAndVolume and Volume series
 Tensor support
 Stype support
 ggplot stype
-axis parameters for series and model cmdlets
-partial axis name support
+-AxType and partial axis name support
 oxypalette
 type conversions for bool, double[,], OxyPlatte, OxyThickness, OxyColor[] and others
 collection support
@@ -19,7 +18,6 @@ ScreenVector
 DataPoint in oxy.ann.text
 SvgIsDocument
 background color in png and grid view
-C# syntax for expressions in FunctionSeries
 
 DONE OxyPlot v2.0 support
 DONE oxyplotcli v1 features
@@ -33,3 +31,5 @@ DONE aliases compatible with v1
 DONE thickness
 DONE parameter lengths check for AreaSeries
 DONE unit support
+DONE C# syntax for expressions in FunctionSeries
+DONE axis parameters for series and model cmdlets

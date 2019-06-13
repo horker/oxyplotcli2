@@ -112,6 +112,24 @@ foreach (var builderType in builderTypes)
 
 <#
     }
+
+    foreach (var prop in AxisProperty.Enumerate())
+    {
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> Ax<#= prop.Name #>;
+
+<#
+    }
+
+    foreach (var prop in AxisProperty.Enumerate())
+    {
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> Ay<#= prop.Name #>;
+
+<#
+    }
 #>
         private <#= name #>Builder _builder;
 
@@ -152,7 +170,7 @@ foreach (var builderType in builderTypes)
 
             PlotModel model = AddTo;
             if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si);
+                model = ObjectFactory.CreatePlotModel(si, bp);
 
             if (model != null)
             {
