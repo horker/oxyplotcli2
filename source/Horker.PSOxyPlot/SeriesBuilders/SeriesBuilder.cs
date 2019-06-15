@@ -44,32 +44,9 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         protected static readonly string DefaultGroupName = "default group!!??##$%&' ";
 
-        private T ConvertObjectType<T>(object value)
-        {
-            if (typeof(T) == typeof(double))
-                return (T)(object)TypeAdaptors.Double.ConvertFrom(value);
-
-            if (typeof(T) == typeof(int))
-                return (T)(object)SmartConverter.ToInt(value);
-
-            if (typeof(T) == typeof(bool))
-                return (T)(object)SmartConverter.ToBool(value);
-
-            if (typeof(T) == typeof(string))
-                return (T)(object)value.ToString();
-
-            if (typeof(T) == typeof(OxyColor))
-                return (T)(object)TypeAdaptors.OxyColor.ConvertFrom(value);
-
-            if (typeof(T) == typeof(TypeAdaptors.Category))
-                return (T)(object)new TypeAdaptors.Category((string)value);
-
-            return (T)value;
-        }
-
         private IEnumerable<T> ConvertCollectionType<T>(IEnumerable<object> coll)
         {
-            return coll.Select(x => ConvertObjectType<T>(x));
+            return coll.Select(x => TypeAdaptors.Helpers.ConvertObjectType<T>(x));
         }
 
         private T GetNaN<T>()
@@ -137,7 +114,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 return;
 
             var value = inputObject.Properties[name].Value;
-            var converted = ConvertObjectType<T>(value);
+            var converted = TypeAdaptors.Helpers.ConvertObjectType<T>(value);
 
             elements.Add(converted);
         }

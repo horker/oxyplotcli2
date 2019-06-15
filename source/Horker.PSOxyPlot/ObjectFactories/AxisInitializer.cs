@@ -21,7 +21,7 @@ namespace Horker.PSOxyPlot.ObjectFactories
             if (si.AxisTypes[index] == AxisType.DateTime)
                 axisType = typeof(DateTimeAxis);
             else if (si.AxisTypes[index] == AxisType.TimeSpan)
-                axisType = typeof(TimeSpan);
+                axisType = typeof(TimeSpanAxis);
 
             var axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);
 
@@ -117,7 +117,7 @@ namespace Horker.PSOxyPlot.ObjectFactories
                 if (!parameters.TryGetValue(prefix + prop.Name, out var value))
                     continue;
 
-                prop.SetValue(axis, TypeAdaptors.Helpers.ConvertObjectType(value));
+                prop.SetValue(axis, TypeAdaptors.Helpers.StripOffTypeAdaptors(value));
             }
         }
 
