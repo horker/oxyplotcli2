@@ -198,22 +198,41 @@ namespace Horker.PSOxyPlot
             if (input is bool b)
                 return b;
 
-            if (TypeTest.IsNumeric(input.GetType()))
-            {
-                var value = (int)(double)input;
-                if (value == 1 || value == -1)
-                    return true;
-                if (value == 0)
-                    return false;
-            }
+            if (input is decimal nDecimal)
+                return nDecimal != 0;
+
+            if (input is double nDouble)
+                return nDouble != 0;
+
+            if (input is float nFloat)
+                return nFloat != 0;
+
+            if (input is long nLong)
+                return nLong != 0;
+
+            if (input is int nInt)
+                return nInt != 0;
+
+            if (input is short nShort)
+                return nShort != 0;
+
+            if (input is byte nByte)
+                return nByte != 0;
+
+            if (input is sbyte nSByte)
+                return nSByte != 0;
 
             if (input is string s)
             {
-                s = s.ToLower();
+                s = s.ToLower().Trim();
                 if (s == "t" || s == "true")
                     return true;
                 if (s == "f" || s == "false")
                     return false;
+
+                var value = ToDouble(s, double.NaN);
+                if (!double.IsNaN(value))
+                    return value != 0;
             }
 
             return ReturnFallbackValue(input, fallback, null);

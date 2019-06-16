@@ -12,6 +12,8 @@ namespace Horker.PSOxyPlot.TypeAdaptors
         {
             if (value is Double d)
                 return d.Value;
+            if (value is Bool b)
+                return b.Value;
             if (value is OxyColor c)
                 return c.Value;
             if (value is Category cat)
@@ -23,22 +25,22 @@ namespace Horker.PSOxyPlot.TypeAdaptors
         public static T ConvertObjectType<T>(object value)
         {
             if (typeof(T) == typeof(double))
-                return (T)(object)TypeAdaptors.Double.ConvertFrom(value);
+                return (T)(object)Double.ConvertFrom(value);
 
             if (typeof(T) == typeof(int))
                 return (T)(object)SmartConverter.ToInt(value);
 
             if (typeof(T) == typeof(bool))
-                return (T)(object)SmartConverter.ToBool(value);
+                return (T)(object)Bool.ConvertFrom(value);
 
             if (typeof(T) == typeof(string))
                 return (T)(object)value.ToString();
 
             if (typeof(T) == typeof(OxyColor))
-                return (T)(object)TypeAdaptors.OxyColor.ConvertFrom(value);
+                return (T)(object)OxyColor.ConvertFrom(value);
 
-            if (typeof(T) == typeof(TypeAdaptors.Category))
-                return (T)(object)new TypeAdaptors.Category((string)value);
+            if (typeof(T) == typeof(Category))
+                return (T)(object)new Category((string)value);
 
             return (T)value;
         }

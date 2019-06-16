@@ -86,6 +86,7 @@
     <Compile Include="Cmdlets\NewOxyGridView.cs" />
     <Compile Include="Helpers\FunctionCompiler.cs" />
     <Compile Include="SeriesInfo\AxisType.cs" />
+    <Compile Include="TypeAdaptors\Bool.cs" />
     <Compile Include="TypeAdaptors\Double.cs" />
     <Compile Include="TypeAdaptors\Helpers.cs" />
     <Compile Include="TypeAdaptors\OxyColorArray.cs" />

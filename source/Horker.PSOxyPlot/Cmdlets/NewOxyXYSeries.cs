@@ -83,7 +83,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Fill;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public System.Boolean Reverse2;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Reverse2;
 
         [Parameter(Position = 23, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
@@ -149,7 +149,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 44, Mandatory = false)]
-        public System.Boolean CanTrackerInterpolatePoints;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool CanTrackerInterpolatePoints;
 
         [Parameter(Position = 45, Mandatory = false)]
         public System.String DataFieldX;
@@ -173,13 +173,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 52, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 53, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 54, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 55, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -206,7 +206,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 63, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 64, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -221,7 +221,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 68, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 69, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -257,10 +257,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 80, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 81, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 82, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -290,13 +290,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 91, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 92, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 93, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 94, Mandatory = false)]
         public System.String AxKey;
@@ -368,7 +368,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 117, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 118, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -413,7 +413,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 132, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 133, Mandatory = false)]
         public System.String AxFont;
@@ -434,7 +434,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 139, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 140, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -443,7 +443,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 142, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 143, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -482,13 +482,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 155, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 156, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 157, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 158, Mandatory = false)]
         public string AyType;
@@ -500,7 +500,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 161, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 162, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -536,10 +536,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 173, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 174, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 175, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -569,13 +569,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 184, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 185, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 186, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 187, Mandatory = false)]
         public System.String AyKey;
@@ -647,7 +647,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 210, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 211, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -692,7 +692,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 225, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 226, Mandatory = false)]
         public System.String AyFont;
@@ -713,7 +713,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 232, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 233, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -722,7 +722,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 235, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 236, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -761,13 +761,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 248, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 249, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 250, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private AreaSeriesBuilder _builder;
 
@@ -926,7 +926,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor FillColor;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Boolean IsStacked;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsStacked;
 
         [Parameter(Position = 18, Mandatory = false)]
         public System.String LabelFormatString;
@@ -965,13 +965,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 30, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 31, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 33, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -998,7 +998,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 41, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 42, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -1013,7 +1013,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 46, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 47, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -1049,10 +1049,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 58, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 59, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 60, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -1082,13 +1082,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 69, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 70, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 71, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 72, Mandatory = false)]
         public System.String AxKey;
@@ -1160,7 +1160,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 95, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 96, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -1205,7 +1205,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 110, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 111, Mandatory = false)]
         public System.String AxFont;
@@ -1226,7 +1226,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 117, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 118, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -1235,7 +1235,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 120, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 121, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -1274,13 +1274,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 133, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 134, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 135, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 136, Mandatory = false)]
         public string AyType;
@@ -1292,7 +1292,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 139, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 140, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -1328,10 +1328,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 151, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 152, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 153, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -1361,13 +1361,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 162, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 163, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 164, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 165, Mandatory = false)]
         public System.String AyKey;
@@ -1439,7 +1439,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 188, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 189, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -1484,7 +1484,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 203, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 204, Mandatory = false)]
         public System.String AyFont;
@@ -1505,7 +1505,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 210, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 211, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -1514,7 +1514,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 213, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 214, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -1553,13 +1553,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 226, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 227, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 228, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private BarSeriesBuilder _builder;
 
@@ -1754,13 +1754,13 @@ namespace Horker.PSOxyPlot
         public OxyPlot.ScreenPoint[] OutlierOutline;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.Boolean ShowBox;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool ShowBox;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Boolean ShowMedianAsDot;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool ShowMedianAsDot;
 
         [Parameter(Position = 37, Mandatory = false)]
-        public System.Boolean ShowMeanAsDot;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool ShowMeanAsDot;
 
         [Parameter(Position = 38, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Stroke;
@@ -1784,13 +1784,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 45, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 46, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 47, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 48, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -1817,7 +1817,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 56, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 57, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -1832,7 +1832,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 61, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 62, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -1868,10 +1868,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 73, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 74, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 75, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -1901,13 +1901,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 84, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 85, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 86, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 87, Mandatory = false)]
         public System.String AxKey;
@@ -1979,7 +1979,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 110, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 111, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -2024,7 +2024,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 125, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 126, Mandatory = false)]
         public System.String AxFont;
@@ -2045,7 +2045,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 132, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 133, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -2054,7 +2054,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 135, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 136, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -2093,13 +2093,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 148, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 149, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 150, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 151, Mandatory = false)]
         public string AyType;
@@ -2111,7 +2111,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 154, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 155, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -2147,10 +2147,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 166, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 167, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 168, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -2180,13 +2180,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 177, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 178, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 179, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 180, Mandatory = false)]
         public System.String AyKey;
@@ -2258,7 +2258,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 203, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 204, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -2303,7 +2303,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 218, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 219, Mandatory = false)]
         public System.String AyFont;
@@ -2324,7 +2324,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 225, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 226, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -2333,7 +2333,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 228, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 229, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -2372,13 +2372,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 241, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 242, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 243, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private BoxPlotSeriesBuilder _builder;
 
@@ -2587,13 +2587,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 39, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 40, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 41, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -2620,7 +2620,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 49, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 50, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -2635,7 +2635,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 54, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 55, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -2671,10 +2671,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 66, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 67, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 68, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -2704,13 +2704,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 77, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 78, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 79, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 80, Mandatory = false)]
         public System.String AxKey;
@@ -2782,7 +2782,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 103, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 104, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -2827,7 +2827,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 118, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 119, Mandatory = false)]
         public System.String AxFont;
@@ -2848,7 +2848,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 125, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 126, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -2857,7 +2857,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 128, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 129, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -2896,13 +2896,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 141, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 142, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 143, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 144, Mandatory = false)]
         public string AyType;
@@ -2914,7 +2914,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 147, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 148, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -2950,10 +2950,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 159, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 160, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 161, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -2983,13 +2983,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 170, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 171, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 172, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 173, Mandatory = false)]
         public System.String AyKey;
@@ -3061,7 +3061,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 196, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 197, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -3106,7 +3106,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 211, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 212, Mandatory = false)]
         public System.String AyFont;
@@ -3127,7 +3127,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 218, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 219, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -3136,7 +3136,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 221, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 222, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -3175,13 +3175,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 234, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 235, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 236, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private CandleStickSeriesBuilder _builder;
 
@@ -3375,10 +3375,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor SeparatorColor;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.Boolean PositiveHollow;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool PositiveHollow;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.Boolean NegativeHollow;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool NegativeHollow;
 
         [Parameter(Position = 36, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double CandleWidth;
@@ -3396,13 +3396,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 41, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 42, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 43, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 44, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -3429,7 +3429,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 52, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 53, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -3444,7 +3444,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 57, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 58, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -3480,10 +3480,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 69, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 70, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 71, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -3513,13 +3513,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 80, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 81, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 82, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 83, Mandatory = false)]
         public System.String AxKey;
@@ -3591,7 +3591,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 106, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 107, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -3636,7 +3636,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 121, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 122, Mandatory = false)]
         public System.String AxFont;
@@ -3657,7 +3657,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 128, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 129, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -3666,7 +3666,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 131, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 132, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -3705,13 +3705,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 144, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 145, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 146, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 147, Mandatory = false)]
         public string AyType;
@@ -3723,7 +3723,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 150, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 151, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -3759,10 +3759,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 162, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 163, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 164, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -3792,13 +3792,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 173, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 174, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 175, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 176, Mandatory = false)]
         public System.String AyKey;
@@ -3870,7 +3870,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 199, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 200, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -3915,7 +3915,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 214, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 215, Mandatory = false)]
         public System.String AyFont;
@@ -3936,7 +3936,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 221, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 222, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -3945,7 +3945,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 224, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 225, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -3984,13 +3984,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 237, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 238, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 239, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private CandleStickAndVolumeSeriesBuilder _builder;
 
@@ -4132,7 +4132,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor FillColor;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Boolean IsStacked;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsStacked;
 
         [Parameter(Position = 18, Mandatory = false)]
         public System.String LabelFormatString;
@@ -4171,13 +4171,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 30, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 31, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 33, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -4204,7 +4204,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 41, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 42, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -4219,7 +4219,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 46, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 47, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -4255,10 +4255,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 58, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 59, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 60, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -4288,13 +4288,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 69, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 70, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 71, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 72, Mandatory = false)]
         public System.String AxKey;
@@ -4366,7 +4366,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 95, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 96, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -4411,7 +4411,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 110, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 111, Mandatory = false)]
         public System.String AxFont;
@@ -4432,7 +4432,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 117, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 118, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -4441,7 +4441,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 120, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 121, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -4480,13 +4480,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 133, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 134, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 135, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 136, Mandatory = false)]
         public string AyType;
@@ -4498,7 +4498,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 139, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 140, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -4534,10 +4534,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 151, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 152, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 153, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -4567,13 +4567,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 162, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 163, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 164, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 165, Mandatory = false)]
         public System.String AyKey;
@@ -4645,7 +4645,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 188, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 189, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -4690,7 +4690,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 203, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 204, Mandatory = false)]
         public System.String AyFont;
@@ -4711,7 +4711,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 210, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 211, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -4720,7 +4720,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 213, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 214, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -4759,13 +4759,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 226, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 227, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 228, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private ColumnSeriesBuilder _builder;
 
@@ -4951,13 +4951,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 33, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 35, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -4984,7 +4984,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 43, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 44, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -4999,7 +4999,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 48, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 49, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -5035,10 +5035,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 60, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 61, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 62, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -5068,13 +5068,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 71, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 72, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 73, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 74, Mandatory = false)]
         public System.String AxKey;
@@ -5146,7 +5146,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 97, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 98, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -5191,7 +5191,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 112, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 113, Mandatory = false)]
         public System.String AxFont;
@@ -5212,7 +5212,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 119, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 120, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -5221,7 +5221,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 122, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 123, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -5260,13 +5260,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 135, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 136, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 137, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 138, Mandatory = false)]
         public string AyType;
@@ -5278,7 +5278,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 141, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 142, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -5314,10 +5314,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 153, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 154, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 155, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -5347,13 +5347,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 164, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 165, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 166, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 167, Mandatory = false)]
         public System.String AyKey;
@@ -5425,7 +5425,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 190, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 191, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -5470,7 +5470,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 205, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 206, Mandatory = false)]
         public System.String AyFont;
@@ -5491,7 +5491,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 212, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 213, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -5500,7 +5500,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 215, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 216, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -5539,13 +5539,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 228, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 229, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 230, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private ContourSeriesBuilder _builder;
 
@@ -5698,7 +5698,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor FillColor;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.Boolean IsStacked;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsStacked;
 
         [Parameter(Position = 22, Mandatory = false)]
         public System.String LabelFormatString;
@@ -5737,13 +5737,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 35, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 37, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -5770,7 +5770,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 45, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 46, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -5785,7 +5785,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 50, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 51, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -5821,10 +5821,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 62, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 63, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 64, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -5854,13 +5854,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 73, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 74, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 75, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 76, Mandatory = false)]
         public System.String AxKey;
@@ -5932,7 +5932,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 99, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 100, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -5977,7 +5977,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 114, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 115, Mandatory = false)]
         public System.String AxFont;
@@ -5998,7 +5998,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 121, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 122, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -6007,7 +6007,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 124, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 125, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -6046,13 +6046,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 137, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 138, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 139, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 140, Mandatory = false)]
         public string AyType;
@@ -6064,7 +6064,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 143, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 144, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -6100,10 +6100,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 155, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 156, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 157, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -6133,13 +6133,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 166, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 167, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 168, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 169, Mandatory = false)]
         public System.String AyKey;
@@ -6211,7 +6211,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 192, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 193, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -6256,7 +6256,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 207, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 208, Mandatory = false)]
         public System.String AyFont;
@@ -6277,7 +6277,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 214, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 215, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -6286,7 +6286,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 217, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 218, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -6325,13 +6325,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 230, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 231, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 232, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private ErrorColumnSeriesBuilder _builder;
 
@@ -6528,13 +6528,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 36, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 37, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 38, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -6561,7 +6561,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 46, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 47, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -6576,7 +6576,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 51, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 52, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -6612,10 +6612,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 63, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 64, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 65, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -6645,13 +6645,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 74, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 75, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 76, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 77, Mandatory = false)]
         public System.String AxKey;
@@ -6723,7 +6723,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 100, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 101, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -6768,7 +6768,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 115, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 116, Mandatory = false)]
         public System.String AxFont;
@@ -6789,7 +6789,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 122, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 123, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -6798,7 +6798,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 125, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 126, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -6837,13 +6837,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 138, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 139, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 140, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 141, Mandatory = false)]
         public string AyType;
@@ -6855,7 +6855,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 144, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 145, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -6891,10 +6891,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 156, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 157, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 158, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -6924,13 +6924,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 167, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 168, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 169, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 170, Mandatory = false)]
         public System.String AyKey;
@@ -7002,7 +7002,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 193, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 194, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -7047,7 +7047,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 208, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 209, Mandatory = false)]
         public System.String AyFont;
@@ -7068,7 +7068,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 215, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 216, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -7077,7 +7077,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 218, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 219, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -7116,13 +7116,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 231, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 232, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 233, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private HighLowSeriesBuilder _builder;
 
@@ -7304,13 +7304,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 31, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 32, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 34, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -7337,7 +7337,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 42, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 43, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -7352,7 +7352,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 47, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 48, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -7388,10 +7388,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 59, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 60, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 61, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -7421,13 +7421,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 70, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 71, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 72, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 73, Mandatory = false)]
         public System.String AxKey;
@@ -7499,7 +7499,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 96, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 97, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -7544,7 +7544,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 111, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 112, Mandatory = false)]
         public System.String AxFont;
@@ -7565,7 +7565,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 118, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 119, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -7574,7 +7574,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 121, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 122, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -7613,13 +7613,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 134, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 135, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 136, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 137, Mandatory = false)]
         public string AyType;
@@ -7631,7 +7631,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 140, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 141, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -7667,10 +7667,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 152, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 153, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 154, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -7700,13 +7700,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 163, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 164, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 165, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 166, Mandatory = false)]
         public System.String AyKey;
@@ -7778,7 +7778,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 189, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 190, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -7823,7 +7823,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 204, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 205, Mandatory = false)]
         public System.String AyFont;
@@ -7844,7 +7844,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 211, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 212, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -7853,7 +7853,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 214, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 215, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -7892,13 +7892,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 227, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 228, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 229, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private IntervalBarSeriesBuilder _builder;
 
@@ -8042,7 +8042,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor NegativeStrokeColor;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public System.Boolean CanTrackerInterpolatePoints;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool CanTrackerInterpolatePoints;
 
         [Parameter(Position = 20, Mandatory = false)]
         public System.String DataFieldX;
@@ -8066,13 +8066,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 28, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 29, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 30, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -8099,7 +8099,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 39, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -8114,7 +8114,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 43, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 44, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -8150,10 +8150,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 55, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 56, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 57, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -8183,13 +8183,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 66, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 67, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 68, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 69, Mandatory = false)]
         public System.String AxKey;
@@ -8261,7 +8261,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 92, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 93, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -8306,7 +8306,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 107, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 108, Mandatory = false)]
         public System.String AxFont;
@@ -8327,7 +8327,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 114, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 115, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -8336,7 +8336,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 117, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 118, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -8375,13 +8375,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 130, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 131, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 132, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 133, Mandatory = false)]
         public string AyType;
@@ -8393,7 +8393,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 136, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 137, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -8429,10 +8429,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 148, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 149, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 150, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -8462,13 +8462,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 159, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 160, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 161, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 162, Mandatory = false)]
         public System.String AyKey;
@@ -8540,7 +8540,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 185, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 186, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -8585,7 +8585,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 200, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 201, Mandatory = false)]
         public System.String AyFont;
@@ -8606,7 +8606,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 207, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 208, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -8615,7 +8615,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 210, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 211, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -8654,13 +8654,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 223, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 224, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 225, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private LinearBarSeriesBuilder _builder;
 
@@ -8849,7 +8849,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 34, Mandatory = false)]
-        public System.Boolean CanTrackerInterpolatePoints;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool CanTrackerInterpolatePoints;
 
         [Parameter(Position = 35, Mandatory = false)]
         public System.String DataFieldX;
@@ -8873,13 +8873,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 42, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 43, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 44, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 45, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -8906,7 +8906,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 53, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 54, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -8921,7 +8921,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 58, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 59, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -8957,10 +8957,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 70, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 71, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 72, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -8990,13 +8990,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 81, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 82, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 83, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 84, Mandatory = false)]
         public System.String AxKey;
@@ -9068,7 +9068,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 107, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 108, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -9113,7 +9113,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 122, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 123, Mandatory = false)]
         public System.String AxFont;
@@ -9134,7 +9134,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 129, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 130, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -9143,7 +9143,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 132, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 133, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -9182,13 +9182,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 145, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 146, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 147, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 148, Mandatory = false)]
         public string AyType;
@@ -9200,7 +9200,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 151, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 152, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -9236,10 +9236,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 163, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 164, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 165, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -9269,13 +9269,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 174, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 175, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 176, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 177, Mandatory = false)]
         public System.String AyKey;
@@ -9347,7 +9347,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 200, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 201, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -9392,7 +9392,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 215, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 216, Mandatory = false)]
         public System.String AyFont;
@@ -9413,7 +9413,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 222, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 223, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -9422,7 +9422,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 225, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 226, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -9461,13 +9461,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 238, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 239, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 240, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private LineSeriesBuilder _builder;
 
@@ -9596,7 +9596,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor[] Fill;
 
         [Parameter(Position = 9, Mandatory = false)]
-        public System.Boolean[] IsExploded;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool[] IsExploded;
 
         [Parameter(Position = 10, Mandatory = false)]
         public object[] Group = null;
@@ -9626,7 +9626,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AngleSpan;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public System.Boolean AreInsideLabelsAngled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AreInsideLabelsAngled;
 
         [Parameter(Position = 20, Mandatory = false)]
         public System.String ColorField;
@@ -9695,13 +9695,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 42, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 43, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 44, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 45, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -9728,7 +9728,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 53, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 54, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -9743,7 +9743,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 58, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 59, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -9779,10 +9779,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 70, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 71, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 72, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -9812,13 +9812,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 81, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 82, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 83, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 84, Mandatory = false)]
         public System.String AxKey;
@@ -9890,7 +9890,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 107, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 108, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -9935,7 +9935,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 122, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 123, Mandatory = false)]
         public System.String AxFont;
@@ -9956,7 +9956,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 129, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 130, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -9965,7 +9965,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 132, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 133, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -10004,13 +10004,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 145, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 146, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 147, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 148, Mandatory = false)]
         public string AyType;
@@ -10022,7 +10022,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 151, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 152, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -10058,10 +10058,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 163, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 164, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 165, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -10091,13 +10091,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 174, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 175, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 176, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 177, Mandatory = false)]
         public System.String AyKey;
@@ -10169,7 +10169,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 200, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 201, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -10214,7 +10214,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 215, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 216, Mandatory = false)]
         public System.String AyFont;
@@ -10235,7 +10235,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 222, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 223, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -10244,7 +10244,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 225, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 226, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -10283,13 +10283,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 238, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 239, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 240, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private PieSeriesBuilder _builder;
 
@@ -10465,13 +10465,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 27, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 29, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -10498,7 +10498,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 37, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 38, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -10513,7 +10513,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 42, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 43, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -10549,10 +10549,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 54, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 55, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 56, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -10582,13 +10582,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 65, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 66, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 67, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 68, Mandatory = false)]
         public System.String AxKey;
@@ -10660,7 +10660,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 91, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 92, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -10705,7 +10705,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 106, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 107, Mandatory = false)]
         public System.String AxFont;
@@ -10726,7 +10726,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 113, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 114, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -10735,7 +10735,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 116, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 117, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -10774,13 +10774,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 129, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 130, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 131, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 132, Mandatory = false)]
         public string AyType;
@@ -10792,7 +10792,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 135, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 136, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -10828,10 +10828,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 147, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 148, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 149, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -10861,13 +10861,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 158, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 159, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 160, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 161, Mandatory = false)]
         public System.String AyKey;
@@ -10939,7 +10939,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 184, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 185, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -10984,7 +10984,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 199, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 200, Mandatory = false)]
         public System.String AyFont;
@@ -11005,7 +11005,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 206, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 207, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -11014,7 +11014,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 209, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 210, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -11053,13 +11053,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 222, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 223, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 224, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private RectangleBarSeriesBuilder _builder;
 
@@ -11252,13 +11252,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 37, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 38, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 39, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 40, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -11285,7 +11285,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 48, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 49, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -11300,7 +11300,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 53, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 54, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -11336,10 +11336,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 65, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 66, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 67, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -11369,13 +11369,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 76, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 77, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 78, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 79, Mandatory = false)]
         public System.String AxKey;
@@ -11447,7 +11447,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 102, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 103, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -11492,7 +11492,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 117, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 118, Mandatory = false)]
         public System.String AxFont;
@@ -11513,7 +11513,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 124, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 125, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -11522,7 +11522,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 127, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 128, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -11561,13 +11561,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 140, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 141, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 142, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 143, Mandatory = false)]
         public string AyType;
@@ -11579,7 +11579,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 146, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 147, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -11615,10 +11615,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 158, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 159, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 160, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -11648,13 +11648,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 169, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 170, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 171, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 172, Mandatory = false)]
         public System.String AyKey;
@@ -11726,7 +11726,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 195, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 196, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -11771,7 +11771,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 210, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 211, Mandatory = false)]
         public System.String AyFont;
@@ -11792,7 +11792,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 217, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 218, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -11801,7 +11801,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 220, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 221, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -11840,13 +11840,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 233, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 234, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 235, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private ScatterSeriesBuilder _builder;
 
@@ -12080,13 +12080,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 47, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 48, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 49, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 50, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -12113,7 +12113,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 58, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 59, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -12128,7 +12128,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 63, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 64, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -12164,10 +12164,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 75, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 76, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 77, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -12197,13 +12197,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 86, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 87, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 88, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 89, Mandatory = false)]
         public System.String AxKey;
@@ -12275,7 +12275,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 112, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 113, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -12320,7 +12320,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 127, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 128, Mandatory = false)]
         public System.String AxFont;
@@ -12341,7 +12341,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 134, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 135, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -12350,7 +12350,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 137, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 138, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -12389,13 +12389,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 150, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 151, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 152, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 153, Mandatory = false)]
         public string AyType;
@@ -12407,7 +12407,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 156, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 157, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -12443,10 +12443,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 168, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 169, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 170, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -12476,13 +12476,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 179, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 180, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 181, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 182, Mandatory = false)]
         public System.String AyKey;
@@ -12554,7 +12554,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 205, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 206, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -12599,7 +12599,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 220, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 221, Mandatory = false)]
         public System.String AyFont;
@@ -12620,7 +12620,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 227, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 228, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -12629,7 +12629,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 230, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 231, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -12668,13 +12668,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 243, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 244, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 245, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private ScatterErrorSeriesBuilder _builder;
 
@@ -12881,7 +12881,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 36, Mandatory = false)]
-        public System.Boolean CanTrackerInterpolatePoints;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool CanTrackerInterpolatePoints;
 
         [Parameter(Position = 37, Mandatory = false)]
         public System.String DataFieldX;
@@ -12905,13 +12905,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 44, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 45, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 46, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 47, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -12938,7 +12938,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 55, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 56, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -12953,7 +12953,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 60, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 61, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -12989,10 +12989,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 72, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 73, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 74, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -13022,13 +13022,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 83, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 84, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 85, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 86, Mandatory = false)]
         public System.String AxKey;
@@ -13100,7 +13100,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 109, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 110, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -13145,7 +13145,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 124, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 125, Mandatory = false)]
         public System.String AxFont;
@@ -13166,7 +13166,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 131, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 132, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -13175,7 +13175,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 134, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 135, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -13214,13 +13214,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 147, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 148, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 149, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 150, Mandatory = false)]
         public string AyType;
@@ -13232,7 +13232,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 153, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 154, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -13268,10 +13268,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 165, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 166, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 167, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -13301,13 +13301,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 176, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 177, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 178, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 179, Mandatory = false)]
         public System.String AyKey;
@@ -13379,7 +13379,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 202, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 203, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -13424,7 +13424,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 217, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 218, Mandatory = false)]
         public System.String AyFont;
@@ -13445,7 +13445,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 224, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 225, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -13454,7 +13454,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 227, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 228, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -13493,13 +13493,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 240, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 241, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 242, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private StairStepSeriesBuilder _builder;
 
@@ -13708,7 +13708,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 35, Mandatory = false)]
-        public System.Boolean CanTrackerInterpolatePoints;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool CanTrackerInterpolatePoints;
 
         [Parameter(Position = 36, Mandatory = false)]
         public System.String DataFieldX;
@@ -13732,13 +13732,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 43, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 44, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 45, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 46, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -13765,7 +13765,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 54, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 55, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -13780,7 +13780,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 59, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 60, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -13816,10 +13816,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 71, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 72, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 73, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -13849,13 +13849,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 82, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 83, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 84, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 85, Mandatory = false)]
         public System.String AxKey;
@@ -13927,7 +13927,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 108, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 109, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -13972,7 +13972,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 123, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 124, Mandatory = false)]
         public System.String AxFont;
@@ -13993,7 +13993,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 130, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 131, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -14002,7 +14002,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 133, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 134, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -14041,13 +14041,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 146, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 147, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 148, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 149, Mandatory = false)]
         public string AyType;
@@ -14059,7 +14059,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 152, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 153, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -14095,10 +14095,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 164, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 165, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 166, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -14128,13 +14128,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 175, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 176, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 177, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 178, Mandatory = false)]
         public System.String AyKey;
@@ -14206,7 +14206,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 201, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 202, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -14251,7 +14251,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 216, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 217, Mandatory = false)]
         public System.String AyFont;
@@ -14272,7 +14272,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 223, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 224, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -14281,7 +14281,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 226, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 227, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -14320,13 +14320,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 239, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 240, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 241, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private StemSeriesBuilder _builder;
 
@@ -14555,7 +14555,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 42, Mandatory = false)]
-        public System.Boolean CanTrackerInterpolatePoints;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool CanTrackerInterpolatePoints;
 
         [Parameter(Position = 43, Mandatory = false)]
         public System.String DataFieldX;
@@ -14579,13 +14579,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 50, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 51, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 52, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 53, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -14612,7 +14612,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 61, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 62, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -14627,7 +14627,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 66, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 67, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -14663,10 +14663,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 78, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 79, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 80, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -14696,13 +14696,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 89, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 90, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 91, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 92, Mandatory = false)]
         public System.String AxKey;
@@ -14774,7 +14774,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 115, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 116, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -14819,7 +14819,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 130, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 131, Mandatory = false)]
         public System.String AxFont;
@@ -14840,7 +14840,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 137, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 138, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -14849,7 +14849,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 140, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 141, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -14888,13 +14888,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 153, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 154, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 155, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 156, Mandatory = false)]
         public string AyType;
@@ -14906,7 +14906,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 159, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 160, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -14942,10 +14942,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 171, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 172, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 173, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -14975,13 +14975,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 182, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 183, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 184, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 185, Mandatory = false)]
         public System.String AyKey;
@@ -15053,7 +15053,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 208, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 209, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -15098,7 +15098,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 223, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 224, Mandatory = false)]
         public System.String AyFont;
@@ -15119,7 +15119,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 230, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 231, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -15128,7 +15128,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 233, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 234, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -15167,13 +15167,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 246, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 247, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 248, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private ThreeColorLineSeriesBuilder _builder;
 
@@ -15397,13 +15397,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 39, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 40, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 41, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -15430,7 +15430,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 49, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 50, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -15445,7 +15445,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 54, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 55, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -15481,10 +15481,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 66, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 67, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 68, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -15514,13 +15514,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 77, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 78, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 79, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 80, Mandatory = false)]
         public System.String AxKey;
@@ -15592,7 +15592,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 103, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 104, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -15637,7 +15637,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 118, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 119, Mandatory = false)]
         public System.String AxFont;
@@ -15658,7 +15658,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 125, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 126, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -15667,7 +15667,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 128, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 129, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -15706,13 +15706,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 141, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 142, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 143, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 144, Mandatory = false)]
         public string AyType;
@@ -15724,7 +15724,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 147, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 148, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -15760,10 +15760,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 159, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 160, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 161, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -15793,13 +15793,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 170, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 171, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 172, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 173, Mandatory = false)]
         public System.String AyKey;
@@ -15871,7 +15871,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 196, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 197, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -15916,7 +15916,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 211, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 212, Mandatory = false)]
         public System.String AyFont;
@@ -15937,7 +15937,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 218, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 219, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -15946,7 +15946,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 221, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 222, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -15985,13 +15985,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 234, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 235, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 236, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private TornadoBarSeriesBuilder _builder;
 
@@ -16165,7 +16165,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Fill;
 
         [Parameter(Position = 28, Mandatory = false)]
-        public System.Boolean Reverse2;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Reverse2;
 
         [Parameter(Position = 29, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
@@ -16231,7 +16231,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 50, Mandatory = false)]
-        public System.Boolean CanTrackerInterpolatePoints;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool CanTrackerInterpolatePoints;
 
         [Parameter(Position = 51, Mandatory = false)]
         public System.String DataFieldX;
@@ -16255,13 +16255,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 58, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 59, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 60, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 61, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -16288,7 +16288,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 69, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 70, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -16303,7 +16303,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 74, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 75, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -16339,10 +16339,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 86, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 87, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 88, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -16372,13 +16372,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 97, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 98, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 99, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 100, Mandatory = false)]
         public System.String AxKey;
@@ -16450,7 +16450,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 123, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 124, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -16495,7 +16495,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 138, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 139, Mandatory = false)]
         public System.String AxFont;
@@ -16516,7 +16516,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 145, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 146, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -16525,7 +16525,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 148, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 149, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -16564,13 +16564,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 161, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 162, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 163, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 164, Mandatory = false)]
         public string AyType;
@@ -16582,7 +16582,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 167, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 168, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -16618,10 +16618,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 179, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 180, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 181, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -16651,13 +16651,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 190, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 191, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 192, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 193, Mandatory = false)]
         public System.String AyKey;
@@ -16729,7 +16729,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 216, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 217, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -16774,7 +16774,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 231, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 232, Mandatory = false)]
         public System.String AyFont;
@@ -16795,7 +16795,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 238, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 239, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -16804,7 +16804,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 241, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 242, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -16843,13 +16843,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 254, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 255, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 256, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private TwoColorAreaSeriesBuilder _builder;
 
@@ -17077,7 +17077,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
 
         [Parameter(Position = 38, Mandatory = false)]
-        public System.Boolean CanTrackerInterpolatePoints;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool CanTrackerInterpolatePoints;
 
         [Parameter(Position = 39, Mandatory = false)]
         public System.String DataFieldX;
@@ -17101,13 +17101,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 46, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 47, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 48, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 49, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -17134,7 +17134,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 57, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 58, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -17149,7 +17149,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 62, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 63, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -17185,10 +17185,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 74, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 75, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 76, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -17218,13 +17218,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 85, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 86, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 87, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 88, Mandatory = false)]
         public System.String AxKey;
@@ -17296,7 +17296,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 111, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 112, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -17341,7 +17341,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 126, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 127, Mandatory = false)]
         public System.String AxFont;
@@ -17362,7 +17362,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 133, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 134, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -17371,7 +17371,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 136, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 137, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -17410,13 +17410,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 149, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 150, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 151, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 152, Mandatory = false)]
         public string AyType;
@@ -17428,7 +17428,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 155, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 156, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -17464,10 +17464,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 167, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 168, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 169, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -17497,13 +17497,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 178, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 179, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 180, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 181, Mandatory = false)]
         public System.String AyKey;
@@ -17575,7 +17575,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 204, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 205, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -17620,7 +17620,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 219, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 220, Mandatory = false)]
         public System.String AyFont;
@@ -17641,7 +17641,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 226, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 227, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -17650,7 +17650,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 229, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 230, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -17689,13 +17689,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 242, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 243, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 244, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private TwoColorLineSeriesBuilder _builder;
 
@@ -17897,10 +17897,10 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle InterceptLineStyle;
 
         [Parameter(Position = 32, Mandatory = false)]
-        public System.Boolean PositiveHollow;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool PositiveHollow;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.Boolean NegativeHollow;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool NegativeHollow;
 
         [Parameter(Position = 34, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double BarWidth;
@@ -17918,13 +17918,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 39, Mandatory = false)]
-        public System.Boolean IsVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool IsVisible;
 
         [Parameter(Position = 40, Mandatory = false)]
         public System.String Title;
 
         [Parameter(Position = 41, Mandatory = false)]
-        public System.Boolean RenderInLegend;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool RenderInLegend;
 
         [Parameter(Position = 42, Mandatory = false)]
         public System.String TrackerFormatString;
@@ -17951,7 +17951,7 @@ namespace Horker.PSOxyPlot
         public System.String ToolTip;
 
         [Parameter(Position = 50, Mandatory = false)]
-        public System.Boolean Selectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool Selectable;
 
         [Parameter(Position = 51, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
@@ -17966,7 +17966,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndAngle;
 
         [Parameter(Position = 55, Mandatory = false)]
-        public System.Boolean AxFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxFormatAsFractions;
 
         [Parameter(Position = 56, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxFractionUnit;
@@ -18002,10 +18002,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxAxislineThickness;
 
         [Parameter(Position = 67, Mandatory = false)]
-        public System.Boolean AxClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxClipTitle;
 
         [Parameter(Position = 68, Mandatory = false)]
-        public System.Boolean AxCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxCropGridlines;
 
         [Parameter(Position = 69, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxEndPosition;
@@ -18035,13 +18035,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxIntervalLength;
 
         [Parameter(Position = 78, Mandatory = false)]
-        public System.Boolean AxIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsAxisVisible;
 
         [Parameter(Position = 79, Mandatory = false)]
-        public System.Boolean AxIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsPanEnabled;
 
         [Parameter(Position = 80, Mandatory = false)]
-        public System.Boolean AxIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsZoomEnabled;
 
         [Parameter(Position = 81, Mandatory = false)]
         public System.String AxKey;
@@ -18113,7 +18113,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AxPosition;
 
         [Parameter(Position = 104, Mandatory = false)]
-        public System.Boolean AxPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPositionAtZeroCrossing;
 
         [Parameter(Position = 105, Mandatory = false)]
         public System.Int32 AxPositionTier;
@@ -18158,7 +18158,7 @@ namespace Horker.PSOxyPlot
         public System.String AxUnit;
 
         [Parameter(Position = 119, Mandatory = false)]
-        public System.Boolean AxUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxUseSuperExponentialFormat;
 
         [Parameter(Position = 120, Mandatory = false)]
         public System.String AxFont;
@@ -18179,7 +18179,7 @@ namespace Horker.PSOxyPlot
         public System.String AxToolTip;
 
         [Parameter(Position = 126, Mandatory = false)]
-        public System.Boolean AxSelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxSelectable;
 
         [Parameter(Position = 127, Mandatory = false)]
         public OxyPlot.SelectionMode AxSelectionMode;
@@ -18188,7 +18188,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxGapWidth;
 
         [Parameter(Position = 129, Mandatory = false)]
-        public System.Boolean AxIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxIsTickCentered;
 
         [Parameter(Position = 130, Mandatory = false)]
         public System.Collections.IEnumerable AxItemsSource;
@@ -18227,13 +18227,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxLowColor;
 
         [Parameter(Position = 142, Mandatory = false)]
-        public System.Boolean AxRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxRenderAsImage;
 
         [Parameter(Position = 143, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AxBase;
 
         [Parameter(Position = 144, Mandatory = false)]
-        public System.Boolean AxPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AxPowerPadding;
 
         [Parameter(Position = 145, Mandatory = false)]
         public string AyType;
@@ -18245,7 +18245,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndAngle;
 
         [Parameter(Position = 148, Mandatory = false)]
-        public System.Boolean AyFormatAsFractions;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyFormatAsFractions;
 
         [Parameter(Position = 149, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyFractionUnit;
@@ -18281,10 +18281,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyAxislineThickness;
 
         [Parameter(Position = 160, Mandatory = false)]
-        public System.Boolean AyClipTitle;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyClipTitle;
 
         [Parameter(Position = 161, Mandatory = false)]
-        public System.Boolean AyCropGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyCropGridlines;
 
         [Parameter(Position = 162, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyEndPosition;
@@ -18314,13 +18314,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyIntervalLength;
 
         [Parameter(Position = 171, Mandatory = false)]
-        public System.Boolean AyIsAxisVisible;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsAxisVisible;
 
         [Parameter(Position = 172, Mandatory = false)]
-        public System.Boolean AyIsPanEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsPanEnabled;
 
         [Parameter(Position = 173, Mandatory = false)]
-        public System.Boolean AyIsZoomEnabled;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsZoomEnabled;
 
         [Parameter(Position = 174, Mandatory = false)]
         public System.String AyKey;
@@ -18392,7 +18392,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.Axes.AxisPosition AyPosition;
 
         [Parameter(Position = 197, Mandatory = false)]
-        public System.Boolean AyPositionAtZeroCrossing;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPositionAtZeroCrossing;
 
         [Parameter(Position = 198, Mandatory = false)]
         public System.Int32 AyPositionTier;
@@ -18437,7 +18437,7 @@ namespace Horker.PSOxyPlot
         public System.String AyUnit;
 
         [Parameter(Position = 212, Mandatory = false)]
-        public System.Boolean AyUseSuperExponentialFormat;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyUseSuperExponentialFormat;
 
         [Parameter(Position = 213, Mandatory = false)]
         public System.String AyFont;
@@ -18458,7 +18458,7 @@ namespace Horker.PSOxyPlot
         public System.String AyToolTip;
 
         [Parameter(Position = 219, Mandatory = false)]
-        public System.Boolean AySelectable;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AySelectable;
 
         [Parameter(Position = 220, Mandatory = false)]
         public OxyPlot.SelectionMode AySelectionMode;
@@ -18467,7 +18467,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyGapWidth;
 
         [Parameter(Position = 222, Mandatory = false)]
-        public System.Boolean AyIsTickCentered;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyIsTickCentered;
 
         [Parameter(Position = 223, Mandatory = false)]
         public System.Collections.IEnumerable AyItemsSource;
@@ -18506,13 +18506,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyLowColor;
 
         [Parameter(Position = 235, Mandatory = false)]
-        public System.Boolean AyRenderAsImage;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyRenderAsImage;
 
         [Parameter(Position = 236, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double AyBase;
 
         [Parameter(Position = 237, Mandatory = false)]
-        public System.Boolean AyPowerPadding;
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
         private VolumeSeriesBuilder _builder;
 
