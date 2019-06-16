@@ -12,6 +12,32 @@ namespace Horker.PSOxyPlot.ObjectFactories
 {
     public static class AxisInitializer
     {
+        private static List<Type> _axisClasses;
+
+        static AxisInitializer()
+        {
+            _axisClasses = new List<Type>();
+
+            var types = typeof(LinearAxis).Assembly.GetTypes().Where(t => t.IsPublic && !t.IsAbstract && t.Name.EndsWith("Axis"));
+
+            foreach (var t in types)
+                _axisClasses.Add(t);
+        }
+
+        public static Type GetAxisTypeByPartialName(string typeName)
+        {
+            var n = typeName.ToLower();
+            var matches = _axisClasses.Where(t => t.Name.ToLower().IndexOf(typeName) >= 0).ToList();
+
+            if (matches.Count == 0)
+                throw new ArgumentException($"No axis types found for '{typeName}'");
+
+            if (matches.Count > 1)
+                throw new ArgumentException($"Mulptile axis types found for '{typeName}'");
+
+            return matches[0];
+        }
+
         private static Axis GetAxisObject(Series series, ISeriesInfo si, int index)
         {
             var axisType = si.AxisTypes[index];
@@ -63,6 +89,7 @@ namespace Horker.PSOxyPlot.ObjectFactories
 
             Axis ax = null;
             Axis ay = null;
+
             foreach (var a in model.Axes)
             {
                 if (ax == null && a.IsHorizontal())

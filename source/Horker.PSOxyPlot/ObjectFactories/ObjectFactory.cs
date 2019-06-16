@@ -14,6 +14,25 @@ namespace Horker.PSOxyPlot.ObjectFactories
         public static PlotModel CreatePlotModel(ISeriesInfo si, Dictionary<string, object> parameters)
         {
             var model = new PlotModel();
+
+            // Initialize axes
+
+            if (parameters.TryGetValue("AxType", out var axTypeName))
+            {
+                var axisType = AxisInitializer.GetAxisTypeByPartialName(axTypeName.ToString());
+                var axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);
+                axis.Position = AxisPosition.Bottom;
+                model.Axes.Add(axis);
+            }
+
+            if (parameters.TryGetValue("AyType", out var ayTypeName))
+            {
+                var axisType = AxisInitializer.GetAxisTypeByPartialName(ayTypeName.ToString());
+                var axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);
+                axis.Position = AxisPosition.Left;
+                model.Axes.Add(axis);
+            }
+
             AxisInitializer.WithSeriesInfo(model, si);
             AxisInitializer.AssignParametersToModelAxes(model, parameters);
 

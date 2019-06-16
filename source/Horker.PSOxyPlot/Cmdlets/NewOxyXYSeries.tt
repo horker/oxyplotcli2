@@ -112,7 +112,11 @@ foreach (var builderType in builderTypes)
 
 <#
     }
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public string AxType;
 
+<#
     foreach (var prop in AxisProperty.Enumerate())
     {
 #>
@@ -121,7 +125,11 @@ foreach (var builderType in builderTypes)
 
 <#
     }
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public string AyType;
 
+<#
     foreach (var prop in AxisProperty.Enumerate())
     {
 #>
