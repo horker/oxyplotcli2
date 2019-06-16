@@ -14,14 +14,13 @@ namespace Horker.PSOxyPlot.ObjectFactories
     {
         private static Axis GetAxisObject(Series series, ISeriesInfo si, int index)
         {
-            var axisType = SeriesBuilderStore.OfType(series.GetType()).DefaultAxisTypes[index];
+            var axisType = si.AxisTypes[index];
             if (axisType == null)
-                return null;
-
-            if (si.AxisTypes[index] == AxisType.DateTime)
-                axisType = typeof(DateTimeAxis);
-            else if (si.AxisTypes[index] == AxisType.TimeSpan)
-                axisType = typeof(TimeSpanAxis);
+            {
+                axisType = SeriesBuilderStore.OfType(series.GetType()).DefaultAxisTypes[index];
+                if (axisType == null)
+                    return null;
+            }
 
             var axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);
 

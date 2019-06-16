@@ -5,6 +5,7 @@ using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
+using OxyPlot.Axes;
 using OxyPlot.Series;
 
 namespace Horker.PSOxyPlot.SeriesBuilders
@@ -44,11 +45,6 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         protected static readonly string DefaultGroupName = "default group!!??##$%&' ";
 
-        private IEnumerable<T> ConvertCollectionType<T>(IEnumerable<object> coll)
-        {
-            return coll.Select(x => TypeAdaptors.Helpers.ConvertObjectType<T>(x));
-        }
-
         private T GetNaN<T>()
         {
             if (typeof(T) == typeof(double))
@@ -63,50 +59,63 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             return default(T);
         }
 
-        private AxisType InferAxisType<T>(object value)
+        private Type InferAxisTypeBasedOnValueType(int axisIndex, object value)
         {
-            if (typeof(T) != typeof(double))
-                return AxisType.Numeric;
+            // Use a default type except a linear axis.
+            if (DefaultAxisTypes[axisIndex] != typeof(LinearAxis))
+                return DefaultAxisTypes[axisIndex];
 
-            var t = value.GetType();
+            if (value == null)
+                return null;
+
+            if (value is object[] a)
+                value = a[0];
+
+            Type t;
+
+            if (value is TypeAdaptors.Double d)
+                t = d.InferValueType();
+            else
+                t = value.GetType();
+
             if (t == typeof(double) || t == typeof(float) || t == typeof(long) || t == typeof(int) ||
                 t == typeof(short) || t == typeof(byte) || t == typeof(sbyte))
-                return AxisType.Numeric;
+                return typeof(LinearAxis);
 
             if (t == typeof(DateTime) || t == typeof(DateTimeOffset))
-                return AxisType.DateTime;
+                return typeof(DateTimeAxis);
 
             if (t == typeof(TimeSpan))
-                return AxisType.TimeSpan;
+                return typeof(TimeSpanAxis);
 
             try
             {
                 var dummy = SmartConverter.ToDouble(value);
-                return AxisType.Numeric;
+                return typeof(LinearAxis);
             }
             catch (Exception)
             {
                 try
                 {
                     var dummy = DateTime.Parse(value.ToString());
-                    return AxisType.DateTime;
+                    return typeof(DateTimeAxis);
                 }
                 catch (Exception)
                 {
                     try
                     {
                         var dummy = TimeSpan.Parse(value.ToString());
-                        return AxisType.TimeSpan;
+                        return typeof(TimeSpanAxis);
                     }
                     catch (Exception)
                     {
-                        return AxisType.Numeric;
+                        return typeof(LinearAxis);
                     }
                 }
             }
         }
 
-        private void ReadInputObject<T>(List<T> elements, PSObject inputObject, int argIndex)
+        private void ReadDataPointElementFromPipeline<T>(List<T> elements, PSObject inputObject, int argIndex)
         {
             var name = _propertyNames[argIndex];
 
@@ -119,6 +128,10 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             elements.Add(converted);
         }
 
+        /// <summary>
+        /// Read a single data item from the pipeline.
+        /// </summary>
+        /// <param name="inputObject">The pipeline value.</param>
         public void ReadPSObject(PSObject inputObject)
         {
             if (inputObject.Properties.Match(_groupName).Count > 0)
@@ -127,26 +140,36 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 _groups.Add(g);
             }
 
+            for (var i = 0; i < 2; ++i)
+            {
+                if (_info.AxisTypes[i] == null)
+                {
+                    var name = _propertyNames[AxisItemIndexes[i]];
+                    var value = inputObject.Properties[name].Value;
+                    _info.AxisTypes[i] = InferAxisTypeBasedOnValueType(i, value);
+                }
+            }
+
             if (typeof(E1) != typeof(VoidT))
             {
-                ReadInputObject(_e1, inputObject, 0);
+                ReadDataPointElementFromPipeline(_e1, inputObject, 0);
                 if (typeof(E2) != typeof(VoidT))
                 {
-                    ReadInputObject(_e2, inputObject, 1);
+                    ReadDataPointElementFromPipeline(_e2, inputObject, 1);
                     if (typeof(E3) != typeof(VoidT))
                     {
-                        ReadInputObject(_e3, inputObject, 2);
+                        ReadDataPointElementFromPipeline(_e3, inputObject, 2);
                         if (typeof(E4) != typeof(VoidT))
                         {
-                            ReadInputObject(_e4, inputObject, 3);
+                            ReadDataPointElementFromPipeline(_e4, inputObject, 3);
                             if (typeof(E5) != typeof(VoidT))
                             {
-                                ReadInputObject(_e5, inputObject, 4);
+                                ReadDataPointElementFromPipeline(_e5, inputObject, 4);
                                 if (typeof(E6) != typeof(VoidT))
                                 {
-                                    ReadInputObject(_e6, inputObject, 5);
+                                    ReadDataPointElementFromPipeline(_e6, inputObject, 5);
                                     if (typeof(E7) != typeof(VoidT))
-                                        ReadInputObject(_e7, inputObject, 6);
+                                        ReadDataPointElementFromPipeline(_e7, inputObject, 6);
                                 }
                             }
                         }
@@ -177,8 +200,54 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             }
         }
 
-        private void ReadArguments(Dictionary<string, object> boundParameters)
+        /// <summary>
+        /// Read the parameters given to the cmdlet and configure overall
+        /// settings such as a group name and axis titles, and load data points.
+        /// </summary>
+        /// <param name="boundParameters"></param>
+        public void ReadBoundParameters(Dictionary<string, object> boundParameters)
         {
+            // Initialize instance variables.
+            // They should be initialized here instead of in the constructor.
+            // The subclasses of SeriesBuilder are instantiated in SeriesBuilderStore
+            // to prepare for the query about Series object properties.
+
+            _e1 = new List<E1>();
+            _e2 = new List<E2>();
+            _e3 = new List<E3>();
+            _e4 = new List<E4>();
+            _e5 = new List<E5>();
+            _e6 = new List<E6>();
+            _e7 = new List<E7>();
+
+            _groups = new List<object>();
+
+            // Read a group name.
+
+            _groupName = DefaultGroupName;
+            if (boundParameters.TryGetValue("GroupName", out object groupName))
+                _groupName = (string)groupName;
+
+            // Inters axis types and initializes axis names based on bound parameters.
+
+            _info = new SeriesInfo<SeriesT>();
+
+            for (var i = 0; i < 2; ++i)
+            {
+                if (AxisItemIndexes.Length > i && AxisItemIndexes[i] >= 0)
+                {
+                    if (boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[i]] + "Name", out object name))
+                        _info.AxisTitles[i] = (string)name;
+
+                    // Infer axis types. If data points are given through the pipeline,
+                    // axis types are inferred when reading pipeline values in ReadPSObject().
+                    if (boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[i]], out object value))
+                        _info.AxisTypes[i] = InferAxisTypeBasedOnValueType(i, value);
+                }
+            }
+
+            // Read data points.
+
             if (typeof(E1) != typeof(VoidT))
                 ReadArray(_e1, boundParameters, 0);
             if (typeof(E2) != typeof(VoidT))
@@ -194,43 +263,10 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             if (typeof(E7) != typeof(VoidT))
                 ReadArray(_e7, boundParameters, 6);
 
-            object groups;
-            if (boundParameters.TryGetValue("Group", out groups))
+            // Read groups.
+
+            if (boundParameters.TryGetValue("Group", out var groups))
                 _groups.AddRange((IEnumerable<object>)groups);
-        }
-
-        public void ReadBoundParameters(Dictionary<string, object> boundParameters)
-        {
-            _groupName = DefaultGroupName;
-            if (boundParameters.TryGetValue("GroupName", out object groupName))
-                _groupName = (string)groupName;
-
-            _groups = new List<object>();
-
-            _e1 = new List<E1>();
-            _e2 = new List<E2>();
-            _e3 = new List<E3>();
-            _e4 = new List<E4>();
-            _e5 = new List<E5>();
-            _e6 = new List<E6>();
-            _e7 = new List<E7>();
-
-            _propertyNames = DataPointItemNames.Select(p => {
-                object v;
-                if (boundParameters.TryGetValue(p + "Name", out v))
-                    return (string)v;
-                return null;
-            }).ToArray();
-
-            _info = new SeriesInfo<SeriesT>();
-
-            if (AxisItemIndexes.Length > 0 && AxisItemIndexes[0] >= 0 && boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[0]] + "Name", out object xName))
-                _info.AxisTitles[0] = (string)xName;
-
-            if (AxisItemIndexes.Length > 1 && AxisItemIndexes[1] >= 0 && boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[1]] + "Name", out object yName))
-                _info.AxisTitles[1] = (string)yName;
-
-            ReadArguments(boundParameters);
         }
 
         protected virtual void ValidateInputData()
@@ -308,6 +344,10 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             _info.CategoryNames = cat;
         }
 
+        /// <summary>
+        /// Create a SeriesInfo object based on the cmdlet parameters.
+        /// </summary>
+        /// <returns>A SeriesInfo object.</returns>
         public virtual SeriesInfo<SeriesT> CreateSeriesInfo()
         {
             // Validate data lengths.

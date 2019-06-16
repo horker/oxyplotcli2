@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Automation;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -11,25 +12,26 @@ namespace Horker.PSOxyPlot.TypeAdaptors
 {
     public class Double
     {
-        public double Value;
+        private object _value;
+        public double Value => ConvertFrom(_value);
 
         public Double()
         {
-            Value = double.NaN;
+            _value = double.NaN;
         }
 
-        public Double(double value)
+        public Double(object value)
         {
-            Value = value;
-        }
-
-        public Double(string value)
-        {
-            Value = ConvertFrom(value);
+            if (value is PSObject pso)
+                _value = pso.BaseObject;
+            _value = value;
         }
 
         public static double ConvertFrom(object value)
         {
+            if (value is PSObject pso)
+                value = pso.BaseObject;
+
             double v;
             if (value is byte b)
                 v = b;
@@ -73,6 +75,46 @@ namespace Horker.PSOxyPlot.TypeAdaptors
 
             DpiX = (int)dpiXProperty.GetValue(null, null);
             DpiY = (int)dpiYProperty.GetValue(null, null);
+        }
+
+        public Type InferValueType()
+        {
+            var t = _value.GetType();
+            if (t == typeof(double) || t == typeof(float) || t == typeof(long) || t == typeof(int) ||
+                t == typeof(short) || t == typeof(byte) || t == typeof(sbyte))
+                return typeof(double);
+
+            if (t == typeof(DateTime) || t == typeof(DateTimeOffset))
+                return typeof(DateTime);
+
+            if (t == typeof(TimeSpan))
+                return typeof(TimeSpan);
+
+            try
+            {
+                var dummy = SmartConverter.ToDouble(_value);
+                return typeof(double);
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    var dummy = DateTime.Parse(_value.ToString());
+                    return typeof(DateTime);
+                }
+                catch (Exception)
+                {
+                    try
+                    {
+                        var dummy = TimeSpan.Parse(_value.ToString());
+                        return typeof(TimeSpan);
+                    }
+                    catch (Exception)
+                    {
+                        return _value.GetType();
+                    }
+                }
+            }
         }
 
         public static double ConvertFrom(string value)
@@ -182,27 +224,27 @@ namespace Horker.PSOxyPlot.TypeAdaptors
 
         public static implicit operator Double(decimal value)
         {
-            return new Double((double)value);
+            return new Double(value);
         }
 
         public static implicit operator Double(DateTime value)
         {
-            return new Double(ConvertFrom(value));
+            return new Double(value);
         }
 
         public static implicit operator Double(DateTimeOffset value)
         {
-            return new Double(ConvertFrom(value));
+            return new Double(value);
         }
 
         public static implicit operator Double(TimeSpan value)
         {
-            return new Double(ConvertFrom(value));
+            return new Double(value);
         }
 
         public static implicit operator Double(string value)
         {
-            return new Double(ConvertFrom(value));
+            return new Double(value);
         }
     }
 }

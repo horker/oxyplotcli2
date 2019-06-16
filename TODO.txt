@@ -18,6 +18,7 @@ ScreenVector
 DataPoint in oxy.ann.text
 SvgIsDocument
 background color in png and grid view
+gridview title
 
 DONE OxyPlot v2.0 support
 DONE oxyplotcli v1 features
