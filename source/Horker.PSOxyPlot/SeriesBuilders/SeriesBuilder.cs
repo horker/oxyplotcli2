@@ -68,9 +68,6 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             if (value == null)
                 return null;
 
-            if (value is object[] a)
-                value = a[0];
-
             Type t;
 
             if (value is TypeAdaptors.Double d)
@@ -144,9 +141,15 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             {
                 if (_info.AxisTypes[i] == null)
                 {
-                    var name = _propertyNames[AxisItemIndexes[i]];
-                    var value = inputObject.Properties[name].Value;
-                    _info.AxisTypes[i] = InferAxisTypeBasedOnValueType(i, value);
+                    if (AxisItemIndexes.Length > i && AxisItemIndexes[i] >= 0)
+                    {
+                        var name = _propertyNames[AxisItemIndexes[i]];
+                        if (inputObject.Properties.Match(name).Count > 0)
+                        {
+                            var value = inputObject.Properties[name].Value;
+                            _info.AxisTypes[i] = InferAxisTypeBasedOnValueType(i, value);
+                        }
+                    }
                 }
             }
 
@@ -222,7 +225,14 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
             _groups = new List<object>();
 
-            // Read a group name.
+            // Initialize property names and a group name.
+
+            _propertyNames = DataPointItemNames.Select(p => {
+                object v;
+                if (boundParameters.TryGetValue(p + "Name", out v))
+                    return (string)v;
+                return null;
+            }).ToArray();
 
             _groupName = DefaultGroupName;
             if (boundParameters.TryGetValue("GroupName", out object groupName))
@@ -242,7 +252,18 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                     // Infer axis types. If data points are given through the pipeline,
                     // axis types are inferred when reading pipeline values in ReadPSObject().
                     if (boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[i]], out object value))
-                        _info.AxisTypes[i] = InferAxisTypeBasedOnValueType(i, value);
+                    {
+                        var a = value as object[];
+                        if (a != null)
+                        {
+                            foreach (var v in a)
+                            {
+                                if (v == null)
+                                    continue;
+                                _info.AxisTypes[i] = InferAxisTypeBasedOnValueType(i, v);
+                            }
+                        }
+                    }
                 }
             }
 
