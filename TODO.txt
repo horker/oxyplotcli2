@@ -1,7 +1,6 @@
 interop with pscanvas
 RectangleBarSeries category?
 HeapMap and Contour series cmdlet interfaces
-volume charts in CandleStickAndVolume and Volume series
 Tensor support
 Stype support
 ggplot stype
@@ -10,12 +9,56 @@ collection support
 AddOxyAxisShare
 -Options
 help document
-latest build for HistogramSeries support
-OxyImage in oxy.ann.image
-ScreenVector
-DataPoint in oxy.ann.text
 SmartConverter implementation: typed ToXxxx() methods
+default property name
+sample code
+
 bug: SeriesInfo AxisType: oxy.line -x 1 -y 1 -axtype log
+bug: typo oxy.cnadle
+bug: compat alias oxycol
+bug: volume charts in CandleStickAndVolume and Volume series
+
+type: ScreenPoint in -MarkerOutline of oxy.line
+type: IInterpolationAlgorithm in -InterpolationAlgorithm of oxy.line
+type: System.Double[] in -AxExtraGridlines of oxy.line
+type: public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
+type: public System.DayOfWeek AxFirstDayOfWeek;
+type: public System.Double[] Dashes in oxy.candle
+type: public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
+n oxy.line
+type: public OxyPlot.DataPoint TextPosition; in OxyTextAnnotation
+type: public OxyPlot.ScreenVector ArrowDirection; in OxyArrowAnnotation
+type: public OxyPlot.PlotLength X; in OxyImageAnnotation
+type: public OxyPlot.OxyImage ImageSource;
+type: public OxyPlot.ScreenVector Offset; in OxyTextAnnotation
+type: public OxyPlot.OxyPalette Palette; in OxyCategoryColorAxis
+
+latest build for:
+HistogramSeries
+RectangleSeries
+TileMapAnnotation
+MatrixSeries
+
+examples in Example Browser:
+Custom series: PolarHeapMap
+FunctionSeries
+HeapMapSeries
+LinearColorAxis
+Misc: Elaphant curve and others
+Polar Plots
+Z1 Issues: Support color coding on scatter plots
+Z1 Issues: Super exponential format
+
+examples in WpfExamples:
+ExportDemo
+InterpolationDemo
+Live demo (how to add data points from scripts?)
+Overlay demo
+RealtimeDemo
+RectangleSeries Demo (rectangeSeries with color axis)
+RefreshDemo
+ScatterDemo
+TaskDemo
 
 background color in png and grid view
 gridview title
