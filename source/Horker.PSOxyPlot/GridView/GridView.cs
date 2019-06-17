@@ -143,7 +143,7 @@ namespace Horker.PSOxyPlot
 
         public void SaveAsSvg(string path, int width = 800, int height = 600, bool isDocument = true)
         {
-            var svgString = GridViewExporter.ExportToSvgString(this, width, height);
+            var svgString = GridViewExporter.ExportToSvgString(this, width, height, isDocument);
 
             using (var f = new StreamWriter(path))
             {

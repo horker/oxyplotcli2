@@ -11,7 +11,21 @@ namespace Horker.PSOxyPlot
 {
     public static class ModelExporter
     {
-        public static string ExportToSvgString(PlotModel model, double width = 800, double height = 600, bool isDocument = false)
+        public static string RemoveHtmlHeaderFromSvg(string svg)
+        {
+            var startIndex = svg.IndexOf("<svg ");
+            var endIndex = svg.IndexOf(">", startIndex + 5);
+            return svg.Substring(startIndex);
+        }
+
+        public static string RemoveOpeningSvgTag(string svg)
+        {
+            var startIndex = svg.IndexOf("<svg ");
+            var endIndex = svg.IndexOf(">", startIndex + 5);
+            return svg.Substring(endIndex + 1);
+        }
+
+        public static string ExportToSvgString(PlotModel model, double width, double height, bool isDocument)
         {
             var ex = new OxyPlot.SvgExporter()
             {
@@ -20,10 +34,12 @@ namespace Horker.PSOxyPlot
                 IsDocument = isDocument
             };
 
-            return ex.ExportToString(model);
+            var svg = ex.ExportToString(model);
+
+            return isDocument ? svg : RemoveHtmlHeaderFromSvg(svg);
         }
 
-        public static void ExportToSvg(PlotModel model, string path, double width = 800, double height = 600, bool isDocument = false)
+        public static void ExportToSvg(PlotModel model, string path, double width, double height, bool isDocument)
         {
             var svgString = ExportToSvgString(model, width, height, isDocument);
 
@@ -33,7 +49,7 @@ namespace Horker.PSOxyPlot
             }
         }
 
-        public static void ExportToPng(PlotModel model, string path, int width = 800, int height = 600)
+        public static void ExportToPng(PlotModel model, string path, int width, int height)
         {
             var ex = new PngExporter()
             {
@@ -44,7 +60,7 @@ namespace Horker.PSOxyPlot
             ex.ExportToFile(model, path);
         }
 
-        public static void Export(PlotModel model, string path, double width = 800, double height = 600, bool isDocument = false)
+        public static void Export(PlotModel model, string path, double width, double height, bool isDocument)
         {
             var p = path.ToLower();
             if (p.EndsWith(".png"))

@@ -14,11 +14,11 @@ latest build for HistogramSeries support
 OxyImage in oxy.ann.image
 ScreenVector
 DataPoint in oxy.ann.text
-SvgIsDocument
-background color in png and grid view
-gridview title
 SmartConverter implementation: typed ToXxxx() methods
 bug: SeriesInfo AxisType: oxy.line -x 1 -y 1 -axtype log
+
+background color in png and grid view
+gridview title
 
 DONE OxyPlot v2.0 support
 DONE oxyplotcli v1 features
@@ -36,3 +36,4 @@ DONE C# syntax for expressions in FunctionSeries
 DONE axis parameters for series and model cmdlets
 DONE -AxType and partial axis name support
 DONE type conversions for bool
+DONE SvgIsDocument
