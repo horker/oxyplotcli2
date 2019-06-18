@@ -10,7 +10,6 @@ AddOxyAxisShare
 -Options
 help document
 SmartConverter implementation: typed ToXxxx() methods
-default property name
 sample code
 
 bug: SeriesInfo AxisType: oxy.line -x 1 -y 1 -axtype log
@@ -80,3 +79,4 @@ DONE type: public OxyPlot.PlotLength X; in OxyImageAnnotation
 DONE type: public OxyPlot.OxyImage ImageSource;
 DONE bug: typo oxy.cnadle
 DONE bug: compat alias oxycol
+DONE default property name
