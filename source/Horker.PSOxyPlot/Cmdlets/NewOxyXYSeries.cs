@@ -20,16 +20,16 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string X1Name;
+        public string X1Name = "X1";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string Y1Name;
+        public string Y1Name = "Y1";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string X2Name;
+        public string X2Name = "X2";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string Y2Name;
+        public string Y2Name = "Y2";
 
         [Parameter(Position = 5, Mandatory = false)]
         public string GroupName = null;
@@ -878,10 +878,10 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string ValueName;
+        public string ValueName = "Value";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string CategoryName;
+        public string CategoryName = "Category";
 
         [Parameter(Position = 3, Mandatory = false)]
         public string GroupName = null;
@@ -1652,25 +1652,25 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string CategoryName;
+        public string CategoryName = "Category";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string LowerWhiskerName;
+        public string LowerWhiskerName = "LowerWhisker";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string BoxBottomName;
+        public string BoxBottomName = "BoxBottom";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string MedianName;
+        public string MedianName = "Median";
 
         [Parameter(Position = 5, Mandatory = false)]
-        public string BoxTopName;
+        public string BoxTopName = "BoxTop";
 
         [Parameter(Position = 6, Mandatory = false)]
-        public string UpperWhiskerName;
+        public string UpperWhiskerName = "UpperWhisker";
 
         [Parameter(Position = 7, Mandatory = false)]
-        public string OutliersName;
+        public string OutliersName = "Outliers";
 
         [Parameter(Position = 8, Mandatory = false)]
         public string GroupName = null;
@@ -2476,19 +2476,19 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string HighName;
+        public string HighName = "High";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string LowName;
+        public string LowName = "Low";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string OpenName;
+        public string OpenName = "Open";
 
         [Parameter(Position = 5, Mandatory = false)]
-        public string CloseName;
+        public string CloseName = "Close";
 
         [Parameter(Position = 6, Mandatory = false)]
         public string GroupName = null;
@@ -3276,25 +3276,25 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string OpenName;
+        public string OpenName = "Open";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string HighName;
+        public string HighName = "High";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string LowName;
+        public string LowName = "Low";
 
         [Parameter(Position = 5, Mandatory = false)]
-        public string CloseName;
+        public string CloseName = "Close";
 
         [Parameter(Position = 6, Mandatory = false)]
-        public string BuyVolumeName;
+        public string BuyVolumeName = "BuyVolume";
 
         [Parameter(Position = 7, Mandatory = false)]
-        public string SellVolumeName;
+        public string SellVolumeName = "SellVolume";
 
         [Parameter(Position = 8, Mandatory = false)]
         public string GroupName = null;
@@ -4084,10 +4084,10 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string ValueName;
+        public string ValueName = "Value";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string CategoryName;
+        public string CategoryName = "Category";
 
         [Parameter(Position = 3, Mandatory = false)]
         public string GroupName = null;
@@ -4858,13 +4858,13 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string YName;
+        public string YName = "Y";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string ZName;
+        public string ZName = "Z";
 
         [Parameter(Position = 4, Mandatory = false)]
         public string GroupName = null;
@@ -5638,13 +5638,13 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string ValueName;
+        public string ValueName = "Value";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string ErrorName;
+        public string ErrorName = "Error";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string CategoryName;
+        public string CategoryName = "Category";
 
         [Parameter(Position = 4, Mandatory = false)]
         public string GroupName = null;
@@ -6426,19 +6426,19 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string HighName;
+        public string HighName = "High";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string LowName;
+        public string LowName = "Low";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string OpenName;
+        public string OpenName = "Open";
 
         [Parameter(Position = 5, Mandatory = false)]
-        public string CloseName;
+        public string CloseName = "Close";
 
         [Parameter(Position = 6, Mandatory = false)]
         public string GroupName = null;
@@ -7214,16 +7214,16 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string StartName;
+        public string StartName = "Start";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string EndName;
+        public string EndName = "End";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string BarTitleName;
+        public string BarTitleName = "BarTitle";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string CategoryName;
+        public string CategoryName = "Category";
 
         [Parameter(Position = 5, Mandatory = false)]
         public string GroupName = null;
@@ -7988,10 +7988,10 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string YName;
+        public string YName = "Y";
 
         [Parameter(Position = 3, Mandatory = false)]
         public string GroupName = null;
@@ -8750,10 +8750,10 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string YName;
+        public string YName = "Y";
 
         [Parameter(Position = 3, Mandatory = false)]
         public string GroupName = null;
@@ -9572,16 +9572,16 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string LabelName;
+        public string LabelName = "Label";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string ValueName;
+        public string ValueName = "Value";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string FillName;
+        public string FillName = "Fill";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string IsExplodedName;
+        public string IsExplodedName = "IsExploded";
 
         [Parameter(Position = 5, Mandatory = false)]
         public string GroupName = null;
@@ -10390,16 +10390,16 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string X0Name;
+        public string X0Name = "X0";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string Y0Name;
+        public string Y0Name = "Y0";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string X1Name;
+        public string X1Name = "X1";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string Y1Name;
+        public string Y1Name = "Y1";
 
         [Parameter(Position = 5, Mandatory = false)]
         public string GroupName = null;
@@ -11144,16 +11144,16 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string YName;
+        public string YName = "Y";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string SizeName;
+        public string SizeName = "Size";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string ValueName;
+        public string ValueName = "Value";
 
         [Parameter(Position = 5, Mandatory = false)]
         public string GroupName = null;
@@ -11942,22 +11942,22 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string YName;
+        public string YName = "Y";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string ErrorXName;
+        public string ErrorXName = "ErrorX";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string ErrorYName;
+        public string ErrorYName = "ErrorY";
 
         [Parameter(Position = 5, Mandatory = false)]
-        public string SizeName;
+        public string SizeName = "Size";
 
         [Parameter(Position = 6, Mandatory = false)]
-        public string ValueName;
+        public string ValueName = "Value";
 
         [Parameter(Position = 7, Mandatory = false)]
         public string GroupName = null;
@@ -12776,10 +12776,10 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string YName;
+        public string YName = "Y";
 
         [Parameter(Position = 3, Mandatory = false)]
         public string GroupName = null;
@@ -13606,10 +13606,10 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string YName;
+        public string YName = "Y";
 
         [Parameter(Position = 3, Mandatory = false)]
         public string GroupName = null;
@@ -14432,10 +14432,10 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string YName;
+        public string YName = "Y";
 
         [Parameter(Position = 3, Mandatory = false)]
         public string GroupName = null;
@@ -15286,22 +15286,22 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string MinimumName;
+        public string MinimumName = "Minimum";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string MaximumName;
+        public string MaximumName = "Maximum";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string BarBaseValueName;
+        public string BarBaseValueName = "BarBaseValue";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string MinimumColorName;
+        public string MinimumColorName = "MinimumColor";
 
         [Parameter(Position = 5, Mandatory = false)]
-        public string MaximumColorName;
+        public string MaximumColorName = "MaximumColor";
 
         [Parameter(Position = 6, Mandatory = false)]
-        public string CategoryName;
+        public string CategoryName = "Category";
 
         [Parameter(Position = 7, Mandatory = false)]
         public string GroupName = null;
@@ -16084,16 +16084,16 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string X1Name;
+        public string X1Name = "X1";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string Y1Name;
+        public string Y1Name = "Y1";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string X2Name;
+        public string X2Name = "X2";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string Y2Name;
+        public string Y2Name = "Y2";
 
         [Parameter(Position = 5, Mandatory = false)]
         public string GroupName = null;
@@ -16966,10 +16966,10 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string YName;
+        public string YName = "Y";
 
         [Parameter(Position = 3, Mandatory = false)]
         public string GroupName = null;
@@ -17804,25 +17804,25 @@ namespace Horker.PSOxyPlot
         public PSObject InputObject;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public string XName;
+        public string XName = "X";
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string OpenName;
+        public string OpenName = "Open";
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string HighName;
+        public string HighName = "High";
 
         [Parameter(Position = 4, Mandatory = false)]
-        public string LowName;
+        public string LowName = "Low";
 
         [Parameter(Position = 5, Mandatory = false)]
-        public string CloseName;
+        public string CloseName = "Close";
 
         [Parameter(Position = 6, Mandatory = false)]
-        public string BuyVolumeName;
+        public string BuyVolumeName = "BuyVolume";
 
         [Parameter(Position = 7, Mandatory = false)]
-        public string SellVolumeName;
+        public string SellVolumeName = "SellVolume";
 
         [Parameter(Position = 8, Mandatory = false)]
         public string GroupName = null;

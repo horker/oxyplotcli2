@@ -64,7 +64,7 @@ foreach (var builderType in builderTypes)
     {
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
-        public string <#= pointItemNames[i] #>Name;
+        public string <#= pointItemNames[i] #>Name = "<#= pointItemNames[i] #>";
 
 <#
     }

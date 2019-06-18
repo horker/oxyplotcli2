@@ -14,8 +14,6 @@ default property name
 sample code
 
 bug: SeriesInfo AxisType: oxy.line -x 1 -y 1 -axtype log
-bug: typo oxy.cnadle
-bug: compat alias oxycol
 bug: volume charts in CandleStickAndVolume and Volume series
 
 type: ScreenPoint in -MarkerOutline of oxy.line
@@ -80,3 +78,5 @@ DONE type: public System.Double[] Dashes in oxy.candle
 DONE type: System.Double[] in -AxExtraGridlines of oxy.line
 DONE type: public OxyPlot.PlotLength X; in OxyImageAnnotation
 DONE type: public OxyPlot.OxyImage ImageSource;
+DONE bug: typo oxy.cnadle
+DONE bug: compat alias oxycol
