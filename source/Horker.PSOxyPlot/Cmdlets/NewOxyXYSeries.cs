@@ -2468,7 +2468,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyCandleStickSeries")]
-    [Alias("oxy.candleStick", "oxy.cnadle", "oxycandle")]
+    [Alias("oxy.candleStick", "oxy.candle", "oxycandle")]
     [OutputType(typeof(SeriesInfo<CandleStickSeries>))]
     public class NewOxyCandleStickSeries : PSCmdlet
     {
@@ -4076,7 +4076,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyColumnSeries")]
-    [Alias("oxy.column", "oxy.col", "oxycolumn")]
+    [Alias("oxy.column", "oxy.col", "oxycol")]
     [OutputType(typeof(SeriesInfo<ColumnSeries>))]
     public class NewOxyColumnSeries : PSCmdlet
     {

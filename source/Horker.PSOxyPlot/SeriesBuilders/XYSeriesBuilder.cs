@@ -72,7 +72,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true };
         public override int[] AxisItemIndexes => new[] { 0, -1, -1, -1, 1 };
         public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
-        public override string[] Aliases => new[] { "oxy.candleStick", "oxy.cnadle", "oxycandle" };
+        public override string[] Aliases => new[] { "oxy.candleStick", "oxy.candle", "oxycandle" };
 
         protected override void AddDataPointToSeries(CandleStickSeries series, double x, double high, double low, double open, double close, VoidT e6, VoidT e7)
         {
@@ -100,7 +100,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public override bool[] DataPointItemMandatoriness => new[] { true, false };
         public override int[] AxisItemIndexes => new[] { 1, 0 };
         public override Type[] DefaultAxisTypes => new[] { typeof(CategoryAxis), typeof(LinearAxis) };
-        public override string[] Aliases => new[] { "oxy.column", "oxy.col", "oxycolumn" };
+        public override string[] Aliases => new[] { "oxy.column", "oxy.col", "oxycol" };
 
         protected override void AddDataPointToSeries(ColumnSeries series, double value, TypeAdaptors.Category category, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
