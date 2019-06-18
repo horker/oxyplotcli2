@@ -23,7 +23,6 @@ type: IInterpolationAlgorithm in -InterpolationAlgorithm of oxy.line
 type: System.Double[] in -AxExtraGridlines of oxy.line
 type: public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
 type: public System.DayOfWeek AxFirstDayOfWeek;
-type: public System.Double[] Dashes in oxy.candle
 type: public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
 n oxy.line
 type: public OxyPlot.DataPoint TextPosition; in OxyTextAnnotation
@@ -80,3 +79,4 @@ DONE axis parameters for series and model cmdlets
 DONE -AxType and partial axis name support
 DONE type conversions for bool
 DONE SvgIsDocument
+DONE type: public System.Double[] Dashes in oxy.candle

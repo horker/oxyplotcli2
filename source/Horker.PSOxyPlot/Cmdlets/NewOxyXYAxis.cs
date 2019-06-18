@@ -76,7 +76,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double ExtraGridlineThickness;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public System.Double[] ExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ExtraGridlines;
 
         [Parameter(Position = 21, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> FilterFunction;
@@ -265,7 +265,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
             if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
             if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = ExtraGridlines;
+            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
             if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
             if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
             if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
@@ -397,7 +397,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double ExtraGridlineThickness;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public System.Double[] ExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ExtraGridlines;
 
         [Parameter(Position = 23, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> FilterFunction;
@@ -588,7 +588,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
             if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
             if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = ExtraGridlines;
+            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
             if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
             if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
             if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
@@ -726,7 +726,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double ExtraGridlineThickness;
 
         [Parameter(Position = 24, Mandatory = false)]
-        public System.Double[] ExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ExtraGridlines;
 
         [Parameter(Position = 25, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> FilterFunction;
@@ -919,7 +919,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
             if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
             if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = ExtraGridlines;
+            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
             if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
             if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
             if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
@@ -1054,7 +1054,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double ExtraGridlineThickness;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Double[] ExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ExtraGridlines;
 
         [Parameter(Position = 24, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> FilterFunction;
@@ -1246,7 +1246,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
             if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
             if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = ExtraGridlines;
+            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
             if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
             if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
             if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
@@ -1366,7 +1366,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double ExtraGridlineThickness;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public System.Double[] ExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ExtraGridlines;
 
         [Parameter(Position = 19, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> FilterFunction;
@@ -1553,7 +1553,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
             if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
             if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = ExtraGridlines;
+            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
             if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
             if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
             if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
@@ -1688,7 +1688,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double ExtraGridlineThickness;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Double[] ExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ExtraGridlines;
 
         [Parameter(Position = 24, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> FilterFunction;
@@ -1880,7 +1880,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
             if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
             if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = ExtraGridlines;
+            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
             if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
             if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
             if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
@@ -1997,7 +1997,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double ExtraGridlineThickness;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Double[] ExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ExtraGridlines;
 
         [Parameter(Position = 18, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> FilterFunction;
@@ -2183,7 +2183,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
             if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
             if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = ExtraGridlines;
+            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
             if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
             if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
             if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
@@ -2303,7 +2303,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double ExtraGridlineThickness;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public System.Double[] ExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ExtraGridlines;
 
         [Parameter(Position = 19, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> FilterFunction;
@@ -2490,7 +2490,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
             if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
             if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = ExtraGridlines;
+            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
             if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
             if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
             if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
@@ -2619,7 +2619,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double ExtraGridlineThickness;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.Double[] ExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ExtraGridlines;
 
         [Parameter(Position = 22, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> FilterFunction;
@@ -2809,7 +2809,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
             if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
             if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = ExtraGridlines;
+            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
             if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
             if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
             if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
@@ -2929,7 +2929,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double ExtraGridlineThickness;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public System.Double[] ExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ExtraGridlines;
 
         [Parameter(Position = 19, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> FilterFunction;
@@ -3116,7 +3116,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
             if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
             if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = ExtraGridlines;
+            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
             if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
             if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
             if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;

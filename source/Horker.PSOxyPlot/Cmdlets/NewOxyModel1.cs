@@ -274,7 +274,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 85, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 86, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -550,7 +550,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 177, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 178, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;

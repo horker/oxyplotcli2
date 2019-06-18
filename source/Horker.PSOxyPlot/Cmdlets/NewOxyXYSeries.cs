@@ -98,7 +98,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 27, Mandatory = false)]
-        public System.Double[] Dashes;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes;
 
         [Parameter(Position = 28, Mandatory = false)]
         public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
@@ -275,7 +275,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 86, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 87, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -554,7 +554,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 179, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 180, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -783,7 +783,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
             if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
             if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
-            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes);
             if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
             if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
             if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
@@ -1067,7 +1067,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 64, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 65, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -1346,7 +1346,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 157, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 158, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -1886,7 +1886,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 79, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 80, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -2165,7 +2165,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 172, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 173, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -2542,7 +2542,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public System.Double[] Dashes;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes;
 
         [Parameter(Position = 24, Mandatory = false)]
         public System.String DataFieldClose;
@@ -2689,7 +2689,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 72, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 73, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -2968,7 +2968,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 165, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 166, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -3191,7 +3191,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("DecreasingColor")) series.DecreasingColor = DecreasingColor;
             if (bp.ContainsKey("CandleWidth")) series.CandleWidth = CandleWidth;
             if (bp.ContainsKey("Color")) series.Color = Color;
-            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes);
             if (bp.ContainsKey("DataFieldClose")) series.DataFieldClose = DataFieldClose;
             if (bp.ContainsKey("DataFieldHigh")) series.DataFieldHigh = DataFieldHigh;
             if (bp.ContainsKey("DataFieldLow")) series.DataFieldLow = DataFieldLow;
@@ -3498,7 +3498,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 75, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 76, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -3777,7 +3777,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 168, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 169, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -4273,7 +4273,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 64, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 65, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -4552,7 +4552,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 157, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 158, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -4903,13 +4903,13 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public System.Double[] ColumnCoordinates;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ColumnCoordinates;
 
         [Parameter(Position = 17, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double ContourLevelStep;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public System.Double[] ContourLevels;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ContourLevels;
 
         [Parameter(Position = 19, Mandatory = false)]
         public OxyPlot.OxyColor[] ContourColors;
@@ -4933,7 +4933,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle LineStyle;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public System.Double[] RowCoordinates;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] RowCoordinates;
 
         [Parameter(Position = 27, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
@@ -5053,7 +5053,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 66, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 67, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -5332,7 +5332,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 159, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 160, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -5552,9 +5552,9 @@ namespace Horker.PSOxyPlot
         private void AssignParameters(ContourSeries series, Dictionary<string, object> bp)
         {
             if (bp.ContainsKey("Color")) series.Color = Color;
-            if (bp.ContainsKey("ColumnCoordinates")) series.ColumnCoordinates = ColumnCoordinates;
+            if (bp.ContainsKey("ColumnCoordinates")) series.ColumnCoordinates = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ColumnCoordinates);
             if (bp.ContainsKey("ContourLevelStep")) series.ContourLevelStep = ContourLevelStep;
-            if (bp.ContainsKey("ContourLevels")) series.ContourLevels = ContourLevels;
+            if (bp.ContainsKey("ContourLevels")) series.ContourLevels = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ContourLevels);
             if (bp.ContainsKey("ContourColors")) series.ContourColors = ContourColors;
             if (bp.ContainsKey("Data")) series.Data = Data;
             if (bp.ContainsKey("LabelBackground")) series.LabelBackground = LabelBackground;
@@ -5562,7 +5562,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("LabelSpacing")) series.LabelSpacing = LabelSpacing;
             if (bp.ContainsKey("LabelStep")) series.LabelStep = LabelStep;
             if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
-            if (bp.ContainsKey("RowCoordinates")) series.RowCoordinates = RowCoordinates;
+            if (bp.ContainsKey("RowCoordinates")) series.RowCoordinates = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(RowCoordinates);
             if (bp.ContainsKey("StrokeThickness")) series.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("XAxisKey")) series.XAxisKey = XAxisKey;
             if (bp.ContainsKey("YAxisKey")) series.YAxisKey = YAxisKey;
@@ -5839,7 +5839,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 68, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 69, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -6118,7 +6118,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 161, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 162, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -6483,7 +6483,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public System.Double[] Dashes;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes;
 
         [Parameter(Position = 21, Mandatory = false)]
         public System.String DataFieldClose;
@@ -6630,7 +6630,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 69, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 70, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -6909,7 +6909,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 162, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 163, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -7129,7 +7129,7 @@ namespace Horker.PSOxyPlot
         private void AssignParameters(HighLowSeries series, Dictionary<string, object> bp)
         {
             if (bp.ContainsKey("Color")) series.Color = Color;
-            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes);
             if (bp.ContainsKey("DataFieldClose")) series.DataFieldClose = DataFieldClose;
             if (bp.ContainsKey("DataFieldHigh")) series.DataFieldHigh = DataFieldHigh;
             if (bp.ContainsKey("DataFieldLow")) series.DataFieldLow = DataFieldLow;
@@ -7406,7 +7406,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 65, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 66, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -7685,7 +7685,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 158, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 159, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -8168,7 +8168,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 61, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 62, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -8447,7 +8447,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 154, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 155, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -8798,7 +8798,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Double[] Dashes;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes;
 
         [Parameter(Position = 18, Mandatory = false)]
         public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
@@ -8975,7 +8975,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 76, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 77, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -9254,7 +9254,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 169, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 170, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -9477,7 +9477,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
             if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
             if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
-            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes);
             if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
             if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
             if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
@@ -9797,7 +9797,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 76, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 77, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -10076,7 +10076,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 169, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 170, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -10567,7 +10567,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 60, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 61, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -10846,7 +10846,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 153, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 154, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -11354,7 +11354,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 71, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 72, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -11633,7 +11633,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 164, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 165, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -12182,7 +12182,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 81, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 82, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -12461,7 +12461,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 174, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 175, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -12830,7 +12830,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public System.Double[] Dashes;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes;
 
         [Parameter(Position = 20, Mandatory = false)]
         public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
@@ -13007,7 +13007,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 78, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 79, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -13286,7 +13286,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 171, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 172, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -13511,7 +13511,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
             if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
             if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
-            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes);
             if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
             if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
             if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
@@ -13657,7 +13657,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public System.Double[] Dashes;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes;
 
         [Parameter(Position = 19, Mandatory = false)]
         public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
@@ -13834,7 +13834,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 77, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 78, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -14113,7 +14113,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 170, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 171, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -14337,7 +14337,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
             if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
             if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
-            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes);
             if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
             if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
             if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
@@ -14480,10 +14480,10 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double LimitLo;
 
         [Parameter(Position = 17, Mandatory = false)]
-        public System.Double[] DashesHi;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] DashesHi;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public System.Double[] DashesLo;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] DashesLo;
 
         [Parameter(Position = 19, Mandatory = false)]
         public OxyPlot.LineStyle LineStyleHi;
@@ -14504,7 +14504,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 25, Mandatory = false)]
-        public System.Double[] Dashes;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes;
 
         [Parameter(Position = 26, Mandatory = false)]
         public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
@@ -14681,7 +14681,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 84, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 85, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -14960,7 +14960,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 177, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 178, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -15183,15 +15183,15 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ColorHi")) series.ColorHi = ColorHi;
             if (bp.ContainsKey("LimitHi")) series.LimitHi = LimitHi;
             if (bp.ContainsKey("LimitLo")) series.LimitLo = LimitLo;
-            if (bp.ContainsKey("DashesHi")) series.DashesHi = DashesHi;
-            if (bp.ContainsKey("DashesLo")) series.DashesLo = DashesLo;
+            if (bp.ContainsKey("DashesHi")) series.DashesHi = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(DashesHi);
+            if (bp.ContainsKey("DashesLo")) series.DashesLo = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(DashesLo);
             if (bp.ContainsKey("LineStyleHi")) series.LineStyleHi = LineStyleHi;
             if (bp.ContainsKey("LineStyleLo")) series.LineStyleLo = LineStyleLo;
             if (bp.ContainsKey("Color")) series.Color = Color;
             if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
             if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
             if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
-            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes);
             if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
             if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
             if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
@@ -15499,7 +15499,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 72, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 73, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -15778,7 +15778,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 165, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 166, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -16135,7 +16135,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Fill2;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public System.Double[] Dashes2;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes2;
 
         [Parameter(Position = 19, Mandatory = false)]
         public OxyPlot.LineStyle LineStyle2;
@@ -16180,7 +16180,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 33, Mandatory = false)]
-        public System.Double[] Dashes;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes;
 
         [Parameter(Position = 34, Mandatory = false)]
         public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
@@ -16357,7 +16357,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 92, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 93, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -16636,7 +16636,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 185, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 186, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -16856,7 +16856,7 @@ namespace Horker.PSOxyPlot
         private void AssignParameters(TwoColorAreaSeries series, Dictionary<string, object> bp)
         {
             if (bp.ContainsKey("Fill2")) series.Fill2 = Fill2;
-            if (bp.ContainsKey("Dashes2")) series.Dashes2 = Dashes2;
+            if (bp.ContainsKey("Dashes2")) series.Dashes2 = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes2);
             if (bp.ContainsKey("LineStyle2")) series.LineStyle2 = LineStyle2;
             if (bp.ContainsKey("MarkerFill2")) series.MarkerFill2 = MarkerFill2;
             if (bp.ContainsKey("MarkerStroke2")) series.MarkerStroke2 = MarkerStroke2;
@@ -16871,7 +16871,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
             if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
             if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
-            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes);
             if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
             if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
             if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
@@ -17008,7 +17008,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double Limit;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public System.Double[] Dashes2;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes2;
 
         [Parameter(Position = 16, Mandatory = false)]
         public OxyPlot.LineStyle LineStyle2;
@@ -17026,7 +17026,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public System.Double[] Dashes;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes;
 
         [Parameter(Position = 22, Mandatory = false)]
         public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
@@ -17203,7 +17203,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 80, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 81, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -17482,7 +17482,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 173, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 174, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -17703,13 +17703,13 @@ namespace Horker.PSOxyPlot
         {
             if (bp.ContainsKey("Color2")) series.Color2 = Color2;
             if (bp.ContainsKey("Limit")) series.Limit = Limit;
-            if (bp.ContainsKey("Dashes2")) series.Dashes2 = Dashes2;
+            if (bp.ContainsKey("Dashes2")) series.Dashes2 = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes2);
             if (bp.ContainsKey("LineStyle2")) series.LineStyle2 = LineStyle2;
             if (bp.ContainsKey("Color")) series.Color = Color;
             if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
             if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
             if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
-            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes);
             if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
             if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
             if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;
@@ -18020,7 +18020,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 73, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 74, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -18299,7 +18299,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 166, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 167, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;

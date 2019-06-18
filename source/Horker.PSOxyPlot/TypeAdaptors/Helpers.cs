@@ -44,6 +44,5 @@ namespace Horker.PSOxyPlot.TypeAdaptors
 
             return (T)value;
         }
-
     }
 }

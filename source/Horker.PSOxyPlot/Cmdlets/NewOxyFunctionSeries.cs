@@ -74,7 +74,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double BrokenLineThickness;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public System.Double[] Dashes;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Dashes;
 
         [Parameter(Position = 16, Mandatory = false)]
         public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
@@ -251,7 +251,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AxExtraGridlineThickness;
 
         [Parameter(Position = 74, Mandatory = false)]
-        public System.Double[] AxExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AxExtraGridlines;
 
         [Parameter(Position = 75, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AxFilterFunction;
@@ -530,7 +530,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double AyExtraGridlineThickness;
 
         [Parameter(Position = 167, Mandatory = false)]
-        public System.Double[] AyExtraGridlines;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AyExtraGridlines;
 
         [Parameter(Position = 168, Mandatory = false)]
         public System.Func<System.Double,System.Boolean> AyFilterFunction;
@@ -751,7 +751,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("BrokenLineColor")) series.BrokenLineColor = BrokenLineColor;
             if (bp.ContainsKey("BrokenLineStyle")) series.BrokenLineStyle = BrokenLineStyle;
             if (bp.ContainsKey("BrokenLineThickness")) series.BrokenLineThickness = BrokenLineThickness;
-            if (bp.ContainsKey("Dashes")) series.Dashes = Dashes;
+            if (bp.ContainsKey("Dashes")) series.Dashes = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(Dashes);
             if (bp.ContainsKey("Decimator")) series.Decimator = Decimator;
             if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;
             if (bp.ContainsKey("LabelMargin")) series.LabelMargin = LabelMargin;

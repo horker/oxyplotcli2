@@ -246,5 +246,14 @@ namespace Horker.PSOxyPlot.TypeAdaptors
         {
             return new Double(value);
         }
+
+        public static double[] ConvertArray(Double[] array)
+        {
+            var result = new double[array.Length];
+            for (var i = 0; i < result.Length; ++i)
+                result[i] = array[i];
+
+            return result;
+        }
     }
 }
