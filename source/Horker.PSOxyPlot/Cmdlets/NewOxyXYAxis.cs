@@ -3559,28 +3559,28 @@ namespace Horker.PSOxyPlot
     public class NewOxyImageAnnotation : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = false)]
-        public OxyPlot.OxyImage ImageSource;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyImage ImageSource;
 
         [Parameter(Position = 1, Mandatory = false)]
         public OxyPlot.HorizontalAlignment HorizontalAlignment;
 
         [Parameter(Position = 2, Mandatory = false)]
-        public OxyPlot.PlotLength X;
+        public Horker.PSOxyPlot.TypeAdaptors.PlotLength X;
 
         [Parameter(Position = 3, Mandatory = false)]
-        public OxyPlot.PlotLength Y;
+        public Horker.PSOxyPlot.TypeAdaptors.PlotLength Y;
 
         [Parameter(Position = 4, Mandatory = false)]
-        public OxyPlot.PlotLength OffsetX;
+        public Horker.PSOxyPlot.TypeAdaptors.PlotLength OffsetX;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public OxyPlot.PlotLength OffsetY;
+        public Horker.PSOxyPlot.TypeAdaptors.PlotLength OffsetY;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public OxyPlot.PlotLength Width;
+        public Horker.PSOxyPlot.TypeAdaptors.PlotLength Width;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public OxyPlot.PlotLength Height;
+        public Horker.PSOxyPlot.TypeAdaptors.PlotLength Height;
 
         [Parameter(Position = 8, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double Opacity;

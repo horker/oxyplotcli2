@@ -20,15 +20,12 @@ bug: volume charts in CandleStickAndVolume and Volume series
 
 type: ScreenPoint in -MarkerOutline of oxy.line
 type: IInterpolationAlgorithm in -InterpolationAlgorithm of oxy.line
-type: System.Double[] in -AxExtraGridlines of oxy.line
 type: public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
 type: public System.DayOfWeek AxFirstDayOfWeek;
 type: public System.Action<System.Collections.Generic.List<OxyPlot.ScreenPoint>,System.Collections.Generic.List<OxyPlot.ScreenPoint>> Decimator;
 n oxy.line
 type: public OxyPlot.DataPoint TextPosition; in OxyTextAnnotation
 type: public OxyPlot.ScreenVector ArrowDirection; in OxyArrowAnnotation
-type: public OxyPlot.PlotLength X; in OxyImageAnnotation
-type: public OxyPlot.OxyImage ImageSource;
 type: public OxyPlot.ScreenVector Offset; in OxyTextAnnotation
 type: public OxyPlot.OxyPalette Palette; in OxyCategoryColorAxis
 
@@ -80,3 +77,6 @@ DONE -AxType and partial axis name support
 DONE type conversions for bool
 DONE SvgIsDocument
 DONE type: public System.Double[] Dashes in oxy.candle
+DONE type: System.Double[] in -AxExtraGridlines of oxy.line
+DONE type: public OxyPlot.PlotLength X; in OxyImageAnnotation
+DONE type: public OxyPlot.OxyImage ImageSource;
