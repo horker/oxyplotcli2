@@ -98,7 +98,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor MarkerFill;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public OxyPlot.ScreenPoint[] MarkerOutline;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] MarkerOutline;
 
         [Parameter(Position = 24, Mandatory = false)]
         public System.Int32 MarkerResolution;
@@ -759,7 +759,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("LineStyle")) series.LineStyle = LineStyle;
             if (bp.ContainsKey("LineLegendPosition")) series.LineLegendPosition = LineLegendPosition;
             if (bp.ContainsKey("MarkerFill")) series.MarkerFill = MarkerFill;
-            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = MarkerOutline;
+            if (bp.ContainsKey("MarkerOutline")) series.MarkerOutline = Horker.PSOxyPlot.TypeAdaptors.ScreenPoint.ConvertArray(MarkerOutline);
             if (bp.ContainsKey("MarkerResolution")) series.MarkerResolution = MarkerResolution;
             if (bp.ContainsKey("MarkerSize")) series.MarkerSize = MarkerSize;
             if (bp.ContainsKey("MarkerStroke")) series.MarkerStroke = MarkerStroke;

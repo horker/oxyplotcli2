@@ -24,7 +24,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             else if (values.Length == 4)
                 Value = new OxyPlot.OxyThickness(values[0], values[1], values[2], values[3]);
             else
-                throw new ArgumentException("Specify one, two or four numbers for a OxyThickness parameter");
+                throw new ArgumentException("Specify one, two or four numbers to create OxyThickness object");
         }
 
         public static implicit operator OxyPlot.OxyThickness(OxyThickness value)

@@ -3182,7 +3182,7 @@ namespace Horker.PSOxyPlot
     public class NewOxyArrowAnnotation : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = false)]
-        public OxyPlot.ScreenVector ArrowDirection;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] ArrowDirection;
 
         [Parameter(Position = 1, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
@@ -3264,7 +3264,7 @@ namespace Horker.PSOxyPlot
 			var bp = MyInvocation.BoundParameters;
             var axis = new OxyPlot.Annotations.ArrowAnnotation();
 
-            if (bp.ContainsKey("ArrowDirection")) axis.ArrowDirection = ArrowDirection;
+            if (bp.ContainsKey("ArrowDirection")) axis.ArrowDirection = new Horker.PSOxyPlot.TypeAdaptors.ScreenVector(ArrowDirection);
             if (bp.ContainsKey("Color")) axis.Color = Color;
             if (bp.ContainsKey("EndPoint")) axis.EndPoint = EndPoint;
             if (bp.ContainsKey("HeadLength")) axis.HeadLength = HeadLength;
@@ -3836,7 +3836,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.MarkerType Shape;
 
         [Parameter(Position = 5, Mandatory = false)]
-        public OxyPlot.ScreenPoint[] CustomOutline;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] CustomOutline;
 
         [Parameter(Position = 6, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Fill;
@@ -3905,7 +3905,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Size")) axis.Size = Size;
             if (bp.ContainsKey("TextMargin")) axis.TextMargin = TextMargin;
             if (bp.ContainsKey("Shape")) axis.Shape = Shape;
-            if (bp.ContainsKey("CustomOutline")) axis.CustomOutline = CustomOutline;
+            if (bp.ContainsKey("CustomOutline")) axis.CustomOutline = Horker.PSOxyPlot.TypeAdaptors.ScreenPoint.ConvertArray(CustomOutline);
             if (bp.ContainsKey("Fill")) axis.Fill = Fill;
             if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
             if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
@@ -4300,7 +4300,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Background;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public OxyPlot.ScreenVector Offset;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] Offset;
 
         [Parameter(Position = 2, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double[] Padding;
@@ -4365,7 +4365,7 @@ namespace Horker.PSOxyPlot
             var axis = new OxyPlot.Annotations.TextAnnotation();
 
             if (bp.ContainsKey("Background")) axis.Background = Background;
-            if (bp.ContainsKey("Offset")) axis.Offset = Offset;
+            if (bp.ContainsKey("Offset")) axis.Offset = new Horker.PSOxyPlot.TypeAdaptors.ScreenVector(Offset);
             if (bp.ContainsKey("Padding")) axis.Padding = new Horker.PSOxyPlot.TypeAdaptors.OxyThickness(Padding);
             if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
             if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;

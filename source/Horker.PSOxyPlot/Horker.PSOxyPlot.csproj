@@ -93,6 +93,8 @@
     <Compile Include="TypeAdaptors\Helpers.cs" />
     <Compile Include="TypeAdaptors\OxyColorArray.cs" />
     <Compile Include="TypeAdaptors\OxyThickness.cs" />
+    <Compile Include="TypeAdaptors\ScreenPoint.cs" />
+    <Compile Include="TypeAdaptors\ScreenVector.cs" />
     <Compile Include="TypeAdaptors\ScriptBlock.cs" />
     <Content Include="Cmdlets\NewOxyXYAxis.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
