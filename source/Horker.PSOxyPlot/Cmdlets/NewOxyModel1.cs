@@ -454,7 +454,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 145, Mandatory = false)]
-        public OxyPlot.OxyPalette AxPalette;
+        public System.String[] AxPalette;
 
         [Parameter(Position = 146, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -730,7 +730,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 237, Mandatory = false)]
-        public OxyPlot.OxyPalette AyPalette;
+        public System.String[] AyPalette;
 
         [Parameter(Position = 238, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;

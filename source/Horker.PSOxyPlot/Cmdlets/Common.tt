@@ -44,6 +44,7 @@ private static class TypeAdaptorHelper
 
         // OxyPlot types
 		Tuple.Create(typeof(OxyPlot.OxyColor), typeof(Horker.PSOxyPlot.TypeAdaptors.OxyColor), "{0}"),
+		Tuple.Create(typeof(OxyPlot.OxyPalette), typeof(string[]), "new Horker.PSOxyPlot.TypeAdaptors.OxyPalette({0})"),
 		Tuple.Create(typeof(OxyPlot.OxyThickness), typeof(Horker.PSOxyPlot.TypeAdaptors.Double[]), "new Horker.PSOxyPlot.TypeAdaptors.OxyThickness({0})"),
 		Tuple.Create(typeof(OxyPlot.DataPoint), typeof(Horker.PSOxyPlot.TypeAdaptors.Double[]), "new Horker.PSOxyPlot.TypeAdaptors.DataPoint({0})"),
 		Tuple.Create(typeof(OxyPlot.ScreenPoint), typeof(Horker.PSOxyPlot.TypeAdaptors.Double[]), "new Horker.PSOxyPlot.TypeAdaptors.ScreenPoint({0})"),

@@ -90,6 +90,7 @@
     <Compile Include="TypeAdaptors\DataPoint.cs" />
     <Compile Include="TypeAdaptors\InterpolationAlgorithm.cs" />
     <Compile Include="TypeAdaptors\OxyImage.cs" />
+    <Compile Include="TypeAdaptors\OxyPalette.cs" />
     <Compile Include="TypeAdaptors\PlotLength.cs" />
     <Compile Include="TypeAdaptors\Double.cs" />
     <Compile Include="TypeAdaptors\Helpers.cs" />
