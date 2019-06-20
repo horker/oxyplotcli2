@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,16 +16,28 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             Value = palette;
         }
 
-        public OxyPalette(string[] values)
+        public OxyPalette(object values)
         {
-            if (values.Length > 2)
+            if (values is PSObject pso)
+                values = pso.BaseObject;
+
+            if (values is OxyPlot.OxyPalette p)
+            {
+                Value = p;
+                return;
+            }
+
+            if (!(values is string[] v))
+                throw new ArgumentException("Specify a palette name and an optional palette size to create an OxyPalette");
+
+            if (v.Length > 2)
                 throw new ArgumentException("Specify a palette name and an optional palette size to create an OxyPalette");
 
             var paletteSize = 100;
-            if (values.Length == 2)
-                paletteSize = int.Parse(values[1]);
+            if (v.Length == 2)
+                paletteSize = int.Parse(v[1]);
 
-            var name = values[0].ToLower();
+            var name = v[0].ToLower();
 
             switch (name)
             {
@@ -77,7 +90,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
                     break;
 
                 default:
-                    throw new ArgumentException($"Unknown predefined palette name: '{name}'; Specify one of BlackWhiteRed, BlueWhiteRed, Cool, Gray, Hot, Hue, HueDistinct, Jet or Rainbow");
+                    throw new ArgumentException($"Unknown predefined palette name: '{v[0]}'; Specify one of BlackWhiteRed, BlueWhiteRed, Cool, Gray, Hot, Hue, HueDistinct, Jet or Rainbow");
             }
         }
 

@@ -455,7 +455,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 146, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 147, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -734,7 +734,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 239, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 240, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -1247,7 +1247,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 124, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 125, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -1526,7 +1526,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 217, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 218, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -2066,7 +2066,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 139, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 140, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -2345,7 +2345,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 232, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 233, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -2869,7 +2869,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 132, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 133, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -3148,7 +3148,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 225, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 226, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -3678,7 +3678,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 135, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 136, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -3957,7 +3957,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 228, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 229, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -4453,7 +4453,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 124, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 125, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -4732,7 +4732,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 217, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 218, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -5233,7 +5233,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 126, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 127, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -5512,7 +5512,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 219, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 220, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -6019,7 +6019,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 128, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 129, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -6298,7 +6298,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 221, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 222, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -6810,7 +6810,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 129, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 130, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -7089,7 +7089,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 222, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 223, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -7586,7 +7586,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 125, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 126, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -7865,7 +7865,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 218, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 219, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -8348,7 +8348,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 121, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 122, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -8627,7 +8627,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 214, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 215, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -9155,7 +9155,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 136, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 137, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -9434,7 +9434,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 229, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 230, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -9977,7 +9977,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 136, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 137, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -10256,7 +10256,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 229, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 230, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -10747,7 +10747,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 120, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 121, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -11026,7 +11026,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 213, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 214, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -11534,7 +11534,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 131, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 132, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -11813,7 +11813,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 224, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 225, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -12362,7 +12362,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 141, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 142, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -12641,7 +12641,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 234, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 235, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -13187,7 +13187,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 138, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 139, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -13466,7 +13466,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 231, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 232, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -14014,7 +14014,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 137, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 138, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -14293,7 +14293,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 230, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 231, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -14861,7 +14861,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 144, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 145, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -15140,7 +15140,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 237, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 238, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -15679,7 +15679,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 132, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 133, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -15958,7 +15958,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 225, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 226, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -16537,7 +16537,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 152, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 153, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -16816,7 +16816,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 245, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 246, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -17383,7 +17383,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 140, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 141, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -17662,7 +17662,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 233, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 234, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -18200,7 +18200,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 133, Mandatory = false)]
-        public System.String[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AxPalette;
 
         [Parameter(Position = 134, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -18479,7 +18479,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 226, Mandatory = false)]
-        public System.String[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette AyPalette;
 
         [Parameter(Position = 227, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
