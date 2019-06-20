@@ -3188,7 +3188,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
 
         [Parameter(Position = 2, Mandatory = false)]
-        public OxyPlot.DataPoint EndPoint;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] EndPoint;
 
         [Parameter(Position = 3, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double HeadLength;
@@ -3203,7 +3203,7 @@ namespace Horker.PSOxyPlot
         public OxyPlot.LineStyle LineStyle;
 
         [Parameter(Position = 7, Mandatory = false)]
-        public OxyPlot.DataPoint StartPoint;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] StartPoint;
 
         [Parameter(Position = 8, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double StrokeThickness;
@@ -3215,7 +3215,7 @@ namespace Horker.PSOxyPlot
         public System.String Text;
 
         [Parameter(Position = 11, Mandatory = false)]
-        public OxyPlot.DataPoint TextPosition;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] TextPosition;
 
         [Parameter(Position = 12, Mandatory = false)]
         public OxyPlot.HorizontalAlignment TextHorizontalAlignment;
@@ -3266,16 +3266,16 @@ namespace Horker.PSOxyPlot
 
             if (bp.ContainsKey("ArrowDirection")) axis.ArrowDirection = new Horker.PSOxyPlot.TypeAdaptors.ScreenVector(ArrowDirection);
             if (bp.ContainsKey("Color")) axis.Color = Color;
-            if (bp.ContainsKey("EndPoint")) axis.EndPoint = EndPoint;
+            if (bp.ContainsKey("EndPoint")) axis.EndPoint = new Horker.PSOxyPlot.TypeAdaptors.DataPoint(EndPoint);
             if (bp.ContainsKey("HeadLength")) axis.HeadLength = HeadLength;
             if (bp.ContainsKey("HeadWidth")) axis.HeadWidth = HeadWidth;
             if (bp.ContainsKey("LineJoin")) axis.LineJoin = LineJoin;
             if (bp.ContainsKey("LineStyle")) axis.LineStyle = LineStyle;
-            if (bp.ContainsKey("StartPoint")) axis.StartPoint = StartPoint;
+            if (bp.ContainsKey("StartPoint")) axis.StartPoint = new Horker.PSOxyPlot.TypeAdaptors.DataPoint(StartPoint);
             if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("Veeness")) axis.Veeness = Veeness;
             if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = TextPosition;
+            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.PSOxyPlot.TypeAdaptors.DataPoint(TextPosition);
             if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
             if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
             if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
@@ -3325,7 +3325,7 @@ namespace Horker.PSOxyPlot
         public System.String Text;
 
         [Parameter(Position = 8, Mandatory = false)]
-        public OxyPlot.DataPoint TextPosition;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] TextPosition;
 
         [Parameter(Position = 9, Mandatory = false)]
         public OxyPlot.HorizontalAlignment TextHorizontalAlignment;
@@ -3382,7 +3382,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
             if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = TextPosition;
+            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.PSOxyPlot.TypeAdaptors.DataPoint(TextPosition);
             if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
             if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
             if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
@@ -3465,7 +3465,7 @@ namespace Horker.PSOxyPlot
         public System.String Text;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public OxyPlot.DataPoint TextPosition;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] TextPosition;
 
         [Parameter(Position = 20, Mandatory = false)]
         public OxyPlot.HorizontalAlignment TextHorizontalAlignment;
@@ -3533,7 +3533,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ClipByXAxis")) axis.ClipByXAxis = ClipByXAxis;
             if (bp.ContainsKey("ClipByYAxis")) axis.ClipByYAxis = ClipByYAxis;
             if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = TextPosition;
+            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.PSOxyPlot.TypeAdaptors.DataPoint(TextPosition);
             if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
             if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
             if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
@@ -3725,7 +3725,7 @@ namespace Horker.PSOxyPlot
         public System.String Text;
 
         [Parameter(Position = 21, Mandatory = false)]
-        public OxyPlot.DataPoint TextPosition;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] TextPosition;
 
         [Parameter(Position = 22, Mandatory = false)]
         public OxyPlot.HorizontalAlignment TextHorizontalAlignment;
@@ -3795,7 +3795,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ClipByXAxis")) axis.ClipByXAxis = ClipByXAxis;
             if (bp.ContainsKey("ClipByYAxis")) axis.ClipByYAxis = ClipByYAxis;
             if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = TextPosition;
+            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.PSOxyPlot.TypeAdaptors.DataPoint(TextPosition);
             if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
             if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
             if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
@@ -3851,7 +3851,7 @@ namespace Horker.PSOxyPlot
         public System.String Text;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public OxyPlot.DataPoint TextPosition;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] TextPosition;
 
         [Parameter(Position = 11, Mandatory = false)]
         public OxyPlot.HorizontalAlignment TextHorizontalAlignment;
@@ -3910,7 +3910,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
             if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = TextPosition;
+            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.PSOxyPlot.TypeAdaptors.DataPoint(TextPosition);
             if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
             if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
             if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
@@ -3954,7 +3954,7 @@ namespace Horker.PSOxyPlot
         public System.String Text;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public OxyPlot.DataPoint TextPosition;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] TextPosition;
 
         [Parameter(Position = 7, Mandatory = false)]
         public OxyPlot.HorizontalAlignment TextHorizontalAlignment;
@@ -4009,7 +4009,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
             if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = TextPosition;
+            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.PSOxyPlot.TypeAdaptors.DataPoint(TextPosition);
             if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
             if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
             if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
@@ -4089,7 +4089,7 @@ namespace Horker.PSOxyPlot
         public System.String Text;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public OxyPlot.DataPoint TextPosition;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] TextPosition;
 
         [Parameter(Position = 19, Mandatory = false)]
         public OxyPlot.HorizontalAlignment TextHorizontalAlignment;
@@ -4156,7 +4156,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("ClipByXAxis")) axis.ClipByXAxis = ClipByXAxis;
             if (bp.ContainsKey("ClipByYAxis")) axis.ClipByYAxis = ClipByYAxis;
             if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = TextPosition;
+            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.PSOxyPlot.TypeAdaptors.DataPoint(TextPosition);
             if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
             if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
             if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
@@ -4212,7 +4212,7 @@ namespace Horker.PSOxyPlot
         public System.String Text;
 
         [Parameter(Position = 10, Mandatory = false)]
-        public OxyPlot.DataPoint TextPosition;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] TextPosition;
 
         [Parameter(Position = 11, Mandatory = false)]
         public OxyPlot.HorizontalAlignment TextHorizontalAlignment;
@@ -4271,7 +4271,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
             if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = TextPosition;
+            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.PSOxyPlot.TypeAdaptors.DataPoint(TextPosition);
             if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
             if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
             if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
@@ -4315,7 +4315,7 @@ namespace Horker.PSOxyPlot
         public System.String Text;
 
         [Parameter(Position = 6, Mandatory = false)]
-        public OxyPlot.DataPoint TextPosition;
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] TextPosition;
 
         [Parameter(Position = 7, Mandatory = false)]
         public OxyPlot.HorizontalAlignment TextHorizontalAlignment;
@@ -4370,7 +4370,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
             if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
             if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = TextPosition;
+            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.PSOxyPlot.TypeAdaptors.DataPoint(TextPosition);
             if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
             if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
             if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
