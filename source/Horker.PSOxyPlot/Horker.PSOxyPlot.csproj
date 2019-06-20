@@ -88,6 +88,7 @@
     <Compile Include="SeriesInfo\AxisType.cs" />
     <Compile Include="TypeAdaptors\Bool.cs" />
     <Compile Include="TypeAdaptors\DataPoint.cs" />
+    <Compile Include="TypeAdaptors\InterpolationAlgorithm.cs" />
     <Compile Include="TypeAdaptors\OxyImage.cs" />
     <Compile Include="TypeAdaptors\PlotLength.cs" />
     <Compile Include="TypeAdaptors\Double.cs" />

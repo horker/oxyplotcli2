@@ -4038,7 +4038,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.Double MinimumSegmentLength;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public OxyPlot.IInterpolationAlgorithm InterpolationAlgorithm;
+        public Horker.PSOxyPlot.TypeAdaptors.InterpolationAlgorithm InterpolationAlgorithm;
 
         [Parameter(Position = 2, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor Color;
@@ -4139,7 +4139,7 @@ namespace Horker.PSOxyPlot
             var axis = new OxyPlot.Annotations.PolylineAnnotation();
 
             if (bp.ContainsKey("MinimumSegmentLength")) axis.MinimumSegmentLength = MinimumSegmentLength;
-            if (bp.ContainsKey("InterpolationAlgorithm")) axis.InterpolationAlgorithm = InterpolationAlgorithm;
+            if (bp.ContainsKey("InterpolationAlgorithm")) axis.InterpolationAlgorithm = InterpolationAlgorithm.Value;
             if (bp.ContainsKey("Color")) axis.Color = Color;
             if (bp.ContainsKey("LineJoin")) axis.LineJoin = LineJoin;
             if (bp.ContainsKey("LineStyle")) axis.LineStyle = LineStyle;

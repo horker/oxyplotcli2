@@ -51,7 +51,8 @@ private static class TypeAdaptorHelper
 		Tuple.Create(typeof(OxyPlot.ScreenVector), typeof(Horker.PSOxyPlot.TypeAdaptors.Double[]), "new Horker.PSOxyPlot.TypeAdaptors.ScreenVector({0})"),
 		Tuple.Create(typeof(OxyPlot.ScreenVector[]), typeof(Horker.PSOxyPlot.TypeAdaptors.Double[]), "Horker.PSOxyPlot.TypeAdaptors.ScreenVector.ConvertArray({0})"),
         Tuple.Create(typeof(OxyPlot.OxyImage), typeof(Horker.PSOxyPlot.TypeAdaptors.OxyImage), "{0}"),
-        Tuple.Create(typeof(OxyPlot.PlotLength), typeof(Horker.PSOxyPlot.TypeAdaptors.PlotLength), "{0}")
+        Tuple.Create(typeof(OxyPlot.PlotLength), typeof(Horker.PSOxyPlot.TypeAdaptors.PlotLength), "{0}"),
+        Tuple.Create(typeof(OxyPlot.IInterpolationAlgorithm), typeof(Horker.PSOxyPlot.TypeAdaptors.InterpolationAlgorithm), "{0}.Value")
     };
 
 	public static Type GetAdaptorType(Type type)
