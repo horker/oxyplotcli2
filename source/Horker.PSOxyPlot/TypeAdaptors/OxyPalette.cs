@@ -16,6 +16,11 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             Value = palette;
         }
 
+        public OxyPalette(string paletteName, int paletteSize)
+        {
+            Value = ConvertFrom(paletteName, paletteSize);
+        }
+
         public OxyPalette(object[] values)
         {
             if (values.Length == 0)
@@ -37,7 +42,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             }
 
             if (values.Length > 2)
-                throw new ArgumentException("Specify a palette name and an optional palette size to create an OxyPalette; Palette names are: BlackWhiteRed, BlueWhiteRed, Cool, Gray, Hot, Hue, HueDistinct, Jet or Rainbow");
+                throw new ArgumentException("Specify a palette name and an optional palette size to create an OxyPalette; A palette name is one of BlueWhiteRed31, Hot64, Hue64, BlackWhiteRed, BlueWhiteRed, Cool, Gray, Hot, Hue, HueDistinct, Jet or Rainbow");
 
             string name = values[0].ToString();
 
@@ -45,58 +50,51 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             if (values.Length == 2)
                 paletteSize = SmartConverter.ToInt32(values[1]);
 
-            switch (name.ToLower())
+            Value = ConvertFrom(name, paletteSize);
+        }
+
+        private OxyPlot.OxyPalette ConvertFrom(string paletteName, int paletteSize)
+        {
+            switch (paletteName.ToLower())
             {
                 case "bluewhitered31":
-                    Value = OxyPlot.OxyPalettes.BlueWhiteRed31;
-                    break;
+                    return OxyPlot.OxyPalettes.BlueWhiteRed31;
 
                 case "hot64":
-                    Value = OxyPlot.OxyPalettes.Hot64;
-                    break;
+                    return OxyPlot.OxyPalettes.Hot64;
 
                 case "hue64":
-                    Value = OxyPlot.OxyPalettes.Hue64;
-                    break;
+                    return OxyPlot.OxyPalettes.Hue64;
 
                 case "blackwhitered":
-                    Value = OxyPlot.OxyPalettes.BlackWhiteRed(paletteSize);
-                    break;
+                    return OxyPlot.OxyPalettes.BlackWhiteRed(paletteSize);
 
                 case "bluewhitered":
-                    Value = OxyPlot.OxyPalettes.BlueWhiteRed(paletteSize);
-                    break;
+                    return OxyPlot.OxyPalettes.BlueWhiteRed(paletteSize);
 
                 case "cool":
-                    Value = OxyPlot.OxyPalettes.Cool(paletteSize);
-                    break;
+                    return OxyPlot.OxyPalettes.Cool(paletteSize);
 
                 case "gray":
-                    Value = OxyPlot.OxyPalettes.Gray(paletteSize);
-                    break;
+                    return OxyPlot.OxyPalettes.Gray(paletteSize);
 
                 case "hot":
-                    Value = OxyPlot.OxyPalettes.Hot(paletteSize);
-                    break;
+                    return OxyPlot.OxyPalettes.Hot(paletteSize);
 
                 case "hue":
-                    Value = OxyPlot.OxyPalettes.Hue(paletteSize);
-                    break;
+                    return OxyPlot.OxyPalettes.Hue(paletteSize);
 
                 case "huedistinct":
-                    Value = OxyPlot.OxyPalettes.HueDistinct(paletteSize);
-                    break;
+                    return OxyPlot.OxyPalettes.HueDistinct(paletteSize);
 
                 case "jet":
-                    Value = OxyPlot.OxyPalettes.Jet(paletteSize);
-                    break;
+                    return OxyPlot.OxyPalettes.Jet(paletteSize);
 
                 case "rainbow":
-                    Value = OxyPlot.OxyPalettes.Rainbow(paletteSize);
-                    break;
+                    return OxyPlot.OxyPalettes.Rainbow(paletteSize);
 
                 default:
-                    throw new ArgumentException($"Unknown palette name '{name}'; A palette name is: BlackWhiteRed, BlueWhiteRed, Cool, Gray, Hot, Hue, HueDistinct, Jet or Rainbow");
+                    throw new ArgumentException($"Unknown palette name '{paletteName}'; A palette name is one of BlueWhiteRed31, Hot64, Hue64, BlackWhiteRed, BlueWhiteRed, Cool, Gray, Hot, Hue, HueDistinct, Jet or Rainbow");
             }
         }
 

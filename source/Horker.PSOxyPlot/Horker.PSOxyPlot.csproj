@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cmdlets\NewOxyPalette.cs" />
     <Compile Include="Cmdlets\NewOxyXYAxis.cs">
       <DependentUpon>NewOxyXYAxis.tt</DependentUpon>
       <AutoGen>True</AutoGen>

@@ -88,6 +88,16 @@ namespace Horker.PSOxyPlot.TypeAdaptors
         {
             return new OxyColor(value);
         }
+
+        public static OxyPlot.OxyColor[] ConvertArray(OxyColor[] array)
+        {
+            var result = new OxyPlot.OxyColor[array.Length];
+            for (var i = 0; i < result.Length; ++i)
+                result[i] = array[i];
+
+            return result;
+
+        }
     }
 }
 
