@@ -681,7 +681,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyCategoryColorAxis")]
-    [Alias("oxy.axis.categorycolor")]
+    [Alias("oxy.axis.categoryColor")]
     [OutputType(typeof(OxyPlot.Axes.CategoryColorAxis))]
     public class NewOxyCategoryColorAxis : PSCmdlet
     {
@@ -1028,7 +1028,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyDateTimeAxis")]
-    [Alias("oxy.axis.datetime")]
+    [Alias("oxy.axis.dateTime")]
     [OutputType(typeof(OxyPlot.Axes.DateTimeAxis))]
     public class NewOxyDateTimeAxis : PSCmdlet
     {
@@ -1694,7 +1694,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyLinearColorAxis")]
-    [Alias("oxy.axis.linearcolor")]
+    [Alias("oxy.axis.linearColor")]
     [OutputType(typeof(OxyPlot.Axes.LinearColorAxis))]
     public class NewOxyLinearColorAxis : PSCmdlet
     {
@@ -2679,7 +2679,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyRangeColorAxis")]
-    [Alias("oxy.axis.rangecolor")]
+    [Alias("oxy.axis.rangeColor")]
     [OutputType(typeof(OxyPlot.Axes.RangeColorAxis))]
     public class NewOxyRangeColorAxis : PSCmdlet
     {
@@ -3014,7 +3014,7 @@ namespace Horker.PSOxyPlot
     }
 
     [Cmdlet("New", "OxyTimeSpanAxis")]
-    [Alias("oxy.axis.timespan")]
+    [Alias("oxy.axis.timeSpan")]
     [OutputType(typeof(OxyPlot.Axes.TimeSpanAxis))]
     public class NewOxyTimeSpanAxis : PSCmdlet
     {

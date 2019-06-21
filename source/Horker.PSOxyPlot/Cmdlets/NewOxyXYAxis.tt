@@ -22,9 +22,9 @@ foreach (var axisType in axes)
 	var fullName = axisType.FullName;
 	string shortName;
     if (name.EndsWith("Axis"))
-        shortName = "axis." + name.Replace("Axis", "").ToLower();
+        shortName = "axis." + Helper.ToLowerCamelCase(name.Replace("Axis", ""));
     else
-        shortName = "ann." + name.Replace("Annotation", "").ToLower();
+        shortName = "ann." + Helper.ToLowerCamelCase(name.Replace("Annotation", ""));
 #>
     [Cmdlet("New", "Oxy<#= name #>")]
     [Alias("oxy.<#= shortName #>")]
