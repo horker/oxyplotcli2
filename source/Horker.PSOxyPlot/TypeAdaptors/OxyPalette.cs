@@ -16,30 +16,36 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             Value = palette;
         }
 
-        public OxyPalette(object values)
+        public OxyPalette(object[] values)
         {
-            if (values is PSObject pso)
-                values = pso.BaseObject;
-
-            if (values is OxyPlot.OxyPalette p)
+            if (values.Length == 0)
             {
-                Value = p;
+                Value = new OxyPlot.OxyPalette();
                 return;
             }
 
-            if (!(values is string[] v))
-                throw new ArgumentException("Specify a palette name and an optional palette size to create an OxyPalette");
+            if (values.Length == 1)
+            {
+                var v = values[0];
+                if (v is PSObject pso)
+                    v = pso.BaseObject;
+                if (v is OxyPlot.OxyPalette p)
+                {
+                    Value = p;
+                    return;
+                }
+            }
 
-            if (v.Length > 2)
-                throw new ArgumentException("Specify a palette name and an optional palette size to create an OxyPalette");
+            if (values.Length > 2)
+                throw new ArgumentException("Specify a palette name and an optional palette size to create an OxyPalette; Palette names are: BlackWhiteRed, BlueWhiteRed, Cool, Gray, Hot, Hue, HueDistinct, Jet or Rainbow");
+
+            string name = values[0].ToString();
 
             var paletteSize = 100;
-            if (v.Length == 2)
-                paletteSize = int.Parse(v[1]);
+            if (values.Length == 2)
+                paletteSize = SmartConverter.ToInt32(values[1]);
 
-            var name = v[0].ToLower();
-
-            switch (name)
+            switch (name.ToLower())
             {
                 case "bluewhitered31":
                     Value = OxyPlot.OxyPalettes.BlueWhiteRed31;
@@ -90,7 +96,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
                     break;
 
                 default:
-                    throw new ArgumentException($"Unknown predefined palette name: '{v[0]}'; Specify one of BlackWhiteRed, BlueWhiteRed, Cool, Gray, Hot, Hue, HueDistinct, Jet or Rainbow");
+                    throw new ArgumentException($"Unknown palette name '{name}'; A palette name is: BlackWhiteRed, BlueWhiteRed, Cool, Gray, Hot, Hue, HueDistinct, Jet or Rainbow");
             }
         }
 

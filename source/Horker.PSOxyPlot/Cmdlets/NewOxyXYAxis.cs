@@ -657,7 +657,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor InvalidCategoryColor;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette Palette;
+        public System.Object[] Palette;
 
         [Parameter(Position = 2, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double GapWidth;
@@ -896,7 +896,7 @@ namespace Horker.PSOxyPlot
             var axis = new OxyPlot.Axes.CategoryColorAxis();
 
             if (bp.ContainsKey("InvalidCategoryColor")) axis.InvalidCategoryColor = InvalidCategoryColor;
-            if (bp.ContainsKey("Palette")) axis.Palette = Palette;
+            if (bp.ContainsKey("Palette")) axis.Palette = new Horker.PSOxyPlot.TypeAdaptors.OxyPalette(Palette);
             if (bp.ContainsKey("GapWidth")) axis.GapWidth = GapWidth;
             if (bp.ContainsKey("IsTickCentered")) axis.IsTickCentered = IsTickCentered;
             if (bp.ContainsKey("ItemsSource")) axis.ItemsSource = ItemsSource;
@@ -1628,7 +1628,7 @@ namespace Horker.PSOxyPlot
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor LowColor;
 
         [Parameter(Position = 3, Mandatory = false)]
-        public Horker.PSOxyPlot.TypeAdaptors.OxyPalette Palette;
+        public System.Object[] Palette;
 
         [Parameter(Position = 4, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Bool RenderAsImage;
@@ -1860,7 +1860,7 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("InvalidNumberColor")) axis.InvalidNumberColor = InvalidNumberColor;
             if (bp.ContainsKey("HighColor")) axis.HighColor = HighColor;
             if (bp.ContainsKey("LowColor")) axis.LowColor = LowColor;
-            if (bp.ContainsKey("Palette")) axis.Palette = Palette;
+            if (bp.ContainsKey("Palette")) axis.Palette = new Horker.PSOxyPlot.TypeAdaptors.OxyPalette(Palette);
             if (bp.ContainsKey("RenderAsImage")) axis.RenderAsImage = RenderAsImage;
             if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
             if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
