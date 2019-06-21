@@ -42,6 +42,12 @@ foreach (var axisType in axes)
 <#
 	}
 #>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -56,7 +62,30 @@ foreach (var axisType in axes)
 	}
 #>
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+<#
+if (name.EndsWith("Axis"))
+{
+#>
+                AddTo.Axes.Add(axis);
+<#
+}
+else
+{
+#>
+                AddTo.Annotations.Add(axis);
+<#
+}
+#>
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 

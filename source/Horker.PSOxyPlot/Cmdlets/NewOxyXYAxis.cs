@@ -240,6 +240,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 74, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 75, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 76, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -321,7 +327,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Axes.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -561,6 +577,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 76, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 77, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 78, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -644,7 +666,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Axes.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -890,6 +922,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 78, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 79, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 80, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -975,7 +1013,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Axes.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -1218,6 +1266,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 77, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 78, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 79, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -1302,7 +1356,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Axes.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -1530,6 +1594,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 72, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 73, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 74, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -1609,7 +1679,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Axes.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -1852,6 +1932,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 77, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 78, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 79, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -1936,7 +2022,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Axes.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -2161,6 +2257,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 71, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 72, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 73, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -2239,7 +2341,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Axes.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -2467,6 +2579,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 72, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 73, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 74, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -2546,7 +2664,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Axes.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -2783,6 +2911,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 75, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 76, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 77, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -2865,7 +2999,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Axes.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -3093,6 +3237,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 72, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 73, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 74, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -3172,7 +3322,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Axes.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -3259,6 +3419,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 25, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 26, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 27, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -3291,7 +3457,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Annotations.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -3369,6 +3545,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 22, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 23, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 24, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -3398,7 +3580,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Annotations.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -3509,6 +3701,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 33, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 34, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 35, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -3549,7 +3747,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Annotations.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -3624,6 +3832,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 21, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 22, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 23, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -3652,7 +3866,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Annotations.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -3769,6 +3993,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 35, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 36, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 37, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -3811,7 +4041,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Annotations.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -3895,6 +4135,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 24, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 25, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -3926,7 +4172,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Annotations.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -3998,6 +4254,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 20, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 21, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -4025,7 +4287,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Annotations.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -4133,6 +4405,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 32, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 33, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 34, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -4172,7 +4450,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Annotations.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -4256,6 +4544,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 24, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 25, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 26, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -4287,7 +4581,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Annotations.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
@@ -4359,6 +4663,12 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 20, Mandatory = false)]
         public OxyPlot.SelectionMode SelectionMode;
 
+        [Parameter(Position = 21, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 22, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
         protected override void BeginProcessing()
         {
 			var bp = MyInvocation.BoundParameters;
@@ -4386,7 +4696,17 @@ namespace Horker.PSOxyPlot
             if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
             if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
 
-            WriteObject(axis);
+            if (AddTo != null)
+            {
+                AddTo.Annotations.Add(axis);
+            
+                if (PassThru)
+                    WriteObject(axis);
+            }
+            else
+            {
+                WriteObject(axis);
+            }
         }
     }
 
