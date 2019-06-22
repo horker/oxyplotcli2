@@ -11,7 +11,6 @@ bug: volume charts in CandleStickAndVolume and Volume series
 
 latest build for:
 HistogramSeries
-RectangleSeries
 TileMapAnnotation
 MatrixSeries
 
@@ -79,3 +78,4 @@ DONE type: public OxyPlot.OxyPalette Palette; in OxyCategoryColorAxis
 DONE -AddTo option to annotation cmdlets
 DONE camelCase for axis cmdlet aliases
 DONE New-OxyPalette
+DONE RectangleSeries

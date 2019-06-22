@@ -204,6 +204,23 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
+    public class HistogramSeriesBuilder : SeriesBuilder<HistogramSeries, HistogramItem, double, double, double, double, VoidT, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new[] { "RangeStart", "RangeEnd", "Area", "Count" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, false, false };
+        public override int[] AxisItemIndexes => new[] { 0, -1, 1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis), null };
+        public override string[] Aliases => new[] { "oxy.histogram", "oxy.hist", "oxyhist" };
+
+        protected override void AddDataPointToSeries(HistogramSeries series, double rangeStart, double rangeEnd, double area, double count, VoidT e5, VoidT e6, VoidT e7)
+        {
+            if (Double.IsNaN(area))
+                area = count * (rangeEnd - rangeStart);
+
+            series.Items.Add(new HistogramItem(rangeStart, rangeEnd, area));
+        }
+    }
+
     public class IntervalBarSeriesBuilder : SeriesBuilder<IntervalBarSeries, IntervalBarItem, double, double, string, TypeAdaptors.Category, VoidT, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new[] { "Start", "End", "BarTitle", "Category" };
