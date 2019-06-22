@@ -98,7 +98,6 @@
     <Compile Include="TypeAdaptors\PlotLength.cs" />
     <Compile Include="TypeAdaptors\Double.cs" />
     <Compile Include="TypeAdaptors\Helpers.cs" />
-    <Compile Include="TypeAdaptors\OxyColorArray.cs" />
     <Compile Include="TypeAdaptors\OxyThickness.cs" />
     <Compile Include="TypeAdaptors\ScreenPoint.cs" />
     <Compile Include="TypeAdaptors\ScreenVector.cs" />
