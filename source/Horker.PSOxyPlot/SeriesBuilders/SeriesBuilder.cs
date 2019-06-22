@@ -372,14 +372,22 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         /// <returns>A SeriesInfo object.</returns>
         public virtual SeriesInfo<SeriesT> CreateSeriesInfo()
         {
+            int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count, _e7.Count }).Max();
+
+            if (count == 0)
+            {
+                var s = new SeriesT();
+                _info.Series = new[] { s };
+                return _info;
+            }
+
             // Validate data lengths.
+
             ValidateInputData();
 
             // Create a set of series.
 
-            int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count, _e7.Count }).Max();
             var seriesSet = new Dictionary<object, SeriesT>();
-
             for (var i = 0; i < count; ++i)
             {
                 object g = DefaultGroupName;

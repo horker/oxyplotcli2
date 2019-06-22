@@ -111,7 +111,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     public class ContourSeriesBuilder : SeriesBuilder<ContourSeries, DataPoint, double, double, double, VoidT, VoidT, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new[] { "X", "Y", "Z" };
-        public override bool[] DataPointItemMandatoriness => new[] { true, true, true };
+        public override bool[] DataPointItemMandatoriness => new[] { false, false, false };
         public override int[] AxisItemIndexes => new[] { 0, 1, -1 };
         public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis), null };
         public override string[] Aliases => new[] { "oxy.contour", "oxycontour" };
@@ -137,6 +137,9 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         protected override void Postprocess(ContourSeries series)
         {
+            if (_x.Count == 0)
+                return;
+
             var xSorted = _x.Distinct().ToArray();
             Array.Sort(xSorted);
 

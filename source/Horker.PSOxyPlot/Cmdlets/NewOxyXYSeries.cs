@@ -4798,7 +4798,7 @@ namespace Horker.PSOxyPlot.Cmdlets
         public Horker.PSOxyPlot.TypeAdaptors.Double[] ContourLevels;
 
         [Parameter(Position = 19, Mandatory = false)]
-        public OxyPlot.OxyColor[] ContourColors;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor[] ContourColors;
 
         [Parameter(Position = 20, Mandatory = false)]
         public System.Object Data;
@@ -5441,7 +5441,7 @@ namespace Horker.PSOxyPlot.Cmdlets
             if (bp.ContainsKey("ColumnCoordinates")) series.ColumnCoordinates = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ColumnCoordinates);
             if (bp.ContainsKey("ContourLevelStep")) series.ContourLevelStep = ContourLevelStep;
             if (bp.ContainsKey("ContourLevels")) series.ContourLevels = Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray(ContourLevels);
-            if (bp.ContainsKey("ContourColors")) series.ContourColors = ContourColors;
+            if (bp.ContainsKey("ContourColors")) series.ContourColors = Horker.PSOxyPlot.TypeAdaptors.OxyColor.ConvertArray(ContourColors);
             if (bp.ContainsKey("Data")) series.Data = Horker.PSOxyPlot.TypeAdaptors.TwoDimensionalArray.ConvertFrom(Data);
             if (bp.ContainsKey("LabelBackground")) series.LabelBackground = LabelBackground;
             if (bp.ContainsKey("LabelFormatString")) series.LabelFormatString = LabelFormatString;

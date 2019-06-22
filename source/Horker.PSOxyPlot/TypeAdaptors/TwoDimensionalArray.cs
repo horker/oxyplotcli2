@@ -79,7 +79,11 @@ namespace Horker.PSOxyPlot.TypeAdaptors
 
         public static double[,] ConvertFrom(object[] values)
         {
-            if (!(values[0] is object[] firstRow))
+            var first = values[0];
+            if (first is PSObject pso)
+                first = pso.BaseObject;
+
+            if (!(first is Array firstRow))
                 throw new ArgumentException("Failed to convert to a two-dimensional array");
 
             var columnLength = firstRow.Length;
@@ -87,12 +91,18 @@ namespace Horker.PSOxyPlot.TypeAdaptors
 
             for (var i = 0; i < values.Length; ++i)
             {
-                if (!(values[i] is object[] row))
+                var v = values[i];
+                if (v is PSObject p)
+                    v = p.BaseObject;
+
+                if (!(v is Array row))
                     throw new ArgumentException("Failed to convert to a two-dimensional array");
 
-                for (var j = 0; j < columnLength; ++j)
+                var j = 0;
+                foreach (var e in row)
                 {
-                    result[j, i] = SmartConverter.ToDouble(row[j]);
+                    result[j, i] = SmartConverter.ToDouble(e);
+                    ++j;
                 }
             }
 
