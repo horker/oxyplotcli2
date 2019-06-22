@@ -277,6 +277,20 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
+    public class RectangleSeriesBuilder : SeriesBuilder<RectangleSeries, RectangleItem, double, double, double, double, double, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new[] { "X1", "X2", "Y1", "Y2", "Value" };
+        public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true };
+        public override int[] AxisItemIndexes => new[] { 0, -1, 1, -1, -1 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis) };
+        public override string[] Aliases => new[] { "oxy.rectangle", "oxy.rec", "oxyrec" };
+
+        protected override void AddDataPointToSeries(RectangleSeries series, double x1, double x2, double y1, double y2, double value, VoidT e6, VoidT e7)
+        {
+            series.Items.Add(new RectangleItem(x1, x2, y1, y2, value));
+        }
+    }
+
     public class ScatterSeriesBuilder : SeriesBuilder<ScatterSeries, ScatterPoint, double, double, double, double, VoidT, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new[] { "X", "Y", "Size", "Value" };

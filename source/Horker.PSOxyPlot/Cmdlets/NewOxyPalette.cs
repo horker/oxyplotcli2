@@ -15,7 +15,7 @@ namespace Horker.PSOxyPlot.Cmdlets
     {
         [Parameter(Position = 0, Mandatory = true, ParameterSetName = "Preset")]
         [ValidateSet("BlueWhiteRed31", "Hot64", "Hue64", "BlackWhiteRed", "BlueWhiteRed", "Cool", "Gray", "Hot", "Hue", "HueDistinct", "Jet", "Rainbow")]
-        [Alias("Type")]
+        [Alias("Type")] // Version 1
         public string Preset;
 
         [Parameter(Position = 0, Mandatory = true, ParameterSetName = "Colors")]
@@ -23,7 +23,7 @@ namespace Horker.PSOxyPlot.Cmdlets
 
         [Parameter(Position = 1, Mandatory = false, ParameterSetName = "Preset")]
         [Parameter(Position = 1, Mandatory = false, ParameterSetName = "Colors")]
-        [Alias("NumberOfColors")]
+        [Alias("NumberOfColors")] // Version 1
         public int PaletteSize = -1;
 
         protected override void BeginProcessing()

@@ -1,10 +1,7 @@
-RectangleBarSeries category?
 HeapMap and Contour series cmdlet interfaces
 Stype support
 ggplot stype
--Options
 help document
-SmartConverter implementation: typed ToXxxx() methods
 sample code
 window support
 AddOxyAxisShare
@@ -43,6 +40,8 @@ background color in png and grid view
 gridview title
 interop with pscanvas
 Tensor support
+SmartConverter implementation: typed ToXxxx() methods
+-Options
 
 DONE OxyPlot v2.0 support
 DONE oxyplotcli v1 features
