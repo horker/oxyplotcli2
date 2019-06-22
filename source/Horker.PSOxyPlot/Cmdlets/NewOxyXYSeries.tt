@@ -31,9 +31,9 @@ using System.Management.Automation;
 using OxyPlot;
 using OxyPlot.Series;
 using Horker.PSOxyPlot.SeriesBuilders;
-using Horker.PSOxyPlot.ObjectFactories;
+using Horker.PSOxyPlot.Initializers;
 
-namespace Horker.PSOxyPlot
+namespace Horker.PSOxyPlot.Cmdlets
 {
 <#
 foreach (var builderType in builderTypes)
@@ -53,7 +53,7 @@ foreach (var builderType in builderTypes)
     [Cmdlet("New", "Oxy<#= name #>")]
     [Alias(<#= aliases #>)]
     [OutputType(typeof(SeriesInfo<<#= name #>>))]
-    public class NewOxy<#= name #> : PSCmdlet
+    public class NewOxy<#= name #> : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -176,26 +176,7 @@ foreach (var builderType in builderTypes)
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 

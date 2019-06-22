@@ -81,11 +81,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NewOxyXYSeries.tt</DependentUpon>
     </Compile>
+    <Compile Include="Cmdlets\SeriesCmdletBase.cs" />
     <Compile Include="GridView\GridView.cs" />
     <Compile Include="Exporters\GridViewExporter.cs" />
     <Compile Include="Exporters\ModelExporter.cs" />
     <Compile Include="Cmdlets\NewOxyGridView.cs" />
     <Compile Include="Helpers\FunctionCompiler.cs" />
+    <Compile Include="Initializers\PlotModelInitializer.cs" />
     <Compile Include="SeriesInfo\AxisType.cs" />
     <Compile Include="TypeAdaptors\Bool.cs" />
     <Compile Include="TypeAdaptors\DataPoint.cs" />
@@ -108,8 +110,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NewOxyModel1.cs</LastGenOutput>
     </Content>
-    <Compile Include="ObjectFactories\AxisInitializer.cs" />
-    <Compile Include="ObjectFactories\ObjectFactory.cs" />
+    <Compile Include="Initializers\AxisInitializer.cs" />
     <Compile Include="SeriesBuilders\ISeriesBuilder.cs" />
     <Compile Include="SeriesBuilders\SeriesBuilderStore.cs" />
     <Compile Include="SeriesInfo\ISeriesInfo.cs" />

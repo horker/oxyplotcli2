@@ -7,14 +7,14 @@ using System.Management.Automation;
 using OxyPlot;
 using OxyPlot.Series;
 using Horker.PSOxyPlot.SeriesBuilders;
-using Horker.PSOxyPlot.ObjectFactories;
+using Horker.PSOxyPlot.Initializers;
 
-namespace Horker.PSOxyPlot
+namespace Horker.PSOxyPlot.Cmdlets
 {
     [Cmdlet("New", "OxyAreaSeries")]
     [Alias("oxy.area", "oxyarea")]
     [OutputType(typeof(SeriesInfo<AreaSeries>))]
-    public class NewOxyAreaSeries : PSCmdlet
+    public class NewOxyAreaSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -846,33 +846,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyBarSeries")]
     [Alias("oxy.bar", "oxybar")]
     [OutputType(typeof(SeriesInfo<BarSeries>))]
-    public class NewOxyBarSeries : PSCmdlet
+    public class NewOxyBarSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -1620,33 +1601,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyBoxPlotSeries")]
     [Alias("oxy.boxPlot", "oxy.box", "oxybox")]
     [OutputType(typeof(SeriesInfo<BoxPlotSeries>))]
-    public class NewOxyBoxPlotSeries : PSCmdlet
+    public class NewOxyBoxPlotSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -2444,33 +2406,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyCandleStickSeries")]
     [Alias("oxy.candleStick", "oxy.candle", "oxycandle")]
     [OutputType(typeof(SeriesInfo<CandleStickSeries>))]
-    public class NewOxyCandleStickSeries : PSCmdlet
+    public class NewOxyCandleStickSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -3244,33 +3187,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyCandleStickAndVolumeSeries")]
     [Alias("oxy.candleStickAndVolume", "oxy.candlev", "oxycandlev")]
     [OutputType(typeof(SeriesInfo<CandleStickAndVolumeSeries>))]
-    public class NewOxyCandleStickAndVolumeSeries : PSCmdlet
+    public class NewOxyCandleStickAndVolumeSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -4052,33 +3976,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyColumnSeries")]
     [Alias("oxy.column", "oxy.col", "oxycol")]
     [OutputType(typeof(SeriesInfo<ColumnSeries>))]
-    public class NewOxyColumnSeries : PSCmdlet
+    public class NewOxyColumnSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -4826,33 +4731,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyContourSeries")]
     [Alias("oxy.contour", "oxycontour")]
     [OutputType(typeof(SeriesInfo<ContourSeries>))]
-    public class NewOxyContourSeries : PSCmdlet
+    public class NewOxyContourSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -5606,33 +5492,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyErrorColumnSeries")]
     [Alias("oxy.errorColumn", "oxy.ecol", "oxyecol")]
     [OutputType(typeof(SeriesInfo<ErrorColumnSeries>))]
-    public class NewOxyErrorColumnSeries : PSCmdlet
+    public class NewOxyErrorColumnSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -6394,33 +6261,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyHighLowSeries")]
     [Alias("oxy.highLow", "oxyhighlow")]
     [OutputType(typeof(SeriesInfo<HighLowSeries>))]
-    public class NewOxyHighLowSeries : PSCmdlet
+    public class NewOxyHighLowSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -7182,33 +7030,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyIntervalBarSeries")]
     [Alias("oxy.intervalBar", "oxy.ibar", "oxyibar")]
     [OutputType(typeof(SeriesInfo<IntervalBarSeries>))]
-    public class NewOxyIntervalBarSeries : PSCmdlet
+    public class NewOxyIntervalBarSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -7956,33 +7785,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyLinearBarSeries")]
     [Alias("oxy.linearBar", "oxy.lbar", "oxylbar")]
     [OutputType(typeof(SeriesInfo<LinearBarSeries>))]
-    public class NewOxyLinearBarSeries : PSCmdlet
+    public class NewOxyLinearBarSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -8718,33 +8528,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyLineSeries")]
     [Alias("oxy.line", "oxyline")]
     [OutputType(typeof(SeriesInfo<LineSeries>))]
-    public class NewOxyLineSeries : PSCmdlet
+    public class NewOxyLineSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -9540,33 +9331,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyPieSeries")]
     [Alias("oxy.pie", "oxypie")]
     [OutputType(typeof(SeriesInfo<PieSeries>))]
-    public class NewOxyPieSeries : PSCmdlet
+    public class NewOxyPieSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -10358,33 +10130,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyRectangleBarSeries")]
     [Alias("oxy.rectangleBar", "oxy.rbar", "oxyrbar")]
     [OutputType(typeof(SeriesInfo<RectangleBarSeries>))]
-    public class NewOxyRectangleBarSeries : PSCmdlet
+    public class NewOxyRectangleBarSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -11112,33 +10865,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyRectangleSeries")]
     [Alias("oxy.rectangle", "oxy.rec", "oxyrec")]
     [OutputType(typeof(SeriesInfo<RectangleSeries>))]
-    public class NewOxyRectangleSeries : PSCmdlet
+    public class NewOxyRectangleSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -11872,33 +11606,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyScatterSeries")]
     [Alias("oxy.scatter", "oxy.scat", "oxyscat")]
     [OutputType(typeof(SeriesInfo<ScatterSeries>))]
-    public class NewOxyScatterSeries : PSCmdlet
+    public class NewOxyScatterSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -12670,33 +12385,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyScatterErrorSeries")]
     [Alias("oxy.scatterError", "oxy.scate", "oxyscate")]
     [OutputType(typeof(SeriesInfo<ScatterErrorSeries>))]
-    public class NewOxyScatterErrorSeries : PSCmdlet
+    public class NewOxyScatterErrorSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -13504,33 +13200,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyStairStepSeries")]
     [Alias("oxy.stairStep", "oxy.stair", "oxystart")]
     [OutputType(typeof(SeriesInfo<StairStepSeries>))]
-    public class NewOxyStairStepSeries : PSCmdlet
+    public class NewOxyStairStepSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -14334,33 +14011,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyStemSeries")]
     [Alias("oxy.stem", "oxystem")]
     [OutputType(typeof(SeriesInfo<StemSeries>))]
-    public class NewOxyStemSeries : PSCmdlet
+    public class NewOxyStemSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -15160,33 +14818,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyThreeColorLineSeries")]
     [Alias("oxy.ThreeColorLine", "oxy.3cLine", "oxy3cline")]
     [OutputType(typeof(SeriesInfo<ThreeColorLineSeries>))]
-    public class NewOxyThreeColorLineSeries : PSCmdlet
+    public class NewOxyThreeColorLineSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -16014,33 +15653,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyTornadoBarSeries")]
     [Alias("oxy.tornadoBar", "oxy.tornado", "oxytornado")]
     [OutputType(typeof(SeriesInfo<TornadoBarSeries>))]
-    public class NewOxyTornadoBarSeries : PSCmdlet
+    public class NewOxyTornadoBarSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -16812,33 +16432,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyTwoColorAreaSeries")]
     [Alias("oxy.twoColorArea", "oxy.2cArea", "oxy2carea")]
     [OutputType(typeof(SeriesInfo<TwoColorAreaSeries>))]
-    public class NewOxyTwoColorAreaSeries : PSCmdlet
+    public class NewOxyTwoColorAreaSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -17694,33 +17295,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyTwoColorLineSeries")]
     [Alias("oxy.twoColorLine", "oxy.2cLine", "oxy2cline")]
     [OutputType(typeof(SeriesInfo<TwoColorLineSeries>))]
-    public class NewOxyTwoColorLineSeries : PSCmdlet
+    public class NewOxyTwoColorLineSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -18532,33 +18114,14 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 
     [Cmdlet("New", "OxyVolumeSeries")]
     [Alias("oxy.volume", "oxyvolume")]
     [OutputType(typeof(SeriesInfo<VolumeSeries>))]
-    public class NewOxyVolumeSeries : PSCmdlet
+    public class NewOxyVolumeSeries : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -19332,26 +18895,7 @@ namespace Horker.PSOxyPlot
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 

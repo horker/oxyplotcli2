@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Series;
 
-namespace Horker.PSOxyPlot
+namespace Horker.PSOxyPlot.Cmdlets
 {
     [Cmdlet("New", "OxyAngleAxis")]
     [Alias("oxy.axis.angle")]

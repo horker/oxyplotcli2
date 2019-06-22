@@ -9,14 +9,14 @@ using OxyPlot;
 using OxyPlot.Series;
 using OxyPlot.Axes;
 using OxyPlot.Annotations;
-using Horker.PSOxyPlot.ObjectFactories;
+using Horker.PSOxyPlot.Initializers;
 
-namespace Horker.PSOxyPlot
+namespace Horker.PSOxyPlot.Cmdlets
 {
     [Cmdlet("New", "OxyPlotModel")]
     [Alias("oxy.model", "oxymodel")]
     [OutputType(typeof(PlotModel))]
-    public class NewOxyPlotModel : PSCmdlet
+    public class NewOxyPlotModel : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public Series Series = null;
@@ -765,105 +765,98 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 248, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
 
-        private PlotModel _model;
+        private List<Series> _seriesList;
+        private List<ISeriesInfo> _seriesInfoList;
 
         protected override void BeginProcessing()
         {
-            _model = new PlotModel();
-
-            if (Axis != null)
-                foreach (var a in Axis)
-                    _model.Axes.Add(a);
-
-            if (Annotation != null)
-                foreach (var a in Annotation)
-                    _model.Annotations.Add(a);
+            _seriesList = new List<Series>();
+            _seriesInfoList = new List<ISeriesInfo>();
         }
 
         protected override void ProcessRecord()
         {
             if (Series != null)
-                _model.Series.Add(Series);
+                _seriesList.Add(Series);
 
             if (SeriesInfo != null)
-            {
-                AxisInitializer.WithSeriesInfo(_model, SeriesInfo);
-                AxisInitializer.AssignParametersToModelAxes(_model, MyInvocation.BoundParameters);
-
-                foreach (var s in SeriesInfo.Series)
-                    _model.Series.Add(s);
-            }
+                _seriesInfoList.Add(SeriesInfo);
         }
 
         protected override void EndProcessing()
         {
+            var model = PlotModelInitializer.CreateWithSeriesInfo(_seriesInfoList);
+
             var bp = MyInvocation.BoundParameters;
 
-            if (bp.ContainsKey("DefaultFont")) _model.DefaultFont = DefaultFont;
-            if (bp.ContainsKey("DefaultFontSize")) _model.DefaultFontSize = DefaultFontSize;
-            if (bp.ContainsKey("Background")) _model.Background = Background;
-            if (bp.ContainsKey("Culture")) _model.Culture = Culture;
-            if (bp.ContainsKey("DefaultColors")) _model.DefaultColors = DefaultColors;
-            if (bp.ContainsKey("IsLegendVisible")) _model.IsLegendVisible = IsLegendVisible;
-            if (bp.ContainsKey("LegendBackground")) _model.LegendBackground = LegendBackground;
-            if (bp.ContainsKey("LegendBorder")) _model.LegendBorder = LegendBorder;
-            if (bp.ContainsKey("LegendBorderThickness")) _model.LegendBorderThickness = LegendBorderThickness;
-            if (bp.ContainsKey("LegendColumnSpacing")) _model.LegendColumnSpacing = LegendColumnSpacing;
-            if (bp.ContainsKey("LegendFont")) _model.LegendFont = LegendFont;
-            if (bp.ContainsKey("LegendFontSize")) _model.LegendFontSize = LegendFontSize;
-            if (bp.ContainsKey("LegendTextColor")) _model.LegendTextColor = LegendTextColor;
-            if (bp.ContainsKey("LegendFontWeight")) _model.LegendFontWeight = LegendFontWeight;
-            if (bp.ContainsKey("LegendItemAlignment")) _model.LegendItemAlignment = LegendItemAlignment;
-            if (bp.ContainsKey("LegendItemOrder")) _model.LegendItemOrder = LegendItemOrder;
-            if (bp.ContainsKey("LegendItemSpacing")) _model.LegendItemSpacing = LegendItemSpacing;
-            if (bp.ContainsKey("LegendLineSpacing")) _model.LegendLineSpacing = LegendLineSpacing;
-            if (bp.ContainsKey("LegendMargin")) _model.LegendMargin = LegendMargin;
-            if (bp.ContainsKey("LegendMaxWidth")) _model.LegendMaxWidth = LegendMaxWidth;
-            if (bp.ContainsKey("LegendMaxHeight")) _model.LegendMaxHeight = LegendMaxHeight;
-            if (bp.ContainsKey("LegendOrientation")) _model.LegendOrientation = LegendOrientation;
-            if (bp.ContainsKey("LegendPadding")) _model.LegendPadding = LegendPadding;
-            if (bp.ContainsKey("LegendPlacement")) _model.LegendPlacement = LegendPlacement;
-            if (bp.ContainsKey("LegendPosition")) _model.LegendPosition = LegendPosition;
-            if (bp.ContainsKey("LegendSymbolLength")) _model.LegendSymbolLength = LegendSymbolLength;
-            if (bp.ContainsKey("LegendSymbolMargin")) _model.LegendSymbolMargin = LegendSymbolMargin;
-            if (bp.ContainsKey("LegendSymbolPlacement")) _model.LegendSymbolPlacement = LegendSymbolPlacement;
-            if (bp.ContainsKey("LegendTitle")) _model.LegendTitle = LegendTitle;
-            if (bp.ContainsKey("LegendTitleColor")) _model.LegendTitleColor = LegendTitleColor;
-            if (bp.ContainsKey("LegendTitleFont")) _model.LegendTitleFont = LegendTitleFont;
-            if (bp.ContainsKey("LegendTitleFontSize")) _model.LegendTitleFontSize = LegendTitleFontSize;
-            if (bp.ContainsKey("LegendTitleFontWeight")) _model.LegendTitleFontWeight = LegendTitleFontWeight;
-            if (bp.ContainsKey("Padding")) _model.Padding = new Horker.PSOxyPlot.TypeAdaptors.OxyThickness(Padding);
-            if (bp.ContainsKey("AxisTierDistance")) _model.AxisTierDistance = AxisTierDistance;
-            if (bp.ContainsKey("PlotAreaBackground")) _model.PlotAreaBackground = PlotAreaBackground;
-            if (bp.ContainsKey("PlotAreaBorderColor")) _model.PlotAreaBorderColor = PlotAreaBorderColor;
-            if (bp.ContainsKey("PlotAreaBorderThickness")) _model.PlotAreaBorderThickness = new Horker.PSOxyPlot.TypeAdaptors.OxyThickness(PlotAreaBorderThickness);
-            if (bp.ContainsKey("PlotMargins")) _model.PlotMargins = new Horker.PSOxyPlot.TypeAdaptors.OxyThickness(PlotMargins);
-            if (bp.ContainsKey("PlotType")) _model.PlotType = PlotType;
-            if (bp.ContainsKey("RenderingDecorator")) _model.RenderingDecorator = RenderingDecorator;
-            if (bp.ContainsKey("Subtitle")) _model.Subtitle = Subtitle;
-            if (bp.ContainsKey("SubtitleFont")) _model.SubtitleFont = SubtitleFont;
-            if (bp.ContainsKey("SubtitleFontSize")) _model.SubtitleFontSize = SubtitleFontSize;
-            if (bp.ContainsKey("SubtitleFontWeight")) _model.SubtitleFontWeight = SubtitleFontWeight;
-            if (bp.ContainsKey("TextColor")) _model.TextColor = TextColor;
-            if (bp.ContainsKey("Title")) _model.Title = Title;
-            if (bp.ContainsKey("TitleToolTip")) _model.TitleToolTip = TitleToolTip;
-            if (bp.ContainsKey("TitleColor")) _model.TitleColor = TitleColor;
-            if (bp.ContainsKey("SubtitleColor")) _model.SubtitleColor = SubtitleColor;
-            if (bp.ContainsKey("TitleHorizontalAlignment")) _model.TitleHorizontalAlignment = TitleHorizontalAlignment;
-            if (bp.ContainsKey("TitleFont")) _model.TitleFont = TitleFont;
-            if (bp.ContainsKey("TitleFontSize")) _model.TitleFontSize = TitleFontSize;
-            if (bp.ContainsKey("TitleFontWeight")) _model.TitleFontWeight = TitleFontWeight;
-            if (bp.ContainsKey("TitlePadding")) _model.TitlePadding = TitlePadding;
-            if (bp.ContainsKey("SelectionColor")) _model.SelectionColor = SelectionColor;
+            if (bp.ContainsKey("DefaultFont")) model.DefaultFont = DefaultFont;
+            if (bp.ContainsKey("DefaultFontSize")) model.DefaultFontSize = DefaultFontSize;
+            if (bp.ContainsKey("Background")) model.Background = Background;
+            if (bp.ContainsKey("Culture")) model.Culture = Culture;
+            if (bp.ContainsKey("DefaultColors")) model.DefaultColors = DefaultColors;
+            if (bp.ContainsKey("IsLegendVisible")) model.IsLegendVisible = IsLegendVisible;
+            if (bp.ContainsKey("LegendBackground")) model.LegendBackground = LegendBackground;
+            if (bp.ContainsKey("LegendBorder")) model.LegendBorder = LegendBorder;
+            if (bp.ContainsKey("LegendBorderThickness")) model.LegendBorderThickness = LegendBorderThickness;
+            if (bp.ContainsKey("LegendColumnSpacing")) model.LegendColumnSpacing = LegendColumnSpacing;
+            if (bp.ContainsKey("LegendFont")) model.LegendFont = LegendFont;
+            if (bp.ContainsKey("LegendFontSize")) model.LegendFontSize = LegendFontSize;
+            if (bp.ContainsKey("LegendTextColor")) model.LegendTextColor = LegendTextColor;
+            if (bp.ContainsKey("LegendFontWeight")) model.LegendFontWeight = LegendFontWeight;
+            if (bp.ContainsKey("LegendItemAlignment")) model.LegendItemAlignment = LegendItemAlignment;
+            if (bp.ContainsKey("LegendItemOrder")) model.LegendItemOrder = LegendItemOrder;
+            if (bp.ContainsKey("LegendItemSpacing")) model.LegendItemSpacing = LegendItemSpacing;
+            if (bp.ContainsKey("LegendLineSpacing")) model.LegendLineSpacing = LegendLineSpacing;
+            if (bp.ContainsKey("LegendMargin")) model.LegendMargin = LegendMargin;
+            if (bp.ContainsKey("LegendMaxWidth")) model.LegendMaxWidth = LegendMaxWidth;
+            if (bp.ContainsKey("LegendMaxHeight")) model.LegendMaxHeight = LegendMaxHeight;
+            if (bp.ContainsKey("LegendOrientation")) model.LegendOrientation = LegendOrientation;
+            if (bp.ContainsKey("LegendPadding")) model.LegendPadding = LegendPadding;
+            if (bp.ContainsKey("LegendPlacement")) model.LegendPlacement = LegendPlacement;
+            if (bp.ContainsKey("LegendPosition")) model.LegendPosition = LegendPosition;
+            if (bp.ContainsKey("LegendSymbolLength")) model.LegendSymbolLength = LegendSymbolLength;
+            if (bp.ContainsKey("LegendSymbolMargin")) model.LegendSymbolMargin = LegendSymbolMargin;
+            if (bp.ContainsKey("LegendSymbolPlacement")) model.LegendSymbolPlacement = LegendSymbolPlacement;
+            if (bp.ContainsKey("LegendTitle")) model.LegendTitle = LegendTitle;
+            if (bp.ContainsKey("LegendTitleColor")) model.LegendTitleColor = LegendTitleColor;
+            if (bp.ContainsKey("LegendTitleFont")) model.LegendTitleFont = LegendTitleFont;
+            if (bp.ContainsKey("LegendTitleFontSize")) model.LegendTitleFontSize = LegendTitleFontSize;
+            if (bp.ContainsKey("LegendTitleFontWeight")) model.LegendTitleFontWeight = LegendTitleFontWeight;
+            if (bp.ContainsKey("Padding")) model.Padding = new Horker.PSOxyPlot.TypeAdaptors.OxyThickness(Padding);
+            if (bp.ContainsKey("AxisTierDistance")) model.AxisTierDistance = AxisTierDistance;
+            if (bp.ContainsKey("PlotAreaBackground")) model.PlotAreaBackground = PlotAreaBackground;
+            if (bp.ContainsKey("PlotAreaBorderColor")) model.PlotAreaBorderColor = PlotAreaBorderColor;
+            if (bp.ContainsKey("PlotAreaBorderThickness")) model.PlotAreaBorderThickness = new Horker.PSOxyPlot.TypeAdaptors.OxyThickness(PlotAreaBorderThickness);
+            if (bp.ContainsKey("PlotMargins")) model.PlotMargins = new Horker.PSOxyPlot.TypeAdaptors.OxyThickness(PlotMargins);
+            if (bp.ContainsKey("PlotType")) model.PlotType = PlotType;
+            if (bp.ContainsKey("RenderingDecorator")) model.RenderingDecorator = RenderingDecorator;
+            if (bp.ContainsKey("Subtitle")) model.Subtitle = Subtitle;
+            if (bp.ContainsKey("SubtitleFont")) model.SubtitleFont = SubtitleFont;
+            if (bp.ContainsKey("SubtitleFontSize")) model.SubtitleFontSize = SubtitleFontSize;
+            if (bp.ContainsKey("SubtitleFontWeight")) model.SubtitleFontWeight = SubtitleFontWeight;
+            if (bp.ContainsKey("TextColor")) model.TextColor = TextColor;
+            if (bp.ContainsKey("Title")) model.Title = Title;
+            if (bp.ContainsKey("TitleToolTip")) model.TitleToolTip = TitleToolTip;
+            if (bp.ContainsKey("TitleColor")) model.TitleColor = TitleColor;
+            if (bp.ContainsKey("SubtitleColor")) model.SubtitleColor = SubtitleColor;
+            if (bp.ContainsKey("TitleHorizontalAlignment")) model.TitleHorizontalAlignment = TitleHorizontalAlignment;
+            if (bp.ContainsKey("TitleFont")) model.TitleFont = TitleFont;
+            if (bp.ContainsKey("TitleFontSize")) model.TitleFontSize = TitleFontSize;
+            if (bp.ContainsKey("TitleFontWeight")) model.TitleFontWeight = TitleFontWeight;
+            if (bp.ContainsKey("TitlePadding")) model.TitlePadding = TitlePadding;
+            if (bp.ContainsKey("SelectionColor")) model.SelectionColor = SelectionColor;
 
-            if (bp.ContainsKey("OutFile"))
-            {
-                ModelExporter.Export(_model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                if (!PassThru)
-                    return;
-            }
+            if (Axis != null)
+                foreach (var a in Axis)
+                    model.Axes.Add(a);
 
-            WriteObject(_model);
+            if (Annotation != null)
+                foreach (var a in Annotation)
+                    model.Annotations.Add(a);
+
+
+            var si = _seriesInfoList.Count > 0 ? _seriesInfoList[0] : null;
+            PostProcess(model, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 }

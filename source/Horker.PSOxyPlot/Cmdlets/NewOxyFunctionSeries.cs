@@ -6,14 +6,14 @@ using System.Text;
 using System.Management.Automation;
 using OxyPlot;
 using OxyPlot.Series;
-using Horker.PSOxyPlot.ObjectFactories;
+using Horker.PSOxyPlot.Initializers;
 
-namespace Horker.PSOxyPlot
+namespace Horker.PSOxyPlot.Cmdlets
 {
     [Cmdlet("New", "OxyFunctionSeries")]
     [Alias("oxy.function", "oxy.func", "oxyfunc")]
     [OutputType(typeof(FunctionSeries))]
-    public class NewOxyFunctionSeries : PSCmdlet
+    public class NewOxyFunctionSeries : SeriesCmdletBase
     {
         [Parameter(ParameterSetName = "Explicit", Position = 0, Mandatory = true)]
         public Horker.PSOxyPlot.TypeAdaptors.ScriptBlock[] F = null;
@@ -844,26 +844,7 @@ namespace Horker.PSOxyPlot
                 }
             }
 
-            PlotModel model = AddTo;
-            if (model == null && bp.ContainsKey("OutFile"))
-                model = ObjectFactory.CreatePlotModel(si, bp);
-
-            if (model != null)
-            {
-                foreach (var s in si.Series)
-                    model.Series.Add(s);
-
-                if (bp.ContainsKey("OutFile"))
-                {
-                    ModelExporter.Export(model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                    if (!PassThru)
-                        return;
-                }
-
-                WriteObject(model);
-            }
-            else
-                WriteObject(si);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 }

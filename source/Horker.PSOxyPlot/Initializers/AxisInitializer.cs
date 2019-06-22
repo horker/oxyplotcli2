@@ -8,7 +8,7 @@ using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 
-namespace Horker.PSOxyPlot.ObjectFactories
+namespace Horker.PSOxyPlot.Initializers
 {
     public static class AxisInitializer
     {
@@ -76,7 +76,7 @@ namespace Horker.PSOxyPlot.ObjectFactories
             return axis;
         }
 
-        public static void WithSeriesInfo(PlotModel model, ISeriesInfo si)
+        public static void EnsureAxes(PlotModel model, ISeriesInfo si)
         {
             foreach (var s in model.Series)
             {
@@ -167,15 +167,31 @@ namespace Horker.PSOxyPlot.ObjectFactories
             }
         }
 
-        public static void AssignParametersToModelAxes(PlotModel model, Dictionary<string, object> parameters)
+        public static Axis CreateWithPrefixedParameters(Dictionary<string, object> parameters, string prefix, Type defaultAxisType, AxisPosition position)
         {
-            foreach (var a in model.Axes)
+            bool create = false;
+            foreach (var entry in parameters)
             {
-                if (a.Position == AxisPosition.Top || a.Position == AxisPosition.Bottom)
-                    AxisInitializer.AssignParameters(a, parameters, "Ax");
-                if (a.Position == AxisPosition.Left || a.Position == AxisPosition.Right)
-                    AxisInitializer.AssignParameters(a, parameters, "Ay");
+                if (entry.Key.StartsWith(prefix))
+                {
+                    create = true;
+                    break;
+                }
             }
+
+            if (!create)
+                return null;
+
+            var axisType = defaultAxisType;
+            if (parameters.TryGetValue(prefix + "Type", out var typeName))
+                axisType = GetAxisTypeByPartialName(typeName.ToString());
+
+            var axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);
+            axis.Position = position;
+
+            AssignParameters(axis, parameters, prefix);
+
+            return axis;
         }
     }
 }

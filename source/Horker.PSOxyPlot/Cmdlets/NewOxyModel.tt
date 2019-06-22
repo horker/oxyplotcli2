@@ -11,14 +11,14 @@ using OxyPlot;
 using OxyPlot.Series;
 using OxyPlot.Axes;
 using OxyPlot.Annotations;
-using Horker.PSOxyPlot.ObjectFactories;
+using Horker.PSOxyPlot.Initializers;
 
-namespace Horker.PSOxyPlot
+namespace Horker.PSOxyPlot.Cmdlets
 {
     [Cmdlet("New", "OxyPlotModel")]
     [Alias("oxy.model", "oxymodel")]
     [OutputType(typeof(PlotModel))]
-    public class NewOxyPlotModel : PSCmdlet
+    public class NewOxyPlotModel : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public Series Series = null;
@@ -76,57 +76,50 @@ namespace Horker.PSOxyPlot
 <#
     }
 #>
-        private PlotModel _model;
+        private List<Series> _seriesList;
+        private List<ISeriesInfo> _seriesInfoList;
 
         protected override void BeginProcessing()
         {
-            _model = new PlotModel();
-
-            if (Axis != null)
-                foreach (var a in Axis)
-                    _model.Axes.Add(a);
-
-            if (Annotation != null)
-                foreach (var a in Annotation)
-                    _model.Annotations.Add(a);
+            _seriesList = new List<Series>();
+            _seriesInfoList = new List<ISeriesInfo>();
         }
 
         protected override void ProcessRecord()
         {
             if (Series != null)
-                _model.Series.Add(Series);
+                _seriesList.Add(Series);
 
             if (SeriesInfo != null)
-            {
-                AxisInitializer.WithSeriesInfo(_model, SeriesInfo);
-                AxisInitializer.AssignParametersToModelAxes(_model, MyInvocation.BoundParameters);
-
-                foreach (var s in SeriesInfo.Series)
-                    _model.Series.Add(s);
-            }
+                _seriesInfoList.Add(SeriesInfo);
         }
 
         protected override void EndProcessing()
         {
+            var model = PlotModelInitializer.CreateWithSeriesInfo(_seriesInfoList);
+
             var bp = MyInvocation.BoundParameters;
 
 <#
     foreach (var prop in EnumerateProperties(typeof(PlotModel)))
     {
 #>
-            if (bp.ContainsKey("<#= prop.Name #>")) _model.<#= prop.Name #> = <#= prop.ConversionString #>;
+            if (bp.ContainsKey("<#= prop.Name #>")) model.<#= prop.Name #> = <#= prop.ConversionString #>;
 <#
     }
 #>
 
-            if (bp.ContainsKey("OutFile"))
-            {
-                ModelExporter.Export(_model, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                if (!PassThru)
-                    return;
-            }
+            if (Axis != null)
+                foreach (var a in Axis)
+                    model.Axes.Add(a);
 
-            WriteObject(_model);
+            if (Annotation != null)
+                foreach (var a in Annotation)
+                    model.Annotations.Add(a);
+
+
+            var si = _seriesInfoList.Count > 0 ? _seriesInfoList[0] : null;
+            PostProcess(model, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
         }
     }
 }
