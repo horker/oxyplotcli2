@@ -78,45 +78,40 @@ namespace Horker.PSOxyPlot.Initializers
 
         public static void EnsureAxes(PlotModel model, ISeriesInfo si)
         {
+            if (!string.IsNullOrEmpty(si.GroupName))
+                model.LegendTitle = si.GroupName;
+
+            bool hasXAxis = false;
+            bool hasYAxis = false;
+            bool hasZAxis = false;
+
             foreach (var s in model.Series)
             {
-                if (s.IsVisible && !string.IsNullOrEmpty(si.GroupName))
+                if (!s.IsVisible)
+                    continue;
+
+                if (s is XYAxisSeries xy)
                 {
-                    model.LegendTitle = si.GroupName;
-                    break;
+                    hasXAxis = hasXAxis || !string.IsNullOrEmpty(xy.XAxisKey);
+                    hasYAxis = hasYAxis || !string.IsNullOrEmpty(xy.YAxisKey);
                 }
+
+                if (s is CandleStickAndVolumeSeries candlev)
+                    hasZAxis = hasZAxis || !string.IsNullOrEmpty(candlev.VolumeAxisKey);
+                else if (s is HeatMapSeries h)
+                    hasZAxis = hasZAxis || !string.IsNullOrEmpty(h.ColorAxisKey);
+                else if (s is RectangleSeries r)
+                    hasZAxis = hasZAxis || !string.IsNullOrEmpty(r.ColorAxisKey);
             }
 
-            Axis ax = null;
-            Axis ay = null;
-            bool hasAdditionalAxis = false;
-
-            foreach (var a in model.Axes)
-            {
-                if (ax == null && a.IsHorizontal())
-                    ax = a;
-                else if (ay == null && a.IsVertical())
-                    ay = a;
-            }
-
-            foreach (var s in si.Series)
-            {
-                if (!hasAdditionalAxis)
-                {
-                    var selector = AxisSelector.GetInstanceOf(s.GetType());
-                    hasAdditionalAxis = selector.HasAdditionalAxisObject(s);
-                    break;
-                }
-            }
-
-            if (ax == null)
+            if (!hasXAxis)
             {
                 foreach (var s in si.Series)
                 {
                     if (s.IsVisible)
                     {
                         var selector = AxisSelector.GetInstanceOf(s.GetType());
-                        ax = selector.GetXAxisObject(s, si);
+                        var ax = selector.GetXAxisObject(s, si);
                         if (ax != null)
                         {
                             model.Axes.Add(ax);
@@ -126,14 +121,14 @@ namespace Horker.PSOxyPlot.Initializers
                 }
             }
 
-            if (ay == null)
+            if (!hasYAxis)
             {
                 foreach (var s in si.Series)
                 {
                     if (s.IsVisible)
                     {
                         var selector = AxisSelector.GetInstanceOf(s.GetType());
-                        ay = selector.GetYAxisObject(s, si);
+                        var ay = selector.GetYAxisObject(s, si);
                         if (ay != null)
                         {
                             model.Axes.Add(ay);
@@ -143,7 +138,7 @@ namespace Horker.PSOxyPlot.Initializers
                 }
             }
 
-            if (hasAdditionalAxis)
+            if (!hasZAxis)
             {
                 foreach (var s in si.Series)
                 {
@@ -196,6 +191,7 @@ namespace Horker.PSOxyPlot.Initializers
 
             var axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);
             axis.Position = position;
+            axis.Key = axisType.Name + "_" + Guid.NewGuid().ToString();
 
             AssignParameters(axis, parameters, prefix);
 

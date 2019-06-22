@@ -8,6 +8,7 @@ using Horker.PSOxyPlot.Initializers;
 using Horker.PSOxyPlot.SeriesBuilders;
 using OxyPlot;
 using OxyPlot.Axes;
+using OxyPlot.Series;
 
 namespace Horker.PSOxyPlot.Cmdlets
 {
@@ -68,9 +69,6 @@ namespace Horker.PSOxyPlot.Cmdlets
 
             // Adds series and axes to a model.
 
-            foreach (var s in si.Series)
-                model.Series.Add(s);
-
             if (xAxis != null)
                 model.Axes.Add(xAxis);
 
@@ -79,6 +77,36 @@ namespace Horker.PSOxyPlot.Cmdlets
 
             if (zAxis != null)
                 model.Axes.Add(zAxis);
+
+            foreach (var s in si.Series)
+            {
+                model.Series.Add(s);
+
+                if (s is XYAxisSeries xy)
+                {
+                    if (xAxis != null)
+                        xy.XAxisKey = xAxis.Key;
+
+                    if (yAxis != null)
+                        xy.YAxisKey = yAxis.Key;
+                }
+
+                if (s is CandleStickAndVolumeSeries candlev)
+                {
+                    if (zAxis != null)
+                        candlev.VolumeAxisKey = zAxis.Key;
+                }
+                else if (s is HeatMapSeries h)
+                {
+                    if (zAxis != null)
+                        h.ColorAxisKey = zAxis.Key;
+                }
+                else if (s is RectangleSeries r)
+                {
+                    if (zAxis != null)
+                        r.ColorAxisKey = zAxis.Key;
+                }
+            }
 
             // Exports a model.
 
