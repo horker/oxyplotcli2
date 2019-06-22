@@ -89,10 +89,13 @@ namespace Horker.PSOxyPlot.ObjectFactories
 
             Axis ax = null;
             Axis ay = null;
+            Axis ar = null;
 
             foreach (var a in model.Axes)
             {
-                if (ax == null && a.IsHorizontal())
+                if (ar == null && a is LinearColorAxis)
+                    ar = a;
+                else if (ax == null && a.IsHorizontal())
                     ax = a;
                 else if (ay == null && a.IsVertical())
                     ay = a;
@@ -126,6 +129,23 @@ namespace Horker.PSOxyPlot.ObjectFactories
                         {
                             ay.Position = AxisPosition.Left;
                             model.Axes.Add(ay);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (ar == null)
+            {
+                foreach (var s in si.Series)
+                {
+                    if (s.IsVisible)
+                    {
+                        ar = GetAxisObject(s, si, 2);
+                        if (ar != null)
+                        {
+                            ar.Position = AxisPosition.Right;
+                            model.Axes.Add(ar);
                             break;
                         }
                     }

@@ -20,8 +20,8 @@ namespace Horker.PSOxyPlot
 
         public SeriesInfo()
         {
-            AxisTitles = new string[] { null, null };
-            AxisTypes = new Type[] { null, null };
+            AxisTitles = new string[] { null, null, null };
+            AxisTypes = new Type[] { null, null, null };
         }
     }
 }
