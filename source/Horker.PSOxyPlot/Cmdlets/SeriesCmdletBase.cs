@@ -46,7 +46,7 @@ namespace Horker.PSOxyPlot.Cmdlets
                     AxisPosition.Left);
             }
 
-            // Create a model if necessary
+            // Creates a model if necessary.
 
             if (model == null && (!string.IsNullOrEmpty(outFile) || xAxis != null || yAxis != null))
                 model = PlotModelInitializer.CreateWithSeriesInfo(new ISeriesInfo[] { si });
@@ -59,7 +59,7 @@ namespace Horker.PSOxyPlot.Cmdlets
                 return;
             }
 
-            // Adds series and axes to a model
+            // Adds series and axes to a model.
 
             foreach (var s in si.Series)
                 model.Series.Add(s);
@@ -70,16 +70,16 @@ namespace Horker.PSOxyPlot.Cmdlets
             if (yAxis != null)
                 model.Axes.Add(yAxis);
 
-            // Exports or returns a model
+            // Exports or returns a model.
 
             if (bp.ContainsKey("OutFile"))
             {
-                ModelExporter.Export((PlotModel)model, outFile, outWidth, outHeight, svgIsDocument);
+                ModelExporter.Export(model, outFile, outWidth, outHeight, svgIsDocument);
                 if (!passThru)
                     return;
             }
 
-            WriteObject((object)model);
+            WriteObject(model);
         }
     }
 }

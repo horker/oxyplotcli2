@@ -87,6 +87,7 @@
     <Compile Include="Exporters\ModelExporter.cs" />
     <Compile Include="Cmdlets\NewOxyGridView.cs" />
     <Compile Include="Helpers\FunctionCompiler.cs" />
+    <Compile Include="Initializers\AxisSelector.cs" />
     <Compile Include="Initializers\PlotModelInitializer.cs" />
     <Compile Include="SeriesInfo\AxisType.cs" />
     <Compile Include="TypeAdaptors\Bool.cs" />

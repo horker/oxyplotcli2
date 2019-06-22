@@ -107,10 +107,10 @@ namespace Horker.PSOxyPlot.Initializers
                 {
                     if (s.IsVisible)
                     {
-                        ax = GetAxisObject(s, si, 0);
+                        var selector = AxisSelector.GetInstanceOf(s.GetType());
+                        ax = selector.GetXAxisObject(s, si);
                         if (ax != null)
                         {
-                            ax.Position = AxisPosition.Bottom;
                             model.Axes.Add(ax);
                             break;
                         }
@@ -124,10 +124,10 @@ namespace Horker.PSOxyPlot.Initializers
                 {
                     if (s.IsVisible)
                     {
-                        ay = GetAxisObject(s, si, 1);
+                        var selector = AxisSelector.GetInstanceOf(s.GetType());
+                        ay = selector.GetYAxisObject(s, si);
                         if (ay != null)
                         {
-                            ay.Position = AxisPosition.Left;
                             model.Axes.Add(ay);
                             break;
                         }
@@ -141,10 +141,10 @@ namespace Horker.PSOxyPlot.Initializers
                 {
                     if (s.IsVisible)
                     {
-                        ar = GetAxisObject(s, si, 2);
+                        var selector = AxisSelector.GetInstanceOf(s.GetType());
+                        ar = selector.GetAdditionalAxisObject(s, si);
                         if (ar != null)
                         {
-                            ar.Position = AxisPosition.Right;
                             model.Axes.Add(ar);
                             break;
                         }
