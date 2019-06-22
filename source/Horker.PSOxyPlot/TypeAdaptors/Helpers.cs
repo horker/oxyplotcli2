@@ -12,10 +12,16 @@ namespace Horker.PSOxyPlot.TypeAdaptors
         {
             if (value is Double d)
                 return d.Value;
+
             if (value is Bool b)
                 return b.Value;
+
             if (value is OxyColor c)
                 return c.Value;
+
+            if (value is OxyPaletteItem[] p)
+                return new OxyPalette(p).Value;
+
             if (value is Category cat)
                 return cat.CategoryName;
 

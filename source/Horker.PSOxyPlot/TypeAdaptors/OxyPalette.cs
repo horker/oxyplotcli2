@@ -21,7 +21,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             Value = ConvertFrom(paletteName, paletteSize);
         }
 
-        public OxyPalette(object[] values)
+        public OxyPalette(OxyPaletteItem[] values)
         {
             if (values.Length == 0)
             {
@@ -31,7 +31,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
 
             if (values.Length == 1)
             {
-                var v = values[0];
+                var v = values[0].Value;
                 if (v is PSObject pso)
                     v = pso.BaseObject;
                 if (v is OxyPlot.OxyPalette p)
@@ -44,11 +44,11 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             if (values.Length > 2)
                 throw new ArgumentException("Specify a palette name and an optional palette size to create an OxyPalette; A palette name is one of BlueWhiteRed31, Hot64, Hue64, BlackWhiteRed, BlueWhiteRed, Cool, Gray, Hot, Hue, HueDistinct, Jet or Rainbow");
 
-            string name = values[0].ToString();
+            string name = values[0].Value.ToString();
 
             var paletteSize = 100;
             if (values.Length == 2)
-                paletteSize = SmartConverter.ToInt32(values[1]);
+                paletteSize = SmartConverter.ToInt32(values[1].Value);
 
             Value = ConvertFrom(name, paletteSize);
         }

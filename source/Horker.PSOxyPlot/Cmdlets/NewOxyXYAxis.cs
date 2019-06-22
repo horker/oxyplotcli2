@@ -689,7 +689,7 @@ namespace Horker.PSOxyPlot.Cmdlets
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor InvalidCategoryColor;
 
         [Parameter(Position = 1, Mandatory = false)]
-        public System.Object[] Palette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPaletteItem[] Palette;
 
         [Parameter(Position = 2, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Double GapWidth;
@@ -1708,7 +1708,7 @@ namespace Horker.PSOxyPlot.Cmdlets
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor LowColor;
 
         [Parameter(Position = 3, Mandatory = false)]
-        public System.Object[] Palette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPaletteItem[] Palette;
 
         [Parameter(Position = 4, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Bool RenderAsImage;

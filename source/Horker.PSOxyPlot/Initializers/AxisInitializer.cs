@@ -89,16 +89,24 @@ namespace Horker.PSOxyPlot.Initializers
 
             Axis ax = null;
             Axis ay = null;
-            Axis ar = null;
+            bool hasAdditionalAxis = false;
 
             foreach (var a in model.Axes)
             {
-                if (ar == null && a is LinearColorAxis)
-                    ar = a;
-                else if (ax == null && a.IsHorizontal())
+                if (ax == null && a.IsHorizontal())
                     ax = a;
                 else if (ay == null && a.IsVertical())
                     ay = a;
+            }
+
+            foreach (var s in si.Series)
+            {
+                if (!hasAdditionalAxis)
+                {
+                    var selector = AxisSelector.GetInstanceOf(s.GetType());
+                    hasAdditionalAxis = selector.HasAdditionalAxisObject(s);
+                    break;
+                }
             }
 
             if (ax == null)
@@ -135,17 +143,17 @@ namespace Horker.PSOxyPlot.Initializers
                 }
             }
 
-            if (ar == null)
+            if (hasAdditionalAxis)
             {
                 foreach (var s in si.Series)
                 {
                     if (s.IsVisible)
                     {
                         var selector = AxisSelector.GetInstanceOf(s.GetType());
-                        ar = selector.GetAdditionalAxisObject(s, si);
-                        if (ar != null)
+                        var az = selector.GetAdditionalAxisObject(s, si);
+                        if (az != null)
                         {
-                            model.Axes.Add(ar);
+                            model.Axes.Add(az);
                             break;
                         }
                     }

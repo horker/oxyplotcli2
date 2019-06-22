@@ -17,7 +17,7 @@ namespace Horker.PSOxyPlot.Cmdlets
         {
             foreach (var entry in MyInvocation.BoundParameters)
             {
-                if (entry.Key.StartsWith("Ax") || entry.Key.StartsWith("Ay"))
+                if (entry.Key.StartsWith("Ax") || entry.Key.StartsWith("Ay") || entry.Key.StartsWith("Az"))
                     return true;
             }
             return false;
@@ -31,6 +31,7 @@ namespace Horker.PSOxyPlot.Cmdlets
 
             Axis xAxis = null;
             Axis yAxis = null;
+            Axis zAxis = null;
             if (si.Series.Count > 0)
             {
                 xAxis = AxisInitializer.CreateWithPrefixedParameters(
@@ -44,11 +45,17 @@ namespace Horker.PSOxyPlot.Cmdlets
                     "Ay",
                     si.AxisTypes[1] ?? SeriesBuilderStore.OfType(si.Series[0].GetType()).DefaultAxisTypes[1],
                     AxisPosition.Left);
+
+                zAxis = AxisInitializer.CreateWithPrefixedParameters(
+                    bp,
+                    "Az",
+                    si.AxisTypes[2] ?? SeriesBuilderStore.OfType(si.Series[0].GetType()).DefaultAxisTypes[2],
+                    AxisPosition.Right);
             }
 
             // Creates a model if necessary.
 
-            if (model == null && (!string.IsNullOrEmpty(outFile) || xAxis != null || yAxis != null))
+            if (model == null && (!string.IsNullOrEmpty(outFile) || xAxis != null || yAxis != null || zAxis != null))
                 model = PlotModelInitializer.CreateWithSeriesInfo(new ISeriesInfo[] { si });
 
             // Returns a SeriesInfo object when a model object is not necessary.
@@ -70,7 +77,10 @@ namespace Horker.PSOxyPlot.Cmdlets
             if (yAxis != null)
                 model.Axes.Add(yAxis);
 
-            // Exports or returns a model.
+            if (zAxis != null)
+                model.Axes.Add(zAxis);
+
+            // Exports a model.
 
             if (bp.ContainsKey("OutFile"))
             {
@@ -78,6 +88,8 @@ namespace Horker.PSOxyPlot.Cmdlets
                 if (!passThru)
                     return;
             }
+
+            // Returns a model.
 
             WriteObject(model);
         }

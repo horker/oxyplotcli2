@@ -73,6 +73,20 @@ foreach (var prop in AxisProperty.Enumerate())
 <#
 }
 #>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public string AzType;
+
+<#
+
+foreach (var prop in AxisProperty.Enumerate())
+{
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> Az<#= prop.Name #>;
+
+<#
+}
+#>
         private void AssignParameters(HeatMapSeries series, Dictionary<string, object> bp)
         {
 <#

@@ -361,7 +361,7 @@ namespace Horker.PSOxyPlot.Cmdlets
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AxInvalidCategoryColor;
 
         [Parameter(Position = 115, Mandatory = false)]
-        public System.Object[] AxPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPaletteItem[] AxPalette;
 
         [Parameter(Position = 116, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AxCalendarWeekRule;
@@ -640,7 +640,7 @@ namespace Horker.PSOxyPlot.Cmdlets
         public Horker.PSOxyPlot.TypeAdaptors.OxyColor AyInvalidCategoryColor;
 
         [Parameter(Position = 208, Mandatory = false)]
-        public System.Object[] AyPalette;
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPaletteItem[] AyPalette;
 
         [Parameter(Position = 209, Mandatory = false)]
         public System.Globalization.CalendarWeekRule AyCalendarWeekRule;
@@ -674,6 +674,285 @@ namespace Horker.PSOxyPlot.Cmdlets
 
         [Parameter(Position = 219, Mandatory = false)]
         public Horker.PSOxyPlot.TypeAdaptors.Bool AyPowerPadding;
+
+        [Parameter(Position = 220, Mandatory = false)]
+        public string AzType;
+
+        [Parameter(Position = 221, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzStartAngle;
+
+        [Parameter(Position = 222, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzEndAngle;
+
+        [Parameter(Position = 223, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzFormatAsFractions;
+
+        [Parameter(Position = 224, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzFractionUnit;
+
+        [Parameter(Position = 225, Mandatory = false)]
+        public System.String AzFractionUnitSymbol;
+
+        [Parameter(Position = 226, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzAbsoluteMaximum;
+
+        [Parameter(Position = 227, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzAbsoluteMinimum;
+
+        [Parameter(Position = 228, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzAngle;
+
+        [Parameter(Position = 229, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzAxisTickToLabelDistance;
+
+        [Parameter(Position = 230, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzAxisTitleDistance;
+
+        [Parameter(Position = 231, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzAxisDistance;
+
+        [Parameter(Position = 232, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzAxislineColor;
+
+        [Parameter(Position = 233, Mandatory = false)]
+        public OxyPlot.LineStyle AzAxislineStyle;
+
+        [Parameter(Position = 234, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzAxislineThickness;
+
+        [Parameter(Position = 235, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzClipTitle;
+
+        [Parameter(Position = 236, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzCropGridlines;
+
+        [Parameter(Position = 237, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzEndPosition;
+
+        [Parameter(Position = 238, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzExtraGridlineColor;
+
+        [Parameter(Position = 239, Mandatory = false)]
+        public OxyPlot.LineStyle AzExtraGridlineStyle;
+
+        [Parameter(Position = 240, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzExtraGridlineThickness;
+
+        [Parameter(Position = 241, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double[] AzExtraGridlines;
+
+        [Parameter(Position = 242, Mandatory = false)]
+        public System.Func<System.Double,System.Boolean> AzFilterFunction;
+
+        [Parameter(Position = 243, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzFilterMaxValue;
+
+        [Parameter(Position = 244, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzFilterMinValue;
+
+        [Parameter(Position = 245, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzIntervalLength;
+
+        [Parameter(Position = 246, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzIsAxisVisible;
+
+        [Parameter(Position = 247, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzIsPanEnabled;
+
+        [Parameter(Position = 248, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzIsZoomEnabled;
+
+        [Parameter(Position = 249, Mandatory = false)]
+        public System.String AzKey;
+
+        [Parameter(Position = 250, Mandatory = false)]
+        public System.Func<System.Double,System.String> AzLabelFormatter;
+
+        [Parameter(Position = 251, Mandatory = false)]
+        public OxyPlot.Axes.AxisLayer AzLayer;
+
+        [Parameter(Position = 252, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzMajorGridlineColor;
+
+        [Parameter(Position = 253, Mandatory = false)]
+        public OxyPlot.LineStyle AzMajorGridlineStyle;
+
+        [Parameter(Position = 254, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMajorGridlineThickness;
+
+        [Parameter(Position = 255, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMajorStep;
+
+        [Parameter(Position = 256, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMajorTickSize;
+
+        [Parameter(Position = 257, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMaximum;
+
+        [Parameter(Position = 258, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMaximumPadding;
+
+        [Parameter(Position = 259, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMaximumRange;
+
+        [Parameter(Position = 260, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMinimum;
+
+        [Parameter(Position = 261, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMinimumMajorStep;
+
+        [Parameter(Position = 262, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMinimumMinorStep;
+
+        [Parameter(Position = 263, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMinimumPadding;
+
+        [Parameter(Position = 264, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMinimumRange;
+
+        [Parameter(Position = 265, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzMinorGridlineColor;
+
+        [Parameter(Position = 266, Mandatory = false)]
+        public OxyPlot.LineStyle AzMinorGridlineStyle;
+
+        [Parameter(Position = 267, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMinorGridlineThickness;
+
+        [Parameter(Position = 268, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMinorStep;
+
+        [Parameter(Position = 269, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzMinorTicklineColor;
+
+        [Parameter(Position = 270, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzMinorTickSize;
+
+        [Parameter(Position = 271, Mandatory = false)]
+        public OxyPlot.Axes.AxisPosition AzPosition;
+
+        [Parameter(Position = 272, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzPositionAtZeroCrossing;
+
+        [Parameter(Position = 273, Mandatory = false)]
+        public System.Int32 AzPositionTier;
+
+        [Parameter(Position = 274, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzStartPosition;
+
+        [Parameter(Position = 275, Mandatory = false)]
+        public System.String AzStringFormat;
+
+        [Parameter(Position = 276, Mandatory = false)]
+        public OxyPlot.Axes.TickStyle AzTickStyle;
+
+        [Parameter(Position = 277, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzTicklineColor;
+
+        [Parameter(Position = 278, Mandatory = false)]
+        public System.String AzTitle;
+
+        [Parameter(Position = 279, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzTitleClippingLength;
+
+        [Parameter(Position = 280, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzTitleColor;
+
+        [Parameter(Position = 281, Mandatory = false)]
+        public System.String AzTitleFont;
+
+        [Parameter(Position = 282, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzTitleFontSize;
+
+        [Parameter(Position = 283, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzTitleFontWeight;
+
+        [Parameter(Position = 284, Mandatory = false)]
+        public System.String AzTitleFormatString;
+
+        [Parameter(Position = 285, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzTitlePosition;
+
+        [Parameter(Position = 286, Mandatory = false)]
+        public System.String AzUnit;
+
+        [Parameter(Position = 287, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzUseSuperExponentialFormat;
+
+        [Parameter(Position = 288, Mandatory = false)]
+        public System.String AzFont;
+
+        [Parameter(Position = 289, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzFontSize;
+
+        [Parameter(Position = 290, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzFontWeight;
+
+        [Parameter(Position = 291, Mandatory = false)]
+        public System.Object AzTag;
+
+        [Parameter(Position = 292, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzTextColor;
+
+        [Parameter(Position = 293, Mandatory = false)]
+        public System.String AzToolTip;
+
+        [Parameter(Position = 294, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzSelectable;
+
+        [Parameter(Position = 295, Mandatory = false)]
+        public OxyPlot.SelectionMode AzSelectionMode;
+
+        [Parameter(Position = 296, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzGapWidth;
+
+        [Parameter(Position = 297, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzIsTickCentered;
+
+        [Parameter(Position = 298, Mandatory = false)]
+        public System.Collections.IEnumerable AzItemsSource;
+
+        [Parameter(Position = 299, Mandatory = false)]
+        public System.String AzLabelField;
+
+        [Parameter(Position = 300, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzInvalidCategoryColor;
+
+        [Parameter(Position = 301, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyPaletteItem[] AzPalette;
+
+        [Parameter(Position = 302, Mandatory = false)]
+        public System.Globalization.CalendarWeekRule AzCalendarWeekRule;
+
+        [Parameter(Position = 303, Mandatory = false)]
+        public System.DayOfWeek AzFirstDayOfWeek;
+
+        [Parameter(Position = 304, Mandatory = false)]
+        public OxyPlot.Axes.DateTimeIntervalType AzIntervalType;
+
+        [Parameter(Position = 305, Mandatory = false)]
+        public OxyPlot.Axes.DateTimeIntervalType AzMinorIntervalType;
+
+        [Parameter(Position = 306, Mandatory = false)]
+        public System.TimeZoneInfo AzTimeZone;
+
+        [Parameter(Position = 307, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzInvalidNumberColor;
+
+        [Parameter(Position = 308, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzHighColor;
+
+        [Parameter(Position = 309, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.OxyColor AzLowColor;
+
+        [Parameter(Position = 310, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzRenderAsImage;
+
+        [Parameter(Position = 311, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Double AzBase;
+
+        [Parameter(Position = 312, Mandatory = false)]
+        public Horker.PSOxyPlot.TypeAdaptors.Bool AzPowerPadding;
 
         private void AssignParameters(HeatMapSeries series, Dictionary<string, object> bp)
         {

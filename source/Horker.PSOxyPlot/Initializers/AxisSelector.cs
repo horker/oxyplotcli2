@@ -76,6 +76,11 @@ namespace Horker.PSOxyPlot.Initializers
                 axis.Position = AxisPosition.Right;
             return axis;
         }
+
+        public virtual bool HasAdditionalAxisObject(Series series)
+        {
+            return false;
+        }
     }
 
     public class CandleStickAndVolumeSeriesAxisSelector : AxisSelector
@@ -128,6 +133,21 @@ namespace Horker.PSOxyPlot.Initializers
             s.ColorAxisKey = key;
             
             return axis;
+        }
+
+        public override bool HasAdditionalAxisObject(Series series)
+        {
+            var s = series as HeatMapSeries;
+            return s.ColorAxis != null;
+        }
+    }
+
+    public class RectangleSeriesAxisSelector : AxisSelector
+    {
+        public override bool HasAdditionalAxisObject(Series series)
+        {
+            var s = series as RectangleSeries;
+            return s.ColorAxis != null;
         }
     }
 }

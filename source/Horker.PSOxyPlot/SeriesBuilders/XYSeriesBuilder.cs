@@ -358,7 +358,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public override bool[] DataPointItemMandatoriness => new[] { true, true };
         public override int[] AxisItemIndexes => new[] { 0, 1 };
         public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis), null };
-        public override string[] Aliases => new[] { "oxy.stairStep", "oxy.stair", "oxystart" };
+        public override string[] Aliases => new[] { "oxy.stairStep", "oxy.stair", "oxystair" };
 
         protected override void AddDataPointToSeries(StairStepSeries series, double x, double y, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
