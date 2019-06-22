@@ -104,7 +104,7 @@ foreach (var prop in AxisProperty.Enumerate())
         private void AssignParameters(FunctionSeries series, Dictionary<string, object> bp)
         {
 <#
-    foreach (var prop in EnumerateProperties(typeof(OxyPlot.Series.FunctionSeries)))
+    foreach (var prop in EnumerateProperties(typeof(FunctionSeries)))
     {
 #>
             if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.ConversionString #>;

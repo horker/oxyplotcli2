@@ -179,13 +179,26 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
     public class FunctionSeriesBuilder : SeriesBuilder<FunctionSeries, DataPoint, VoidT, VoidT, VoidT, VoidT, VoidT, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new string[] { };
-        public override bool[] DataPointItemMandatoriness => new bool[] { };
-        public override int[] AxisItemIndexes => new int[] { };
+        public override string[] DataPointItemNames => new string[0];
+        public override bool[] DataPointItemMandatoriness => new bool[0];
+        public override int[] AxisItemIndexes => new int[0];
         public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis), null };
         public override string[] Aliases => new[] { "oxy.function", "oxy.func", "oxyfunc" };
 
         protected override void AddDataPointToSeries(FunctionSeries series, VoidT e1, VoidT e2, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
+        {
+        }
+    }
+
+    public class HeatMapSeriesBuilder : SeriesBuilder<HeatMapSeries, VoidT, VoidT, VoidT, VoidT, VoidT, VoidT, VoidT, VoidT>
+    {
+        public override string[] DataPointItemNames => new string[0];
+        public override bool[] DataPointItemMandatoriness => new bool[0];
+        public override int[] AxisItemIndexes => new int[0];
+        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis), typeof(LinearColorAxis) };
+        public override string[] Aliases => new[] { "oxy.heatMap", "oxy.heat", "oxyheat" };
+
+        protected override void AddDataPointToSeries(HeatMapSeries series, VoidT e1, VoidT e2, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
         }
     }

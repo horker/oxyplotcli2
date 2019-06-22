@@ -45,6 +45,7 @@ private static class TypeAdaptorHelper
         // Builtin types
 		Tuple.Create(typeof(double), typeof(Horker.PSOxyPlot.TypeAdaptors.Double), "{0}"),
 		Tuple.Create(typeof(double[]), typeof(Horker.PSOxyPlot.TypeAdaptors.Double[]), "Horker.PSOxyPlot.TypeAdaptors.Double.ConvertArray({0})"),
+		Tuple.Create(typeof(double[,]), typeof(object), "Horker.PSOxyPlot.TypeAdaptors.TwoDimensionalArray.ConvertFrom({0})"),
 		Tuple.Create(typeof(bool), typeof(Horker.PSOxyPlot.TypeAdaptors.Bool), "{0}"),
 
         // OxyPlot types

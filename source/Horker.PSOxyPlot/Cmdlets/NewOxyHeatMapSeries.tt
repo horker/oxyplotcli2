@@ -1,0 +1,112 @@
+﻿<#@ template language="C#" hostspecific="true" debug="true" #>
+<#@ output extension=".cs" #>
+<#@ include file="Common.tt" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Management.Automation;
+using OxyPlot;
+using OxyPlot.Series;
+using Horker.PSOxyPlot.Initializers;
+
+namespace Horker.PSOxyPlot.Cmdlets
+{
+    [Cmdlet("New", "OxyHeatMapSeries")]
+    [Alias("oxy.heatMap", "oxy.heat", "oxyheat")]
+    [OutputType(typeof(HeatMapSeries))]
+    public class NewOxyHeatMapSeries : SeriesCmdletBase
+    {
+        [Parameter(Position = 0, Mandatory = false)]
+        public PlotModel AddTo = null;
+
+        [Parameter(Position = 1, Mandatory = false)]
+        public string OutFile = null;
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public int OutWidth = 800;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public int OutHeight = 600;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public SwitchParameter SvgIsDocument = false;
+
+        [Parameter(Position = 5, Mandatory = false)]
+        public SwitchParameter PassThru = false;
+
+<#
+var position = 6;
+foreach (var prop in EnumerateProperties(typeof(HeatMapSeries)))
+{
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> <#= prop.Name #>;
+
+<#
+}
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public string AxType;
+
+<#
+foreach (var prop in AxisProperty.Enumerate())
+{
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> Ax<#= prop.Name #>;
+
+<#
+}
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public string AyType;
+
+<#
+
+foreach (var prop in AxisProperty.Enumerate())
+{
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= prop.TypeName #> Ay<#= prop.Name #>;
+
+<#
+}
+#>
+        private void AssignParameters(HeatMapSeries series, Dictionary<string, object> bp)
+        {
+<#
+    foreach (var prop in EnumerateProperties(typeof(HeatMapSeries)))
+    {
+#>
+            if (bp.ContainsKey("<#= prop.Name #>")) series.<#= prop.Name #> = <#= prop.ConversionString #>;
+<#
+    }
+#>
+        }
+
+        protected override void BeginProcessing()
+        {
+            var bp = MyInvocation.BoundParameters;
+
+            var si = new SeriesInfo<HeatMapSeries>();
+            var series = new HeatMapSeries();
+            AssignParameters(series, bp);
+            si.Series = new [] { series };
+
+            if (!bp.ContainsKey("X0") && !bp.ContainsKey("X1"))
+            {
+                series.X0 = 0.0;
+                series.X1 = 1.0;
+            }
+
+            if (!bp.ContainsKey("Y0") && !bp.ContainsKey("Y1"))
+            {
+                series.Y0 = 1.0;
+                series.Y1 = 0.0;
+            }
+
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
+        }
+    }
+}

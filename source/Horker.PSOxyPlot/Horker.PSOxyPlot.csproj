@@ -60,6 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cmdlets\NewOxyHeatMapSeries.cs">
+      <DependentUpon>NewOxyHeatMapSeries.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Cmdlets\NewOxyPalette.cs" />
     <Compile Include="Cmdlets\NewOxyXYAxis.cs">
       <DependentUpon>NewOxyXYAxis.tt</DependentUpon>
@@ -102,6 +107,11 @@
     <Compile Include="TypeAdaptors\ScreenPoint.cs" />
     <Compile Include="TypeAdaptors\ScreenVector.cs" />
     <Compile Include="TypeAdaptors\ScriptBlock.cs" />
+    <Compile Include="TypeAdaptors\TwoDimensionalArray.cs" />
+    <Content Include="Cmdlets\NewOxyHeatMapSeries.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NewOxyHeatMapSeries.cs</LastGenOutput>
+    </Content>
     <Content Include="Cmdlets\NewOxyXYAxis.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NewOxyXYAxis.cs</LastGenOutput>
