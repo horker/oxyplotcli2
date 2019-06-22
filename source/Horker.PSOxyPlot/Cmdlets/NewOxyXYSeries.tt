@@ -38,7 +38,7 @@ namespace Horker.PSOxyPlot.Cmdlets
 <#
 foreach (var builderType in builderTypes)
 {
-    var builderInstance = builderType.AsType().GetConstructor(new Type[0]).Invoke(new object[0]);
+    var builderInstance = (ISeriesBuilder)builderType.AsType().GetConstructor(new Type[0]).Invoke(new object[0]);
     var baseType = builderType.BaseType;
     var seriesType = baseType.GenericTypeArguments[0];
 
@@ -112,31 +112,39 @@ foreach (var builderType in builderTypes)
 
 <#
     }
+
+    if (builderInstance.DefaultAxisTypes[0] != null)
+    {
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public string AxType;
 
 <#
-    foreach (var prop in AxisProperty.Enumerate())
-    {
+        foreach (var prop in AxisProperty.Enumerate())
+        {
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public <#= prop.TypeName #> Ax<#= prop.Name #>;
 
 <#
+        }
     }
+
+    if (builderInstance.DefaultAxisTypes[1] != null)
+    {
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public string AyType;
 
 <#
-    foreach (var prop in AxisProperty.Enumerate())
-    {
+        foreach (var prop in AxisProperty.Enumerate())
+        {
 #>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public <#= prop.TypeName #> Ay<#= prop.Name #>;
 
 <#
+        }
     }
 #>
         private <#= name #>Builder _builder;
