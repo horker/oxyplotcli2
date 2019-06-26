@@ -27,6 +27,17 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             Value = new OxyPlot.OxyImage(bytes);
         }
 
+        public static OxyPlot.OxyImage ConvertFrom(object value)
+        {
+            if (value is OxyPlot.OxyImage im)
+                return im;
+
+            if (value is byte[] b)
+                return new OxyImage(b).Value;
+
+            return new OxyImage((string)value).Value;
+        }
+
         public static implicit operator OxyPlot.OxyImage(OxyImage value)
         {
             return value.Value;

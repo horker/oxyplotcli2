@@ -43,9 +43,14 @@ namespace Horker.PSOxyPlot
         [Parameter(Position = 9, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 10, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-            var grid = new GridView();
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
+            var grid = new GridView(style);
 
             grid.AddModels(Models);
 

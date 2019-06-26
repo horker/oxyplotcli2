@@ -32,6 +32,7 @@ using OxyPlot;
 using OxyPlot.Series;
 using Horker.PSOxyPlot.SeriesBuilders;
 using Horker.PSOxyPlot.Initializers;
+using Horker.PSOxyPlot.Styles;
 
 namespace Horker.PSOxyPlot.Cmdlets
 {
@@ -102,6 +103,9 @@ foreach (var builderType in builderTypes)
 
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public SwitchParameter PassThru = false;
+
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public string Style = null;
 
 <#
     foreach (var prop in EnumerateProperties(seriesType))
@@ -195,13 +199,15 @@ foreach (var builderType in builderTypes)
 
         protected override void EndProcessing()
         {
-            var si = _builder.CreateSeriesInfo();
-
             var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
+            var si = _builder.CreateSeriesInfo(style);
+
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style);
         }
     }
 

@@ -12,6 +12,9 @@ $SCRIPT_PATH = "$PSScriptRoot\scripts"
 $MODULE_PATH = "$PSScriptRoot\module\psoxyplot"
 $MODULE_PATH_DEBUG = "$PSScriptRoot\module\debug\psoxyplot"
 
+$MODULE_STYLE_PATH =   "$MODULE_PATH\styles"
+$MODULE_STYLE_PATH_DEBUG =   "$MODULE_PATH_DEBUG\styles"
+
 $SOLUTION_FILE = "$PSScriptRoot\source\oxyplotcli.sln"
 
 $OBJECT_FILES = @(
@@ -93,21 +96,24 @@ task Build {
 
     function Copy-ObjectFiles {
       param(
-        [string]$targetPath,
-        [string]$objectPath
+        [string]$ObjectPath,
+        [string]$TargetPath
       )
 
-      New-Folder2 $targetPath
+      New-Folder2 $TargetPath
+      Copy-Item2 "$SCRIPT_PATH\*" $TargetPath
 
-      Copy-Item2 "$SCRIPT_PATH\*" $targetPath
+      New-Folder2 "$TargetPath\styles"
+      Copy-Item2 "$PSScriptRoot\styles\*" "$TargetPath\styles"
+
       $OBJECT_FILES | foreach {
         $path = Join-Path $objectPath $_
         Copy-Item2 $path $targetPath
       }
     }
 
-    Copy-ObjectFiles $MODULE_PATH "$SOURCE_PATH\Release"
-    Copy-ObjectFiles $MODULE_PATH_DEBUG "$SOURCE_PATH\Debug"
+    Copy-ObjectFiles "$SOURCE_PATH\Release" $MODULE_PATH
+    Copy-ObjectFiles "$SOURCE_PATH\Debug" $MODULE_PATH_DEBUG
   }
 }
 

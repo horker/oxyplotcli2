@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Horker.PSOxyPlot.SeriesBuilders;
+using Horker.PSOxyPlot.Styles;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 
@@ -32,9 +33,30 @@ namespace Horker.PSOxyPlot.Initializers
             return _commonAxisSelectorInstance;
         }
 
+        public Axis GetXAxisObject(Series series, ISeriesInfo si, Style style)
+        {
+            var axis = GetXAxisObjectInternal(series, si);
+            style.ApplyStyleTo(axis);
+            return axis;
+        }
+
+        public Axis GetYAxisObject(Series series, ISeriesInfo si, Style style)
+        {
+            var axis = GetYAxisObjectInternal(series, si);
+            style.ApplyStyleTo(axis);
+            return axis;
+        }
+
+        public Axis GetAdditionalAxisObject(Series series, ISeriesInfo si, Style style)
+        {
+            var axis = GetAdditionalAxisObjectInternal(series, si);
+            style.ApplyStyleTo(axis);
+            return axis;
+        }
+
         protected Axis GetAxisObject(Series series, ISeriesInfo si, int index)
         {
-            var axisType = si.AxisTypes[index];
+            var axisType = si?.AxisTypes[index];
             if (axisType == null)
             {
                 axisType = SeriesBuilderStore.OfType(series.GetType()).DefaultAxisTypes[index];
@@ -44,7 +66,7 @@ namespace Horker.PSOxyPlot.Initializers
 
             var axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);
 
-            if (axis is CategoryAxis ca && si.CategoryNames != null)
+            if (axis is CategoryAxis ca && si?.CategoryNames != null)
             {
                 foreach (var n in si.CategoryNames)
                     ca.Labels.Add(n);
@@ -53,7 +75,7 @@ namespace Horker.PSOxyPlot.Initializers
             return axis;
         }
 
-        public virtual Axis GetXAxisObject(Series series, ISeriesInfo si)
+        protected virtual Axis GetXAxisObjectInternal(Series series, ISeriesInfo si)
         {
             var axis = GetAxisObject(series, si, 0);
             if (axis != null)
@@ -61,7 +83,7 @@ namespace Horker.PSOxyPlot.Initializers
             return axis;
         }
 
-        public virtual Axis GetYAxisObject(Series series, ISeriesInfo si)
+        protected virtual Axis GetYAxisObjectInternal(Series series, ISeriesInfo si)
         {
             var axis = GetAxisObject(series, si, 1);
             if (axis != null)
@@ -69,7 +91,7 @@ namespace Horker.PSOxyPlot.Initializers
             return axis;
         }
 
-        public virtual Axis GetAdditionalAxisObject(Series series, ISeriesInfo si)
+        protected virtual Axis GetAdditionalAxisObjectInternal(Series series, ISeriesInfo si)
         {
             var axis = GetAxisObject(series, si, 2);
             if (axis != null)
@@ -85,7 +107,7 @@ namespace Horker.PSOxyPlot.Initializers
 
     public class CandleStickAndVolumeSeriesAxisSelector : AxisSelector
     {
-        public override Axis GetYAxisObject(Series series, ISeriesInfo si)
+        protected override Axis GetYAxisObjectInternal(Series series, ISeriesInfo si)
         {
             var axis = GetAxisObject(series, si, 1);
             axis.Position = AxisPosition.Left;
@@ -93,7 +115,7 @@ namespace Horker.PSOxyPlot.Initializers
             return axis;
         }
 
-        public override Axis GetAdditionalAxisObject(Series series, ISeriesInfo si)
+        protected override Axis GetAdditionalAxisObjectInternal(Series series, ISeriesInfo si)
         {
             var s = series as CandleStickAndVolumeSeries;
             if (s.VolumeAxis != null)
@@ -116,7 +138,7 @@ namespace Horker.PSOxyPlot.Initializers
 
     public class HeatMapSeriesAxisSelector : AxisSelector
     {
-        public override Axis GetAdditionalAxisObject(Series series, ISeriesInfo si)
+        protected override Axis GetAdditionalAxisObjectInternal(Series series, ISeriesInfo si)
         {
             var s = series as HeatMapSeries;
             if (s.ColorAxis != null)
@@ -131,7 +153,7 @@ namespace Horker.PSOxyPlot.Initializers
             };
 
             s.ColorAxisKey = key;
-            
+
             return axis;
         }
 

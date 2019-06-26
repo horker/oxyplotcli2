@@ -53,7 +53,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             Value = ConvertFrom(name, paletteSize);
         }
 
-        private OxyPlot.OxyPalette ConvertFrom(string paletteName, int paletteSize)
+        public OxyPlot.OxyPalette ConvertFrom(string paletteName, int paletteSize)
         {
             switch (paletteName.ToLower())
             {
@@ -93,9 +93,27 @@ namespace Horker.PSOxyPlot.TypeAdaptors
                 case "rainbow":
                     return OxyPlot.OxyPalettes.Rainbow(paletteSize);
 
+                case "rhue":
+                    return new OxyPlot.OxyPalette(R.HuePalette.GetPalette(paletteSize));
+
                 default:
                     throw new ArgumentException($"Unknown palette name '{paletteName}'; A palette name is one of BlueWhiteRed31, Hot64, Hue64, BlackWhiteRed, BlueWhiteRed, Cool, Gray, Hot, Hue, HueDistinct, Jet or Rainbow");
             }
+        }
+
+        public static OxyPlot.OxyPalette ConvertFrom(object value)
+        {
+            if (value is Array a)
+            {
+                var values = new OxyPaletteItem[a.Length];
+                var i = 0;
+                foreach (var e in a)
+                    values[i++] = new OxyPaletteItem(e);
+
+                return new OxyPalette(values);
+            }
+
+            return new OxyPalette(new[] { new OxyPaletteItem(value) }).Value;
         }
 
         public static implicit operator OxyPlot.OxyPalette(OxyPalette value)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Horker.PSOxyPlot.SeriesBuilders;
+using Horker.PSOxyPlot.Styles;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
@@ -38,47 +39,9 @@ namespace Horker.PSOxyPlot.Initializers
             return matches[0];
         }
 
-        private static Axis GetAxisObject(Series series, ISeriesInfo si, int index)
+        public static void EnsureAxes(PlotModel model, ISeriesInfo si, Style style)
         {
-            var axisType = si.AxisTypes[index];
-            if (axisType == null)
-            {
-                axisType = SeriesBuilderStore.OfType(series.GetType()).DefaultAxisTypes[index];
-                if (axisType == null)
-                    return null;
-            }
-
-            var axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);
-
-            if (series is HeatMapSeries hs)
-            {
-                var colorAxis = (LinearColorAxis)axis;
-                var axisKey = Guid.NewGuid().ToString();
-                colorAxis.Key = axisKey;
-                hs.ColorAxisKey = axisKey;
-
-                colorAxis.Position = AxisPosition.Right;
-            }
-            else
-            {
-                if (axis is CategoryAxis ca && si.CategoryNames != null)
-                {
-                    foreach (var n in si.CategoryNames)
-                        ca.Labels.Add(n);
-                }
-
-                if (index == 0)
-                    axis.Position = AxisPosition.Bottom;
-                else
-                    axis.Position = AxisPosition.Left;
-            }
-
-            return axis;
-        }
-
-        public static void EnsureAxes(PlotModel model, ISeriesInfo si)
-        {
-            if (!string.IsNullOrEmpty(si.GroupName))
+            if (!string.IsNullOrEmpty(si?.GroupName))
                 model.LegendTitle = si.GroupName;
 
             bool hasXAxis = false;
@@ -106,12 +69,12 @@ namespace Horker.PSOxyPlot.Initializers
 
             if (!hasXAxis)
             {
-                foreach (var s in si.Series)
+                foreach (var s in si?.Series ?? model.Series)
                 {
                     if (s.IsVisible)
                     {
                         var selector = AxisSelector.GetInstanceOf(s.GetType());
-                        var ax = selector.GetXAxisObject(s, si);
+                        var ax = selector.GetXAxisObject(s, si, style);
                         if (ax != null)
                         {
                             model.Axes.Add(ax);
@@ -123,12 +86,12 @@ namespace Horker.PSOxyPlot.Initializers
 
             if (!hasYAxis)
             {
-                foreach (var s in si.Series)
+                foreach (var s in si?.Series ?? model.Series)
                 {
                     if (s.IsVisible)
                     {
                         var selector = AxisSelector.GetInstanceOf(s.GetType());
-                        var ay = selector.GetYAxisObject(s, si);
+                        var ay = selector.GetYAxisObject(s, si, style);
                         if (ay != null)
                         {
                             model.Axes.Add(ay);
@@ -140,12 +103,12 @@ namespace Horker.PSOxyPlot.Initializers
 
             if (!hasZAxis)
             {
-                foreach (var s in si.Series)
+                foreach (var s in si?.Series ?? model.Series)
                 {
                     if (s.IsVisible)
                     {
                         var selector = AxisSelector.GetInstanceOf(s.GetType());
-                        var az = selector.GetAdditionalAxisObject(s, si);
+                        var az = selector.GetAdditionalAxisObject(s, si, style);
                         if (az != null)
                         {
                             model.Axes.Add(az);
@@ -170,7 +133,7 @@ namespace Horker.PSOxyPlot.Initializers
             }
         }
 
-        public static Axis CreateWithPrefixedParameters(Dictionary<string, object> parameters, string prefix, Type defaultAxisType, AxisPosition position)
+        public static Axis CreateWithPrefixedParameters(Dictionary<string, object> parameters, string prefix, Type defaultAxisType, AxisPosition position, Style style)
         {
             bool create = false;
             foreach (var entry in parameters)
@@ -192,6 +155,8 @@ namespace Horker.PSOxyPlot.Initializers
             var axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);
             axis.Position = position;
             axis.Key = axisType.Name + "_" + Guid.NewGuid().ToString();
+
+            style.ApplyStyleTo(axis);
 
             AssignParameters(axis, parameters, prefix);
 

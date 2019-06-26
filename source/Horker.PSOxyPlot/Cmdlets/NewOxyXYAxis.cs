@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Series;
+using Horker.PSOxyPlot.Styles;
 
 namespace Horker.PSOxyPlot.Cmdlets
 {
@@ -246,10 +247,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 76, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 77, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Axes.AngleAxis();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("StartAngle")) axis.StartAngle = StartAngle;
             if (bp.ContainsKey("EndAngle")) axis.EndAngle = EndAngle;
@@ -583,10 +590,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 78, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 79, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Axes.CategoryAxis();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("GapWidth")) axis.GapWidth = GapWidth;
             if (bp.ContainsKey("IsTickCentered")) axis.IsTickCentered = IsTickCentered;
@@ -928,10 +941,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 80, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 81, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Axes.CategoryColorAxis();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("InvalidCategoryColor")) axis.InvalidCategoryColor = InvalidCategoryColor;
             if (bp.ContainsKey("Palette")) axis.Palette = new Horker.PSOxyPlot.TypeAdaptors.OxyPalette(Palette);
@@ -1272,10 +1291,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 79, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 80, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Axes.DateTimeAxis();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("CalendarWeekRule")) axis.CalendarWeekRule = CalendarWeekRule;
             if (bp.ContainsKey("FirstDayOfWeek")) axis.FirstDayOfWeek = FirstDayOfWeek;
@@ -1600,10 +1625,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 74, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 75, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Axes.LinearAxis();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
             if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
@@ -1938,10 +1969,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 79, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 80, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Axes.LinearColorAxis();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("InvalidNumberColor")) axis.InvalidNumberColor = InvalidNumberColor;
             if (bp.ContainsKey("HighColor")) axis.HighColor = HighColor;
@@ -2263,10 +2300,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 73, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 74, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Axes.LogarithmicAxis();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("Base")) axis.Base = Base;
             if (bp.ContainsKey("PowerPadding")) axis.PowerPadding = PowerPadding;
@@ -2585,10 +2628,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 74, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 75, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Axes.MagnitudeAxis();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
             if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
@@ -2917,10 +2966,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 77, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 78, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Axes.RangeColorAxis();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("InvalidNumberColor")) axis.InvalidNumberColor = InvalidNumberColor;
             if (bp.ContainsKey("HighColor")) axis.HighColor = HighColor;
@@ -3243,10 +3298,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 74, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 75, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Axes.TimeSpanAxis();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
             if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
@@ -3425,10 +3486,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 27, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 28, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Annotations.ArrowAnnotation();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("ArrowDirection")) axis.ArrowDirection = new Horker.PSOxyPlot.TypeAdaptors.ScreenVector(ArrowDirection);
             if (bp.ContainsKey("Color")) axis.Color = Color;
@@ -3551,10 +3618,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 24, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 25, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Annotations.EllipseAnnotation();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("X")) axis.X = X;
             if (bp.ContainsKey("Y")) axis.Y = Y;
@@ -3707,10 +3780,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 35, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 36, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Annotations.FunctionAnnotation();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("Type")) axis.Type = Type;
             if (bp.ContainsKey("Equation")) axis.Equation = Equation;
@@ -3838,10 +3917,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 23, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 24, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Annotations.ImageAnnotation();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("ImageSource")) axis.ImageSource = ImageSource;
             if (bp.ContainsKey("HorizontalAlignment")) axis.HorizontalAlignment = HorizontalAlignment;
@@ -3999,10 +4084,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 37, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 38, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Annotations.LineAnnotation();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("Intercept")) axis.Intercept = Intercept;
             if (bp.ContainsKey("Slope")) axis.Slope = Slope;
@@ -4141,10 +4232,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 26, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 27, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Annotations.PointAnnotation();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("X")) axis.X = X;
             if (bp.ContainsKey("Y")) axis.Y = Y;
@@ -4260,10 +4357,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 22, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 23, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Annotations.PolygonAnnotation();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("LineJoin")) axis.LineJoin = LineJoin;
             if (bp.ContainsKey("LineStyle")) axis.LineStyle = LineStyle;
@@ -4411,10 +4514,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 34, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 35, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Annotations.PolylineAnnotation();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("MinimumSegmentLength")) axis.MinimumSegmentLength = MinimumSegmentLength;
             if (bp.ContainsKey("InterpolationAlgorithm")) axis.InterpolationAlgorithm = InterpolationAlgorithm.Value;
@@ -4550,10 +4659,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 26, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 27, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Annotations.RectangleAnnotation();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("MinimumX")) axis.MinimumX = MinimumX;
             if (bp.ContainsKey("MaximumX")) axis.MaximumX = MaximumX;
@@ -4669,10 +4784,16 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 22, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 23, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new OxyPlot.Annotations.TextAnnotation();
+            style.ApplyStyleTo(style);
 
             if (bp.ContainsKey("Background")) axis.Background = Background;
             if (bp.ContainsKey("Offset")) axis.Offset = new Horker.PSOxyPlot.TypeAdaptors.ScreenVector(Offset);

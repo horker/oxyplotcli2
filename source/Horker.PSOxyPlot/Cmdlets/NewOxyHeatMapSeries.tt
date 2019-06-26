@@ -9,6 +9,7 @@ using System.Management.Automation;
 using OxyPlot;
 using OxyPlot.Series;
 using Horker.PSOxyPlot.Initializers;
+using Horker.PSOxyPlot.Styles;
 
 namespace Horker.PSOxyPlot.Cmdlets
 {
@@ -35,8 +36,11 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 5, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 6, Mandatory = false)]
+        public string Style = null;
+
 <#
-var position = 6;
+var position = 7;
 foreach (var prop in EnumerateProperties(typeof(HeatMapSeries)))
 {
 #>
@@ -102,10 +106,14 @@ foreach (var prop in AxisProperty.Enumerate())
         protected override void BeginProcessing()
         {
             var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
 
             var si = new SeriesInfo<HeatMapSeries>();
             var series = new HeatMapSeries();
+            style.ApplyStyleTo(series);
+
             AssignParameters(series, bp);
+
             si.Series = new [] { series };
 
             if (!bp.ContainsKey("X0") && !bp.ContainsKey("X1"))
@@ -120,7 +128,7 @@ foreach (var prop in AxisProperty.Enumerate())
                 series.Y1 = 0.0;
             }
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style);
         }
     }
 }

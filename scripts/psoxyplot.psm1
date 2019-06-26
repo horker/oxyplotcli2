@@ -23,3 +23,9 @@ $typesAndMethods = (
 foreach ($tm in $typesAndMethods) {
     Define-PowerShellMethods $tm[0] $tm[1]
 }
+
+# Load style files
+
+Get-ChildItem "$PSScriptRoot\styles\*.ps1" | foreach {
+    . $_.FullName
+}

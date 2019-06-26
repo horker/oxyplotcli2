@@ -13,9 +13,14 @@ namespace Horker.PSOxyPlot.TypeAdaptors
         public Category()
         { }
 
-        public Category(string categoryname)
+        public Category(string categoryName)
         {
-            CategoryName = categoryname;
+            CategoryName = categoryName;
+        }
+
+        public static Category Create(object value)
+        {
+            return new Category((string)value);
         }
 
         public static implicit operator string(Category category)

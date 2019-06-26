@@ -27,6 +27,23 @@ namespace Horker.PSOxyPlot.TypeAdaptors
                 throw new ArgumentException("Specify one, two or four numbers to create OxyThickness object");
         }
 
+        public static OxyPlot.OxyThickness ConvertFrom(object value)
+        {
+            if (value is Array a)
+            {
+                var values = new Double[a.Length];
+                var i = 0;
+                foreach (var e in a)
+                    values[i++] = new Double(e);
+
+                return new OxyThickness(values).Value;
+            }
+            else
+            {
+                return new OxyThickness(new Double[] { new Double(value) }).Value;
+            }
+        }
+
         public static implicit operator OxyPlot.OxyThickness(OxyThickness value)
         {
             return value.Value;

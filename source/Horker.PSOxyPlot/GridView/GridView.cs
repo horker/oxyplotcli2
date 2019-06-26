@@ -5,6 +5,7 @@ using System.Linq;
 using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
+using Horker.PSOxyPlot.Styles;
 using OxyPlot;
 using OxyPlot.Series;
 
@@ -15,16 +16,20 @@ namespace Horker.PSOxyPlot
         private List<PlotModel> _models;
         private List<double> _widths;
         private List<double> _heights;
+        private Style _style;
 
         public List<PlotModel> Models => _models;
         public List<double> Widths => _widths;
         public List<double> Heights => _heights;
+        public Style Style => _style;
 
-        public GridView()
+        public GridView(Style style)
         {
             _models = new List<PlotModel>();
             _widths = new List<double>();
             _heights = new List<double>();
+
+            _style = style;
         }
 
         public void AddModels(object[] models)
@@ -55,13 +60,13 @@ namespace Horker.PSOxyPlot
                 else if (i is Series series)
                 {
                     if (model == null)
-                        model = new PlotModel();
+                        model = Initializers.PlotModelInitializer.Create(null, _style);
                     model.Series.Add(series);
                 }
                 else if (i is ISeriesInfo si)
                 {
                     if (model == null)
-                        model = new PlotModel();
+                        model = Initializers.PlotModelInitializer.Create(null, _style);
                     foreach (var s in si.Series)
                         model.Series.Add(s);
                 }

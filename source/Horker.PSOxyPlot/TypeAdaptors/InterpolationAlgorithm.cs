@@ -42,5 +42,13 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             }
             throw new ArgumentException($"Unknown interpolation algorithm '{algorithmName}'; Specify one of the following: CanonicalSpline, CatmullRomSpline, UniformCatmullRomSpline or ChordalCatmullRomSpline");
         }
+
+        public static OxyPlot.IInterpolationAlgorithm ConvertFrom(object value)
+        {
+            if (value is OxyPlot.IInterpolationAlgorithm ip)
+                return ip;
+
+            return new InterpolationAlgorithm((string)value).Value;
+        }
     }
 }

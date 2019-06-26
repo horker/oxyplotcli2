@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Horker.PSOxyPlot.Initializers;
 using Horker.PSOxyPlot.SeriesBuilders;
+using Horker.PSOxyPlot.Styles;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
@@ -24,7 +25,7 @@ namespace Horker.PSOxyPlot.Cmdlets
             return false;
         }
 
-        protected void PostProcess(PlotModel model, ISeriesInfo si, string outFile, int outWidth, int outHeight, bool svgIsDocument, bool passThru)
+        protected void PostProcess(PlotModel model, ISeriesInfo si, string outFile, int outWidth, int outHeight, bool svgIsDocument, bool passThru, Style style)
         {
             var bp = MyInvocation.BoundParameters;
 
@@ -39,25 +40,28 @@ namespace Horker.PSOxyPlot.Cmdlets
                     bp,
                     "Ax",
                     si.AxisTypes[0] ?? SeriesBuilderStore.OfType(si.Series[0].GetType()).DefaultAxisTypes[0],
-                    AxisPosition.Bottom);
+                    AxisPosition.Bottom,
+                    style);
 
                 yAxis = AxisInitializer.CreateWithPrefixedParameters(
                     bp,
                     "Ay",
                     si.AxisTypes[1] ?? SeriesBuilderStore.OfType(si.Series[0].GetType()).DefaultAxisTypes[1],
-                    AxisPosition.Left);
+                    AxisPosition.Left,
+                    style);
 
                 zAxis = AxisInitializer.CreateWithPrefixedParameters(
                     bp,
                     "Az",
                     si.AxisTypes[2] ?? SeriesBuilderStore.OfType(si.Series[0].GetType()).DefaultAxisTypes[2],
-                    AxisPosition.Right);
+                    AxisPosition.Right,
+                    style);
             }
 
             // Creates a model if necessary.
 
             if (model == null && (!string.IsNullOrEmpty(outFile) || xAxis != null || yAxis != null || zAxis != null))
-                model = PlotModelInitializer.CreateWithSeriesInfo(new ISeriesInfo[] { si });
+                model = PlotModelInitializer.Create(new ISeriesInfo[] { si }, style);
 
             // Returns a SeriesInfo object when a model object is not necessary.
 

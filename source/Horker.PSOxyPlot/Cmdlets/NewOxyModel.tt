@@ -12,6 +12,7 @@ using OxyPlot.Series;
 using OxyPlot.Axes;
 using OxyPlot.Annotations;
 using Horker.PSOxyPlot.Initializers;
+using Horker.PSOxyPlot.Styles;
 
 namespace Horker.PSOxyPlot.Cmdlets
 {
@@ -47,8 +48,11 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 8, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 9, Mandatory = false)]
+        public string Style = null;
+
 <#
-    var position = 9;
+    var position = 10;
     foreach (var prop in EnumerateProperties(typeof(PlotModel)))
     {
 #>
@@ -96,9 +100,10 @@ namespace Horker.PSOxyPlot.Cmdlets
 
         protected override void EndProcessing()
         {
-            var model = PlotModelInitializer.CreateWithSeriesInfo(_seriesInfoList);
-
             var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
+            var model = PlotModelInitializer.CreateWithSeriesInfo(_seriesInfoList, style);
 
 <#
     foreach (var prop in EnumerateProperties(typeof(PlotModel)))
@@ -110,16 +115,20 @@ namespace Horker.PSOxyPlot.Cmdlets
 #>
 
             if (Axis != null)
+            {
                 foreach (var a in Axis)
                     model.Axes.Add(a);
+            }
 
             if (Annotation != null)
+            {
                 foreach (var a in Annotation)
                     model.Annotations.Add(a);
-
+            }
 
             var si = _seriesInfoList.Count > 0 ? _seriesInfoList[0] : null;
-            PostProcess(model, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
+
+            PostProcess(model, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style);
         }
     }
 }

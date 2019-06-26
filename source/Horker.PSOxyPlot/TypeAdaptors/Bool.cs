@@ -25,9 +25,9 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             Value = SmartConverter.ToBool(value);
         }
 
-        public static Bool ConvertFrom(object value)
+        public static bool ConvertFrom(object value)
         {
-            return new Bool(value);
+            return new Bool(value).Value;
         }
 
         public static implicit operator bool(Bool value)

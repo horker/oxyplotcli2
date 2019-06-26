@@ -23,6 +23,21 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             Value = new OxyPlot.ScreenPoint(values[0], values[1]);
         }
 
+        public static OxyPlot.ScreenPoint ConvertFrom(object value)
+        {
+            if (value is Array a)
+            {
+                var values = new Double[a.Length];
+                var i = 0;
+                foreach (var e in a)
+                    values[i++] = new Double(e);
+
+                return new ScreenPoint(values).Value;
+            }
+
+            throw new ArgumentException("Failed to create a ScreenPoint object");
+        }
+
         public static implicit operator OxyPlot.ScreenPoint(ScreenPoint value)
         {
             return value.Value;

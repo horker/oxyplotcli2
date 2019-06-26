@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Horker.PSOxyPlot.SeriesBuilders;
 using System.Collections.Generic;
-using Horker.PSOxyPlot;
+using Horker.PSOxyPlot.Styles;
 
 namespace UnitTests
 {
@@ -20,7 +20,7 @@ namespace UnitTests
             arguments["Z"] = new Horker.PSOxyPlot.TypeAdaptors.Double[] { 5, 4, 3 };
 
             sb.ReadBoundParameters(arguments);
-            var si = sb.CreateSeriesInfo();
+            var si = sb.CreateSeriesInfo(StyleRegistry.DefaultStyle);
             var s = si.Series[0];
 
             Assert.AreEqual(2, s.Data.Rank);

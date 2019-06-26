@@ -4,6 +4,7 @@ using System.Linq;
 using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
+using Horker.PSOxyPlot.Styles;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
@@ -370,13 +371,14 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         /// Create a SeriesInfo object based on the cmdlet parameters.
         /// </summary>
         /// <returns>A SeriesInfo object.</returns>
-        public virtual SeriesInfo<SeriesT> CreateSeriesInfo()
+        public virtual SeriesInfo<SeriesT> CreateSeriesInfo(Style style)
         {
             int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count, _e7.Count }).Max();
 
             if (count == 0)
             {
                 var s = new SeriesT();
+                style.ApplyStyleTo(s);
                 _info.Series = new[] { s };
                 return _info;
             }
@@ -435,6 +437,9 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 SetCategoryNames(_e6);
             if (typeof(E7) == typeof(TypeAdaptors.Category))
                 SetCategoryNames(_e7);
+
+            foreach (var s in _info.Series)
+            style.ApplyStyleTo(s);
 
             return _info;
         }

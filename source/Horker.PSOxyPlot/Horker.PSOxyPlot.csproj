@@ -60,6 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cmdlets\StyleCmdlets\AddOxyStyle.cs" />
+    <Compile Include="Cmdlets\StyleCmdlets\GetOxyDefaultStyle.cs" />
+    <Compile Include="Cmdlets\StyleCmdlets\GetOxyStyle.cs" />
     <Compile Include="Cmdlets\NewOxyHeatMapSeries.cs">
       <DependentUpon>NewOxyHeatMapSeries.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -86,7 +89,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NewOxyXYSeries.tt</DependentUpon>
     </Compile>
+    <Compile Include="Cmdlets\StyleCmdlets\RemoveOxyStyle.cs" />
     <Compile Include="Cmdlets\SeriesCmdletBase.cs" />
+    <Compile Include="Cmdlets\StyleCmdlets\SetOxyDefaultStyle.cs" />
     <Compile Include="GridView\GridView.cs" />
     <Compile Include="Exporters\GridViewExporter.cs" />
     <Compile Include="Exporters\ModelExporter.cs" />
@@ -94,7 +99,13 @@
     <Compile Include="Helpers\FunctionCompiler.cs" />
     <Compile Include="Initializers\AxisSelector.cs" />
     <Compile Include="Initializers\PlotModelInitializer.cs" />
+    <Compile Include="R\ColorConverter.cs" />
+    <Compile Include="R\HuePalette.cs" />
     <Compile Include="SeriesInfo\AxisType.cs" />
+    <Compile Include="Styles\Decorator.cs" />
+    <Compile Include="Styles\EventType.cs" />
+    <Compile Include="Styles\HookAction.cs" />
+    <Compile Include="Styles\StyleRegistry.cs" />
     <Compile Include="TypeAdaptors\Bool.cs" />
     <Compile Include="TypeAdaptors\DataPoint.cs" />
     <Compile Include="TypeAdaptors\InterpolationAlgorithm.cs" />
@@ -108,6 +119,7 @@
     <Compile Include="TypeAdaptors\ScreenPoint.cs" />
     <Compile Include="TypeAdaptors\ScreenVector.cs" />
     <Compile Include="TypeAdaptors\ScriptBlock.cs" />
+    <Compile Include="TypeAdaptors\Style.cs" />
     <Compile Include="TypeAdaptors\TwoDimensionalArray.cs" />
     <Content Include="Cmdlets\NewOxyHeatMapSeries.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -130,7 +142,7 @@
     <Compile Include="SeriesBuilders\XYSeriesBuilder.cs" />
     <Compile Include="SeriesBuilders\SeriesBuilder.cs" />
     <Compile Include="SeriesInfo\SeriesInfo.cs" />
-    <Compile Include="Style\Style.cs" />
+    <Compile Include="Styles\Style.cs" />
     <Compile Include="TypeAdaptors\Category.cs" />
     <Compile Include="TypeAdaptors\DoubleList.cs" />
     <Compile Include="TypeAdaptors\OxyColor.cs" />

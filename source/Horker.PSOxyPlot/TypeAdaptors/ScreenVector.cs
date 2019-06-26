@@ -23,6 +23,21 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             Value = new OxyPlot.ScreenVector(values[0], values[1]);
         }
 
+        public static OxyPlot.ScreenVector ConvertFrom(object value)
+        {
+            if (value is Array a)
+            {
+                var values = new Double[a.Length];
+                var i = 0;
+                foreach (var e in a)
+                    values[i++] = new Double(e);
+
+                return new ScreenVector(values).Value;
+            }
+
+            throw new ArgumentException("Failed to create a ScreenVector object");
+        }
+
         public static implicit operator OxyPlot.ScreenVector(ScreenVector value)
         {
             return value.Value;

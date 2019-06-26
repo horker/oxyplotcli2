@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Series;
+using Horker.PSOxyPlot.Styles;
 
 namespace Horker.PSOxyPlot.Cmdlets
 {
@@ -48,10 +49,16 @@ foreach (var axisType in axes)
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public string Style = null;
+
         protected override void BeginProcessing()
         {
-			var bp = MyInvocation.BoundParameters;
+            var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
             var axis = new <#= fullName #>();
+            style.ApplyStyleTo(style);
 
 <#
 	foreach (var prop in EnumerateProperties(axisType))

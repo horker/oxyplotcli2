@@ -30,6 +30,17 @@ namespace Horker.PSOxyPlot.TypeAdaptors
             _toString = _scriptBlock.ToString();
         }
 
+        public static ScriptBlock Create(object value)
+        {
+            if (value is string s)
+                return new ScriptBlock(s);
+
+            if (value is System.Management.Automation.ScriptBlock sb)
+                return new ScriptBlock(sb);
+
+            throw new ArgumentException("Failed to create a ScriptBlock object");
+        }
+
         public void SetParameterName(string p)
         {
             if (_variables != null)

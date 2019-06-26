@@ -4,6 +4,8 @@ help document
 sample code
 window support
 AddOxyAxisShare
+-Warn non-existence properties in style definitions
+oxy.func title?
 
 examples in Example Browser:
 Custom series: PolarHeapMap

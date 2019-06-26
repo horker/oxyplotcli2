@@ -9,6 +9,7 @@ using System.Management.Automation;
 using OxyPlot;
 using OxyPlot.Series;
 using Horker.PSOxyPlot.Initializers;
+using Horker.PSOxyPlot.Styles;
 
 namespace Horker.PSOxyPlot.Cmdlets
 {
@@ -63,8 +64,11 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 11, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
+        [Parameter(Position = 12, Mandatory = false)]
+        public string Style = null;
+
 <#
-var position = 11;
+var position = 13;
 foreach (var prop in EnumerateProperties(typeof(FunctionSeries)))
 {
 #>
@@ -115,9 +119,10 @@ foreach (var prop in AxisProperty.Enumerate())
 
         protected override void BeginProcessing()
         {
-            var si = new SeriesInfo<FunctionSeries>();
-
             var bp = MyInvocation.BoundParameters;
+            var style = TypeAdaptors.Style.ConvertFrom(Style);
+
+            var si = new SeriesInfo<FunctionSeries>();
 
             bool isExplicit = ParameterSetName == "Explicit";
             if (double.IsNaN(Dx))
@@ -134,6 +139,8 @@ foreach (var prop in AxisProperty.Enumerate())
 				foreach (var f in F)
 				{
 					var series = new FunctionSeries();
+                    style.ApplyStyleTo(series);
+
 					series.Title = f.ToString();
                     AssignParameters(series, bp);
                     si.Series.Add(series);
@@ -151,6 +158,8 @@ foreach (var prop in AxisProperty.Enumerate())
 				for (var i = 0; i < Fx.Length; ++i)
 				{
 					var series = new FunctionSeries();
+                    style.ApplyStyleTo(series);
+
 					series.Title = Fx[i].ToString() + ", " + Fy[i].ToString();
                     AssignParameters(series, bp);
                     si.Series.Add(series);
@@ -166,7 +175,7 @@ foreach (var prop in AxisProperty.Enumerate())
                 }
             }
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style);
         }
     }
 }

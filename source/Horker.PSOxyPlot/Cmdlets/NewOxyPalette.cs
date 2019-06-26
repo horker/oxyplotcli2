@@ -9,12 +9,12 @@ using OxyPlot;
 
 namespace Horker.PSOxyPlot.Cmdlets
 {
-    [Cmdlet("New", "OxyPalette")]
+    [Cmdlet("Get", "OxyPalette")]
     [CmdletBinding(DefaultParameterSetName = "Preset")]
-    public class NewOxyPalette : PSCmdlet
+    public class GetOxyPalette : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = true, ParameterSetName = "Preset")]
-        [ValidateSet("BlueWhiteRed31", "Hot64", "Hue64", "BlackWhiteRed", "BlueWhiteRed", "Cool", "Gray", "Hot", "Hue", "HueDistinct", "Jet", "Rainbow")]
+        [ValidateSet("BlueWhiteRed31", "Hot64", "Hue64", "BlackWhiteRed", "BlueWhiteRed", "Cool", "Gray", "Hot", "Hue", "HueDistinct", "Jet", "Rainbow", "RHue")]
         [Alias("Type")] // Version 1
         public string Preset;
 

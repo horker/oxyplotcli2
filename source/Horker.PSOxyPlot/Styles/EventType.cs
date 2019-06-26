@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horker.PSOxyPlot.Style
+namespace Horker.PSOxyPlot.Styles
 {
-    public class Style
+    public enum EventType
     {
+        BeforeRendering
     }
 }

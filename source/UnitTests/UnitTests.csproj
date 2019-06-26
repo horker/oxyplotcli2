@@ -55,6 +55,7 @@
     <Compile Include="FunctionCompilerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeriesBuilderTest.cs" />
+    <Compile Include="StyleTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
