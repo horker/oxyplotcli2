@@ -102,9 +102,13 @@
     <Compile Include="R\ColorConverter.cs" />
     <Compile Include="R\HuePalette.cs" />
     <Compile Include="SeriesInfo\AxisType.cs" />
+    <Compile Include="Styles\ColorSchemeHelper.cs" />
+    <Compile Include="Styles\ColorSchemeRegistry.cs" />
     <Compile Include="Styles\Decorator.cs" />
     <Compile Include="Styles\EventType.cs" />
+    <Compile Include="Styles\GgplotColorScheme.cs" />
     <Compile Include="Styles\HookAction.cs" />
+    <Compile Include="Styles\IColorScheme.cs" />
     <Compile Include="Styles\StyleRegistry.cs" />
     <Compile Include="TypeAdaptors\Bool.cs" />
     <Compile Include="TypeAdaptors\DataPoint.cs" />

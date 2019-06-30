@@ -15,6 +15,7 @@ namespace Horker.PSOxyPlot.Initializers
         public static PlotModel Create(IList<ISeriesInfo> siList, Style style)
         {
             var model = new PlotModel();
+            var defaultColorsSave = model.DefaultColors;
 
             style.ApplyStyleTo(model);
 
@@ -35,6 +36,12 @@ namespace Horker.PSOxyPlot.Initializers
                 {
                     foreach (var si in siList)
                         AxisInitializer.EnsureAxes((PlotModel)sender, si, style);
+                }
+
+                if (style.ColorScheme != null && ReferenceEquals(model.DefaultColors, defaultColorsSave))
+                {
+                    var colorCount = ColorSchemeHelper.GetCountCount(model, style);
+                    model.DefaultColors = style.ColorScheme.GetDefaultColors(colorCount);
                 }
             };
 

@@ -10,6 +10,9 @@ $halfLine = $baseSize / 2
 
 $config = @{
 
+  # Color scheme
+  "[DefaultColorScheme]" = "ggplot"
+
   # Default
   "PlotModel.DefaultFontSize" = "$($baseSize)pt"
 
@@ -59,7 +62,7 @@ $config = @{
   "CategoryAxis.FontSize" = "$($baseSize)pt"
 
   # LinearColorAxis
-  "LinearColorAxis.Palette" = Get-OxyPalette -Colors ([Horker.PSOxyPlot.R.HuePalette]::GetPalette(64, 15, 15 + 315))
+#  "LinearColorAxis.Palette" = Get-OxyPalette -Colors ([Horker.PSOxyPlot.R.HuePalette]::GetPalette(64, 15, 15 + 315))
 
   # *Series
 #  "*Series.StrokeThickness" = "1px"
@@ -84,23 +87,23 @@ $config = @{
   "PieSeries.AreInsideLabelsAngled" = $true
 
   # Event hook
-  "[BeforeRendering]" = {
-    param($m)
-    if ($m.DefaultColors.Count -eq 0 -or $m.Series.Count -gt 0) {
-      $n = $m.Series.Count
-      if ($n -eq 1) {
-        if ($m.Series[0] -is [OxyPlot.Series.PieSeries]) {
-          $m.DefaultColors = (Get-OxyPalette RHue $m.Series[0].Slices.Count).Colors
-        }
-        else {
-          $m.DefaultColors = [OxyPlot.OxyColor[]]@([OxyPlot.OxyColors]::Black)
-        }
-      }
-      else {
-          $m.DefaultColors = (Get-OxyPalette RHue $n).Colors
-      }
-    }
-  }
+#  "[BeforeRendering]" = {
+#    param($m)
+#    if ($m.DefaultColors.Count -eq 0 -and $m.Series.Count -gt 0) {
+#      $n = $m.Series.Count
+#      if ($n -eq 1) {
+#        if ($m.Series[0] -is [OxyPlot.Series.PieSeries]) {
+#          $m.DefaultColors = (Get-OxyPalette RHue $m.Series[0].Slices.Count).Colors
+#        }
+#        else {
+#          $m.DefaultColors = [OxyPlot.OxyColor[]]@([OxyPlot.OxyColors]::Black)
+#        }
+#      }
+#      else {
+#          $m.DefaultColors = (Get-OxyPalette RHue $n).Colors
+#      }
+#    }
+#  }
 
 }
 

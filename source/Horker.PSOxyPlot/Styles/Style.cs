@@ -21,10 +21,12 @@ namespace Horker.PSOxyPlot.Styles
         private Dictionary<Type, List<Decorator>> _decorators;
         private Dictionary<Type, List<HookAction>> _typeHooks;
         private Dictionary<EventType, List<HookAction>> _eventHooks;
+        private IColorScheme _colorScheme;
 
         public IDictionary<Type, List<Decorator>> Decorators => _decorators;
         public IDictionary<Type, List<HookAction>> TypeHooks => _typeHooks;
         public IDictionary<EventType, List<HookAction>> EventHooks => _eventHooks;
+        public IColorScheme ColorScheme => _colorScheme;
 
         static Style()
         {
@@ -48,6 +50,20 @@ namespace Horker.PSOxyPlot.Styles
             _decorators = new Dictionary<Type, List<Decorator>>();
             _typeHooks = new Dictionary<Type, List<HookAction>>();
             _eventHooks = new Dictionary<EventType, List<HookAction>>();
+            _colorScheme = null;
+        }
+
+        public Style(Style baseStyle)
+            : base()
+        {
+            foreach (var d in baseStyle._decorators)
+                _decorators.Add(d.Key, new List<Decorator>(d.Value));
+
+            foreach (var t in baseStyle._typeHooks)
+                _typeHooks.Add(t.Key, new List<HookAction>(t.Value));
+
+            foreach (var e in baseStyle._eventHooks)
+                _eventHooks.Add(e.Key, new List<HookAction>(e.Value));
         }
 
         private void AddDecorator(Type type, PropertyInfo property, object value)
@@ -72,14 +88,23 @@ namespace Horker.PSOxyPlot.Styles
             actions.Add(action);
         }
 
+        private void AddEventHook(EventType eventType, HookAction action)
+        {
+            if (!_eventHooks.TryGetValue(eventType, out var actions))
+            {
+                actions = new List<HookAction>();
+                _eventHooks.Add(eventType, actions);
+            }
+
+            actions.Add(action);
+        }
+
         public static Style Create(Dictionary<string, object> config)
         {
             var style = new Style();
 
             foreach (var entry in config)
             {
-                // TODO: take a glob for type filters.
-
                 var typeFilter = entry.Key.Trim();
                 var value = entry.Value;
 
@@ -90,6 +115,12 @@ namespace Horker.PSOxyPlot.Styles
 
                     var eventName = typeFilter.Substring(1, typeFilter.Length - 2).ToLower();
 
+                    if (eventName == "defaultcolorscheme")
+                    {
+                        style._colorScheme = ColorSchemeRegistry.Get((string)value);
+                        continue;
+                    }
+
                     var enumNames = typeof(EventType).GetEnumNames();
                     var enumValues = (EventType[])typeof(EventType).GetEnumValues();
                     var found = false;
@@ -97,13 +128,7 @@ namespace Horker.PSOxyPlot.Styles
                     {
                         if (enumNames[i].ToLower() == eventName)
                         {
-                            var e = enumValues[i];
-                            if (!style._eventHooks.TryGetValue(e, out var actions))
-                            {
-                                actions = new List<HookAction>();
-                                style._eventHooks.Add(e, actions);
-                            }
-                            actions.Add(HookAction.Create(value));
+                            style.AddEventHook(enumValues[i], HookAction.Create(value));
                             found = true;
                             break;
                         }

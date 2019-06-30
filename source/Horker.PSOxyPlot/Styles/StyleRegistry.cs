@@ -29,7 +29,7 @@ namespace Horker.PSOxyPlot.Styles
             var fallbackStyle = Style.Create(new Dictionary<string, object>()
             {
                 {
-                    "PieSeries.Diameter", .8
+                    "PieSeries.Diameter", .75
                 },
                 {
                     "CategoryAxis.*",
