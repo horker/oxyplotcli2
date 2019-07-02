@@ -111,6 +111,7 @@
     <Compile Include="Styles\GgplotColorScheme.cs" />
     <Compile Include="Styles\HookAction.cs" />
     <Compile Include="Styles\IColorScheme.cs" />
+    <Compile Include="Styles\PaletteColorScheme.cs" />
     <Compile Include="Styles\StyleRegistry.cs" />
     <Compile Include="TypeAdaptors\Bool.cs" />
     <Compile Include="TypeAdaptors\DataPoint.cs" />
