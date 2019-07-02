@@ -29,21 +29,11 @@ namespace Horker.PSOxyPlot.Styles
         {
             _colorSchemes = new Dictionary<string, IColorScheme>();
 
-            // Preset color schemes
+            // OxyPlot default colors
 
             _colorSchemes.Add("vanilla", new VanillaColorScheme());
-            _colorSchemes.Add("ggplot", new GgplotColorScheme());
 
-            // Monotone palettes (stolen from Excel 2016)
-
-            AddPaletteColorScheme("Navy", new[] { OxyColor.FromRgb(64, 109, 187), OxyColor.FromRgb(192, 201, 228) }, true);
-            AddPaletteColorScheme("Orange", new[] { OxyColor.FromRgb(174, 90, 33), OxyColor.FromRgb(246, 204, 190) }, true);
-            AddPaletteColorScheme("Gray", new[] { OxyColor.FromRgb(120,120,120), OxyColor.FromRgb(216, 216,216) }, true);
-            AddPaletteColorScheme("Gold", new[] { OxyColor.FromRgb(188,140,0), OxyColor.FromRgb(255, 226, 188) }, true);
-            AddPaletteColorScheme("Blue", new[] { OxyColor.FromRgb(65,113,156), OxyColor.FromRgb(196, 213, 235) }, true);
-            AddPaletteColorScheme("Green", new[] { OxyColor.FromRgb(80, 126, 50), OxyColor.FromRgb(201, 219, 193) }, true);
-
-            // OxyPlot's preset palettes that are hard-written in OxyPalettes.
+            // OxyPlot preset palettes that are hard-written in OxyPalettes.
 
             AddPaletteColorScheme("BlueWhiteRed", new[] { OxyColors.Blue, OxyColors.White, OxyColors.Red });
 
@@ -93,6 +83,19 @@ namespace Horker.PSOxyPlot.Styles
                 OxyColors.Orange,
                 OxyColors.Red
             });
+
+            // ggplot's default color schemea obtained by R's hue_pal()
+
+            _colorSchemes.Add("ggplot", new GgplotColorScheme());
+
+            // Monotone palettes (stolen from Excel 2016)
+
+            AddPaletteColorScheme("navy", new[] { OxyColor.FromRgb(64, 109, 187), OxyColor.FromRgb(192, 201, 228) }, true);
+            AddPaletteColorScheme("orange", new[] { OxyColor.FromRgb(174, 90, 33), OxyColor.FromRgb(246, 204, 190) }, true);
+            AddPaletteColorScheme("gray", new[] { OxyColor.FromRgb(120,120,120), OxyColor.FromRgb(216, 216,216) }, true);
+            AddPaletteColorScheme("gold", new[] { OxyColor.FromRgb(188,140,0), OxyColor.FromRgb(255, 226, 188) }, true);
+            AddPaletteColorScheme("blue", new[] { OxyColor.FromRgb(65,113,156), OxyColor.FromRgb(196, 213, 235) }, true);
+            AddPaletteColorScheme("green", new[] { OxyColor.FromRgb(80, 126, 50), OxyColor.FromRgb(201, 219, 193) }, true);
         }
 
         public static void Register(IColorScheme colorScheme)
