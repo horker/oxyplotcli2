@@ -90,7 +90,16 @@ namespace Horker.PSOxyPlot.Styles
 
             _colorSchemes.Add("ggplot", new GgplotColorScheme());
 
-            // Monotone palettes (stolen from Excel 2016)
+            // Matplotlib palettes
+
+            AddPaletteColorScheme("magma", MatplotlibColormaps.magma, true);
+            AddPaletteColorScheme("inferno", MatplotlibColormaps.inferno, true);
+            AddPaletteColorScheme("plasma", MatplotlibColormaps.plasma, true);
+            AddPaletteColorScheme("viridis", MatplotlibColormaps.viridis, true);
+
+            // Palettes stoken from Excel 2016
+
+            // Monotone palettes
 
             AddPaletteColorScheme("navy", new[] { OxyColor.FromRgb(64, 109, 187), OxyColor.FromRgb(192, 201, 228) }, true);
             AddPaletteColorScheme("orange", new[] { OxyColor.FromRgb(174, 90, 33), OxyColor.FromRgb(246, 204, 190) }, true);
@@ -99,12 +108,12 @@ namespace Horker.PSOxyPlot.Styles
             AddPaletteColorScheme("blue", new[] { OxyColor.FromRgb(65,113,156), OxyColor.FromRgb(196, 213, 235) }, true);
             AddPaletteColorScheme("green", new[] { OxyColor.FromRgb(80, 126, 50), OxyColor.FromRgb(201, 219, 193) }, true);
 
-            // Matplotlib palettes
+            // Colorful palettes
 
-            AddPaletteColorScheme("magma", MatplotlibColormaps.magma, true);
-            AddPaletteColorScheme("inferno", MatplotlibColormaps.inferno, true);
-            AddPaletteColorScheme("plasma", MatplotlibColormaps.plasma, true);
-            AddPaletteColorScheme("viridis", MatplotlibColormaps.viridis, true);
+            _colorSchemes.Add("colorful1", new ColorfulColorScheme("colorful1", Xl2016.Colormaps.colorful1));
+            _colorSchemes.Add("colorful2", new ColorfulColorScheme("colorful2", Xl2016.Colormaps.colorful2));
+            _colorSchemes.Add("colorful3", new ColorfulColorScheme("colorful3", Xl2016.Colormaps.colorful3));
+            _colorSchemes.Add("colorful4", new ColorfulColorScheme("colorful4", Xl2016.Colormaps.colorful4));
         }
 
         public static void Register(IColorScheme colorScheme)

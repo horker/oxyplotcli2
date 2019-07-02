@@ -104,6 +104,7 @@
     <Compile Include="R\ColorConverter.cs" />
     <Compile Include="R\HuePalette.cs" />
     <Compile Include="SeriesInfo\AxisType.cs" />
+    <Compile Include="Styles\ColorfulColorScheme.cs" />
     <Compile Include="Styles\ColorSchemeHelper.cs" />
     <Compile Include="Styles\ColorSchemeRegistry.cs" />
     <Compile Include="Styles\Decorator.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="TypeAdaptors\ScriptBlock.cs" />
     <Compile Include="TypeAdaptors\Style.cs" />
     <Compile Include="TypeAdaptors\TwoDimensionalArray.cs" />
+    <Compile Include="Xl2016\Colormaps.cs" />
     <Content Include="Cmdlets\NewOxyHeatMapSeries.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NewOxyHeatMapSeries.cs</LastGenOutput>
@@ -175,5 +177,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
