@@ -10,10 +10,13 @@ namespace Horker.PSOxyPlot.Styles
     {
         private static Dictionary<string, IColorScheme> _colorSchemes;
 
+        public static IEnumerable<IColorScheme> ColorSchemes => _colorSchemes.Values;
+
         static ColorSchemeRegistry()
         {
             _colorSchemes = new Dictionary<string, IColorScheme>();
 
+            _colorSchemes.Add("vanilla", new VanillaColorScheme());
             _colorSchemes.Add("ggplot", new GgplotColorScheme());
         }
         

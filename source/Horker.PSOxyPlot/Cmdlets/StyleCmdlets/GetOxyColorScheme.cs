@@ -8,8 +8,8 @@ using Horker.PSOxyPlot.Styles;
 
 namespace Horker.PSOxyPlot.Cmdlets
 {
-    [Cmdlet("Get", "OxyStyle")]
-    public class GetOxyStyle : PSCmdlet
+    [Cmdlet("Get", "OxyColorScheme")]
+    public class GetOxyColorScheme : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = false)]
         public string Name;
@@ -18,12 +18,12 @@ namespace Horker.PSOxyPlot.Cmdlets
         {
             if (string.IsNullOrEmpty(Name))
             {
-                foreach (var s in StyleRegistry.Styles)
+                foreach (var s in ColorSchemeRegistry.ColorSchemes)
                     WriteObject(s);
             }
             else
             {
-                var style = StyleRegistry.Get(Name);
+                var style = ColorSchemeRegistry.Get(Name);
                 WriteObject(style);
             }
         }

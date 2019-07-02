@@ -61,15 +61,6 @@ $config = @{
   # CategoryAxis: FontSize
   "CategoryAxis.FontSize" = "$($baseSize)pt"
 
-  # LinearColorAxis
-#  "LinearColorAxis.Palette" = Get-OxyPalette -Colors ([Horker.PSOxyPlot.R.HuePalette]::GetPalette(64, 15, 15 + 315))
-
-  # *Series
-#  "*Series.StrokeThickness" = "1px"
-#  "*Series.StrokeColor" = "Automatic"
-#  "*Series.FillColor" = "Automatic"
-#  "*Series.FontSize" = "$($baseSize)pt"
-
   # Scatter*Series
   "Scatter*Series.MarkerType" = "Diamond"
   "Scatter*Series.MarkerSize" = "3px"
@@ -80,11 +71,32 @@ $config = @{
   "BoxPlotSeries.WhiskerWidth" = 0
   "BoxPlotSeries.OutlierSize" = "3pt"
 
+  # CandleStickAndVolumeSeries
+  "CandleStickAndVolumeSeries.VolumeStyle" = "Stacked"
+
+  # VolumeSeries
+  "VolumeSeries.VolumeStyle" = "Stacked"
+
+  # ErrorColumnSeries
+  "ErrorColumnSeries.StrokeColor" = "gray"
+
   # PieSeries
   "PieSeries.StartAngle" = -90
   "PieSeries.Diameter" = 0.75
   "PieSeries.InnerDiameter" = 0.35
   "PieSeries.AreInsideLabelsAngled" = $true
+
+  # IntervalBarSeries
+  "IntervalBarSeries.TextColor" = "white"
+
+  # TornadobarSeries
+  "TornadoBarSeries.StrokeThickness" = 0
+
+  # AreaSeries
+  "AreaSeries.StrokeThickness" = 0
+
+  # TwoColorAreaSeries
+  "TwoColorAreaSeries.StrokeThickness" = 0
 
   # Event hook
 #  "[BeforeRendering]" = {
@@ -107,4 +119,4 @@ $config = @{
 
 }
 
-Add-OxyStyle ggplot $config
+Add-OxyStyle ggplot $config -BaseStyle vanilla

@@ -18,15 +18,27 @@ namespace Horker.PSOxyPlot.Styles
     {
         private static List<Type> _types;
 
+        private string _name;
         private Dictionary<Type, List<Decorator>> _decorators;
         private Dictionary<Type, List<HookAction>> _typeHooks;
         private Dictionary<EventType, List<HookAction>> _eventHooks;
         private IColorScheme _colorScheme;
 
+        public string Name
+        {
+            get => _name;
+            private set => _name = value;
+        }
+
         public IDictionary<Type, List<Decorator>> Decorators => _decorators;
         public IDictionary<Type, List<HookAction>> TypeHooks => _typeHooks;
         public IDictionary<EventType, List<HookAction>> EventHooks => _eventHooks;
-        public IColorScheme ColorScheme => _colorScheme;
+
+        public IColorScheme ColorScheme
+        {
+            get => _colorScheme;
+            set => _colorScheme = value;
+        }
 
         static Style()
         {
@@ -45,25 +57,29 @@ namespace Horker.PSOxyPlot.Styles
             }
         }
 
-        public Style()
+        public Style(string name)
         {
+            _name = name;
             _decorators = new Dictionary<Type, List<Decorator>>();
             _typeHooks = new Dictionary<Type, List<HookAction>>();
             _eventHooks = new Dictionary<EventType, List<HookAction>>();
-            _colorScheme = null;
+            _colorScheme = new VanillaColorScheme();
         }
 
-        public Style(Style baseStyle)
-            : base()
+        public Style(string name, Style baseStyle)
+            : this(name)
         {
-            foreach (var d in baseStyle._decorators)
-                _decorators.Add(d.Key, new List<Decorator>(d.Value));
+            if (baseStyle != null)
+            {
+                foreach (var d in baseStyle._decorators)
+                    _decorators.Add(d.Key, new List<Decorator>(d.Value));
 
-            foreach (var t in baseStyle._typeHooks)
-                _typeHooks.Add(t.Key, new List<HookAction>(t.Value));
+                foreach (var t in baseStyle._typeHooks)
+                    _typeHooks.Add(t.Key, new List<HookAction>(t.Value));
 
-            foreach (var e in baseStyle._eventHooks)
-                _eventHooks.Add(e.Key, new List<HookAction>(e.Value));
+                foreach (var e in baseStyle._eventHooks)
+                    _eventHooks.Add(e.Key, new List<HookAction>(e.Value));
+            }
         }
 
         private void AddDecorator(Type type, PropertyInfo property, object value)
@@ -99,9 +115,9 @@ namespace Horker.PSOxyPlot.Styles
             actions.Add(action);
         }
 
-        public static Style Create(Dictionary<string, object> config)
+        public static Style Create(string name, Dictionary<string, object> config, Style baseStyle)
         {
-            var style = new Style();
+            var style = new Style(name, baseStyle);
 
             foreach (var entry in config)
             {
@@ -198,9 +214,15 @@ namespace Horker.PSOxyPlot.Styles
 
                         // Obtain an acceptable value for the specified type.
 
-                        var v = TypeAdaptors.Helpers.ConvertObjectType(prop.PropertyType, value);
-
-                        style.AddDecorator(type, prop, v);
+                        if (HookAction.CanTakeAsScript(value))
+                        {
+                            style.AddDecorator(type, prop, HookAction.Create(value));
+                        }
+                        else
+                        {
+                            var v = TypeAdaptors.Helpers.ConvertObjectType(prop.PropertyType, value);
+                            style.AddDecorator(type, prop, v);
+                        }
                     }
                 }
             }
@@ -208,14 +230,14 @@ namespace Horker.PSOxyPlot.Styles
             return style;
         }
 
-        public static Style Create(Hashtable config)
+        public static Style Create(string name, Hashtable config, Style baseStyle)
         {
             var c = new Dictionary<string, object>();
 
             foreach (DictionaryEntry entry in config)
                 c.Add((string)entry.Key, entry.Value);
 
-            return Create(c);
+            return Create(name, c, baseStyle);
         }
 
         public void ApplyStyleTo(object target)
@@ -228,13 +250,18 @@ namespace Horker.PSOxyPlot.Styles
             if (_decorators.TryGetValue(type, out var decorators))
             {
                 foreach (var d in decorators)
-                    d.Property.SetValue(target, d.Value);
+                {
+                    if (d.Value is HookAction a)
+                        a.Invoke(target, this);
+                    else
+                        d.Property.SetValue(target, d.Value);
+                }
             }
 
             if (_typeHooks.TryGetValue(type, out var actions))
             {
                 foreach (var a in actions)
-                    a.Invoke(target);
+                    a.Invoke(target, this);
             }
         }
 
@@ -244,7 +271,7 @@ namespace Horker.PSOxyPlot.Styles
                 return;
 
             foreach (var a in actions)
-                a.Invoke(model);
+                a.Invoke(model, this);
         }
     }
 }

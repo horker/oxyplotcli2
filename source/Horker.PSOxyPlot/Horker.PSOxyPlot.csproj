@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cmdlets\StyleCmdlets\AddOxyStyle.cs" />
+    <Compile Include="Cmdlets\StyleCmdlets\GetOxyColorScheme.cs" />
     <Compile Include="Cmdlets\StyleCmdlets\GetOxyDefaultStyle.cs" />
     <Compile Include="Cmdlets\StyleCmdlets\GetOxyStyle.cs" />
     <Compile Include="Cmdlets\NewOxyHeatMapSeries.cs">
@@ -105,6 +106,7 @@
     <Compile Include="Styles\ColorSchemeHelper.cs" />
     <Compile Include="Styles\ColorSchemeRegistry.cs" />
     <Compile Include="Styles\Decorator.cs" />
+    <Compile Include="Styles\DefaultColorScheme.cs" />
     <Compile Include="Styles\EventType.cs" />
     <Compile Include="Styles\GgplotColorScheme.cs" />
     <Compile Include="Styles\HookAction.cs" />

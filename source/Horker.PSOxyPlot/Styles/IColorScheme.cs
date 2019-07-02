@@ -14,5 +14,6 @@ namespace Horker.PSOxyPlot.Styles
         string Name { get; }
         OxyPalette GetColorAxisPalette(Axis axis);
         IList<OxyColor> GetDefaultColors(int count);
+        Tuple<OxyColor, OxyColor> GetCandleStickColors();
     }
 }

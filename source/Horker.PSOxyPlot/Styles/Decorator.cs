@@ -13,6 +13,8 @@ namespace Horker.PSOxyPlot.Styles
         public PropertyInfo Property { get; private set; }
         public object Value { get; private set; }
 
+        public bool IsScript => Value is HookAction;
+
         public Decorator(Type type, PropertyInfo property, object value)
         {
             Type = type;

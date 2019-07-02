@@ -25,5 +25,11 @@ namespace Horker.PSOxyPlot.Styles
 
             return R.HuePalette.GetPalette(count);
         }
+
+        public Tuple<OxyColor, OxyColor> GetCandleStickColors()
+        {
+            var colors = R.HuePalette.GetPalette(2);
+            return Tuple.Create(colors[0], colors[1]);
+        }
     }
 }

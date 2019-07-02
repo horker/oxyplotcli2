@@ -103,7 +103,7 @@ namespace Horker.PSOxyPlot.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var model = PlotModelInitializer.CreateWithSeriesInfo(_seriesInfoList, style);
+            var model = PlotModelInitializer.Create(_seriesInfoList, style);
 
 <#
     foreach (var prop in EnumerateProperties(typeof(PlotModel)))

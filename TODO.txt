@@ -6,7 +6,6 @@ window support
 AddOxyAxisShare
 -Warn non-existence properties in style definitions
 oxy.func title?
-base style concept
 
 examples in Example Browser:
 Custom series: PolarHeapMap
@@ -82,3 +81,4 @@ DONE HeapMap series cmdlet interfaces
 DONE Contour series cmdlet interfaces
 DONE Az axis parameters
 DONE Style support
+DONE base style concept

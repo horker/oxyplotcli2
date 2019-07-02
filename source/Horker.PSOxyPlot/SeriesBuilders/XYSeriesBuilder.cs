@@ -458,7 +458,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
     public class VolumeSeriesBuilder : SeriesBuilder<VolumeSeries, OhlcvItem, double, double, double, double, double, double, double>
     {
         public override string[] DataPointItemNames => new[] { "X", "Open", "High", "Low", "Close", "BuyVolume", "SellVolume" };
-        public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true, false, false };
+        public override bool[] DataPointItemMandatoriness => new[] { true, false, false, false, false, false, false };
         public override int[] AxisItemIndexes => new[] { 0, -1, -1, -1, 1, -1, -1 };
         public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis), null };
         public override string[] Aliases => new[] { "oxy.volume", "oxyvolume" };

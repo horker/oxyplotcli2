@@ -819,7 +819,9 @@ namespace Horker.PSOxyPlot.Cmdlets
 					var series = new FunctionSeries();
                     style.ApplyStyleTo(series);
 
-					series.Title = f.ToString();
+                    if (F.Length > 1)
+                        series.Title = f.ToString();
+
                     AssignParameters(series, bp);
                     si.Series.Add(series);
 
@@ -838,7 +840,9 @@ namespace Horker.PSOxyPlot.Cmdlets
 					var series = new FunctionSeries();
                     style.ApplyStyleTo(series);
 
-					series.Title = Fx[i].ToString() + ", " + Fy[i].ToString();
+                    if (Fx.Length > 1)
+                        series.Title = Fx[i].ToString() + ", " + Fy[i].ToString();
+
                     AssignParameters(series, bp);
                     si.Series.Add(series);
 

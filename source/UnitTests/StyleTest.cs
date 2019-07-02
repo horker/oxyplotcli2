@@ -16,18 +16,18 @@ namespace UnitTests
         {
             var temp = -1;
 
-            var style = Style.Create(new Dictionary<string, object>()
+            var style = Style.Create("test", new Dictionary<string, object>()
             {
                 {
                     "PieSeries.Diameter", .9
                 },
                 {
-                    "LineSeries.*", new Action<object>(value => temp = 1234)
+                    "LineSeries.*", new Action<object, Style>((target, st) => temp = 1234)
                 },
                 {
                     "*LineSeries.FontSize", 10
                 }
-            });
+            }, null);
 
             Assert.AreEqual(4, style.Decorators.Count);
 
@@ -50,7 +50,7 @@ namespace UnitTests
 
             var typeHooks = style.TypeHooks[typeof(LineSeries)];
             Assert.AreEqual(1, typeHooks.Count);
-            typeHooks[0].Invoke(null);
+            typeHooks[0].Invoke(null, null);
             Assert.AreEqual(temp, 1234);
         }
     }

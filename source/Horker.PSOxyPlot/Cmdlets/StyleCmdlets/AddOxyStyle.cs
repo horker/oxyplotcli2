@@ -15,12 +15,31 @@ namespace Horker.PSOxyPlot.Cmdlets
         [Parameter(Position = 0, Mandatory = true)]
         public string Name;
 
-        [Parameter(Position = 1, Mandatory = true)]
-        public Hashtable Config;
+        [Parameter(Position = 1, Mandatory = false)]
+        public Hashtable Config = new Hashtable();
+
+        [Parameter(Position = 2, Mandatory = false)]
+        public string ColorScheme = null;
+
+        [Parameter(Position = 3, Mandatory = false)]
+        public string BaseStyle;
 
         protected override void BeginProcessing()
         {
-            var style = Style.Create(Config);
+            Style style;
+            if (MyInvocation.BoundParameters.ContainsKey("BaseStyle"))
+            {
+                var baseStyle = StyleRegistry.Get(BaseStyle);
+                style = Style.Create(Name, Config, baseStyle);
+            }
+            else
+            {
+                style = Style.Create(Name, Config, StyleRegistry.VanillaStyle);
+            }
+
+            if (MyInvocation.BoundParameters.ContainsKey("ColorScheme"))
+                style.ColorScheme = ColorSchemeRegistry.Get(ColorScheme);
+
             StyleRegistry.Register(Name, style);
         }
     }

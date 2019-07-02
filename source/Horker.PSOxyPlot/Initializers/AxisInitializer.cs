@@ -59,8 +59,9 @@ namespace Horker.PSOxyPlot.Initializers
                     hasYAxis = hasYAxis || !string.IsNullOrEmpty(xy.YAxisKey);
                 }
 
+                // CandleStickAndVolumeSeries doesn't remain VolumeAxisKey to be null.
                 if (s is CandleStickAndVolumeSeries candlev)
-                    hasZAxis = hasZAxis || !string.IsNullOrEmpty(candlev.VolumeAxisKey);
+                    hasZAxis = hasZAxis || candlev.VolumeAxis != null;
                 else if (s is HeatMapSeries h)
                     hasZAxis = hasZAxis || !string.IsNullOrEmpty(h.ColorAxisKey);
                 else if (s is RectangleSeries r)
