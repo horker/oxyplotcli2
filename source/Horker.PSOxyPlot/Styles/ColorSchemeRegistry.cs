@@ -13,27 +13,41 @@ namespace Horker.PSOxyPlot.Styles
 
         public static IEnumerable<IColorScheme> ColorSchemes => _colorSchemes.Values;
 
-        private static void AddPaletteColorScheme(string name, IList<OxyColor> colors)
+        private static void AddPaletteColorScheme(string name, IList<OxyColor> colors, bool reverse = false)
         {
             var p = new PaletteColorScheme(name, colors, 200);
             Register(p);
+
+            if (reverse)
+            {
+                var r = new PaletteColorScheme(name + "-rev", colors.Reverse().ToArray(), 200);
+                Register(r);
+            }
         }
 
         static ColorSchemeRegistry()
         {
             _colorSchemes = new Dictionary<string, IColorScheme>();
 
+            // Preset color schemes
+
             _colorSchemes.Add("vanilla", new VanillaColorScheme());
             _colorSchemes.Add("ggplot", new GgplotColorScheme());
+
+            // Monotone palettes (stolen from Excel 2016)
+
+            AddPaletteColorScheme("Navy", new[] { OxyColor.FromRgb(64, 109, 187), OxyColor.FromRgb(192, 201, 228) }, true);
+            AddPaletteColorScheme("Orange", new[] { OxyColor.FromRgb(174, 90, 33), OxyColor.FromRgb(246, 204, 190) }, true);
+            AddPaletteColorScheme("Gray", new[] { OxyColor.FromRgb(120,120,120), OxyColor.FromRgb(216, 216,216) }, true);
+            AddPaletteColorScheme("Gold", new[] { OxyColor.FromRgb(188,140,0), OxyColor.FromRgb(255, 226, 188) }, true);
+            AddPaletteColorScheme("Blue", new[] { OxyColor.FromRgb(65,113,156), OxyColor.FromRgb(196, 213, 235) }, true);
+            AddPaletteColorScheme("Green", new[] { OxyColor.FromRgb(80, 126, 50), OxyColor.FromRgb(201, 219, 193) }, true);
 
             // OxyPlot's preset palettes that are hard-written in OxyPalettes.
 
             AddPaletteColorScheme("BlueWhiteRed", new[] { OxyColors.Blue, OxyColors.White, OxyColors.Red });
 
             AddPaletteColorScheme("Cool", new[] { OxyColors.Cyan, OxyColors.Magenta });
-
-            // AddPaletteColorScheme("Gray", new[] { OxyColors.Black, OxyColors.White });
-            AddPaletteColorScheme("Gray", OxyPalettes.Gray(200).Colors);
 
             AddPaletteColorScheme("Hot", new[] {
                 OxyColors.Black,
