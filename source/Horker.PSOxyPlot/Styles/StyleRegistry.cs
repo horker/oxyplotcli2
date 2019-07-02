@@ -39,6 +39,24 @@ namespace Horker.PSOxyPlot.Styles
 
             var fallbackStyle = Style.Create(FallbackStyleName, new Dictionary<string, object>()
             {
+                // BoxPlotSeries
+
+                {
+                    "BoxPlotSeries.Stroke",
+                    new Action<object, Style>((target, style) => {
+                        var series = (BoxPlotSeries)target;
+                        series.Stroke = style.ColorScheme.GetBoxPlotStrokeColors().Item1;
+                    })
+                },
+
+                {
+                    "BoxPlotSeries.Fill",
+                    new Action<object, Style>((target, style) => {
+                        var series = (BoxPlotSeries)target;
+                        series.Fill = style.ColorScheme.GetBoxPlotStrokeColors().Item2;
+                    })
+                },
+
                 // CandleStickSeries
 
                 {

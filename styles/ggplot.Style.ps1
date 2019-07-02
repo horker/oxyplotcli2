@@ -66,7 +66,6 @@ $config = @{
   "Scatter*Series.MarkerSize" = "3px"
 
   # BoxPlotSeries
-  "BoxPlotSeries.Fill" = "White"
   "BoxPlotSeries.StrokeThickness" = "2pt"
   "BoxPlotSeries.WhiskerWidth" = 0
   "BoxPlotSeries.OutlierSize" = "3pt"
@@ -87,7 +86,11 @@ $config = @{
   "PieSeries.AreInsideLabelsAngled" = $true
 
   # IntervalBarSeries
+  "IntervalBarSeries.StrokeThickness" = 0
   "IntervalBarSeries.TextColor" = "white"
+
+  # RectangleBarSeries
+  "RectangleBarSeries.StrokeThickness" = 0
 
   # TornadobarSeries
   "TornadoBarSeries.StrokeThickness" = 0
