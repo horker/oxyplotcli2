@@ -15,12 +15,14 @@ namespace Horker.PSOxyPlot.Styles
 
         private static void AddPaletteColorScheme(string name, IList<OxyColor> colors, bool reverse = false)
         {
-            var p = new PaletteColorScheme(name, colors, 200);
+            var paletteSize = Math.Max(200, colors.Count);
+
+            var p = new PaletteColorScheme(name, colors, paletteSize);
             Register(p);
 
             if (reverse)
             {
-                var r = new PaletteColorScheme(name + "-rev", colors.Reverse().ToArray(), 200);
+                var r = new PaletteColorScheme(name + "-rev", colors.Reverse().ToArray(), paletteSize);
                 Register(r);
             }
         }
@@ -96,6 +98,13 @@ namespace Horker.PSOxyPlot.Styles
             AddPaletteColorScheme("gold", new[] { OxyColor.FromRgb(188,140,0), OxyColor.FromRgb(255, 226, 188) }, true);
             AddPaletteColorScheme("blue", new[] { OxyColor.FromRgb(65,113,156), OxyColor.FromRgb(196, 213, 235) }, true);
             AddPaletteColorScheme("green", new[] { OxyColor.FromRgb(80, 126, 50), OxyColor.FromRgb(201, 219, 193) }, true);
+
+            // Matplotlib palettes
+
+            AddPaletteColorScheme("magma", MatplotlibColormaps.magma, true);
+            AddPaletteColorScheme("inferno", MatplotlibColormaps.inferno, true);
+            AddPaletteColorScheme("plasma", MatplotlibColormaps.plasma, true);
+            AddPaletteColorScheme("viridis", MatplotlibColormaps.viridis, true);
         }
 
         public static void Register(IColorScheme colorScheme)
