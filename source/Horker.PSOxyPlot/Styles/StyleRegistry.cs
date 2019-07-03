@@ -167,7 +167,7 @@ namespace Horker.PSOxyPlot.Styles
                     })
                 },
 
-                // LinearColorSeries
+                // LinearColorAxis
 
                 {
                     "LinearColorAxis.Palette",
