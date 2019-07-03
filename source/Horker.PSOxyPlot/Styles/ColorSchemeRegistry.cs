@@ -111,9 +111,16 @@ namespace Horker.PSOxyPlot.Styles
             // Colorful palettes
 
             _colorSchemes.Add("colorful1", new ColorfulColorScheme("colorful1", Xl2016.Colormaps.colorful1));
+            _colorSchemes.Add("colorful1-rev", new ColorfulColorScheme("colorful1-rev", Xl2016.Colormaps.colorful1.Reverse().ToArray()));
+
             _colorSchemes.Add("colorful2", new ColorfulColorScheme("colorful2", Xl2016.Colormaps.colorful2));
+            _colorSchemes.Add("colorful2-rev", new ColorfulColorScheme("colorful2-rev", Xl2016.Colormaps.colorful2.Reverse().ToArray()));
+
             _colorSchemes.Add("colorful3", new ColorfulColorScheme("colorful3", Xl2016.Colormaps.colorful3));
+            _colorSchemes.Add("colorful3-rev", new ColorfulColorScheme("colorful3-rev", Xl2016.Colormaps.colorful3.Reverse().ToArray()));
+
             _colorSchemes.Add("colorful4", new ColorfulColorScheme("colorful4", Xl2016.Colormaps.colorful4));
+            _colorSchemes.Add("colorful4-rev", new ColorfulColorScheme("colorful4-rev", Xl2016.Colormaps.colorful4.Reverse().ToArray()));
         }
 
         public static void Register(IColorScheme colorScheme)

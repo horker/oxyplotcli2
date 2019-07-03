@@ -1,11 +1,11 @@
-improve ggplot style
-xl2016 style
 help document
 sample code
 window support
 AddOxyAxisShare
--Warn non-existence properties in style definitions
 oxy.func title?
+xl2016 style
+histogram/boxplot helpers
+ordinal instead of prop name
 
 examples in Example Browser:
 Custom series: PolarHeapMap
@@ -36,6 +36,7 @@ SmartConverter implementation: typed ToXxxx() methods
 -Options
 TileMapAnnotation
 MatrixSeries
+-Warn non-existence properties in style definitions
 
 DONE OxyPlot v2.0 support
 DONE oxyplotcli v1 features
@@ -82,3 +83,5 @@ DONE Contour series cmdlet interfaces
 DONE Az axis parameters
 DONE Style support
 DONE base style concept
+DONE improve ggplot style
+DONE xl2016 style
