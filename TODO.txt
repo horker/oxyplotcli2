@@ -8,6 +8,7 @@ histogram/boxplot helpers
 ordinal instead of prop name
 default font
 allow to specify a aont and a color scheme when defining a default style
+-grouporder
 
 examples in Example Browser:
 Custom series: PolarHeapMap

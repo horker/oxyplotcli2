@@ -103,6 +103,7 @@
     <Compile Include="Matplotlib\MatplotlibColormaps.cs" />
     <Compile Include="R\ColorConverter.cs" />
     <Compile Include="R\HuePalette.cs" />
+    <Compile Include="SeriesBuilders\CategorySeriesBuilder.cs" />
     <Compile Include="SeriesInfo\AxisType.cs" />
     <Compile Include="Styles\ColorfulColorScheme.cs" />
     <Compile Include="Styles\ColorSchemeHelper.cs" />

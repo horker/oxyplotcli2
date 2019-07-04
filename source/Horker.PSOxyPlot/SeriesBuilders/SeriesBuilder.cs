@@ -213,7 +213,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         public void ReadBoundParameters(Dictionary<string, object> boundParameters)
         {
             // Initialize instance variables.
-            // They should be initialized here instead of in the constructor.
+            // Initialization should be done here instead of in the constructor for efficiency.
             // The subclasses of SeriesBuilder are instantiated in SeriesBuilderStore
             // to prepare for the query about Series object properties.
 
@@ -240,7 +240,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             if (boundParameters.TryGetValue("GroupName", out object groupName))
                 _groupName = (string)groupName;
 
-            // Inters axis types and initializes axis names based on bound parameters.
+            // Infer axis types and initialize axis names based on bound parameters.
 
             _info = new SeriesInfo<SeriesT>();
 
@@ -252,7 +252,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                         _info.AxisTitles[i] = (string)name;
 
                     // Infer axis types. If data points are given through the pipeline,
-                    // axis types are inferred when reading pipeline values in ReadPSObject().
+                    // inference will be done the first time we read pipeline values in ReadPSObject().
                     if (boundParameters.TryGetValue(DataPointItemNames[AxisItemIndexes[i]], out object value))
                     {
                         var a = value as object[];
@@ -358,13 +358,9 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         }
 
-        private void SetCategoryNames<T>(List<T> values)
+        protected virtual string[] GetCategoryNames()
         {
-            var count = values.Count;
-            var cat = new string[count];
-            for (var i = 0; i < count; ++i)
-                cat[i] = values[i].ToString();
-            _info.CategoryNames = cat;
+            return new string[0];
         }
 
         /// <summary>
@@ -400,7 +396,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 if (!seriesSet.TryGetValue(g, out s))
                 {
                     s = new SeriesT();
-                    if (g is string && g as string != DefaultGroupName)
+                    if (g.ToString() != DefaultGroupName)
                         s.Title = g.ToString();
                     seriesSet.Add(g, s);
                 }
@@ -423,23 +419,10 @@ namespace Horker.PSOxyPlot.SeriesBuilders
             Array.Sort(keys);
             _info.Series = keys.Select(k => seriesSet[k]).ToArray();
 
-            if (typeof(E1) == typeof(TypeAdaptors.Category))
-                SetCategoryNames(_e1);
-            if (typeof(E2) == typeof(TypeAdaptors.Category))
-                SetCategoryNames(_e2);
-            if (typeof(E3) == typeof(TypeAdaptors.Category))
-                SetCategoryNames(_e3);
-            if (typeof(E4) == typeof(TypeAdaptors.Category))
-                SetCategoryNames(_e4);
-            if (typeof(E5) == typeof(TypeAdaptors.Category))
-                SetCategoryNames(_e5);
-            if (typeof(E6) == typeof(TypeAdaptors.Category))
-                SetCategoryNames(_e6);
-            if (typeof(E7) == typeof(TypeAdaptors.Category))
-                SetCategoryNames(_e7);
+            _info.CategoryNames = GetCategoryNames();
 
             foreach (var s in _info.Series)
-            style.ApplyStyleTo(s);
+                style.ApplyStyleTo(s);
 
             return _info;
         }

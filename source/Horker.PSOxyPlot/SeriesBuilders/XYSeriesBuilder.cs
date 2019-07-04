@@ -34,7 +34,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
-    public class BarSeriesBuilder : SeriesBuilder<BarSeries, BarItem, double, TypeAdaptors.Category, VoidT, VoidT, VoidT, VoidT, VoidT>
+    public class BarSeriesBuilder : CategorySeriesBuilder<BarSeries, BarItem, double, TypeAdaptors.Category, VoidT, VoidT, VoidT, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new[] { "Value", "Category" };
         public override bool[] DataPointItemMandatoriness => new[] { true, false };
@@ -44,7 +44,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         protected override void AddDataPointToSeries(BarSeries series, double value, TypeAdaptors.Category category, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
-            series.Items.Add(new BarItem(value));
+            series.Items.Add(new BarItem(value, GetCategoryIndex(category)));
         }
     }
 
@@ -94,7 +94,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
-    public class ColumnSeriesBuilder : SeriesBuilder<ColumnSeries, ColumnItem, double, TypeAdaptors.Category, VoidT, VoidT, VoidT, VoidT, VoidT>
+    public class ColumnSeriesBuilder : CategorySeriesBuilder<ColumnSeries, ColumnItem, double, TypeAdaptors.Category, VoidT, VoidT, VoidT, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new[] { "Value", "Category" };
         public override bool[] DataPointItemMandatoriness => new[] { true, false };
@@ -104,7 +104,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         protected override void AddDataPointToSeries(ColumnSeries series, double value, TypeAdaptors.Category category, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
-            series.Items.Add(new ColumnItem(value));
+            series.Items.Add(new ColumnItem(value, GetCategoryIndex(category)));
         }
     }
 
@@ -166,7 +166,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
-    public class ErrorColumnSeriesBuilder : SeriesBuilder<ErrorColumnSeries, ErrorColumnItem, double, double, TypeAdaptors.Category, VoidT, VoidT, VoidT, VoidT>
+    public class ErrorColumnSeriesBuilder : CategorySeriesBuilder<ErrorColumnSeries, ErrorColumnItem, double, double, TypeAdaptors.Category, VoidT, VoidT, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new[] { "Value", "Error", "Category" };
         public override bool[] DataPointItemMandatoriness => new[] { true, true, false };
@@ -176,7 +176,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         protected override void AddDataPointToSeries(ErrorColumnSeries series, double value, double error, TypeAdaptors.Category category, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
-            series.Items.Add(new ErrorColumnItem(value, error));
+            series.Items.Add(new ErrorColumnItem(value, error, GetCategoryIndex(category)));
         }
     }
 
@@ -394,7 +394,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
-    public class TornadoBarSeriesBuilder : SeriesBuilder<TornadoBarSeries, TornadoBarItem, double, double, double, OxyColor, OxyColor, TypeAdaptors.Category, VoidT>
+    public class TornadoBarSeriesBuilder : CategorySeriesBuilder<TornadoBarSeries, TornadoBarItem, double, double, double, OxyColor, OxyColor, TypeAdaptors.Category, VoidT>
     {
         public override string[] DataPointItemNames => new[] { "Minimum", "Maximum", "BarBaseValue", "MinimumColor", "MaximumColor", "Category" };
         public override bool[] DataPointItemMandatoriness => new[] { true, true, true, false, false, false };
@@ -410,7 +410,8 @@ namespace Horker.PSOxyPlot.SeriesBuilders
                 Maximum = maximum,
                 BaseValue = barBaseValue,
                 MinimumColor = minimumColor,
-                MaximumColor = maximumColor
+                MaximumColor = maximumColor,
+                CategoryIndex = GetCategoryIndex(category)
             };
             series.Items.Add(item);
         }
