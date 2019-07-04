@@ -34,7 +34,7 @@ namespace Horker.PSOxyPlot.Cmdlets
             Axis xAxis = null;
             Axis yAxis = null;
             Axis zAxis = null;
-            if (si.Series.Count > 0)
+            if (si?.Series?.Count > 0)
             {
                 xAxis = AxisInitializer.CreateWithPrefixedParameters(
                     bp,
@@ -82,33 +82,36 @@ namespace Horker.PSOxyPlot.Cmdlets
             if (zAxis != null)
                 model.Axes.Add(zAxis);
 
-            foreach (var s in si.Series)
+            if (si?.Series != null)
             {
-                model.Series.Add(s);
+                foreach (var s in si?.Series)
+                {
+                    model.Series.Add(s);
 
-                if (s is XYAxisSeries xy)
-                {
-                    if (xAxis != null)
-                        xy.XAxisKey = xAxis.Key;
+                    if (s is XYAxisSeries xy)
+                    {
+                        if (xAxis != null)
+                            xy.XAxisKey = xAxis.Key;
 
-                    if (yAxis != null)
-                        xy.YAxisKey = yAxis.Key;
-                }
+                        if (yAxis != null)
+                            xy.YAxisKey = yAxis.Key;
+                    }
 
-                if (s is CandleStickAndVolumeSeries candlev)
-                {
-                    if (zAxis != null)
-                        candlev.VolumeAxisKey = zAxis.Key;
-                }
-                else if (s is HeatMapSeries h)
-                {
-                    if (zAxis != null)
-                        h.ColorAxisKey = zAxis.Key;
-                }
-                else if (s is RectangleSeries r)
-                {
-                    if (zAxis != null)
-                        r.ColorAxisKey = zAxis.Key;
+                    if (s is CandleStickAndVolumeSeries candlev)
+                    {
+                        if (zAxis != null)
+                            candlev.VolumeAxisKey = zAxis.Key;
+                    }
+                    else if (s is HeatMapSeries h)
+                    {
+                        if (zAxis != null)
+                            h.ColorAxisKey = zAxis.Key;
+                    }
+                    else if (s is RectangleSeries r)
+                    {
+                        if (zAxis != null)
+                            r.ColorAxisKey = zAxis.Key;
+                    }
                 }
             }
 

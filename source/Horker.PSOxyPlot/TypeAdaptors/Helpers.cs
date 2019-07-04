@@ -34,7 +34,7 @@ namespace Horker.PSOxyPlot.TypeAdaptors
                 return (T)(object)Bool.ConvertFrom(value);
 
             if (typeof(T) == typeof(Category))
-                return (T)(object)new Category((string)value);
+                return (T)(object)new Category(value.ToString());
 
             if (typeof(T) == typeof(double))
                 return (T)(object)Double.ConvertFrom(value);

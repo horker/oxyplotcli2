@@ -8,6 +8,7 @@ namespace Horker.PSOxyPlot.Styles
 {
     public enum EventType
     {
+        BeforeAxesFixup,
         BeforeRendering
     }
 }

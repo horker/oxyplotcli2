@@ -28,7 +28,7 @@ namespace Horker.PSOxyPlot.Initializers
 
                 updated = true;
 
-                style.ApplyEventHook(model, EventType.BeforeRendering);
+                style.ApplyEventHook(model, EventType.BeforeAxesFixup);
 
                 if (siList == null)
                     AxisInitializer.EnsureAxes((PlotModel)sender, null, style);
@@ -43,6 +43,8 @@ namespace Horker.PSOxyPlot.Initializers
                     var colorCount = ColorSchemeHelper.GetCountCount(model, style);
                     model.DefaultColors = style.ColorScheme.GetDefaultColors(colorCount);
                 }
+
+                style.ApplyEventHook(model, EventType.BeforeRendering);
             };
 
             return model;
