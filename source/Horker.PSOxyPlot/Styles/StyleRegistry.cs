@@ -218,7 +218,7 @@ namespace Horker.PSOxyPlot.Styles
                     "CategoryAxis.Angle",
                     new Action<object, Style>((target, style) => {
                         var axis = (CategoryAxis)target;
-                        if (axis.IsHorizontal() && axis.Labels.Max(x => x.Length) >= 3) 
+                        if (axis.IsHorizontal() && axis.Labels?.Max(x => x?.Length) >= 3)
                             axis.Angle = -45;
                     })
                 },

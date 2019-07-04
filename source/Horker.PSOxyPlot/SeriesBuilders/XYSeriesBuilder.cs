@@ -48,7 +48,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
-    public class BoxPlotSeriesBuilder : SeriesBuilder<BoxPlotSeries, BoxPlotItem, TypeAdaptors.Category, double, double, double, double, double, object>
+    public class BoxPlotSeriesBuilder : CategorySeriesBuilder<BoxPlotSeries, BoxPlotItem, TypeAdaptors.Category, double, double, double, double, double, object>
     {
         public override string[] DataPointItemNames => new[] { "Category", "LowerWhisker", "BoxBottom", "Median", "BoxTop", "UpperWhisker", "Outliers" };
         public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true, true, false };
@@ -58,6 +58,8 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         protected override void AddDataPointToSeries(BoxPlotSeries series, TypeAdaptors.Category category, double lowerWhisker, double boxBottom, double median, double boxTop, double upperWhisker, object outliers)
         {
+            GetCategoryIndex(category);
+
             var item = new BoxPlotItem(series.Items.Count, lowerWhisker, boxBottom, median, boxTop, upperWhisker);
             if (outliers != null)
                 item.Outliers = new TypeAdaptors.DoubleList(outliers).Values;
@@ -237,7 +239,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
         }
     }
 
-    public class IntervalBarSeriesBuilder : SeriesBuilder<IntervalBarSeries, IntervalBarItem, double, double, string, TypeAdaptors.Category, VoidT, VoidT, VoidT>
+    public class IntervalBarSeriesBuilder : CategorySeriesBuilder<IntervalBarSeries, IntervalBarItem, double, double, string, TypeAdaptors.Category, VoidT, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new[] { "Start", "End", "BarTitle", "Category" };
         public override bool[] DataPointItemMandatoriness => new[] { true, true, false, false };
@@ -247,6 +249,7 @@ namespace Horker.PSOxyPlot.SeriesBuilders
 
         protected override void AddDataPointToSeries(IntervalBarSeries series, double start, double end, string barTitle, TypeAdaptors.Category category, VoidT e5, VoidT e6, VoidT e7)
         {
+            GetCategoryIndex(category);
             series.Items.Add(new IntervalBarItem(start, end, barTitle));
         }
     }
