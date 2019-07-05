@@ -82,7 +82,6 @@ $config = @{
   # PieSeries
   "PieSeries.StartAngle" = -90
   "PieSeries.Diameter" = 0.75
-  "PieSeries.AreInsideLabelsAngled" = $true
 
   # IntervalBarSeries
   "IntervalBarSeries.StrokeThickness" = 0
