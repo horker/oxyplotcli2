@@ -58,6 +58,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cmdlets\StyleCmdlets\AddOxyStyle.cs" />
@@ -93,6 +94,8 @@
     <Compile Include="Cmdlets\StyleCmdlets\RemoveOxyStyle.cs" />
     <Compile Include="Cmdlets\SeriesCmdletBase.cs" />
     <Compile Include="Cmdlets\StyleCmdlets\SetOxyDefaultStyle.cs" />
+    <Compile Include="Cmdlets\WpfWindowCmdlets\AddOxyAxisShare.cs" />
+    <Compile Include="Cmdlets\WpfWindowCmdlets\WpfWindowCmdlets.cs" />
     <Compile Include="GridView\GridView.cs" />
     <Compile Include="Exporters\GridViewExporter.cs" />
     <Compile Include="Exporters\ModelExporter.cs" />
