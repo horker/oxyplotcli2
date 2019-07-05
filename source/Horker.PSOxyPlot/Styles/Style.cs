@@ -23,6 +23,7 @@ namespace Horker.PSOxyPlot.Styles
         private Dictionary<Type, List<HookAction>> _typeHooks;
         private Dictionary<EventType, List<HookAction>> _eventHooks;
         private IColorScheme _colorScheme;
+        private string _defaultFont;
 
         public string Name
         {
@@ -38,6 +39,12 @@ namespace Horker.PSOxyPlot.Styles
         {
             get => _colorScheme;
             set => _colorScheme = value;
+        }
+
+        public string DefaultFont
+        {
+            get => _defaultFont;
+            set => _defaultFont = value;
         }
 
         static Style()
@@ -134,6 +141,12 @@ namespace Horker.PSOxyPlot.Styles
                     if (eventName == "defaultcolorscheme")
                     {
                         style._colorScheme = ColorSchemeRegistry.Get((string)value);
+                        continue;
+                    }
+
+                    if (eventName == "defaultfont")
+                    {
+                        style._defaultFont = value.ToString();
                         continue;
                     }
 

@@ -3,11 +3,8 @@ sample code
 window support
 AddOxyAxisShare
 oxy.func title?
-xl2016 style
 histogram/boxplot helpers
 ordinal instead of prop name
-default font
-allow to specify a aont and a color scheme when defining a default style
 -grouporder
 
 examples in Example Browser:
@@ -88,3 +85,6 @@ DONE Style support
 DONE base style concept
 DONE improve ggplot style
 DONE xl2016 style
+DONE default font
+DONE xl2016 style
+DONE allow to specify a font and a color scheme when defining a default style

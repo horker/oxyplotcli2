@@ -19,10 +19,13 @@ namespace Horker.PSOxyPlot.Cmdlets
         public Hashtable Config = new Hashtable();
 
         [Parameter(Position = 2, Mandatory = false)]
-        public string ColorScheme = null;
+        public string BaseStyle;
 
         [Parameter(Position = 3, Mandatory = false)]
-        public string BaseStyle;
+        public string ColorScheme = null;
+
+        [Parameter(Position = 4, Mandatory = false)]
+        public string DefaultFont = null;
 
         protected override void BeginProcessing()
         {
@@ -39,6 +42,9 @@ namespace Horker.PSOxyPlot.Cmdlets
 
             if (MyInvocation.BoundParameters.ContainsKey("ColorScheme"))
                 style.ColorScheme = ColorSchemeRegistry.Get(ColorScheme);
+
+            if (MyInvocation.BoundParameters.ContainsKey("DefaultFont"))
+                style.DefaultFont = DefaultFont;
 
             StyleRegistry.Register(Name, style);
         }

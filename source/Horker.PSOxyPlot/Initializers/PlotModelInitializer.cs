@@ -16,8 +16,12 @@ namespace Horker.PSOxyPlot.Initializers
         {
             var model = new PlotModel();
             var defaultColorsSave = model.DefaultColors;
+            var defaultFontSave = model.DefaultFont;
 
             style.ApplyStyleTo(model);
+
+            if (ReferenceEquals(model.DefaultFont, defaultFontSave))
+                model.DefaultFont = style.DefaultFont;
 
             var updated = false;
 

@@ -140,5 +140,10 @@ namespace Horker.PSOxyPlot.Styles
 
             throw new ArgumentException($"No color scheme found: '{name}'");
         }
+
+        public static bool Contains(string name)
+        {
+            return _colorSchemes.ContainsKey(name.ToLower());
+        }
     }
 }
