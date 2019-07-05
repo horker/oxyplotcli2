@@ -37,10 +37,10 @@ namespace Horker.PSOxyPlot.Styles
             return OxyPalette.Interpolate(PaletteSize, Colors.ToArray());
         }
 
-        public Tuple<OxyColor, OxyColor> GetBoxPlotStrokeColors()
+        public Tuple<OxyColor, OxyColor> GetBoxPlotColors()
         {
             var colors = OxyPalette.Interpolate(2, Colors.ToArray()).Colors;
-            return Tuple.Create(colors[0], colors[1]);
+            return Tuple.Create(OxyColors.Black, colors[0]);
         }
     }
 }

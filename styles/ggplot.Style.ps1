@@ -66,6 +66,7 @@ $config = @{
   "Scatter*Series.MarkerSize" = "3px"
 
   # BoxPlotSeries
+  "BoxPlotSeries.BoxWidth" = .6
   "BoxPlotSeries.StrokeThickness" = "2pt"
   "BoxPlotSeries.WhiskerWidth" = 0
   "BoxPlotSeries.OutlierSize" = "3pt"

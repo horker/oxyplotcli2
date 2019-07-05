@@ -18,19 +18,25 @@ $config = @{
 
   # PlotArea
   "PlotModel.PlotAreaBorderThickness" = 0
-  "PlotModel.TitleFontSize" = $baseSize * 2
+
+  # Titles
+  "PlotModel.TitleFontSize" = $baseSize * 1.5
+  "PlotModel.TitleFontWeight" = 400
   "PlotModel.SubtitleFontSize" = $baseSize * 0.9
+  "PlotModel.SubtitleFontWeight" = 400
 
   # Legend
   "PlotModel.LegendBackground" = "#000000-00"
   "PlotModel.LegendBorderThickness" = 0
+  "PlotModel.LegendMargin" = 0
+  "PlotModel.LegendItemSpacing" = 12
   "PlotModel.LegendOrientation" = "Horizontal"
   "PlotModel.LegendPlacement" = "Outside"
   "PlotModel.LegendPosition" = "BottomCenter"
-
   "PlotModel.LegendTitleFontSize" = $baseSize
-  "PlotModel.LegendTitleFontWeight" = 800
-  "PlotModel.LegendFontSize" = $baseSize
+  "PlotModel.LegendTitleFontWeight" = 400
+  "PlotModel.LegendFontSize" = $baseSize * 0.8
+  "PlotModel.LegendTextColor" = "#595959"
 
   # *Axis: Tick
   "*Axis.TickStyle" = "None"
@@ -61,9 +67,8 @@ $config = @{
   "Scatter*Series.MarkerSize" = "3px"
 
   # BoxPlotSeries
-  "BoxPlotSeries.StrokeThickness" = "2pt"
-  "BoxPlotSeries.WhiskerWidth" = 0
-  "BoxPlotSeries.OutlierSize" = "3pt"
+  "BoxPlotSeries.BoxWidth" = .9
+  "BoxPlotSeries.Stroke" = "Black"
 
   # CandleStickAndVolumeSeries
   "CandleStickAndVolumeSeries.VolumeStyle" = "Stacked"

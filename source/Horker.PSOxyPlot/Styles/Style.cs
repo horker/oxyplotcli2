@@ -273,5 +273,10 @@ namespace Horker.PSOxyPlot.Styles
             foreach (var a in actions)
                 a.Invoke(model, this);
         }
+
+        public void ApplyColorScheme(PlotModel model)
+        {
+            ColorSchemeHelper.ApplyColorScheme(model, _colorScheme);
+        }
     }
 }

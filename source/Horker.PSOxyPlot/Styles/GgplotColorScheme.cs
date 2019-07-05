@@ -32,7 +32,7 @@ namespace Horker.PSOxyPlot.Styles
             return Tuple.Create(colors[0], colors[1]);
         }
 
-        public Tuple<OxyColor, OxyColor> GetBoxPlotStrokeColors()
+        public Tuple<OxyColor, OxyColor> GetBoxPlotColors()
         {
             return Tuple.Create(OxyColors.Black, OxyColors.White);
         }

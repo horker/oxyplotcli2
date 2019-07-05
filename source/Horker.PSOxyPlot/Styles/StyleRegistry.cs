@@ -45,15 +45,14 @@ namespace Horker.PSOxyPlot.Styles
                     "BoxPlotSeries.Stroke",
                     new Action<object, Style>((target, style) => {
                         var series = (BoxPlotSeries)target;
-                        series.Stroke = style.ColorScheme.GetBoxPlotStrokeColors().Item1;
+                        series.Stroke = style.ColorScheme.GetBoxPlotColors().Item1;
                     })
                 },
-
                 {
                     "BoxPlotSeries.Fill",
                     new Action<object, Style>((target, style) => {
                         var series = (BoxPlotSeries)target;
-                        series.Fill = style.ColorScheme.GetBoxPlotStrokeColors().Item2;
+                        series.Fill = style.ColorScheme.GetBoxPlotColors().Item2;
                     })
                 },
 

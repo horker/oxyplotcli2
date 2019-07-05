@@ -46,9 +46,9 @@ namespace Horker.PSOxyPlot.Styles
             _palette = null;
         }
 
-        public Tuple<OxyColor, OxyColor> GetBoxPlotStrokeColors()
+        public Tuple<OxyColor, OxyColor> GetBoxPlotColors()
         {
-            return Tuple.Create(Colors[0], Colors[1]);
+            return Tuple.Create(OxyColors.Black, Colors[0]);
         }
 
         public Tuple<OxyColor, OxyColor> GetCandleStickColors()
@@ -84,5 +84,6 @@ namespace Horker.PSOxyPlot.Styles
 
             return colors;
         }
+
     }
 }

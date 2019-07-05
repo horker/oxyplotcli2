@@ -39,10 +39,7 @@ namespace Horker.PSOxyPlot.Initializers
                 }
 
                 if (style.ColorScheme != null && ReferenceEquals(model.DefaultColors, defaultColorsSave))
-                {
-                    var colorCount = ColorSchemeHelper.GetCountCount(model, style);
-                    model.DefaultColors = style.ColorScheme.GetDefaultColors(colorCount);
-                }
+                    style.ApplyColorScheme(model);
 
                 style.ApplyEventHook(model, EventType.BeforeRendering);
             };
