@@ -24,6 +24,7 @@ namespace Horker.PSOxyPlot.Styles
         private Dictionary<EventType, List<HookAction>> _eventHooks;
         private IColorScheme _colorScheme;
         private string _defaultFont;
+        private bool _temporary;
 
         public string Name
         {
@@ -45,6 +46,12 @@ namespace Horker.PSOxyPlot.Styles
         {
             get => _defaultFont;
             set => _defaultFont = value;
+        }
+
+        public bool Temporary
+        {
+            get => _temporary;
+            set => _temporary = value;
         }
 
         static Style()

@@ -13,6 +13,7 @@ namespace Horker.PSOxyPlot.Styles
     public static class StyleRegistry
     {
         private static Dictionary<string, Style> _styles;
+        private static Style _defaultStyle;
 
         public static IEnumerable<Style> Styles => _styles.Values;
 
@@ -22,13 +23,18 @@ namespace Horker.PSOxyPlot.Styles
         public static Style FallbackStyle { get; private set; }
         public static Style VanillaStyle { get; private set; }
 
-        public static string DefaultStyleName { get; set; } = VanillaStyleName;
-
         public static Style DefaultStyle
         {
-            get => _styles[DefaultStyleName];
-            set => DefaultStyleName = value.Name;
+            get => _defaultStyle;
+            set
+            {
+                if (_defaultStyle.Temporary)
+                    Unregister(_defaultStyle.Name);
+                _defaultStyle = value;
+            }
         }
+
+        public static string DefaultStyleName => _defaultStyle.Name;
 
         static StyleRegistry()
         {
@@ -252,11 +258,15 @@ namespace Horker.PSOxyPlot.Styles
 
             var emptyStyle = Style.Create("empty", new Dictionary<string, object>(), null);
             _styles.Add("empty", emptyStyle);
+
+            // Default style
+
+            _defaultStyle = VanillaStyle;
         }
 
-        public static void Register(string name, Style style)
+        public static void Register(Style style)
         {
-            _styles[name] = style;
+            _styles[style.Name] = style;
         }
 
         public static void Unregister(string name)

@@ -46,7 +46,7 @@ namespace Horker.PSOxyPlot.Cmdlets
             if (MyInvocation.BoundParameters.ContainsKey("DefaultFont"))
                 style.DefaultFont = DefaultFont;
 
-            StyleRegistry.Register(Name, style);
+            StyleRegistry.Register(style);
         }
     }
 }

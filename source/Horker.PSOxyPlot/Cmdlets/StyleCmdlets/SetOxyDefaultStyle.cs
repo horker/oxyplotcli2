@@ -25,12 +25,12 @@ namespace Horker.PSOxyPlot.Cmdlets
         {
             if (MyInvocation.BoundParameters.ContainsKey("ColorScheme") || MyInvocation.BoundParameters.ContainsKey("DefaultFont"))
             {
-                var baseName = Style.Value.Name + "-" + ColorScheme + "_" + DefaultFont;
+                var baseName = Style.Value.Name + "-" + ColorScheme + "-" + DefaultFont;
 
                 var name = baseName;
                 var count = 1;
                 while (ColorSchemeRegistry.Contains(name))
-                    name = $"{baseName}_{count++}";
+                    name = $"{baseName}-{count++}";
 
                 var newStyle = Styles.Style.Create(name, new Dictionary<string, object>(), Style);
 
@@ -40,7 +40,8 @@ namespace Horker.PSOxyPlot.Cmdlets
                 if (MyInvocation.BoundParameters.ContainsKey("DefaultFont"))
                     newStyle.DefaultFont = DefaultFont;
 
-                StyleRegistry.Register(name, newStyle);
+                newStyle.Temporary = true;
+
                 StyleRegistry.DefaultStyle = newStyle;
             }
             else
