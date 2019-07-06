@@ -8,7 +8,7 @@ using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 
-namespace Horker.PSOxyPlot.Styles
+namespace Horker.OxyPlotCli.Styles
 {
     public static class StyleRegistry
     {

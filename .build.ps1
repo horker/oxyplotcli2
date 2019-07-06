@@ -9,8 +9,8 @@ Set-StrictMode -Version 4
 $SOURCE_PATH = "$PSScriptRoot\source\bin"
 $SCRIPT_PATH = "$PSScriptRoot\scripts"
 
-$MODULE_PATH = "$PSScriptRoot\module\psoxyplot"
-$MODULE_PATH_DEBUG = "$PSScriptRoot\module\debug\psoxyplot"
+$MODULE_PATH = "$PSScriptRoot\module\oxyplotcli"
+$MODULE_PATH_DEBUG = "$PSScriptRoot\module\debug\oxyplotcli"
 
 $MODULE_STYLE_PATH =   "$MODULE_PATH\styles"
 $MODULE_STYLE_PATH_DEBUG =   "$MODULE_PATH_DEBUG\styles"
@@ -18,8 +18,8 @@ $MODULE_STYLE_PATH_DEBUG =   "$MODULE_PATH_DEBUG\styles"
 $SOLUTION_FILE = "$PSScriptRoot\source\oxyplotcli.sln"
 
 $OBJECT_FILES = @(
-  "Horker.PSOxyPlot.dll"
-  "Horker.PSOxyPlot.pdb"
+  "Horker.OxyPlotCli.dll"
+  "Horker.OxyPlotCli.pdb"
   "OxyPlot.dll"
   "OxyPlot.Wpf.dll"
 )

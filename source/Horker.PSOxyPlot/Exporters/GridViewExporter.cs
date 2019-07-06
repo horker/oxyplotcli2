@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horker.PSOxyPlot
+namespace Horker.OxyPlotCli
 {
     public static class GridViewExporter
     {

@@ -1,21 +1,6 @@
-﻿<#@ template language="C#" hostspecific="true" debug="true" #>
-<#@ output extension=".cs" #>
-<#@ assembly name="System.Core" #>
-<#@ assembly name="System.Runtime" #>
-<#@ assembly name="$(ProjectDir)..\bin\Debug\OxyPlot.dll" #>
-<#@ assembly name="$(ProjectDir)..\bin\Debug\Horker.PSOxyPlot.dll" #>
-<#@ import namespace="System" #>
-<#@ import namespace="System.Collections.Generic" #>
-<#@ import namespace="System.Reflection" #>
-<#@ import namespace="System.Text" #>
-<#@ import namespace="System.Text.RegularExpressions" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Reflection" #>
-<#@ import namespace="OxyPlot" #>
-<#@ import namespace="OxyPlot.Series" #>
-<#@ import namespace="Horker.PSOxyPlot" #>
-<#@ import namespace="Horker.PSOxyPlot.SeriesBuilders" #>
-<#@ include file="Common.tt" #>
+﻿<#@ include file="Common.tt" #>
+<#@ import namespace="Horker.OxyPlotCli" #>
+<#@ import namespace="Horker.OxyPlotCli.SeriesBuilders" #>
 <#
 var assembly = typeof(LineSeriesBuilder).Assembly;
 var builderTypes = assembly.DefinedTypes.Where(x => x.Name.EndsWith("SeriesBuilder") && !x.IsAbstract && !x.Name.Contains("Function") && !x.Name.Contains("HeatMap"));
@@ -30,11 +15,11 @@ using System.Text;
 using System.Management.Automation;
 using OxyPlot;
 using OxyPlot.Series;
-using Horker.PSOxyPlot.SeriesBuilders;
-using Horker.PSOxyPlot.Initializers;
-using Horker.PSOxyPlot.Styles;
+using Horker.OxyPlotCli.SeriesBuilders;
+using Horker.OxyPlotCli.Initializers;
+using Horker.OxyPlotCli.Styles;
 
-namespace Horker.PSOxyPlot.Cmdlets
+namespace Horker.OxyPlotCli.Cmdlets
 {
 <#
 foreach (var builderType in builderTypes)

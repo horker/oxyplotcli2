@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Horker.PSOxyPlot.TypeAdaptors
+namespace Horker.OxyPlotCli.TypeAdaptors
 {
     public class Double
     {

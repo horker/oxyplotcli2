@@ -1,6 +1,6 @@
 using OxyPlot;
 
-namespace Horker.PSOxyPlot.Xl2016
+namespace Horker.OxyPlotCli.Xl2016
 {
     public static class Colormaps
     {

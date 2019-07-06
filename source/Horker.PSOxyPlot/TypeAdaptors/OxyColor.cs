@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Horker.PSOxyPlot.TypeAdaptors
+namespace Horker.OxyPlotCli.TypeAdaptors
 {
     public class OxyColor
     {

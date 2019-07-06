@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Wpf;
 
-namespace Horker.PSOxyPlot
+namespace Horker.OxyPlotCli
 {
     public static class ModelExporter
     {

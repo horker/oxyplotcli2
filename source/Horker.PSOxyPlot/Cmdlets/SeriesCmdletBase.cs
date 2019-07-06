@@ -4,14 +4,14 @@ using System.Linq;
 using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
-using Horker.PSOxyPlot.Initializers;
-using Horker.PSOxyPlot.SeriesBuilders;
-using Horker.PSOxyPlot.Styles;
+using Horker.OxyPlotCli.Initializers;
+using Horker.OxyPlotCli.SeriesBuilders;
+using Horker.OxyPlotCli.Styles;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 
-namespace Horker.PSOxyPlot.Cmdlets
+namespace Horker.OxyPlotCli.Cmdlets
 {
     public class SeriesCmdletBase : PSCmdlet
     {

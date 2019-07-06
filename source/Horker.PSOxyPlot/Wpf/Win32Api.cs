@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 #pragma warning disable CS1591
 
-namespace Horker.PSOxyPlot.Wpf
+namespace Horker.OxyPlotCli.Wpf
 {
     // Win32 API functions and constants to make a window invisible in the task switcher
     // ref.

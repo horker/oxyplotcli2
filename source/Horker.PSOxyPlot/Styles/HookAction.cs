@@ -5,7 +5,7 @@ using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horker.PSOxyPlot.Styles
+namespace Horker.OxyPlotCli.Styles
 {
     public class HookAction
     {

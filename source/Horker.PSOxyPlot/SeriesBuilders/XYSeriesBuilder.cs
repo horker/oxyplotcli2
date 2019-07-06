@@ -7,7 +7,7 @@ using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 
-namespace Horker.PSOxyPlot.SeriesBuilders
+namespace Horker.OxyPlotCli.SeriesBuilders
 {
     public class AreaSeriesBuilder : SeriesBuilder<AreaSeries, DataPoint, double, double, double, double, VoidT, VoidT, VoidT>
     {

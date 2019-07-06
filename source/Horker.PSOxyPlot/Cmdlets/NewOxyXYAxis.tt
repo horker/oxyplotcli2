@@ -1,6 +1,4 @@
-﻿<#@ template language="C#" hostspecific="true" debug="true" #>
-<#@ output extension=".cs" #>
-<#@ include file="Common.tt" #>
+﻿<#@ include file="Common.tt" #>
 <#
 var axes = typeof(OxyPlot.Axes.LinearAxis).Assembly.GetTypes().Where(t => (t.Name.EndsWith("Axis") || t.Name.EndsWith("Annotation")) && !t.IsAbstract).ToArray();
 #>
@@ -12,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Series;
-using Horker.PSOxyPlot.Styles;
+using Horker.OxyPlotCli.Styles;
 
-namespace Horker.PSOxyPlot.Cmdlets
+namespace Horker.OxyPlotCli.Cmdlets
 {
 <#
 foreach (var axisType in axes)

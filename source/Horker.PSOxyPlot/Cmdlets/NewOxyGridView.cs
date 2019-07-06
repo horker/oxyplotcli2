@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 
-namespace Horker.PSOxyPlot
+namespace Horker.OxyPlotCli
 {
     [Cmdlet("New", "OxyGridView")]
     [Alias("oxy.gridView")]

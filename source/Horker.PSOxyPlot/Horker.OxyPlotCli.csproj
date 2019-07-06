@@ -7,8 +7,8 @@
     <ProjectGuid>{51AAE414-5618-4211-AD24-E77EC4C9F88B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Horker.PSOxyPlot</RootNamespace>
-    <AssemblyName>Horker.PSOxyPlot</AssemblyName>
+    <RootNamespace>Horker.OxyPlotCli</RootNamespace>
+    <AssemblyName>Horker.OxyPlotCli</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

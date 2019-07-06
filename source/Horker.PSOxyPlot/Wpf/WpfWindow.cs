@@ -3,7 +3,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 using System.Reflection;
-using Horker.PSOxyPlot.Wpf;
+using Horker.OxyPlotCli.Wpf;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Windows.Markup;
@@ -11,7 +11,7 @@ using System.Collections;
 
 #pragma warning disable CS1591
 
-namespace Horker.PSOxyPlot.Wpf
+namespace Horker.OxyPlotCli.Wpf
 {
     public class WpfWindow
     {

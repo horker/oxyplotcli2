@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 
-namespace Horker.PSOxyPlot.Cmdlets
+namespace Horker.OxyPlotCli.Cmdlets
 {
     [Cmdlet("Get", "OxyPalette")]
     [CmdletBinding(DefaultParameterSetName = "Preset")]

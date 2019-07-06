@@ -3,7 +3,7 @@
 
 Set-StrictMode -Version 3
 
-$baseSize = [Horker.PSOxyPlot.TypeAdaptors.Double]::ConvertFrom("11.0pt")
+$baseSize = [Horker.OxyPlotCli.TypeAdaptors.Double]::ConvertFrom("11.0pt")
 $baseLineSize = $baseSize / 22
 $baseRectSize = $baseSize / 22
 $halfLine = $baseSize / 2
@@ -103,7 +103,7 @@ $config = @{
   "[BeforeRendering]" = {
     param($m)
     $s = $m.Series[0]
-    $thickness = [Horker.PSOxyPlot.TypeAdaptors.Double]::ConvertFrom("1pt")
+    $thickness = [Horker.OxyPlotCli.TypeAdaptors.Double]::ConvertFrom("1pt")
     foreach ($a in $m.Axes) {
         if ($s -is [OxyPlot.Series.BarSeries] -or
             $s -is [OxyPlot.Series.IntervalBarSeries] -or

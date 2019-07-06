@@ -19,7 +19,7 @@
 
 using OxyPlot;
 
-namespace Horker.PSOxyPlot.Styles
+namespace Horker.OxyPlotCli.Styles
 {
     public static class MatplotlibColormaps
     {

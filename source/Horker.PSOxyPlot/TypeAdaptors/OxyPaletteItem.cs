@@ -5,7 +5,7 @@ using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horker.PSOxyPlot.TypeAdaptors
+namespace Horker.OxyPlotCli.TypeAdaptors
 {
     public class OxyPaletteItem
     {

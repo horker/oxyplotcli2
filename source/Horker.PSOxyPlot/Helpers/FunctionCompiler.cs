@@ -7,7 +7,7 @@ using Microsoft.CSharp;
 using System.CodeDom.Compiler;
 using System.Reflection;
 
-namespace Horker.PSOxyPlot
+namespace Horker.OxyPlotCli
 {
     public class FunctionCompiler
     {
@@ -15,7 +15,7 @@ namespace Horker.PSOxyPlot
 
         private static int classNameSuffix = 0;
 
-        private static readonly string Namespace = "Horker.PSOxyPlot.DynamicallyGeneratedClasses";
+        private static readonly string Namespace = "Horker.OxyPlotCli.DynamicallyGeneratedClasses";
 
         private static readonly string SourceCodeTemplate = @"
 using System;

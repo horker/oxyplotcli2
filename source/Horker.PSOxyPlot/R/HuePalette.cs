@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 
-namespace Horker.PSOxyPlot.R
+namespace Horker.OxyPlotCli.R
 {
     // Source:
     // https://github.com/hadley/scales/blob/master/R/pal-hue.r

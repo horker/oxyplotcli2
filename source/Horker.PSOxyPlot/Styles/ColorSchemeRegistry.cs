@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 
-namespace Horker.PSOxyPlot.Styles
+namespace Horker.OxyPlotCli.Styles
 {
     public static class ColorSchemeRegistry
     {

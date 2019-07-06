@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Series;
 
-namespace Horker.PSOxyPlot.Styles
+namespace Horker.OxyPlotCli.Styles
 {
     public static class ColorSchemeHelper
     {

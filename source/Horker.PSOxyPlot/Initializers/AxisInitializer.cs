@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Horker.PSOxyPlot.SeriesBuilders;
-using Horker.PSOxyPlot.Styles;
+using Horker.OxyPlotCli.SeriesBuilders;
+using Horker.OxyPlotCli.Styles;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 
-namespace Horker.PSOxyPlot.Initializers
+namespace Horker.OxyPlotCli.Initializers
 {
     public static class AxisInitializer
     {

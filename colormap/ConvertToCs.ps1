@@ -1,5 +1,5 @@
 # Commandline:
-# .\ConvertToCs.ps1 | sc ..\source\Horker.PSOxyPlot\Matplotlib\MatplotlibColormaps.cs
+# .\ConvertToCs.ps1 | sc ..\source\Horker.OxyPlotCli\Matplotlib\MatplotlibColormaps.cs
 
 Set-StrictMode -Version Latest
 $doc = Get-Content "$PSScriptRoot\colormaps.py"
@@ -26,7 +26,7 @@ $doc = Get-Content "$PSScriptRoot\colormaps.py"
 
 using OxyPlot;
 
-namespace Horker.PSOxyPlot.Styles
+namespace Horker.OxyPlotCli.Styles
 {
     public static class MatplotlibColormaps
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot.Series;
 
-namespace Horker.PSOxyPlot.SeriesBuilders
+namespace Horker.OxyPlotCli.SeriesBuilders
 {
     public abstract class CategorySeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6, E7> : SeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6, E7>
         where SeriesT : Series, new()

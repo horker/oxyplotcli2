@@ -15,9 +15,9 @@ function script:Define-PowerShellMethods {
 }
 
 $typesAndMethods = (
-    ([OxyPlot.PlotModel], [Horker.PSOxyPlot.PowerShellMethods.PlotModelMethods]),
-    ([OxyPlot.Series.LineSeries], [Horker.PSOxyPlot.PowerShellMethods.SeriesMethods]),
-    ([OxyPlot.Series.ScatterSeries], [Horker.PSOxyPlot.PowerShellMethods.SeriesMethods])
+    ([OxyPlot.PlotModel], [Horker.OxyPlotCli.PowerShellMethods.PlotModelMethods]),
+    ([OxyPlot.Series.LineSeries], [Horker.OxyPlotCli.PowerShellMethods.SeriesMethods]),
+    ([OxyPlot.Series.ScatterSeries], [Horker.OxyPlotCli.PowerShellMethods.SeriesMethods])
 )
 
 foreach ($tm in $typesAndMethods) {

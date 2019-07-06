@@ -1,6 +1,4 @@
-﻿<#@ template language="C#" hostspecific="true" debug="true" #>
-<#@ output extension=".cs" #>
-<#@ include file="Common.tt" #>
+﻿<#@ include file="Common.tt" #>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +6,10 @@ using System.Text;
 using System.Management.Automation;
 using OxyPlot;
 using OxyPlot.Series;
-using Horker.PSOxyPlot.Initializers;
-using Horker.PSOxyPlot.Styles;
+using Horker.OxyPlotCli.Initializers;
+using Horker.OxyPlotCli.Styles;
 
-namespace Horker.PSOxyPlot.Cmdlets
+namespace Horker.OxyPlotCli.Cmdlets
 {
     [Cmdlet("New", "OxyFunctionSeries")]
     [Alias("oxy.function", "oxy.func", "oxyfunc")]
@@ -19,7 +17,7 @@ namespace Horker.PSOxyPlot.Cmdlets
     public class NewOxyFunctionSeries : SeriesCmdletBase
     {
         [Parameter(ParameterSetName = "Explicit", Position = 0, Mandatory = true)]
-        public Horker.PSOxyPlot.TypeAdaptors.ScriptBlock[] F = null;
+        public Horker.OxyPlotCli.TypeAdaptors.ScriptBlock[] F = null;
 
         [Parameter(ParameterSetName = "Explicit", Position = 1, Mandatory = false)]
         public double X0 = -1;
@@ -28,10 +26,10 @@ namespace Horker.PSOxyPlot.Cmdlets
         public double X1 = 1;
 
         [Parameter(ParameterSetName = "Implicit", Position = 0, Mandatory = true)]
-        public Horker.PSOxyPlot.TypeAdaptors.ScriptBlock[] Fx = null;
+        public Horker.OxyPlotCli.TypeAdaptors.ScriptBlock[] Fx = null;
 
         [Parameter(ParameterSetName = "Implicit", Position = 1, Mandatory = true)]
-        public Horker.PSOxyPlot.TypeAdaptors.ScriptBlock[] Fy = null;
+        public Horker.OxyPlotCli.TypeAdaptors.ScriptBlock[] Fy = null;
 
         [Parameter(ParameterSetName = "Implicit", Position = 2, Mandatory = false)]
         public double T0 = 0;

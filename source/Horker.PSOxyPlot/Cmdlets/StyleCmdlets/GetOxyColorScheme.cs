@@ -4,9 +4,9 @@ using System.Linq;
 using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
-using Horker.PSOxyPlot.Styles;
+using Horker.OxyPlotCli.Styles;
 
-namespace Horker.PSOxyPlot.Cmdlets
+namespace Horker.OxyPlotCli.Cmdlets
 {
     [Cmdlet("Get", "OxyColorScheme")]
     public class GetOxyColorScheme : PSCmdlet

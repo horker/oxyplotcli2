@@ -5,11 +5,11 @@ using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Windows;
 using System.Windows.Markup;
-using Horker.PSOxyPlot.Wpf;
+using Horker.OxyPlotCli.Wpf;
 
 #pragma warning disable CS1591
 
-namespace Horker.PSOxyPlot.Cmdlets
+namespace Horker.OxyPlotCli.Cmdlets
 {
     [Cmdlet("New", "WpfWindow")]
     public class OpenWpfWindow : PSCmdlet

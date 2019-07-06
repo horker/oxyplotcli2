@@ -5,11 +5,11 @@ using System.Linq;
 using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
-using Horker.PSOxyPlot.Styles;
+using Horker.OxyPlotCli.Styles;
 using OxyPlot;
 using OxyPlot.Series;
 
-namespace Horker.PSOxyPlot
+namespace Horker.OxyPlotCli
 {
     public class GridView
     {

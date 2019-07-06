@@ -4,12 +4,12 @@ using System.Linq;
 using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
-using Horker.PSOxyPlot.Styles;
+using Horker.OxyPlotCli.Styles;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 
-namespace Horker.PSOxyPlot.SeriesBuilders
+namespace Horker.OxyPlotCli.SeriesBuilders
 {
     public class VoidT { }
 

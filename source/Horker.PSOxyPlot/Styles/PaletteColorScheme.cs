@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Axes;
 
-namespace Horker.PSOxyPlot.Styles
+namespace Horker.OxyPlotCli.Styles
 {
     public class PaletteColorScheme : IColorScheme
     {

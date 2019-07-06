@@ -2,7 +2,7 @@
 
 #pragma warning disable CS1591
 
-namespace Horker.PSOxyPlot.R
+namespace Horker.OxyPlotCli.R
 {
     // Source:
     // https://github.com/wch/r-source/blob/trunk/src/library/grDevices/src/colors.c

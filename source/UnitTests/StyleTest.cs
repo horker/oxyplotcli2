@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Horker.PSOxyPlot.SeriesBuilders;
+using Horker.OxyPlotCli.SeriesBuilders;
 using System.Collections.Generic;
-using Horker.PSOxyPlot.Styles;
+using Horker.OxyPlotCli.Styles;
 using OxyPlot.Series;
 using System.Linq;
 

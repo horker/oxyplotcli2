@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 
-namespace Horker.PSOxyPlot.PowerShellMethods
+namespace Horker.OxyPlotCli.PowerShellMethods
 {
     public static class PlotModelMethods
     {

@@ -1,6 +1,4 @@
-﻿<#@ template language="C#" hostspecific="true" debug="true" #>
-<#@ output extension=".cs" #>
-<#@ include file="Common.tt" #>
+﻿<#@ include file="Common.tt" #>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +9,10 @@ using OxyPlot;
 using OxyPlot.Series;
 using OxyPlot.Axes;
 using OxyPlot.Annotations;
-using Horker.PSOxyPlot.Initializers;
-using Horker.PSOxyPlot.Styles;
+using Horker.OxyPlotCli.Initializers;
+using Horker.OxyPlotCli.Styles;
 
-namespace Horker.PSOxyPlot.Cmdlets
+namespace Horker.OxyPlotCli.Cmdlets
 {
     [Cmdlet("New", "OxyPlotModel")]
     [Alias("oxy.model", "oxymodel")]

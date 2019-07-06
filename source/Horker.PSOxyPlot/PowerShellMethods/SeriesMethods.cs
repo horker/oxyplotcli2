@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Series;
 
-namespace Horker.PSOxyPlot.PowerShellMethods
+namespace Horker.OxyPlotCli.PowerShellMethods
 {
     public static class SeriesMethods
     {
