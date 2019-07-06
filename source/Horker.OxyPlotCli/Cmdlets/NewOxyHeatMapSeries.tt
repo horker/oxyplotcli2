@@ -37,8 +37,11 @@ namespace Horker.OxyPlotCli.Cmdlets
         [Parameter(Position = 6, Mandatory = false)]
         public string Style = null;
 
+        [Parameter(Position = 7, Mandatory = false)]
+        public SwitchParameter AsUIElement = false;
+
 <#
-var position = 7;
+var position = 8;
 foreach (var prop in EnumerateProperties(typeof(HeatMapSeries)))
 {
 #>
@@ -126,7 +129,7 @@ foreach (var prop in AxisProperty.Enumerate())
                 series.Y1 = 0.0;
             }
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement);
         }
     }
 }

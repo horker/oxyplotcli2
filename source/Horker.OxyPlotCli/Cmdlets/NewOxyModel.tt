@@ -49,8 +49,11 @@ namespace Horker.OxyPlotCli.Cmdlets
         [Parameter(Position = 9, Mandatory = false)]
         public string Style = null;
 
+        [Parameter(Position = 10, Mandatory = false)]
+        public SwitchParameter AsUIElement = false;
+
 <#
-    var position = 10;
+    var position = 11;
     foreach (var prop in EnumerateProperties(typeof(PlotModel)))
     {
 #>
@@ -126,7 +129,7 @@ namespace Horker.OxyPlotCli.Cmdlets
 
             var si = _seriesInfoList.Count > 0 ? _seriesInfoList[0] : null;
 
-            PostProcess(model, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style);
+            PostProcess(model, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement);
         }
     }
 }

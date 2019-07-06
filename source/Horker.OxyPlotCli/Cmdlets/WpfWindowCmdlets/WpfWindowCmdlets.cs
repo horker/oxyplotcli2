@@ -18,11 +18,14 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string XamlString { get; set; }
 
         [Parameter(Position = 1, Mandatory = false)]
+        public UIElement Content { get; set; }
+
+        [Parameter(Position = 2, Mandatory = false)]
         public Hashtable Options { get; set; }
 
         protected override void BeginProcessing()
         {
-            var window = WpfWindow.OpenWindow(XamlString, Options);
+            var window = WpfWindow.OpenWindow(XamlString, Content, Options);
 
             GetWpfWindowList.WindowList.Add(window);
 

@@ -8,6 +8,7 @@ using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Windows.Markup;
 using System.Collections;
+using System;
 
 #pragma warning disable CS1591
 
@@ -25,15 +26,24 @@ namespace Horker.OxyPlotCli.Wpf
         static private Window _rootWindow;
         static private PowerShell _powerShell;
 
-        static public Window RootWindow => _rootWindow;
+        static public Window RootWindow
+        {
+            get
+            {
+                OpenRootWindow();
+                return _rootWindow;
+            }
+        }
+
+        public static bool IsRootWindowOpen()
+        {
+            return _rootWindow != null && !IsWindowClosed(_rootWindow);
+        }
 
         public static void OpenRootWindow()
         {
-            if (_rootWindow != null)
-            {
-                if (!WpfWindow.IsWindowClosed(_rootWindow))
-                    return;
-            }
+            if (IsRootWindowOpen())
+                return;
 
             var runspace = RunspaceFactory.CreateRunspace();
             runspace.ApartmentState = ApartmentState.STA;
@@ -48,7 +58,7 @@ namespace Horker.OxyPlotCli.Wpf
 
             _powerShell.AddScript(@"
                 param($result, $event)
-                [Horker.OxyPlotCli.WpfWindow]::OpenRootWindowInternal($result, $event)");
+                [Horker.OxyPlotCli.Wpf.WpfWindow]::OpenRootWindowInternal($result, $event)");
             _powerShell.AddParameter("result", result);
             _powerShell.AddParameter("event", e);
 
@@ -79,7 +89,7 @@ namespace Horker.OxyPlotCli.Wpf
             window.ShowDialog();
         }
 
-        public static Window OpenWindow(string xamlString, Hashtable options)
+        public static Window OpenWindow(string xamlString, UIElement content, Hashtable options)
         {
             Window window = null;
 
@@ -92,9 +102,12 @@ namespace Horker.OxyPlotCli.Wpf
                 else
                     window = new Window();
 
-                var type = window.GetType();
+                if (content != null)
+                    window.Content = content;
+
                 if (options != null)
                 {
+                    var type = window.GetType();
                     foreach (DictionaryEntry entry in options)
                     {
                         var prop = type.GetProperty((string)entry.Key);

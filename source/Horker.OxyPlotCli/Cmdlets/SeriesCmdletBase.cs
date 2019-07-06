@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Horker.OxyPlotCli.Initializers;
 using Horker.OxyPlotCli.SeriesBuilders;
 using Horker.OxyPlotCli.Styles;
+using Horker.OxyPlotCli.Wpf;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
@@ -25,7 +26,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             return false;
         }
 
-        protected void PostProcess(PlotModel model, ISeriesInfo si, string outFile, int outWidth, int outHeight, bool svgIsDocument, bool passThru, Style style)
+        protected void PostProcess(PlotModel model, ISeriesInfo si, string outFile, int outWidth, int outHeight, bool svgIsDocument, bool passThru, Style style, bool AsUIElement)
         {
             var bp = MyInvocation.BoundParameters;
 
@@ -60,7 +61,7 @@ namespace Horker.OxyPlotCli.Cmdlets
 
             // Creates a model if necessary.
 
-            if (model == null && (!string.IsNullOrEmpty(outFile) || xAxis != null || yAxis != null || zAxis != null))
+            if (model == null && (!string.IsNullOrEmpty(outFile) || xAxis != null || yAxis != null || zAxis != null || AsUIElement))
                 model = PlotModelInitializer.Create(new ISeriesInfo[] { si }, style);
 
             // Returns a SeriesInfo object when a model object is not necessary.
@@ -126,7 +127,17 @@ namespace Horker.OxyPlotCli.Cmdlets
 
             // Returns a model.
 
-            WriteObject(model);
+            if (AsUIElement)
+            {
+                OxyPlot.Wpf.PlotView e = null;
+                var rootWindow = WpfWindow.RootWindow;
+                rootWindow.Dispatcher.Invoke(() => {
+                    e = new OxyPlot.Wpf.PlotView() { Model = model };
+                });
+                WriteObject(e);
+            }
+            else
+                WriteObject(model);
         }
     }
 }
