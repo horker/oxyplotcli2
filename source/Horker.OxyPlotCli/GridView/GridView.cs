@@ -6,11 +6,14 @@ using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 using Horker.OxyPlotCli.Styles;
+using Horker.OxyPlotCli.Wpf;
 using OxyPlot;
 using OxyPlot.Series;
 
 namespace Horker.OxyPlotCli
 {
+    using Windows = System.Windows;
+
     public class GridView
     {
         private List<PlotModel> _models;
@@ -168,6 +171,66 @@ namespace Horker.OxyPlotCli
                 GridViewExporter.ExportToPng(this, path, width, height);
             else
                 GridViewExporter.ExportToSvg(this, path, width, height, isDocument);
+        }
+
+        public Windows.Controls.Grid ToGridControl()
+        {
+            var adjusted = GetAdjustedWidthHeight();
+            var widths = adjusted.Item1;
+            var heights = adjusted.Item2;
+
+            Windows.Controls.Grid grid = null;
+
+            WpfWindow.RootWindow.Dispatcher.Invoke(() => {
+                grid = new Windows.Controls.Grid();
+                grid.HorizontalAlignment = Windows.HorizontalAlignment.Stretch;
+                grid.VerticalAlignment = Windows.VerticalAlignment.Stretch;
+
+                for (var i = 0; i < heights.Count; ++i)
+                {
+                    var def = heights[i];
+                    var converter = new Windows.GridLengthConverter();
+                    var length = (Windows.GridLength)converter.ConvertFrom($"{def}*");
+
+                    var rowDef = new Windows.Controls.RowDefinition();
+                    rowDef.Height = length;
+                    grid.RowDefinitions.Add(rowDef);
+                }
+
+                for (var i = 0; i < widths.Count; ++i)
+                {
+                    var def = widths[i];
+                    var converter = new Windows.GridLengthConverter();
+                    var length = (Windows.GridLength)converter.ConvertFrom($"{def}*");
+
+                    var columnDef = new Windows.Controls.ColumnDefinition();
+                    columnDef.Width = length;
+                    grid.ColumnDefinitions.Add(columnDef);
+                }
+
+                var count = 0;
+                var exit = false;
+                for (var h = 0; h < heights.Count; ++h)
+                {
+                    if (exit)
+                        break;
+                    for (var w = 0; w < widths.Count; ++w)
+                    {
+                        if (count >= _models.Count)
+                        {
+                            exit = true;
+                            break;
+                        }
+
+                        var content = new OxyPlot.Wpf.PlotView() { Model = _models[count++] };
+                        grid.Children.Add(content);
+                        Windows.Controls.Grid.SetRow(content, h);
+                        Windows.Controls.Grid.SetColumn(content, w);
+                    }
+                }
+            });
+
+            return grid;
         }
     }
 }
