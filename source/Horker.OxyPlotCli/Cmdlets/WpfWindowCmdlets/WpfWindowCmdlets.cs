@@ -23,13 +23,17 @@ namespace Horker.OxyPlotCli.Cmdlets
         [Parameter(Position = 2, Mandatory = false)]
         public Hashtable Options { get; set; }
 
+        [Parameter(Position = 3, Mandatory = false)]
+        public SwitchParameter PassThru { get; set; }
+
         protected override void BeginProcessing()
         {
             var window = WpfWindow.OpenWindow(XamlString, Content, Options);
 
             GetWpfWindowList.WindowList.Add(window);
 
-            WriteObject(window);
+            if (PassThru)
+                WriteObject(window);
         }
     }
 
