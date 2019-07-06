@@ -93,6 +93,9 @@ namespace Horker.OxyPlotCli.Styles
 
                 foreach (var e in baseStyle._eventHooks)
                     _eventHooks.Add(e.Key, new List<HookAction>(e.Value));
+
+                _colorScheme = baseStyle._colorScheme;
+                _defaultFont = baseStyle._defaultFont;
             }
         }
 
