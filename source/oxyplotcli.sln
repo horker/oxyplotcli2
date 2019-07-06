@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horker.OxyPlotCli", "Horker.PSOxyPlot\Horker.OxyPlotCli.csproj", "{51AAE414-5618-4211-AD24-E77EC4C9F88B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{8B8290F1-9B2F-4619-864A-64803A30ECB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horker.OxyPlotCli", "Horker.OxyPlotCli\Horker.OxyPlotCli.csproj", "{51AAE414-5618-4211-AD24-E77EC4C9F88B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{51AAE414-5618-4211-AD24-E77EC4C9F88B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51AAE414-5618-4211-AD24-E77EC4C9F88B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51AAE414-5618-4211-AD24-E77EC4C9F88B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51AAE414-5618-4211-AD24-E77EC4C9F88B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8B8290F1-9B2F-4619-864A-64803A30ECB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8B8290F1-9B2F-4619-864A-64803A30ECB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B8290F1-9B2F-4619-864A-64803A30ECB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B8290F1-9B2F-4619-864A-64803A30ECB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51AAE414-5618-4211-AD24-E77EC4C9F88B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51AAE414-5618-4211-AD24-E77EC4C9F88B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51AAE414-5618-4211-AD24-E77EC4C9F88B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51AAE414-5618-4211-AD24-E77EC4C9F88B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
