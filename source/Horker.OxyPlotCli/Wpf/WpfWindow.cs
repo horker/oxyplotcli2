@@ -110,7 +110,10 @@ namespace Horker.OxyPlotCli.Wpf
                     var type = window.GetType();
                     foreach (DictionaryEntry entry in options)
                     {
-                        var prop = type.GetProperty((string)entry.Key);
+                        var prop = type.GetProperty(entry.Key.ToString());
+                        if (prop == null)
+                            throw new ArgumentException($"Property not found: {entry.Key}");
+
                         prop.SetValue(window, entry.Value);
                     }
                 }
