@@ -28,14 +28,12 @@ namespace Horker.OxyPlotCli.Initializers
         public static Type GetAxisTypeByPartialName(string typeName)
         {
             var n = typeName.ToLower();
-            var matches = _axisClasses.Where(t => t.Name.ToLower().IndexOf(typeName) >= 0).ToList();
+            var matches = _axisClasses.Where(t => t.Name.ToLower().IndexOf(n) == 0).ToList();
 
             if (matches.Count == 0)
                 throw new ArgumentException($"No axis types found for '{typeName}'");
 
-            if (matches.Count > 1)
-                throw new ArgumentException($"Mulptile axis types found for '{typeName}'");
-
+            // Returns found first 
             return matches[0];
         }
 

@@ -1,11 +1,10 @@
 help document
 sample code
-window support
 AddOxyAxisShare
 oxy.func title?
 histogram/boxplot helpers
 ordinal instead of prop name
--grouporder
+-grouporder / -categoryorder
 
 examples in Example Browser:
 Custom series: PolarHeapMap
@@ -88,3 +87,4 @@ DONE xl2016 style
 DONE default font
 DONE xl2016 style
 DONE allow to specify a font and a color scheme when defining a default style
+DONE window support
