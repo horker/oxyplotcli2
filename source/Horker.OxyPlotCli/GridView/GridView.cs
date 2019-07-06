@@ -232,5 +232,10 @@ namespace Horker.OxyPlotCli
 
             return grid;
         }
+
+        public static implicit operator Windows.Controls.Grid(GridView self)
+        {
+            return self.ToGridControl();
+        }
     }
 }
