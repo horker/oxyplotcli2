@@ -26,7 +26,24 @@ namespace Horker.OxyPlotCli.Cmdlets
             return false;
         }
 
-        protected void PostProcess(PlotModel model, ISeriesInfo si, string outFile, int outWidth, int outHeight, bool svgIsDocument, bool passThru, Style style, bool AsUIElement)
+        protected System.Windows.Window CreateWindow(bool reuseWindow)
+        {
+            System.Windows.Window window = null;
+
+            if (reuseWindow)
+            {
+                var windows = WpfWindow.WindowList;
+                if (windows.Count > 0)
+                    window = windows.Last();
+            }
+
+            if (window == null)
+                window = WpfWindow.OpenWindow(null, null, null);
+
+            return window;
+        }
+
+        protected void PostProcess(PlotModel model, ISeriesInfo si, string outFile, int outWidth, int outHeight, bool svgIsDocument, bool passThru, Style style, bool asUIElement, bool show, bool reuseWindow)
         {
             var bp = MyInvocation.BoundParameters;
 
@@ -61,7 +78,7 @@ namespace Horker.OxyPlotCli.Cmdlets
 
             // Creates a model if necessary.
 
-            if (model == null && (!string.IsNullOrEmpty(outFile) || xAxis != null || yAxis != null || zAxis != null || AsUIElement))
+            if (model == null && (!string.IsNullOrEmpty(outFile) || xAxis != null || yAxis != null || zAxis != null || asUIElement || show))
                 model = PlotModelInitializer.Create(new ISeriesInfo[] { si }, style);
 
             // Returns a SeriesInfo object when a model object is not necessary.
@@ -116,18 +133,27 @@ namespace Horker.OxyPlotCli.Cmdlets
                 }
             }
 
-            // Exports a model.
+            // Export a model.
 
             if (bp.ContainsKey("OutFile"))
-            {
                 ModelExporter.Export(model, outFile, outWidth, outHeight, svgIsDocument);
-                if (!passThru)
-                    return;
+
+            // Show a model in the window;
+
+            if (show)
+            {
+                var window = CreateWindow(reuseWindow);
+
+                window.Dispatcher.Invoke(() => {
+                    window.Content = new OxyPlot.Wpf.PlotView() { Model = model };
+                    if (!reuseWindow && string.IsNullOrEmpty(window.Title))
+                        window.Title = MyInvocation.Line;
+                });
             }
 
-            // Returns a model.
+            // Return a model.
 
-            if (AsUIElement)
+            if (asUIElement)
             {
                 OxyPlot.Wpf.PlotView e = null;
                 var rootWindow = WpfWindow.RootWindow;
@@ -137,7 +163,10 @@ namespace Horker.OxyPlotCli.Cmdlets
                 WriteObject(e);
             }
             else
-                WriteObject(model);
+            {
+                if (passThru || (!bp.ContainsKey("OutFile") && !show))
+                    WriteObject(model);
+            }
         }
     }
 }

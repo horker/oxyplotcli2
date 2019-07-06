@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 
-namespace Horker.OxyPlotCli
+namespace Horker.OxyPlotCli.Cmdlets
 {
     [Cmdlet("New", "OxyGridView")]
     [Alias("oxy.gridView")]
     [OutputType(typeof(GridView))]
-    public class NewOxyGridView : PSCmdlet
+    public class NewOxyGridView : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false)]
         public object[] Models;
@@ -46,6 +46,12 @@ namespace Horker.OxyPlotCli
         [Parameter(Position = 10, Mandatory = false)]
         public string Style = null;
 
+        [Parameter(Position = 11, Mandatory = false)]
+        public SwitchParameter Show = false;
+
+        [Parameter(Position = 12, Mandatory = false)]
+        public SwitchParameter ReuseWindow = false;
+
         protected override void BeginProcessing()
         {
             var style = TypeAdaptors.Style.ConvertFrom(Style);
@@ -67,13 +73,23 @@ namespace Horker.OxyPlotCli
                 grid.SetHeights(Enumerable.Range(0, RowCount).Select(x => 1.0).ToArray());
 
             if (MyInvocation.BoundParameters.ContainsKey("OutFile"))
-            {
                 GridViewExporter.Export(grid, OutFile, OutWidth, OutHeight, SvgIsDocument);
-                if (!PassThru)
-                    return;
+
+            if (Show)
+            {
+                var control = grid.ToGridControl();
+
+                var window = CreateWindow(ReuseWindow);
+
+                window.Dispatcher.Invoke(() => {
+                    window.Content = control;
+                    if (string.IsNullOrEmpty(window.Title))
+                        window.Title = MyInvocation.Line;
+                });
             }
 
-            WriteObject(grid);
+            if (!MyInvocation.BoundParameters.ContainsKey("OutFile") && !Show)
+                WriteObject(grid);
         }
     }
 }

@@ -40,6 +40,12 @@ namespace Horker.OxyPlotCli.Cmdlets
         [Parameter(Position = 7, Mandatory = false)]
         public SwitchParameter AsUIElement = false;
 
+        [Parameter(Position = 14, Mandatory = false)]
+        public SwitchParameter Show = false;
+
+        [Parameter(Position = 15, Mandatory = false)]
+        public SwitchParameter ReuseWindow = false;
+
         [Parameter(Position = 8, Mandatory = false)]
         public Horker.OxyPlotCli.TypeAdaptors.Double X0;
 
@@ -1018,7 +1024,7 @@ namespace Horker.OxyPlotCli.Cmdlets
                 series.Y1 = 0.0;
             }
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement);
+            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 }

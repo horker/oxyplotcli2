@@ -18,6 +18,17 @@ namespace Horker.OxyPlotCli.Wpf
     {
         static private PropertyInfo IsDisposedMethod = typeof(Window).GetProperty("IsDisposed", BindingFlags.NonPublic | BindingFlags.Instance);
 
+        static private List<Window> _windowList = new List<Window>();
+
+        static public List<Window> WindowList
+        {
+            get
+            {
+                _windowList.RemoveAll(IsWindowClosed);
+                return _windowList;
+            }
+        }
+
         static public bool IsWindowClosed(Window w)
         {
             return (bool)IsDisposedMethod.GetValue(w);
@@ -97,7 +108,7 @@ namespace Horker.OxyPlotCli.Wpf
 
             RootWindow.Dispatcher.Invoke(delegate
             {
-                if (xamlString != null)
+                if (!string.IsNullOrEmpty(xamlString))
                     window = (Window)XamlReader.Parse(xamlString);
                 else
                     window = new Window();
@@ -120,6 +131,8 @@ namespace Horker.OxyPlotCli.Wpf
 
                 window.Show();
             });
+
+            _windowList.Add(window);
 
             return window;
         }

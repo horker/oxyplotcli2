@@ -30,8 +30,6 @@ namespace Horker.OxyPlotCli.Cmdlets
         {
             var window = WpfWindow.OpenWindow(XamlString, Content, Options);
 
-            GetWpfWindowList.WindowList.Add(window);
-
             if (PassThru)
                 WriteObject(window);
         }
@@ -87,15 +85,9 @@ namespace Horker.OxyPlotCli.Cmdlets
     [Cmdlet("Get", "WpfWindowList")]
     public class GetWpfWindowList : PSCmdlet
     {
-        static private List<Window> _windowList = new List<Window>();
-
-        static public List<Window> WindowList => _windowList;
-
         protected override void BeginProcessing()
         {
-            _windowList.RemoveAll((w) => { return WpfWindow.IsWindowClosed(w); });
-
-            foreach (var w in _windowList)
+            foreach (var w in WpfWindow.WindowList)
                 WriteObject(w);
         }
     }
