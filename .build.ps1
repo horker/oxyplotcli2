@@ -117,15 +117,6 @@ task Build {
   }
 }
 
-#task BuildHelp `
-#  -Inputs $HELP_INPUT `
-#  -Outputs $HELP_OUTPUT `
-#{
-#  . $HELPGEN $HELP_INPUT
-#
-#  Copy-Item $HELP_INTERM $MODULE_PATH
-#}
-
 task Test Build, ImportDebug, {
   Invoke-Pester "$PSScriptRoot\tests"
 }
@@ -139,12 +130,44 @@ task Clean {
   Remove-Item2 "$MODULE_PATH_DEBUG\*"
 }
 
-task Templates {
-#  .\tools\Extract-FunctionSignature.ps1
+############################################################
+# Building Help topics
+############################################################
 
-  dir $TEMPLATE_INPUT_PATH | foreach {
-    $inFile = $_.FullName
-    $outFile = Join-Path $TEMPLATE_OUTPUT_PATH ($_.Name -replace "\.template\.", ".")
-    Get-Content $inFile | Invoke-TemplateEngine | Set-Content $outFile
-  }
+$DOC_ROOT = "$PSScriptRoot\docs"
+
+task CreateBaseHelpFile {
+    New-MarkdownHelp -Module oxyplotcli -OutputFolder .\docs\generated\ -Locale en-US -UseFullTypeName -Force
+}
+
+task ReplaceCmdletHelp {
+    tools\Replace-AllCmdletHelps.ps1 $DOC_ROOT\generated $DOC_ROOT\md"
+}
+
+task BuildHelp {
+    Copy-Item $DOC_ROOT\md\*.md $DOC_ROOT\xml_source"
+
+    # ***HACK***
+    # platyPS gets panicked by too many arguments. To avoid this, just delete the contents of the SYNTAX section at all.
+
+    $file = "$DOC_ROOT\xml_source\New-OxyCandleStickAndVolumeSeries.md"
+    $doc = Get-Content -Encoding utf8 $file
+    Clear-Content $file
+    $skip = $false
+
+    foreach ($_ in $doc) {
+        if ($skip -and $_ -notmatch "^#") {
+            continue
+        }
+        $skip = $false
+        if ($_ -match "^## SYNTAX") {
+            $skip = $true
+        }
+        $_ | Add-Content $file
+    }
+
+    New-ExternalHelp -Path $DOC_ROOT\xml_source -OutputPath $DOC_ROOT\xml -Force
+
+    Copy-Item $DOC_ROOT\xml\* $MODULE_PATH
+    Copy-Item $DOC_ROOT\xml\* $MODULE_PATH_DEBUG
 }
