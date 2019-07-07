@@ -14,47 +14,51 @@ namespace Horker.OxyPlotCli.Cmdlets
         public Axis[] Axis { get; set; }
 
         [Parameter(Position = 1, Mandatory = false)]
-        public double[] Multiplier { get; set; }
+        public TypeAdaptors.Double[] Multiplier { get; set; }
 
         [Parameter(Position = 2, Mandatory = false)]
-        public double[] Offset { get; set; }
+        public TypeAdaptors.Double[] Offset { get; set; }
 
-        protected override void EndProcessing()
+        protected override void BeginProcessing()
         {
-            base.EndProcessing();
-
-            if (Offset == null)
+            double[] multiplier;
+            if (Multiplier != null)
             {
-                Offset = new double[Axis.Length];
-                for (var i = 0; i < Offset.Length; ++i)
-                    Offset[i] = 0.0;
-            }
-
-            if (Multiplier == null)
-            {
-                Multiplier = new double[Axis.Length];
-                for (var i = 0; i < Multiplier.Length; ++i)
-                    Multiplier[i] = 1.0;
-            }
-            else
-            {
-                if (Multiplier.Contains(0.0))
+                multiplier = TypeAdaptors.Double.ConvertArray(Multiplier);
+                if (multiplier.Contains(0.0))
                 {
                     WriteError(new ErrorRecord(new ArgumentException(), "Multiplier should not be zero", ErrorCategory.InvalidArgument, null));
                     return;
                 }
-
+            }
+            else
+            {
+                multiplier = new double[Axis.Length];
+                for (var i = 0; i < multiplier.Length; ++i)
+                    multiplier[i] = 1.0;
             }
 
-            if (Axis.Length != Multiplier.Length || Multiplier.Length != Offset.Length)
+            double[] offset;
+            if (Offset != null)
             {
-                WriteError(new ErrorRecord(new ArgumentException(), "Parameter length mismatch", ErrorCategory.InvalidArgument, null));
+                offset = TypeAdaptors.Double.ConvertArray(Offset);
+            }
+            else
+            {
+                offset = new double[Axis.Length];
+                for (var i = 0; i < offset.Length; ++i)
+                    offset[i] = 0.0;
+            }
+
+            if (Axis.Length != multiplier.Length || multiplier.Length != offset.Length)
+            {
+                WriteError(new ErrorRecord(new ArgumentException(), "Parameter lengths mismatch", ErrorCategory.InvalidArgument, null));
                 return;
             }
 
             for (var i = 1; i < Axis.Length; ++i) {
-                Axis[i].Minimum = (Axis[0].Minimum - Offset[0]) / Multiplier[0] * Multiplier[i] + Offset[i];
-                Axis[i].Maximum = (Axis[0].Maximum - Offset[0]) / Multiplier[0] * Multiplier[i] + Offset[i];
+                Axis[i].Minimum = (Axis[0].Minimum - offset[0]) / multiplier[0] * multiplier[i] + offset[i];
+                Axis[i].Maximum = (Axis[0].Maximum - offset[0]) / multiplier[0] * multiplier[i] + offset[i];
             }
 
             // defensive copy
@@ -85,8 +89,8 @@ namespace Horker.OxyPlotCli.Cmdlets
                         if (a1 == a2)
                             continue;
 
-                        var min = (a1.ActualMinimum - Offset[p]) / Multiplier[p] * Multiplier[j] + Offset[j];
-                        var max = (a1.ActualMaximum - Offset[p]) / Multiplier[p] * Multiplier[j] + Offset[j];
+                        var min = (a1.ActualMinimum - offset[p]) / multiplier[p] * multiplier[j] + offset[j];
+                        var max = (a1.ActualMaximum - offset[p]) / multiplier[p] * multiplier[j] + offset[j];
 
                         a2.Zoom(min, max);
                         a2.PlotModel.InvalidatePlot(false);
