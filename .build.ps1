@@ -114,6 +114,10 @@ task Build {
 
     Copy-ObjectFiles "$SOURCE_PATH\Release" $MODULE_PATH
     Copy-ObjectFiles "$SOURCE_PATH\Debug" $MODULE_PATH_DEBUG
+
+    # Help topic file
+    Copy-Item $DOC_ROOT\xml\* $MODULE_PATH
+    Copy-Item $DOC_ROOT\xml\* $MODULE_PATH_DEBUG
   }
 }
 
@@ -141,11 +145,11 @@ task CreateBaseHelpFile {
 }
 
 task ReplaceCmdletHelp {
-    tools\Replace-AllCmdletHelps.ps1 $DOC_ROOT\generated $DOC_ROOT\md"
+    tools\Replace-AllCmdletHelps.ps1 $DOC_ROOT\generated $DOC_ROOT\md
 }
 
-task BuildHelp {
-    Copy-Item $DOC_ROOT\md\*.md $DOC_ROOT\xml_source"
+task CompileHelp {
+    Copy-Item $DOC_ROOT\md\*.md $DOC_ROOT\xml_source
 
     # ***HACK***
     # platyPS gets panicked by too many arguments. To avoid this, just delete the contents of the SYNTAX section at all.
@@ -168,6 +172,5 @@ task BuildHelp {
 
     New-ExternalHelp -Path $DOC_ROOT\xml_source -OutputPath $DOC_ROOT\xml -Force
 
-    Copy-Item $DOC_ROOT\xml\* $MODULE_PATH
-    Copy-Item $DOC_ROOT\xml\* $MODULE_PATH_DEBUG
+    Remove-Item $DOC_ROOT\xml_source\*
 }
