@@ -140,19 +140,26 @@ task Clean {
 
 $DOC_ROOT = "$PSScriptRoot\docs"
 
-task CreateBaseHelpFile {
-    New-MarkdownHelp -Module oxyplotcli -OutputFolder .\docs\generated\ -Locale en-US -UseFullTypeName -Force
+task GenerateBaseHelpFile {
+    New-MarkdownHelp -Module oxyplotcli -OutputFolder $DOC_ROOT\generated -Locale en-US -UseFullTypeName -Force
 }
 
-task ReplaceCmdletHelp {
-    tools\Replace-AllCmdletHelps.ps1 $DOC_ROOT\generated $DOC_ROOT\md
+task AutofillHelp {
+    tools\Autofill-AllCmdletHelps.ps1 $DOC_ROOT\generated $DOC_ROOT\autofilled
+}
+
+task UpdateHelp GenerateBaseHelpFile, AutofillCmdletHelp, {
+    Update-MarkdownHelp -Path $DOC_ROOT\handwritten -UseFullTypeName -Force
 }
 
 task CompileHelp {
+    Copy-Item $DOC_ROOT\autofilled\*.md $DOC_ROOT\md
+    Copy-Item $DOC_ROOT\handwritten\*.md $DOC_ROOT\md
     Copy-Item $DOC_ROOT\md\*.md $DOC_ROOT\xml_source
 
     # ***HACK***
-    # platyPS gets panicked by too many parameters. To make it work, just delete the contents of the SYNTAX section at all.
+    # platyPS gets panicked by too many cmdlet parameters in the markdown file.
+    # To make it work, just delete the contents of the SYNTAX section at all.
 
     $file = "$DOC_ROOT\xml_source\New-OxyCandleStickAndVolumeSeries.md"
     $doc = Get-Content -Encoding utf8 $file

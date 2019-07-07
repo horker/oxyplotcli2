@@ -25,6 +25,8 @@ Once axes are bound by this cmdlet, when the user scrolls one of such axes, the 
 
 This cmdlet makes sense when the chart is displayed in the GUI window.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### -Axis
@@ -48,7 +50,7 @@ Specifies the relative amounts of movement per axis.
 This parameter should be a numeric array and have the same length as the -Axis parameter.
 
 ```yaml
-Type: System.Double[]
+Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
 Parameter Sets: (All)
 Aliases:
 
@@ -65,7 +67,7 @@ Specifies the offsets of each axis.
 This parameter should be a numeric array and have the same length as the -Axis parameter.
 
 ```yaml
-Type: System.Double[]
+Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
 Parameter Sets: (All)
 Aliases:
 
