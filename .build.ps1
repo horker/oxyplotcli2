@@ -152,7 +152,7 @@ task CompileHelp {
     Copy-Item $DOC_ROOT\md\*.md $DOC_ROOT\xml_source
 
     # ***HACK***
-    # platyPS gets panicked by too many arguments. To avoid this, just delete the contents of the SYNTAX section at all.
+    # platyPS gets panicked by too many parameters. To make it work, just delete the contents of the SYNTAX section at all.
 
     $file = "$DOC_ROOT\xml_source\New-OxyCandleStickAndVolumeSeries.md"
     $doc = Get-Content -Encoding utf8 $file
