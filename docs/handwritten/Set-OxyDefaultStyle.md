@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-OxyDefaultStyle
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Sets the default style.
 
 ## SYNTAX
 
@@ -17,21 +17,12 @@ Set-OxyDefaultStyle [-Style] <Style> [[-ColorScheme] <String>] [[-DefaultFont] <
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
-
-## EXAMPLES
-
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+Sets the default style.
 
 ## PARAMETERS
 
 ### -ColorScheme
-{{Fill ColorScheme Description}}
+Specifies the color scheme to overwrite the preset definition of the style.
 
 ```yaml
 Type: System.String
@@ -46,7 +37,7 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultFont
-{{Fill DefaultFont Description}}
+Specifies the default font to overwrite the preset definition of the style.
 
 ```yaml
 Type: System.String
@@ -61,7 +52,7 @@ Accept wildcard characters: False
 ```
 
 ### -Style
-{{Fill Style Description}}
+Specifies the style name or the style object.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Style

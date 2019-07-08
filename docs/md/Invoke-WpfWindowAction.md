@@ -8,7 +8,7 @@ schema: 2.0.0
 # Invoke-WpfWindowAction
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Invokes a script block in the context of the GUI thread of the OxyPlot CLI windows.
 
 ## SYNTAX
 
@@ -17,21 +17,15 @@ Invoke-WpfWindowAction [-Window] <Window> [-Action] <ScriptBlock> [<CommonParame
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Invokes a script block in the context of the GUI thread of the OxyPlot CLI windows.
 
-## EXAMPLES
-
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+The OxyPlot CLI library creates GUI window objects in the different thread from that of the PowerShell session.
+The user should use this cmdlet to access the properties of such objects.
 
 ## PARAMETERS
 
 ### -Action
-{{Fill Action Description}}
+The script block to be invoked.
 
 ```yaml
 Type: System.Management.Automation.ScriptBlock

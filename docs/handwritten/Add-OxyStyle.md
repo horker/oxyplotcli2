@@ -8,7 +8,7 @@ schema: 2.0.0
 # Add-OxyStyle
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Defines a new style.
 
 ## SYNTAX
 
@@ -18,21 +18,12 @@ Add-OxyStyle [-Name] <String> [[-Config] <Hashtable>] [[-BaseStyle] <String>] [[
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
-
-## EXAMPLES
-
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+Defines a new style.
 
 ## PARAMETERS
 
 ### -BaseStyle
-{{Fill BaseStyle Description}}
+Specifies the base style.
 
 ```yaml
 Type: System.String
@@ -47,7 +38,7 @@ Accept wildcard characters: False
 ```
 
 ### -ColorScheme
-{{Fill ColorScheme Description}}
+Specifies the color scheme.
 
 ```yaml
 Type: System.String
@@ -62,7 +53,7 @@ Accept wildcard characters: False
 ```
 
 ### -Config
-{{Fill Config Description}}
+Specifies the definition of the style.
 
 ```yaml
 Type: System.Collections.Hashtable
@@ -77,7 +68,7 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultFont
-{{Fill DefaultFont Description}}
+Specifies the default font.
 
 ```yaml
 Type: System.String
@@ -92,7 +83,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-{{Fill Name Description}}
+Specifies the style name.
 
 ```yaml
 Type: System.String

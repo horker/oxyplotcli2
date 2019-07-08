@@ -8,7 +8,7 @@ schema: 2.0.0
 # Test-WpfWindowClosed
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Returns whether a specific window is closed.
 
 ## SYNTAX
 
@@ -17,21 +17,12 @@ Test-WpfWindowClosed [-Window] <Window> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
-
-## EXAMPLES
-
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+Returns whether a specific window is closed.
 
 ## PARAMETERS
 
 ### -Window
-{{Fill Window Description}}
+The window object.
 
 ```yaml
 Type: System.Windows.Window

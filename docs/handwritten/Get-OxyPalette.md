@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-OxyPalette
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Gets a color palette object.
 
 ## SYNTAX
 
@@ -23,21 +23,15 @@ Get-OxyPalette [-Colors] <OxyColor[]> [[-PaletteSize] <Int32>] [<CommonParameter
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Gets a color palette object.
 
-## EXAMPLES
-
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+When the `-Preset` parameter is specified, this cmdlet returns a preset palette by its value.
+Otherwise, this cmdlet generates a new palette based on the sequence of colors given by the `-Colors` parameter.
 
 ## PARAMETERS
 
 ### -Colors
-{{Fill Colors Description}}
+The sequence of colors to construct a hue of the color palette.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor[]
@@ -52,7 +46,7 @@ Accept wildcard characters: False
 ```
 
 ### -PaletteSize
-{{Fill PaletteSize Description}}
+Specifies the number of colors contained in the palette. This parameter determines the smoothness of the color palette.
 
 ```yaml
 Type: System.Int32
@@ -67,7 +61,7 @@ Accept wildcard characters: False
 ```
 
 ### -Preset
-{{Fill Preset Description}}
+Specifies the name of the preset palettes.
 
 ```yaml
 Type: System.String

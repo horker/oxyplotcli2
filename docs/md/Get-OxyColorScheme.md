@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-OxyColorScheme
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Gets a color scheme by name.
 
 ## SYNTAX
 
@@ -17,21 +17,12 @@ Get-OxyColorScheme [[-Name] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
-
-## EXAMPLES
-
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+Gets a color scheme by name. If the `-Name` parameter is omitted, this cmdlet returns all available color schemes.
 
 ## PARAMETERS
 
 ### -Name
-{{Fill Name Description}}
+The color scheme name.
 
 ```yaml
 Type: System.String

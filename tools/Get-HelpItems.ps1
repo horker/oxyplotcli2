@@ -83,9 +83,9 @@ function Get-DefaultParamterItems {
         OutFile = "Specifies the output file name. The output format is determined based on the file extension, which should be either `".png`" or `".svg`"."
         OutWidth = "Specifies the width of the output image. Use with the -OutFile parameter."
         OutHeight = "Specifies the height of the output image. Use with the -OutFile parameter."
-        SvgIsDocument = "Indicates that a SVG file should be generated as a complete document. Use with the -OutFile parameter"
+        SvgIsDocument = "Indicates that a SVG file should be generated as a complete document. Use with the -OutFile parameter."
         AsUIElement = "Returns an object as a PlotView object."
-        Show = "Shows the chart in the window."
+        Show = "Shows the chart in the GUI window."
         ReuseWindow = "Indicates to reuse the most recently used window to show the chart instead of creating a new one. Use with the -Show parameter."
     }
 

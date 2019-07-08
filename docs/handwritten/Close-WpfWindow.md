@@ -8,7 +8,7 @@ schema: 2.0.0
 # Close-WpfWindow
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Closes a GUI window where a OxyPlot chart is displayed.
 
 ## SYNTAX
 
@@ -17,21 +17,12 @@ Close-WpfWindow [-Window] <Window> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
-
-## EXAMPLES
-
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+Closes a GUI window where a OxyPlot chart is displayed.
 
 ## PARAMETERS
 
 ### -Window
-{{Fill Window Description}}
+A window object to be closed. The active window objects can be obtained by the `Get-WpfWindowList` cmdlet.
 
 ```yaml
 Type: System.Windows.Window

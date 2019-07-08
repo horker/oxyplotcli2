@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-OxyDefaultStyle
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Gets the default style.
 
 ## SYNTAX
 
@@ -17,16 +17,7 @@ Get-OxyDefaultStyle [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
-
-## EXAMPLES
-
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+Gets the default style.
 
 ## PARAMETERS
 

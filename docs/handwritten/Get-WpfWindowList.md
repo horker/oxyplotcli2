@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-WpfWindowList
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Gets all living GUI windows where OxyPlot charts are displayed.
 
 ## SYNTAX
 
@@ -17,16 +17,7 @@ Get-WpfWindowList [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
-
-## EXAMPLES
-
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+Gets all living GUI windows where OxyPlot charts are displayed.
 
 ## PARAMETERS
 

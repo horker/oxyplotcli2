@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-OxyGridView
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Returns a GridView object.
 
 ## SYNTAX
 
@@ -19,21 +19,14 @@ New-OxyGridView [[-Models] <Object[]>] [[-Widths] <Double[]>] [[-Heights] <Doubl
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Returns a GridView object.
 
-## EXAMPLES
-
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+The GridView object is a grid style container of multiple OxyPlot models.
 
 ## PARAMETERS
 
 ### -ColumnCount
-{{Fill ColumnCount Description}}
+The number of columns of the grid.
 
 ```yaml
 Type: System.Int32
@@ -48,7 +41,7 @@ Accept wildcard characters: False
 ```
 
 ### -Heights
-{{Fill Heights Description}}
+The relative height of each row of the grid.
 
 ```yaml
 Type: System.Double[]
@@ -63,7 +56,7 @@ Accept wildcard characters: False
 ```
 
 ### -Models
-{{Fill Models Description}}
+Specifies PlotModel objects contained in the grid.
 
 ```yaml
 Type: System.Object[]
@@ -78,7 +71,7 @@ Accept wildcard characters: False
 ```
 
 ### -OutFile
-{{Fill OutFile Description}}
+Specifies the output file name. The output format is determined based on the file extension, which should be either `".png`" or `".svg`".
 
 ```yaml
 Type: System.String
@@ -93,7 +86,7 @@ Accept wildcard characters: False
 ```
 
 ### -OutHeight
-{{Fill OutHeight Description}}
+Specifies the height of the output image. Use with the -OutFile parameter.
 
 ```yaml
 Type: System.Int32
@@ -108,7 +101,7 @@ Accept wildcard characters: False
 ```
 
 ### -OutWidth
-{{Fill OutWidth Description}}
+Specifies the width of the output image. Use with the -OutFile parameter.
 
 ```yaml
 Type: System.Int32
@@ -123,7 +116,7 @@ Accept wildcard characters: False
 ```
 
 ### -PassThru
-{{Fill PassThru Description}}
+Returns an output object even when the -OutFile parameter is specified.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -138,7 +131,7 @@ Accept wildcard characters: False
 ```
 
 ### -ReuseWindow
-{{Fill ReuseWindow Description}}
+Indicates to reuse the most recently used window to show the chart instead of creating a new one. Use with the -Show parameter.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -153,7 +146,7 @@ Accept wildcard characters: False
 ```
 
 ### -RowCount
-{{Fill RowCount Description}}
+Specifies the number of the rows of the grid.
 
 ```yaml
 Type: System.Int32
@@ -168,7 +161,7 @@ Accept wildcard characters: False
 ```
 
 ### -Show
-{{Fill Show Description}}
+Shows the chart in the GUI window.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -183,7 +176,7 @@ Accept wildcard characters: False
 ```
 
 ### -Style
-{{Fill Style Description}}
+Specifies the style.
 
 ```yaml
 Type: System.String
@@ -198,7 +191,7 @@ Accept wildcard characters: False
 ```
 
 ### -SvgIsDocument
-{{Fill SvgIsDocument Description}}
+Indicates that a SVG file should be generated as a complete document. Use with the -OutFile parameter.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -213,7 +206,7 @@ Accept wildcard characters: False
 ```
 
 ### -Widths
-{{Fill Widths Description}}
+The relative width of each row of the grid.
 
 ```yaml
 Type: System.Double[]

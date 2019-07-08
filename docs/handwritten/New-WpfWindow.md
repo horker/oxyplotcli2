@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-WpfWindow
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Creates a new GUI window.
 
 ## SYNTAX
 
@@ -18,21 +18,18 @@ New-WpfWindow [[-XamlString] <String>] [[-Content] <UIElement>] [[-Options] <Has
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Creates a new GUI window. The newly created window will be visible immediately.
 
-## EXAMPLES
+The content of the window can be specified as the XAML string by the `-XamlString` parameter or a `UIElement` object by the `-Content` parameter.
 
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+The windows this cmdlet creates run in a different thread from that of the current PowerShell session. Thus, Their properties should be accessed through the `Invoke-WpfWindowAction` cmdlet.
 
 ## PARAMETERS
 
 ### -Content
-{{Fill Content Description}}
+The content of the window.
+
+This content should be bound to the same thread as the window.
 
 ```yaml
 Type: System.Windows.UIElement
@@ -47,7 +44,9 @@ Accept wildcard characters: False
 ```
 
 ### -Options
-{{Fill Options Description}}
+Specifies the set of the pairs of the property name and the value.
+
+These properties are assigned to the window object.
 
 ```yaml
 Type: System.Collections.Hashtable
@@ -62,7 +61,7 @@ Accept wildcard characters: False
 ```
 
 ### -PassThru
-{{Fill PassThru Description}}
+Indicates to return a created window object.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -77,7 +76,7 @@ Accept wildcard characters: False
 ```
 
 ### -XamlString
-{{Fill XamlString Description}}
+Specifies the XAML string that compiled to the content of the window.
 
 ```yaml
 Type: System.String

@@ -8,7 +8,7 @@ schema: 2.0.0
 # Remove-OxyStyle
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Remove a style from the current registry.
 
 ## SYNTAX
 
@@ -17,21 +17,12 @@ Remove-OxyStyle [-Name] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
-
-## EXAMPLES
-
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
+Remove a style from the current registry.
 
 ## PARAMETERS
 
 ### -Name
-{{Fill Name Description}}
+The style name.
 
 ```yaml
 Type: System.String
