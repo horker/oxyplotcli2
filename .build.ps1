@@ -148,7 +148,7 @@ task AutofillHelp {
     tools\Autofill-AllCmdletHelps.ps1 $DOC_ROOT\generated $DOC_ROOT\autofilled
 }
 
-task UpdateHelp GenerateBaseHelpFile, AutofillCmdletHelp, {
+task UpdateHandwrittenHelp {
     Update-MarkdownHelp -Path $DOC_ROOT\handwritten -UseFullTypeName -Force
 }
 
