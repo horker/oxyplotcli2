@@ -53,15 +53,12 @@ namespace Horker.OxyPlotCli.Cmdlets
     public class InvokeWpfWindowAction : PSCmdlet
     {
         [Parameter(Position = 0, Mandatory = true)]
-        public Window Window { get; set; }
-
-        [Parameter(Position = 1, Mandatory = true)]
         public ScriptBlock Action { get; set; }
 
         protected override void BeginProcessing()
         {
             System.Collections.ObjectModel.Collection<PSObject> results = null;
-            Window.Dispatcher.Invoke(() => {
+            WpfWindow.RootWindow.Dispatcher.Invoke(() => {
                 results = InvokeCommand.InvokeScript(false, Action, null);
             });
 
