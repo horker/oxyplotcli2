@@ -7,7 +7,7 @@ param(
 Set-StrictMode -Version Latest
 
 get-command -module oxyplotcli |
-    where { $_.Name -match "(Series|Axis|Annotation)$" } |
+    where { $_.Name -match "(Series|Axis|Annotation|PlotModel)$" } |
     select -expand Name |
     foreach {
         Write-Host $_

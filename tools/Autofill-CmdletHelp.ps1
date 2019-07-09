@@ -22,8 +22,11 @@ if ($ObjectName.EndsWith("Series")) {
 elseif ($ObjectName.EndsWith("Axis")) {
     $className = "OxyPlot.Axes.$objectName"
 }
-else {
+elseif ($ObjectName.EndsWith("Annotation")) {
     $className = "OxyPlot.Annotations.$objectName"
+}
+else {
+    $className = "OxyPlot.$objectName"
 }
 
 Write-Verbose $className
