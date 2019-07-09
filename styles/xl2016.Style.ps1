@@ -18,6 +18,7 @@ $config = @{
 
   # PlotArea
   "PlotModel.PlotAreaBorderThickness" = 0
+  "PlotModel.PlotAreaBorderColor" = "#D9D9D9"
 
   # Titles
   "PlotModel.TitleFontSize" = $baseSize * 1.5
@@ -102,8 +103,10 @@ $config = @{
   # Event hook
   "[BeforeRendering]" = {
     param($m)
+
     $s = $m.Series[0]
     $thickness = [Horker.OxyPlotCli.TypeAdaptors.Double]::ConvertFrom("1pt")
+
     foreach ($a in $m.Axes) {
         if ($s -is [OxyPlot.Series.BarSeries] -or
             $s -is [OxyPlot.Series.IntervalBarSeries] -or
@@ -112,14 +115,33 @@ $config = @{
                 $a.MajorGridLineThickness = $thickness
             }
         }
-        else {
+        elseif ($s -isnot [OxyPlot.Series.HeatmapSeries] -and
+                $s -isnot [OxyPlot.Series.PieSeries] -and
+                $s -isnot [OxyPlot.Series.RectangleSeries] -and
+                $s -isnot [OxyPlot.Series.RectangleBarSeries]) {
             if ($a.IsVertical()) {
                 $a.MajorGridLineThickness = $thickness
             }
         }
     }
-  }
 
+    if ($s -is [OxyPlot.Series.HeatmapSeries] -or
+        $s -is [OxyPlot.Series.RectangleSeries] -or
+        $s -is [OxyPlot.Series.RectangleBarSeries]) {
+        $m.PlotAreaBorderThickness = New-Object OxyPlot.OxyThickness $thickness, 0, 0, $thickness
+    }
+    elseif ($s -is [OxyPlot.Series.IntervalBarSeries] -or
+        $s -is [OxyPlot.Series.TornadoBarSeries]) {
+        $m.PlotAreaBorderThickness = New-Object OxyPlot.OxyThickness $thickness, 0, 0, 0
+    }
+    elseif ($s -isnot [OxyPlot.Series.BarSeries] -and
+            $s -isnot [OxyPlot.Series.ColumnSeries] -and
+            $s -isnot [OxyPlot.Series.ErrorColumnSeries] -and
+            $s -isnot [OxyPlot.Series.HistogramSeries] -and
+            $s -isnot [OxyPlot.Series.VolumeSeries]) {
+       $m.PlotAreaBorderThickness = New-Object OxyPlot.OxyThickness 0, 0, 0, $thickness
+    }
+  }
 }
 
 Add-OxyStyle xl2016 $config -BaseStyle vanilla
