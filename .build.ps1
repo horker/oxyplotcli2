@@ -53,11 +53,12 @@ function New-Folder2 {
 function Copy-Item2 {
   param(
     [string]$Source,
-    [string]$Dest
+    [string]$Dest,
+    [switch]$Recurse
   )
 
   try {
-    Copy-Item $Source $Dest -EA Stop
+    Copy-Item $Source $Dest -EA Stop -Recurse:$Recurse -Force
     Write-Host -ForegroundColor DarkCyan "Copy from $Source to $Dest done"
   }
   catch {
@@ -100,12 +101,22 @@ task Build {
         [string]$TargetPath
       )
 
+      # Scripts
       New-Folder2 $TargetPath
       Copy-Item2 "$SCRIPT_PATH\*" $TargetPath
 
+      # Styles
       New-Folder2 "$TargetPath\styles"
       Copy-Item2 "$PSScriptRoot\styles\*" "$TargetPath\styles"
 
+      # Datasets
+      New-Folder2 "$TargetPath\datasets"
+      Copy-Item2 "$PSScriptRoot\datasets\*" "$TargetPath\datasets" -Recurse
+
+      # Help topics
+      Copy-Item2 "$DOC_ROOT\xml\*" "$TargetPath"
+
+      # DLL files
       $OBJECT_FILES | foreach {
         $path = Join-Path $objectPath $_
         Copy-Item2 $path $targetPath
@@ -114,10 +125,6 @@ task Build {
 
     Copy-ObjectFiles "$SOURCE_PATH\Release" $MODULE_PATH
     Copy-ObjectFiles "$SOURCE_PATH\Debug" $MODULE_PATH_DEBUG
-
-    # Help topic file
-    Copy-Item $DOC_ROOT\xml\* $MODULE_PATH
-    Copy-Item $DOC_ROOT\xml\* $MODULE_PATH_DEBUG
   }
 }
 
