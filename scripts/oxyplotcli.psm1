@@ -29,3 +29,7 @@ foreach ($tm in $typesAndMethods) {
 Get-ChildItem "$PSScriptRoot\styles\*.ps1" | foreach {
     . $_.FullName
 }
+
+# Set default style
+
+Set-OxyDefaultStyle xl2016
