@@ -13,10 +13,10 @@ RootModule = 'oxyplotcli.psm1'
 ModuleVersion = '2.0.0'
 
 # Supported PSEditions
-# CompatiblePSEditions = ''
+CompatiblePSEditions = 'Desktop'
 
 # ID used to uniquely identify this module
-GUID = 'd790348d-640c-4b69-88fe-e37b32b1891f'
+GUID = '10a77f13-43c9-4a13-b9ba-5215623f5941'
 
 # Author of this module
 Author = 'horker'
@@ -29,7 +29,7 @@ Copyright = '(c) 2019 horker. All rights reserved.'
 
 # Description of the functionality provided by this module
 Description = @"
-OxyPlot for PowerShell.
+PowerShell module for OxyPlot.
 
 For more details, see https://github.com/horker/oxyplotcli2
 "@
@@ -58,6 +58,7 @@ DotNetFrameworkVersion = '4.5.2'
 # Assemblies that must be loaded prior to importing this module
 RequiredAssemblies = @(
   "OxyPlot.dll"
+  "OxyPlot.Wpf.dll"
 )
 
 # Script files (.ps1) that are run in the caller's environment prior to importing this module.
@@ -116,9 +117,12 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = @"
-v0.1.0
-First release
+v2.0.0-beta
+v2 beta release
 "@
+
+        # Prerelease
+        Prerelease = 'beta'
 
     } # End of PSData hashtable
 

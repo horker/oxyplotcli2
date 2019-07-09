@@ -4,6 +4,11 @@ oxy.func title?
 histogram/boxplot helpers
 ordinal instead of prop name
 -grouporder / -categoryorder
+grid view title
+BUG: axis name
+BUG: candlev
+proper padding setting
+BUG: add multiple to -SeriesInfo in oxy.model
 
 examples in Example Browser:
 Custom series: PolarHeapMap
