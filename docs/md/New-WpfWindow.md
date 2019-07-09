@@ -24,6 +24,8 @@ The content of the window can be specified as the XAML string by the `-XamlStrin
 
 The windows this cmdlet creates run in a different thread from that of the current PowerShell session. Thus, Their properties should be accessed through the `Invoke-WpfWindowAction` cmdlet.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### -Content

@@ -19,6 +19,8 @@ Get-OxyStyle [[-Name] <String>] [<CommonParameters>]
 ## DESCRIPTION
 Gets a style by name. If the `-Name` parameter is omitted, this cmdlet returns all available styles.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### -Name

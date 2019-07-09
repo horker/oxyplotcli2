@@ -19,6 +19,8 @@ Test-WpfWindowClosed [-Window] <Window> [<CommonParameters>]
 ## DESCRIPTION
 Returns whether a specific window is closed.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### -Window

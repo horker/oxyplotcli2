@@ -19,6 +19,8 @@ Close-WpfWindow [-Window] <Window> [<CommonParameters>]
 ## DESCRIPTION
 Closes a GUI window where a OxyPlot chart is displayed.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### -Window

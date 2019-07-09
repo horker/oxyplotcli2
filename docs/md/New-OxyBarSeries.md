@@ -122,7 +122,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -3515,7 +3515,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -3549,7 +3549,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -3593,7 +3593,7 @@ Accept wildcard characters: False
 
 ### -Show
 
-Shows the chart in the window.
+Shows the chart in the GUI window.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -3602,7 +3602,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -3679,7 +3679,7 @@ Accept wildcard characters: False
 
 ### -SvgIsDocument
 
-Indicates that a SVG file should be generated as a complete document. Use with the -OutFile parameter
+Indicates that a SVG file should be generated as a complete document. Use with the -OutFile parameter.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -3688,7 +3688,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

@@ -1,7 +1,7 @@
 ﻿---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version:
+online version: http://www.mathworks.com/help/toolbox/finance/highlowfts.html
 schema: 2.0.0
 ---
 
@@ -172,7 +172,7 @@ Aliases:
 
 Required: False
 Position: 24
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -5148,7 +5148,7 @@ Aliases:
 
 Required: False
 Position: 22
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -5219,7 +5219,7 @@ Aliases:
 
 Required: False
 Position: 26
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -5351,7 +5351,7 @@ Accept wildcard characters: False
 
 ### -Show
 
-Shows the chart in the window.
+Shows the chart in the GUI window.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -5360,7 +5360,7 @@ Aliases:
 
 Required: False
 Position: 25
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -5420,7 +5420,7 @@ Accept wildcard characters: False
 
 ### -SvgIsDocument
 
-Indicates that a SVG file should be generated as a complete document. Use with the -OutFile parameter
+Indicates that a SVG file should be generated as a complete document. Use with the -OutFile parameter.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -5429,7 +5429,7 @@ Aliases:
 
 Required: False
 Position: 21
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -5659,11 +5659,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Management.Automation.PSObject
-
 ## OUTPUTS
 
 ### Horker.OxyPlotCli.SeriesInfo`1[[OxyPlot.Series.CandleStickAndVolumeSeries, OxyPlot, Version=2.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9]]
-
 ## NOTES
 
 ## RELATED LINKS

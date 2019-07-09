@@ -19,6 +19,8 @@ Remove-OxyStyle [-Name] <String> [<CommonParameters>]
 ## DESCRIPTION
 Remove a style from the current registry.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### -Name

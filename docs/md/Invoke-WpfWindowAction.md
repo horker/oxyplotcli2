@@ -13,7 +13,7 @@ Invokes a script block in the context of the GUI thread of the OxyPlot CLI windo
 ## SYNTAX
 
 ```
-Invoke-WpfWindowAction [-Window] <Window> [-Action] <ScriptBlock> [<CommonParameters>]
+Invoke-WpfWindowAction [-Action] <ScriptBlock> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -21,6 +21,8 @@ Invokes a script block in the context of the GUI thread of the OxyPlot CLI windo
 
 The OxyPlot CLI library creates GUI window objects in the different thread from that of the PowerShell session.
 The user should use this cmdlet to access the properties of such objects.
+
+## EXAMPLES
 
 ## PARAMETERS
 
@@ -34,21 +36,6 @@ Aliases:
 
 Required: True
 Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Window
-{{Fill Window Description}}
-
-```yaml
-Type: System.Windows.Window
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

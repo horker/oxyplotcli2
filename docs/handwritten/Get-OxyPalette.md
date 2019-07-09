@@ -28,6 +28,8 @@ Gets a color palette object.
 When the `-Preset` parameter is specified, this cmdlet returns a preset palette by its value.
 Otherwise, this cmdlet generates a new palette based on the sequence of colors given by the `-Colors` parameter.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### -Colors

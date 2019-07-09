@@ -19,6 +19,8 @@ Get-WpfWindowList [<CommonParameters>]
 ## DESCRIPTION
 Gets all living GUI windows where OxyPlot charts are displayed.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### CommonParameters

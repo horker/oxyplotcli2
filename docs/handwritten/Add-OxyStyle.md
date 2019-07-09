@@ -20,6 +20,8 @@ Add-OxyStyle [-Name] <String> [[-Config] <Hashtable>] [[-BaseStyle] <String>] [[
 ## DESCRIPTION
 Defines a new style.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### -BaseStyle

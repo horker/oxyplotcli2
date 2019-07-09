@@ -19,6 +19,8 @@ Get-OxyDefaultStyle [<CommonParameters>]
 ## DESCRIPTION
 Gets the default style.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### CommonParameters

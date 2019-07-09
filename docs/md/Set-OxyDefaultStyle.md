@@ -19,6 +19,8 @@ Set-OxyDefaultStyle [-Style] <Style> [[-ColorScheme] <String>] [[-DefaultFont] <
 ## DESCRIPTION
 Sets the default style.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### -ColorScheme

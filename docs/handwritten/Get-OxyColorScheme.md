@@ -19,6 +19,8 @@ Get-OxyColorScheme [[-Name] <String>] [<CommonParameters>]
 ## DESCRIPTION
 Gets a color scheme by name. If the `-Name` parameter is omitted, this cmdlet returns all available color schemes.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### -Name

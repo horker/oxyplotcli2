@@ -23,6 +23,8 @@ Returns a GridView object.
 
 The GridView object is a grid style container of multiple OxyPlot models.
 
+## EXAMPLES
+
 ## PARAMETERS
 
 ### -ColumnCount
