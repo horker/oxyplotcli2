@@ -104,6 +104,10 @@ $config = @{
   "[BeforeRendering]" = {
     param($m)
 
+    if ($null -eq $m -or $m.Series.Length -eq 0) {
+        return
+    }
+
     $s = $m.Series[0]
     $thickness = [Horker.OxyPlotCli.TypeAdaptors.Double]::ConvertFrom("1pt")
 

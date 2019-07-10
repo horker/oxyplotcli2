@@ -101,26 +101,6 @@ $config = @{
 
   # TwoColorAreaSeries
   "TwoColorAreaSeries.StrokeThickness" = 0
-
-  # Event hook
-#  "[BeforeRendering]" = {
-#    param($m)
-#    if ($m.DefaultColors.Count -eq 0 -and $m.Series.Count -gt 0) {
-#      $n = $m.Series.Count
-#      if ($n -eq 1) {
-#        if ($m.Series[0] -is [OxyPlot.Series.PieSeries]) {
-#          $m.DefaultColors = (Get-OxyPalette RHue $m.Series[0].Slices.Count).Colors
-#        }
-#        else {
-#          $m.DefaultColors = [OxyPlot.OxyColor[]]@([OxyPlot.OxyColors]::Black)
-#        }
-#      }
-#      else {
-#          $m.DefaultColors = (Get-OxyPalette RHue $n).Colors
-#      }
-#    }
-#  }
-
 }
 
 Add-OxyStyle ggplot $config -BaseStyle vanilla
