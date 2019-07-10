@@ -13,7 +13,7 @@ RootModule = 'oxyplotcli.psm1'
 ModuleVersion = '2.0.0'
 
 # Supported PSEditions
-CompatiblePSEditions = 'Desktop'
+#CompatiblePSEditions = ''
 
 # ID used to uniquely identify this module
 GUID = '10a77f13-43c9-4a13-b9ba-5215623f5941'

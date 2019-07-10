@@ -8,7 +8,8 @@ grid view title
 BUG: axis name
 BUG: candlev
 proper padding setting
-BUG: add multiple to -SeriesInfo in oxy.model
+BUG: add multiple objects to -SeriesInfo in oxy.model
+describe cmdlet names in psd1
 
 examples in Example Browser:
 Custom series: PolarHeapMap
