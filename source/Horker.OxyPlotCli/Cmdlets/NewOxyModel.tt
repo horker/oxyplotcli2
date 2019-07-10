@@ -1,4 +1,7 @@
 ﻿<#@ include file="Common.tt" #>
+<#
+var position = 0;
+#>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,47 +22,52 @@ namespace Horker.OxyPlotCli.Cmdlets
     [OutputType(typeof(PlotModel))]
     public class NewOxyPlotModel : SeriesCmdletBase
     {
-        [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
-        public Series Series = null;
+        [Parameter(Position = <#= position++ #>, Mandatory = false, ValueFromPipeline = true)]
+        public object InputObject = null;
 
-        [Parameter(Position = 1, Mandatory = false, ValueFromPipeline = true)]
-        public ISeriesInfo SeriesInfo = null;
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public Series[] Series = new Series[0];
 
-        [Parameter(Position = 2, Mandatory = false)]
-        public Axis[] Axis = null;
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public ISeriesInfo[] SeriesInfo = new ISeriesInfo[0];
 
-        [Parameter(Position = 3, Mandatory = false)]
-        public Annotation[] Annotation = null;
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public PlotModel PlotModel = null;
 
-        [Parameter(Position = 4, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public Axis[] Axis = new Axis[0];
+
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public Annotation[] Annotation = new Annotation[0];
+
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public string OutFile = null;
 
-        [Parameter(Position = 5, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public int OutWidth = 800;
 
-        [Parameter(Position = 6, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public int OutHeight = 600;
 
-        [Parameter(Position = 7, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public SwitchParameter SvgIsDocument = false;
 
-        [Parameter(Position = 8, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public SwitchParameter PassThru = false;
 
-        [Parameter(Position = 9, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public string Style = null;
 
-        [Parameter(Position = 10, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public SwitchParameter AsUIElement = false;
 
-        [Parameter(Position = 11, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public SwitchParameter Show = false;
 
-        [Parameter(Position = 12, Mandatory = false)]
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public SwitchParameter ReuseWindow = false;
 
 <#
-    var position = 13;
     foreach (var prop in EnumerateProperties(typeof(PlotModel)))
     {
 #>
@@ -89,20 +97,44 @@ namespace Horker.OxyPlotCli.Cmdlets
 #>
         private List<Series> _seriesList;
         private List<ISeriesInfo> _seriesInfoList;
+        private PlotModel _plotModel;
 
         protected override void BeginProcessing()
         {
-            _seriesList = new List<Series>();
-            _seriesInfoList = new List<ISeriesInfo>();
+            _seriesList = new List<Series>(Series);
+            _seriesInfoList = new List<ISeriesInfo>(SeriesInfo);
+            _plotModel = PlotModel;
         }
 
         protected override void ProcessRecord()
         {
-            if (Series != null)
-                _seriesList.Add(Series);
+            if (InputObject is PSObject pso)
+                InputObject = pso.BaseObject;
 
-            if (SeriesInfo != null)
-                _seriesInfoList.Add(SeriesInfo);
+            if (InputObject is Series s)
+                _seriesList.Add(s);
+            else if (InputObject is ISeriesInfo si)
+                _seriesInfoList.Add(si);
+            else if (InputObject is PlotModel p)
+                _plotModel = p;
+            else if (InputObject is Array a)
+            {
+                foreach (var e in a)
+                {
+                    var value = e;
+                    if (value is PSObject ppso)
+                        value = ppso.BaseObject;
+
+                    if (value is Series ss)
+                        _seriesList.Add(ss);
+                    else if (value is ISeriesInfo ssi)
+                        _seriesInfoList.Add(ssi);
+                    else if (value is PlotModel pp)
+                        _plotModel = pp;
+                }
+            }
+            else
+                throw new ArgumentException($"Unknown type of pipleline value: {InputObject.GetType().FullName}");
         }
 
         protected override void EndProcessing()
@@ -110,7 +142,9 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var model = PlotModelInitializer.Create(_seriesInfoList, style);
+            var model = _plotModel ?? new PlotModel();
+
+            PlotModelInitializer.Create(model, _seriesInfoList, style);
 
 <#
     foreach (var prop in EnumerateProperties(typeof(PlotModel)))
@@ -121,21 +155,18 @@ namespace Horker.OxyPlotCli.Cmdlets
     }
 #>
 
-            if (Axis != null)
-            {
-                foreach (var a in Axis)
-                    model.Axes.Add(a);
-            }
+            foreach (var a in Axis)
+                model.Axes.Add(a);
 
-            if (Annotation != null)
-            {
-                foreach (var a in Annotation)
-                    model.Annotations.Add(a);
-            }
+            foreach (var a in Annotation)
+                model.Annotations.Add(a);
 
-            var si = _seriesInfoList.Count > 0 ? _seriesInfoList[0] : null;
+            foreach (var s in _seriesList)
+                model.Series.Add(s);
 
-            PostProcess(model, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            var si2 = _seriesInfoList.Count > 0 ? _seriesInfoList[0] : null;
+
+            PostProcess(model, si2, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 }

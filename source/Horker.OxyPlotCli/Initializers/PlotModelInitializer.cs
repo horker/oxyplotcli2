@@ -12,9 +12,8 @@ namespace Horker.OxyPlotCli.Initializers
 {
     public class PlotModelInitializer
     {
-        public static PlotModel Create(IList<ISeriesInfo> siList, Style style)
+        public static PlotModel Create(PlotModel model, IList<ISeriesInfo> siList, Style style)
         {
-            var model = new PlotModel();
             var defaultColorsSave = model.DefaultColors;
             var defaultFontSave = model.DefaultFont;
 
@@ -48,6 +47,13 @@ namespace Horker.OxyPlotCli.Initializers
                 style.ApplyEventHook(model, EventType.BeforeRendering);
             };
 
+            return model;
+        }
+
+        public static PlotModel Create(IList<ISeriesInfo> siList, Style style)
+        {
+            var model = new PlotModel();
+            Create(model, siList, style);
             return model;
         }
     }

@@ -10,6 +10,7 @@ BUG: candlev
 proper padding setting
 BUG: add multiple objects to -SeriesInfo in oxy.model
 describe cmdlet names in psd1
+Optimize SmartConverter.ToDouble() by avoiding exception
 
 examples in Example Browser:
 Custom series: PolarHeapMap
