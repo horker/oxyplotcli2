@@ -6,7 +6,6 @@ ordinal instead of prop name
 -grouporder / -categoryorder
 grid view title
 proper padding setting
-describe cmdlet names in psd1
 Optimize SmartConverter.ToDouble() by avoiding exception
 (oxy.model).Add($seriesInfo)
 
@@ -96,3 +95,4 @@ DONE AddOxyAxisShare
 DONE BUG: candlev
 DONE BUG: add multiple objects to -SeriesInfo in oxy.model
 DONE BUG: axis name
+DONE enumerate cmdlet names explicity in psd1

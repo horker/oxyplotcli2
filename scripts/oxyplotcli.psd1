@@ -57,8 +57,8 @@ DotNetFrameworkVersion = '4.5.2'
 
 # Assemblies that must be loaded prior to importing this module
 RequiredAssemblies = @(
-  "OxyPlot.dll"
-  "OxyPlot.Wpf.dll"
+    "OxyPlot.dll"
+    "OxyPlot.Wpf.dll"
 )
 
 # Script files (.ps1) that are run in the caller's environment prior to importing this module.
@@ -72,20 +72,147 @@ RequiredAssemblies = @(
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 NestedModules = @(
-  "Horker.OxyPlotCli.dll"
+    "Horker.OxyPlotCli.dll"
 )
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @()
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-CmdletsToExport = "*"
+CmdletsToExport = @(
+    "Add-OxyAxisShare"
+    "Add-OxyStyle"
+    "Get-OxyColorScheme"
+    "Get-OxyDefaultStyle"
+    "Get-OxyPalette"
+    "Get-OxyStyle"
+    "New-OxyAngleAxis"
+    "New-OxyAreaSeries"
+    "New-OxyArrowAnnotation"
+    "New-OxyBarSeries"
+    "New-OxyBoxPlotSeries"
+    "New-OxyCandleStickAndVolumeSeries"
+    "New-OxyCandleStickSeries"
+    "New-OxyCategoryAxis"
+    "New-OxyCategoryColorAxis"
+    "New-OxyColumnSeries"
+    "New-OxyContourSeries"
+    "New-OxyDateTimeAxis"
+    "New-OxyEllipseAnnotation"
+    "New-OxyErrorColumnSeries"
+    "New-OxyFunctionAnnotation"
+    "New-OxyFunctionSeries"
+    "New-OxyGridView"
+    "New-OxyHeatMapSeries"
+    "New-OxyHighLowSeries"
+    "New-OxyHistogramSeries"
+    "New-OxyImageAnnotation"
+    "New-OxyIntervalBarSeries"
+    "New-OxyLineAnnotation"
+    "New-OxyLinearAxis"
+    "New-OxyLinearBarSeries"
+    "New-OxyLinearColorAxis"
+    "New-OxyLineSeries"
+    "New-OxyLogarithmicAxis"
+    "New-OxyMagnitudeAxis"
+    "New-OxyPieSeries"
+    "New-OxyPlotModel"
+    "New-OxyPointAnnotation"
+    "New-OxyPolygonAnnotation"
+    "New-OxyPolylineAnnotation"
+    "New-OxyRangeColorAxis"
+    "New-OxyRectangleAnnotation"
+    "New-OxyRectangleBarSeries"
+    "New-OxyRectangleSeries"
+    "New-OxyScatterErrorSeries"
+    "New-OxyScatterSeries"
+    "New-OxyStairStepSeries"
+    "New-OxyStemSeries"
+    "New-OxyTextAnnotation"
+    "New-OxyThreeColorLineSeries"
+    "New-OxyTimeSpanAxis"
+    "New-OxyTornadoBarSeries"
+    "New-OxyTwoColorAreaSeries"
+    "New-OxyTwoColorLineSeries"
+    "New-OxyVolumeSeries"
+    "Remove-OxyStyle"
+    "Set-OxyDefaultStyle"
+)
 
 # Variables to export from this module
 VariablesToExport = @()
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-AliasesToExport = "*"
+AliasesToExport = @(
+    "oxy.2cArea"
+    "oxy.2cLine"
+    "oxy.3cLine"
+    "oxy.ann.arrow"
+    "oxy.ann.ellipse"
+    "oxy.ann.function"
+    "oxy.ann.image"
+    "oxy.ann.line"
+    "oxy.ann.point"
+    "oxy.ann.polygon"
+    "oxy.ann.polyline"
+    "oxy.ann.rectangle"
+    "oxy.ann.text"
+    "oxy.area"
+    "oxy.axis.angle"
+    "oxy.axis.category"
+    "oxy.axis.categoryColor"
+    "oxy.axis.dateTime"
+    "oxy.axis.linear"
+    "oxy.axis.linearColor"
+    "oxy.axis.logarithmic"
+    "oxy.axis.magnitude"
+    "oxy.axis.rangeColor"
+    "oxy.axis.timeSpan"
+    "oxy.bar"
+    "oxy.box"
+    "oxy.boxPlot"
+    "oxy.candle"
+    "oxy.candleStick"
+    "oxy.candleStickAndVolume"
+    "oxy.candlev"
+    "oxy.col"
+    "oxy.column"
+    "oxy.contour"
+    "oxy.ecol"
+    "oxy.errorColumn"
+    "oxy.func"
+    "oxy.function"
+    "oxy.gridView"
+    "oxy.heat"
+    "oxy.heatMap"
+    "oxy.highLow"
+    "oxy.hist"
+    "oxy.histogram"
+    "oxy.ibar"
+    "oxy.intervalBar"
+    "oxy.lbar"
+    "oxy.line"
+    "oxy.linearBar"
+    "oxy.model"
+    "oxy.pie"
+    "oxy.rbar"
+    "oxy.rec"
+    "oxy.rectangle"
+    "oxy.rectangleBar"
+    "oxy.scat"
+    "oxy.scate"
+    "oxy.scatter"
+    "oxy.scatterError"
+    "oxy.stair"
+    "oxy.stairStep"
+    "oxy.stem"
+    "oxy.ThreeColorLine"
+    "oxy.tornado"
+    "oxy.tornadoBar"
+    "oxy.twoColorArea"
+    "oxy.twoColorLine"
+    "oxy.volume"
+)
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()
@@ -103,7 +230,11 @@ PrivateData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
         Tags = @(
-          'oxyplot'
+            'OxyPlot', 'cli',
+            'chart', 'plot', 'graphic', 'line', 'bar', 'column', 'pie', 'histogram',
+            'visualization', 'interactive', 'data', 'analysis',
+            'wpf', 'window',
+            'ggplot', 'matplotlib'
         )
 
         # A URL to the license for this module.
@@ -117,6 +248,9 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = @"
+v2.0.0.beta2
+v2 beta2 release
+
 v2.0.0-beta
 v2 beta release
 "@
