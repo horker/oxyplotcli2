@@ -3,7 +3,7 @@
 
 Set-StrictMode -Version 3
 
-$baseSize = [Horker.OxyPlotCli.TypeAdaptors.Double]::ConvertFrom("11.0pt")
+$baseSize = [Horker.OxyPlotCli.TypeAdaptors.Double]::ConvertFrom("12.0pt")
 $baseLineSize = $baseSize / 22
 $baseRectSize = $baseSize / 22
 $halfLine = $baseSize / 2
@@ -58,7 +58,7 @@ $config = @{
   # *Axis: Title
   "*Axis.TitleFontSize" = $baseSize * 1.2
   "*Axis.TitleColor" = "#4D4D4D"
-  "*Axis.AxisTitleDistance" = $baseSize * 2
+  "*Axis.AxisTitleDistance" = $baseSize * 1.5
 
   # CategoryAxis: FontSize
   "CategoryAxis.FontSize" = $baseSize
@@ -104,7 +104,7 @@ $config = @{
   "[BeforeRendering]" = {
     param($m)
 
-    if ($null -eq $m -or $m.Series.Length -eq 0) {
+    if ($null -eq $m -or $m.Series.Count -eq 0) {
         return
     }
 

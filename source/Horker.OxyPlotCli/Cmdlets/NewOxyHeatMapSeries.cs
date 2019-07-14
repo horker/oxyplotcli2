@@ -1024,7 +1024,7 @@ namespace Horker.OxyPlotCli.Cmdlets
                 series.Y1 = 0.0;
             }
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 }

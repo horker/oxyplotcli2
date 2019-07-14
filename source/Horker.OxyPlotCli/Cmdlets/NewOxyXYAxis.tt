@@ -55,14 +55,14 @@ foreach (var axisType in axes)
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new <#= fullName #>();
-            style.ApplyStyleTo(style);
+            var obj = new <#= fullName #>();
+            style.ApplyStyleTo(obj);
 
 <#
 	foreach (var prop in EnumerateProperties(axisType))
 	{
 #>
-            if (bp.ContainsKey("<#= prop.Name #>")) axis.<#= prop.Name #> = <#= prop.ConversionString #>;
+            if (bp.ContainsKey("<#= prop.Name #>")) obj.<#= prop.Name #> = <#= prop.ConversionString #>;
 <#
 	}
 #>
@@ -73,23 +73,23 @@ foreach (var axisType in axes)
 if (name.EndsWith("Axis"))
 {
 #>
-                AddTo.Axes.Add(axis);
+                AddTo.Axes.Add(obj);
 <#
 }
 else
 {
 #>
-                AddTo.Annotations.Add(axis);
+                AddTo.Annotations.Add(obj);
 <#
 }
 #>
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }

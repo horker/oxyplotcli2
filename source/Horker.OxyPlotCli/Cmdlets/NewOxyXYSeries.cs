@@ -861,7 +861,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -1630,7 +1630,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -2449,7 +2449,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -3244,7 +3244,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -4326,7 +4326,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -5095,7 +5095,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -5870,7 +5870,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -6653,7 +6653,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -7436,7 +7436,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -8205,7 +8205,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -8974,7 +8974,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -9731,7 +9731,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -10548,7 +10548,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -10803,7 +10803,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -11552,7 +11552,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -12586,7 +12586,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -13379,7 +13379,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -14208,7 +14208,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -15033,7 +15033,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -15854,7 +15854,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -16703,7 +16703,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -17496,7 +17496,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -18373,7 +18373,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -19206,7 +19206,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 
@@ -20001,7 +20001,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, si, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 

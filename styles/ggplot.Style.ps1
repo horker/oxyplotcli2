@@ -3,7 +3,7 @@
 
 Set-StrictMode -Version 3
 
-$baseSize = 11.0
+$baseSize = [Horker.OxyPlotCli.TypeAdaptors.Double]::ConvertFrom("11.0pt")
 $baseLineSize = $baseSize / 22
 $baseRectSize = $baseSize / 22
 $halfLine = $baseSize / 2
@@ -19,8 +19,8 @@ $config = @{
   # PlotArea
   "PlotModel.PlotAreaBackground" = "#E5E5E5"
   "PlotModel.PlotAreaBorderThickness" = 0
-  "PlotModel.TitleFontSize" = "$($baseSize * 1.2)pt"
-  "PlotModel.SubtitleFontSize" = "$($baseSize * 0.9)pt"
+  "PlotModel.TitleFontSize" = $baseSize * 1.2
+  "PlotModel.SubtitleFontSize" = $baseSize * 0.9
 
   # Legend
   "PlotModel.LegendPosition" = "RightMiddle"
@@ -29,16 +29,16 @@ $config = @{
   "PlotModel.LegendBorder" = "gray"
   "PlotModel.LegendBorderThickness" = "1px"
 
-  "PlotModel.LegendTitleFontSize" = "$($baseSize)pt"
+  "PlotModel.LegendTitleFontSize" = $baseSize
   "PlotModel.LegendTitleFontWeight" = 800
-  "PlotModel.LegendFontSize" = "$($baseSize)pt"
-  "PlotModel.LegendLineSpacing" = "$($baseLineSize)pt"
+  "PlotModel.LegendFontSize" = $baseSize * 0.9
+  "PlotModel.LegendLineSpacing" = $baseLineSize
 
   # *Axis: Tick
   "*Axis.TickStyle" = "Outside"
   "*Axis.TicklineColor" = "#4D4D4D"
   "*Axis.TextColor" = "#4D4D4D"
-  "*Axis.FontSize" = "$($baseSize * 0.8)pt"
+  "*Axis.FontSize" = $baseSize * 0.8
 
   # *Axis: MinorTick
   "*Axis.MinorTickSize" = 0
@@ -54,15 +54,15 @@ $config = @{
   "*Axis.MinorGridlineThickness" = "1px"
 
   # *Axis: Title
-  "*Axis.TitleFontSize" = "$($baseSize * 1.2)pt"
+  "*Axis.TitleFontSize" = $baseSize * 1.2
   "*Axis.TitleColor" = "#4D4D4D"
-  "*Axis.AxisTitleDistance" = "$($baseSize * 2)pt"
+  "*Axis.AxisTitleDistance" = $baseSize * 2
 
   # CategoryAxis: FontSize
-  "CategoryAxis.FontSize" = "$($baseSize)pt"
+  "CategoryAxis.FontSize" = $baseSize
 
   # Scatter*Series
-  "Scatter*Series.MarkerType" = "Diamond"
+  "Scatter*Series.MarkerType" = "Circle"
   "Scatter*Series.MarkerSize" = "3px"
 
   # BoxPlotSeries
@@ -84,7 +84,7 @@ $config = @{
   "PieSeries.StartAngle" = -90
   "PieSeries.Diameter" = 0.75
   "PieSeries.InnerDiameter" = 0.35
-  "PieSeries.AreInsideLabelsAngled" = $true
+  "PieSeries.AreInsideLabelsAngled" = $false
 
   # IntervalBarSeries
   "IntervalBarSeries.StrokeThickness" = 0

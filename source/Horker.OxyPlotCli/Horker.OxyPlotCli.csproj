@@ -95,6 +95,7 @@
     <Compile Include="Cmdlets\SeriesCmdletBase.cs" />
     <Compile Include="Cmdlets\StyleCmdlets\SetOxyDefaultStyle.cs" />
     <Compile Include="Cmdlets\WpfWindowCmdlets\AddOxyAxisShare.cs" />
+    <Compile Include="Initializers\AxisKind.cs" />
     <Compile Include="Wpf\WpfWindow.cs" />
     <Compile Include="Wpf\Win32Api.cs" />
     <Compile Include="Cmdlets\WpfWindowCmdlets\WpfWindowCmdlets.cs" />
@@ -103,7 +104,6 @@
     <Compile Include="Exporters\ModelExporter.cs" />
     <Compile Include="Cmdlets\NewOxyGridView.cs" />
     <Compile Include="Helpers\FunctionCompiler.cs" />
-    <Compile Include="Initializers\AxisSelector.cs" />
     <Compile Include="Initializers\PlotModelInitializer.cs" />
     <Compile Include="Matplotlib\MatplotlibColormaps.cs" />
     <Compile Include="R\ColorConverter.cs" />

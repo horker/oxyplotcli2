@@ -34,7 +34,7 @@ namespace Horker.OxyPlotCli
         {
             if (fallback.HasValue)
                 return fallback.Value;
-            throw new ArgumentException($"Failed convert into type {nameof(T)}: {input}", cause);
+            throw new ArgumentException($"Failed convert into type {typeof(T).FullName}: {input}", cause);
         }
 
         public static double ToDouble(object input, double? fallback = null)

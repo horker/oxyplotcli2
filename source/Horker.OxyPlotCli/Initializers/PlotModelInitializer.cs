@@ -19,7 +19,7 @@ namespace Horker.OxyPlotCli.Initializers
 
             style.ApplyStyleTo(model);
 
-            if (ReferenceEquals(model.DefaultFont, defaultFontSave))
+            if (ReferenceEquals(model.DefaultFont, defaultFontSave) && !string.IsNullOrEmpty(style.DefaultFont))
                 model.DefaultFont = style.DefaultFont;
 
             var updated = false;
@@ -33,7 +33,7 @@ namespace Horker.OxyPlotCli.Initializers
 
                 style.ApplyEventHook(model, EventType.BeforeAxesFixup);
 
-                if (siList == null)
+                if (siList == null|| siList.Count == 0)
                     AxisInitializer.EnsureAxes((PlotModel)sender, null, style);
                 else
                 {

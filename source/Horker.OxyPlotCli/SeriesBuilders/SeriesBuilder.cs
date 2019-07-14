@@ -4,6 +4,7 @@ using System.Linq;
 using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
+using Horker.OxyPlotCli.Initializers;
 using Horker.OxyPlotCli.Styles;
 using OxyPlot;
 using OxyPlot.Axes;
@@ -425,6 +426,32 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                 style.ApplyStyleTo(s);
 
             return _info;
+        }
+
+        public virtual Axis GetDefaultAxisObject(AxisKind kind)
+        {
+            var type = DefaultAxisTypes[(int)kind];
+            if (type == null)
+                return null;
+
+            var axis = (Axis)type.GetConstructor(new Type[0]).Invoke(new object[0]);
+
+            switch (kind)
+            {
+                case AxisKind.Ax:
+                    axis.Position = AxisPosition.Bottom;
+                    break;
+                case AxisKind.Ay:
+                    axis.Position = AxisPosition.Left;
+                    break;
+                case AxisKind.Az:
+                    axis.Position = AxisPosition.Right;
+                    break;
+                default:
+                    throw new ArgumentException($"Unknown axis kind: {kind}");
+            }
+
+            return axis;
         }
     }
 }

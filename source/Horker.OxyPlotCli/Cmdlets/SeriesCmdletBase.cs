@@ -43,9 +43,11 @@ namespace Horker.OxyPlotCli.Cmdlets
             return window;
         }
 
-        protected void PostProcess(PlotModel model, ISeriesInfo si, string outFile, int outWidth, int outHeight, bool svgIsDocument, bool passThru, Style style, bool asUIElement, bool show, bool reuseWindow)
+        protected void PostProcess(PlotModel model, IList<ISeriesInfo> siList, string outFile, int outWidth, int outHeight, bool svgIsDocument, bool passThru, Style style, bool asUIElement, bool show, bool reuseWindow)
         {
             var bp = MyInvocation.BoundParameters;
+
+            var si = siList != null && siList.Count > 0 ? siList[0] : null;
 
             // When Ax/Ay parameters are specified, creates axis objects.
 
@@ -54,32 +56,15 @@ namespace Horker.OxyPlotCli.Cmdlets
             Axis zAxis = null;
             if (si?.Series?.Count > 0)
             {
-                xAxis = AxisInitializer.CreateWithPrefixedParameters(
-                    bp,
-                    "Ax",
-                    si.AxisTypes[0] ?? SeriesBuilderStore.OfType(si.Series[0].GetType()).DefaultAxisTypes[0],
-                    AxisPosition.Bottom,
-                    style);
-
-                yAxis = AxisInitializer.CreateWithPrefixedParameters(
-                    bp,
-                    "Ay",
-                    si.AxisTypes[1] ?? SeriesBuilderStore.OfType(si.Series[0].GetType()).DefaultAxisTypes[1],
-                    AxisPosition.Left,
-                    style);
-
-                zAxis = AxisInitializer.CreateWithPrefixedParameters(
-                    bp,
-                    "Az",
-                    si.AxisTypes[2] ?? SeriesBuilderStore.OfType(si.Series[0].GetType()).DefaultAxisTypes[2],
-                    AxisPosition.Right,
-                    style);
+                xAxis = AxisInitializer.CreateWithPrefixedParameters(bp, AxisKind.Ax, si.Series[0], si, style);
+                yAxis = AxisInitializer.CreateWithPrefixedParameters(bp, AxisKind.Ay, si.Series[0], si, style);
+                zAxis = AxisInitializer.CreateWithPrefixedParameters(bp, AxisKind.Az, si.Series[0], si, style);
             }
 
             // Creates a model if necessary.
 
             if (model == null && (!string.IsNullOrEmpty(outFile) || xAxis != null || yAxis != null || zAxis != null || asUIElement || show))
-                model = PlotModelInitializer.Create(new ISeriesInfo[] { si }, style);
+                model = PlotModelInitializer.Create(siList, style);
 
             // Returns a SeriesInfo object when a model object is not necessary.
 
@@ -100,12 +85,12 @@ namespace Horker.OxyPlotCli.Cmdlets
             if (zAxis != null)
                 model.Axes.Add(zAxis);
 
-            if (si?.Series != null)
+            foreach (var si2 in siList)
             {
-                foreach (var s in si?.Series)
+                foreach (var s in si2.Series)
                 {
                     model.Series.Add(s);
-
+/*
                     if (s is XYAxisSeries xy)
                     {
                         if (xAxis != null)
@@ -114,7 +99,7 @@ namespace Horker.OxyPlotCli.Cmdlets
                         if (yAxis != null)
                             xy.YAxisKey = yAxis.Key;
                     }
-
+*/
                     if (s is CandleStickAndVolumeSeries candlev)
                     {
                         if (zAxis != null)

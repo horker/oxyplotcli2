@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Horker.OxyPlotCli.Initializers;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
@@ -73,7 +74,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         public override string[] DataPointItemNames => new[] { "X", "High", "Low", "Open", "Close" };
         public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true };
         public override int[] AxisItemIndexes => new[] { 0, -1, -1, -1, 1 };
-        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis), null };
+        public override Type[] DefaultAxisTypes => new[] { typeof(DateTimeAxis), typeof(LinearAxis), null };
         public override string[] Aliases => new[] { "oxy.candleStick", "oxy.candle", "oxycandle" };
 
         protected override void AddDataPointToSeries(CandleStickSeries series, double x, double high, double low, double open, double close, VoidT e6, VoidT e7)
@@ -87,12 +88,55 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         public override string[] DataPointItemNames => new[] { "X", "Open", "High", "Low", "Close", "BuyVolume", "SellVolume" };
         public override bool[] DataPointItemMandatoriness => new[] { true, true, true, true, true, false, false };
         public override int[] AxisItemIndexes => new[] { 0, -1, -1, -1, 1, -1, -1 };
-        public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis), typeof(LinearAxis) };
+        public override Type[] DefaultAxisTypes => new[] { typeof(DateTimeAxis), typeof(LinearAxis), typeof(LinearAxis) };
         public override string[] Aliases => new[] { "oxy.candleStickAndVolume", "oxy.candlev", "oxycandlev" };
 
         protected override void AddDataPointToSeries(CandleStickAndVolumeSeries series, double x, double open, double high, double low, double close, double buyVolume, double sellVolume)
         {
+            if (double.IsNaN(buyVolume))
+                buyVolume = 0.0;
+            if (double.IsNaN(sellVolume))
+                sellVolume = 0.0;
+
             series.Items.Add(new OhlcvItem(x, open, high, low, close, buyVolume, sellVolume));
+        }
+
+        public override Axis GetDefaultAxisObject(AxisKind kind)
+        {
+            Axis axis;
+            switch (kind)
+            {
+
+                case AxisKind.Ax:
+                    axis = new DateTimeAxis()
+                    {
+                        Position = AxisPosition.Bottom
+                    };
+                    break;
+
+                case AxisKind.Ay:
+                    axis = new LinearAxis()
+                    {
+                        Position = AxisPosition.Left,
+                        StartPosition = .25,
+                        EndPosition = 1.0
+                    };
+                    break;
+
+                case AxisKind.Az:
+                    axis = new LinearAxis()
+                    {
+                        Position = AxisPosition.Left,
+                        StartPosition = 0,
+                        EndPosition = .22
+                    };
+                    break;
+
+                default:
+                    throw new ArgumentException($"Unknown axis kind: {kind}");
+            }
+
+            return axis;
         }
     }
 

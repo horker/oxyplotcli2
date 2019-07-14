@@ -255,95 +255,95 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Axes.AngleAxis();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Axes.AngleAxis();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("StartAngle")) axis.StartAngle = StartAngle;
-            if (bp.ContainsKey("EndAngle")) axis.EndAngle = EndAngle;
-            if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
-            if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
-            if (bp.ContainsKey("FractionUnitSymbol")) axis.FractionUnitSymbol = FractionUnitSymbol;
-            if (bp.ContainsKey("AbsoluteMaximum")) axis.AbsoluteMaximum = AbsoluteMaximum;
-            if (bp.ContainsKey("AbsoluteMinimum")) axis.AbsoluteMinimum = AbsoluteMinimum;
-            if (bp.ContainsKey("Angle")) axis.Angle = Angle;
-            if (bp.ContainsKey("AxisTickToLabelDistance")) axis.AxisTickToLabelDistance = AxisTickToLabelDistance;
-            if (bp.ContainsKey("AxisTitleDistance")) axis.AxisTitleDistance = AxisTitleDistance;
-            if (bp.ContainsKey("AxisDistance")) axis.AxisDistance = AxisDistance;
-            if (bp.ContainsKey("AxislineColor")) axis.AxislineColor = AxislineColor;
-            if (bp.ContainsKey("AxislineStyle")) axis.AxislineStyle = AxislineStyle;
-            if (bp.ContainsKey("AxislineThickness")) axis.AxislineThickness = AxislineThickness;
-            if (bp.ContainsKey("ClipTitle")) axis.ClipTitle = ClipTitle;
-            if (bp.ContainsKey("CropGridlines")) axis.CropGridlines = CropGridlines;
-            if (bp.ContainsKey("EndPosition")) axis.EndPosition = EndPosition;
-            if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
-            if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
-            if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
-            if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
-            if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
-            if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
-            if (bp.ContainsKey("IntervalLength")) axis.IntervalLength = IntervalLength;
-            if (bp.ContainsKey("IsAxisVisible")) axis.IsAxisVisible = IsAxisVisible;
-            if (bp.ContainsKey("IsPanEnabled")) axis.IsPanEnabled = IsPanEnabled;
-            if (bp.ContainsKey("IsZoomEnabled")) axis.IsZoomEnabled = IsZoomEnabled;
-            if (bp.ContainsKey("Key")) axis.Key = Key;
-            if (bp.ContainsKey("LabelFormatter")) axis.LabelFormatter = LabelFormatter;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("MajorGridlineColor")) axis.MajorGridlineColor = MajorGridlineColor;
-            if (bp.ContainsKey("MajorGridlineStyle")) axis.MajorGridlineStyle = MajorGridlineStyle;
-            if (bp.ContainsKey("MajorGridlineThickness")) axis.MajorGridlineThickness = MajorGridlineThickness;
-            if (bp.ContainsKey("MajorStep")) axis.MajorStep = MajorStep;
-            if (bp.ContainsKey("MajorTickSize")) axis.MajorTickSize = MajorTickSize;
-            if (bp.ContainsKey("Maximum")) axis.Maximum = Maximum;
-            if (bp.ContainsKey("MaximumPadding")) axis.MaximumPadding = MaximumPadding;
-            if (bp.ContainsKey("MaximumRange")) axis.MaximumRange = MaximumRange;
-            if (bp.ContainsKey("Minimum")) axis.Minimum = Minimum;
-            if (bp.ContainsKey("MinimumMajorStep")) axis.MinimumMajorStep = MinimumMajorStep;
-            if (bp.ContainsKey("MinimumMinorStep")) axis.MinimumMinorStep = MinimumMinorStep;
-            if (bp.ContainsKey("MinimumPadding")) axis.MinimumPadding = MinimumPadding;
-            if (bp.ContainsKey("MinimumRange")) axis.MinimumRange = MinimumRange;
-            if (bp.ContainsKey("MinorGridlineColor")) axis.MinorGridlineColor = MinorGridlineColor;
-            if (bp.ContainsKey("MinorGridlineStyle")) axis.MinorGridlineStyle = MinorGridlineStyle;
-            if (bp.ContainsKey("MinorGridlineThickness")) axis.MinorGridlineThickness = MinorGridlineThickness;
-            if (bp.ContainsKey("MinorStep")) axis.MinorStep = MinorStep;
-            if (bp.ContainsKey("MinorTicklineColor")) axis.MinorTicklineColor = MinorTicklineColor;
-            if (bp.ContainsKey("MinorTickSize")) axis.MinorTickSize = MinorTickSize;
-            if (bp.ContainsKey("Position")) axis.Position = Position;
-            if (bp.ContainsKey("PositionAtZeroCrossing")) axis.PositionAtZeroCrossing = PositionAtZeroCrossing;
-            if (bp.ContainsKey("PositionTier")) axis.PositionTier = PositionTier;
-            if (bp.ContainsKey("StartPosition")) axis.StartPosition = StartPosition;
-            if (bp.ContainsKey("StringFormat")) axis.StringFormat = StringFormat;
-            if (bp.ContainsKey("TickStyle")) axis.TickStyle = TickStyle;
-            if (bp.ContainsKey("TicklineColor")) axis.TicklineColor = TicklineColor;
-            if (bp.ContainsKey("Title")) axis.Title = Title;
-            if (bp.ContainsKey("TitleClippingLength")) axis.TitleClippingLength = TitleClippingLength;
-            if (bp.ContainsKey("TitleColor")) axis.TitleColor = TitleColor;
-            if (bp.ContainsKey("TitleFont")) axis.TitleFont = TitleFont;
-            if (bp.ContainsKey("TitleFontSize")) axis.TitleFontSize = TitleFontSize;
-            if (bp.ContainsKey("TitleFontWeight")) axis.TitleFontWeight = TitleFontWeight;
-            if (bp.ContainsKey("TitleFormatString")) axis.TitleFormatString = TitleFormatString;
-            if (bp.ContainsKey("TitlePosition")) axis.TitlePosition = TitlePosition;
-            if (bp.ContainsKey("Unit")) axis.Unit = Unit;
-            if (bp.ContainsKey("UseSuperExponentialFormat")) axis.UseSuperExponentialFormat = UseSuperExponentialFormat;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("StartAngle")) obj.StartAngle = StartAngle;
+            if (bp.ContainsKey("EndAngle")) obj.EndAngle = EndAngle;
+            if (bp.ContainsKey("FormatAsFractions")) obj.FormatAsFractions = FormatAsFractions;
+            if (bp.ContainsKey("FractionUnit")) obj.FractionUnit = FractionUnit;
+            if (bp.ContainsKey("FractionUnitSymbol")) obj.FractionUnitSymbol = FractionUnitSymbol;
+            if (bp.ContainsKey("AbsoluteMaximum")) obj.AbsoluteMaximum = AbsoluteMaximum;
+            if (bp.ContainsKey("AbsoluteMinimum")) obj.AbsoluteMinimum = AbsoluteMinimum;
+            if (bp.ContainsKey("Angle")) obj.Angle = Angle;
+            if (bp.ContainsKey("AxisTickToLabelDistance")) obj.AxisTickToLabelDistance = AxisTickToLabelDistance;
+            if (bp.ContainsKey("AxisTitleDistance")) obj.AxisTitleDistance = AxisTitleDistance;
+            if (bp.ContainsKey("AxisDistance")) obj.AxisDistance = AxisDistance;
+            if (bp.ContainsKey("AxislineColor")) obj.AxislineColor = AxislineColor;
+            if (bp.ContainsKey("AxislineStyle")) obj.AxislineStyle = AxislineStyle;
+            if (bp.ContainsKey("AxislineThickness")) obj.AxislineThickness = AxislineThickness;
+            if (bp.ContainsKey("ClipTitle")) obj.ClipTitle = ClipTitle;
+            if (bp.ContainsKey("CropGridlines")) obj.CropGridlines = CropGridlines;
+            if (bp.ContainsKey("EndPosition")) obj.EndPosition = EndPosition;
+            if (bp.ContainsKey("ExtraGridlineColor")) obj.ExtraGridlineColor = ExtraGridlineColor;
+            if (bp.ContainsKey("ExtraGridlineStyle")) obj.ExtraGridlineStyle = ExtraGridlineStyle;
+            if (bp.ContainsKey("ExtraGridlineThickness")) obj.ExtraGridlineThickness = ExtraGridlineThickness;
+            if (bp.ContainsKey("ExtraGridlines")) obj.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
+            if (bp.ContainsKey("FilterFunction")) obj.FilterFunction = FilterFunction;
+            if (bp.ContainsKey("FilterMaxValue")) obj.FilterMaxValue = FilterMaxValue;
+            if (bp.ContainsKey("FilterMinValue")) obj.FilterMinValue = FilterMinValue;
+            if (bp.ContainsKey("IntervalLength")) obj.IntervalLength = IntervalLength;
+            if (bp.ContainsKey("IsAxisVisible")) obj.IsAxisVisible = IsAxisVisible;
+            if (bp.ContainsKey("IsPanEnabled")) obj.IsPanEnabled = IsPanEnabled;
+            if (bp.ContainsKey("IsZoomEnabled")) obj.IsZoomEnabled = IsZoomEnabled;
+            if (bp.ContainsKey("Key")) obj.Key = Key;
+            if (bp.ContainsKey("LabelFormatter")) obj.LabelFormatter = LabelFormatter;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("MajorGridlineColor")) obj.MajorGridlineColor = MajorGridlineColor;
+            if (bp.ContainsKey("MajorGridlineStyle")) obj.MajorGridlineStyle = MajorGridlineStyle;
+            if (bp.ContainsKey("MajorGridlineThickness")) obj.MajorGridlineThickness = MajorGridlineThickness;
+            if (bp.ContainsKey("MajorStep")) obj.MajorStep = MajorStep;
+            if (bp.ContainsKey("MajorTickSize")) obj.MajorTickSize = MajorTickSize;
+            if (bp.ContainsKey("Maximum")) obj.Maximum = Maximum;
+            if (bp.ContainsKey("MaximumPadding")) obj.MaximumPadding = MaximumPadding;
+            if (bp.ContainsKey("MaximumRange")) obj.MaximumRange = MaximumRange;
+            if (bp.ContainsKey("Minimum")) obj.Minimum = Minimum;
+            if (bp.ContainsKey("MinimumMajorStep")) obj.MinimumMajorStep = MinimumMajorStep;
+            if (bp.ContainsKey("MinimumMinorStep")) obj.MinimumMinorStep = MinimumMinorStep;
+            if (bp.ContainsKey("MinimumPadding")) obj.MinimumPadding = MinimumPadding;
+            if (bp.ContainsKey("MinimumRange")) obj.MinimumRange = MinimumRange;
+            if (bp.ContainsKey("MinorGridlineColor")) obj.MinorGridlineColor = MinorGridlineColor;
+            if (bp.ContainsKey("MinorGridlineStyle")) obj.MinorGridlineStyle = MinorGridlineStyle;
+            if (bp.ContainsKey("MinorGridlineThickness")) obj.MinorGridlineThickness = MinorGridlineThickness;
+            if (bp.ContainsKey("MinorStep")) obj.MinorStep = MinorStep;
+            if (bp.ContainsKey("MinorTicklineColor")) obj.MinorTicklineColor = MinorTicklineColor;
+            if (bp.ContainsKey("MinorTickSize")) obj.MinorTickSize = MinorTickSize;
+            if (bp.ContainsKey("Position")) obj.Position = Position;
+            if (bp.ContainsKey("PositionAtZeroCrossing")) obj.PositionAtZeroCrossing = PositionAtZeroCrossing;
+            if (bp.ContainsKey("PositionTier")) obj.PositionTier = PositionTier;
+            if (bp.ContainsKey("StartPosition")) obj.StartPosition = StartPosition;
+            if (bp.ContainsKey("StringFormat")) obj.StringFormat = StringFormat;
+            if (bp.ContainsKey("TickStyle")) obj.TickStyle = TickStyle;
+            if (bp.ContainsKey("TicklineColor")) obj.TicklineColor = TicklineColor;
+            if (bp.ContainsKey("Title")) obj.Title = Title;
+            if (bp.ContainsKey("TitleClippingLength")) obj.TitleClippingLength = TitleClippingLength;
+            if (bp.ContainsKey("TitleColor")) obj.TitleColor = TitleColor;
+            if (bp.ContainsKey("TitleFont")) obj.TitleFont = TitleFont;
+            if (bp.ContainsKey("TitleFontSize")) obj.TitleFontSize = TitleFontSize;
+            if (bp.ContainsKey("TitleFontWeight")) obj.TitleFontWeight = TitleFontWeight;
+            if (bp.ContainsKey("TitleFormatString")) obj.TitleFormatString = TitleFormatString;
+            if (bp.ContainsKey("TitlePosition")) obj.TitlePosition = TitlePosition;
+            if (bp.ContainsKey("Unit")) obj.Unit = Unit;
+            if (bp.ContainsKey("UseSuperExponentialFormat")) obj.UseSuperExponentialFormat = UseSuperExponentialFormat;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Axes.Add(axis);
+                AddTo.Axes.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -598,97 +598,97 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Axes.CategoryAxis();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Axes.CategoryAxis();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("GapWidth")) axis.GapWidth = GapWidth;
-            if (bp.ContainsKey("IsTickCentered")) axis.IsTickCentered = IsTickCentered;
-            if (bp.ContainsKey("ItemsSource")) axis.ItemsSource = ItemsSource;
-            if (bp.ContainsKey("LabelField")) axis.LabelField = LabelField;
-            if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
-            if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
-            if (bp.ContainsKey("FractionUnitSymbol")) axis.FractionUnitSymbol = FractionUnitSymbol;
-            if (bp.ContainsKey("AbsoluteMaximum")) axis.AbsoluteMaximum = AbsoluteMaximum;
-            if (bp.ContainsKey("AbsoluteMinimum")) axis.AbsoluteMinimum = AbsoluteMinimum;
-            if (bp.ContainsKey("Angle")) axis.Angle = Angle;
-            if (bp.ContainsKey("AxisTickToLabelDistance")) axis.AxisTickToLabelDistance = AxisTickToLabelDistance;
-            if (bp.ContainsKey("AxisTitleDistance")) axis.AxisTitleDistance = AxisTitleDistance;
-            if (bp.ContainsKey("AxisDistance")) axis.AxisDistance = AxisDistance;
-            if (bp.ContainsKey("AxislineColor")) axis.AxislineColor = AxislineColor;
-            if (bp.ContainsKey("AxislineStyle")) axis.AxislineStyle = AxislineStyle;
-            if (bp.ContainsKey("AxislineThickness")) axis.AxislineThickness = AxislineThickness;
-            if (bp.ContainsKey("ClipTitle")) axis.ClipTitle = ClipTitle;
-            if (bp.ContainsKey("CropGridlines")) axis.CropGridlines = CropGridlines;
-            if (bp.ContainsKey("EndPosition")) axis.EndPosition = EndPosition;
-            if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
-            if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
-            if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
-            if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
-            if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
-            if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
-            if (bp.ContainsKey("IntervalLength")) axis.IntervalLength = IntervalLength;
-            if (bp.ContainsKey("IsAxisVisible")) axis.IsAxisVisible = IsAxisVisible;
-            if (bp.ContainsKey("IsPanEnabled")) axis.IsPanEnabled = IsPanEnabled;
-            if (bp.ContainsKey("IsZoomEnabled")) axis.IsZoomEnabled = IsZoomEnabled;
-            if (bp.ContainsKey("Key")) axis.Key = Key;
-            if (bp.ContainsKey("LabelFormatter")) axis.LabelFormatter = LabelFormatter;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("MajorGridlineColor")) axis.MajorGridlineColor = MajorGridlineColor;
-            if (bp.ContainsKey("MajorGridlineStyle")) axis.MajorGridlineStyle = MajorGridlineStyle;
-            if (bp.ContainsKey("MajorGridlineThickness")) axis.MajorGridlineThickness = MajorGridlineThickness;
-            if (bp.ContainsKey("MajorStep")) axis.MajorStep = MajorStep;
-            if (bp.ContainsKey("MajorTickSize")) axis.MajorTickSize = MajorTickSize;
-            if (bp.ContainsKey("Maximum")) axis.Maximum = Maximum;
-            if (bp.ContainsKey("MaximumPadding")) axis.MaximumPadding = MaximumPadding;
-            if (bp.ContainsKey("MaximumRange")) axis.MaximumRange = MaximumRange;
-            if (bp.ContainsKey("Minimum")) axis.Minimum = Minimum;
-            if (bp.ContainsKey("MinimumMajorStep")) axis.MinimumMajorStep = MinimumMajorStep;
-            if (bp.ContainsKey("MinimumMinorStep")) axis.MinimumMinorStep = MinimumMinorStep;
-            if (bp.ContainsKey("MinimumPadding")) axis.MinimumPadding = MinimumPadding;
-            if (bp.ContainsKey("MinimumRange")) axis.MinimumRange = MinimumRange;
-            if (bp.ContainsKey("MinorGridlineColor")) axis.MinorGridlineColor = MinorGridlineColor;
-            if (bp.ContainsKey("MinorGridlineStyle")) axis.MinorGridlineStyle = MinorGridlineStyle;
-            if (bp.ContainsKey("MinorGridlineThickness")) axis.MinorGridlineThickness = MinorGridlineThickness;
-            if (bp.ContainsKey("MinorStep")) axis.MinorStep = MinorStep;
-            if (bp.ContainsKey("MinorTicklineColor")) axis.MinorTicklineColor = MinorTicklineColor;
-            if (bp.ContainsKey("MinorTickSize")) axis.MinorTickSize = MinorTickSize;
-            if (bp.ContainsKey("Position")) axis.Position = Position;
-            if (bp.ContainsKey("PositionAtZeroCrossing")) axis.PositionAtZeroCrossing = PositionAtZeroCrossing;
-            if (bp.ContainsKey("PositionTier")) axis.PositionTier = PositionTier;
-            if (bp.ContainsKey("StartPosition")) axis.StartPosition = StartPosition;
-            if (bp.ContainsKey("StringFormat")) axis.StringFormat = StringFormat;
-            if (bp.ContainsKey("TickStyle")) axis.TickStyle = TickStyle;
-            if (bp.ContainsKey("TicklineColor")) axis.TicklineColor = TicklineColor;
-            if (bp.ContainsKey("Title")) axis.Title = Title;
-            if (bp.ContainsKey("TitleClippingLength")) axis.TitleClippingLength = TitleClippingLength;
-            if (bp.ContainsKey("TitleColor")) axis.TitleColor = TitleColor;
-            if (bp.ContainsKey("TitleFont")) axis.TitleFont = TitleFont;
-            if (bp.ContainsKey("TitleFontSize")) axis.TitleFontSize = TitleFontSize;
-            if (bp.ContainsKey("TitleFontWeight")) axis.TitleFontWeight = TitleFontWeight;
-            if (bp.ContainsKey("TitleFormatString")) axis.TitleFormatString = TitleFormatString;
-            if (bp.ContainsKey("TitlePosition")) axis.TitlePosition = TitlePosition;
-            if (bp.ContainsKey("Unit")) axis.Unit = Unit;
-            if (bp.ContainsKey("UseSuperExponentialFormat")) axis.UseSuperExponentialFormat = UseSuperExponentialFormat;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("GapWidth")) obj.GapWidth = GapWidth;
+            if (bp.ContainsKey("IsTickCentered")) obj.IsTickCentered = IsTickCentered;
+            if (bp.ContainsKey("ItemsSource")) obj.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("LabelField")) obj.LabelField = LabelField;
+            if (bp.ContainsKey("FormatAsFractions")) obj.FormatAsFractions = FormatAsFractions;
+            if (bp.ContainsKey("FractionUnit")) obj.FractionUnit = FractionUnit;
+            if (bp.ContainsKey("FractionUnitSymbol")) obj.FractionUnitSymbol = FractionUnitSymbol;
+            if (bp.ContainsKey("AbsoluteMaximum")) obj.AbsoluteMaximum = AbsoluteMaximum;
+            if (bp.ContainsKey("AbsoluteMinimum")) obj.AbsoluteMinimum = AbsoluteMinimum;
+            if (bp.ContainsKey("Angle")) obj.Angle = Angle;
+            if (bp.ContainsKey("AxisTickToLabelDistance")) obj.AxisTickToLabelDistance = AxisTickToLabelDistance;
+            if (bp.ContainsKey("AxisTitleDistance")) obj.AxisTitleDistance = AxisTitleDistance;
+            if (bp.ContainsKey("AxisDistance")) obj.AxisDistance = AxisDistance;
+            if (bp.ContainsKey("AxislineColor")) obj.AxislineColor = AxislineColor;
+            if (bp.ContainsKey("AxislineStyle")) obj.AxislineStyle = AxislineStyle;
+            if (bp.ContainsKey("AxislineThickness")) obj.AxislineThickness = AxislineThickness;
+            if (bp.ContainsKey("ClipTitle")) obj.ClipTitle = ClipTitle;
+            if (bp.ContainsKey("CropGridlines")) obj.CropGridlines = CropGridlines;
+            if (bp.ContainsKey("EndPosition")) obj.EndPosition = EndPosition;
+            if (bp.ContainsKey("ExtraGridlineColor")) obj.ExtraGridlineColor = ExtraGridlineColor;
+            if (bp.ContainsKey("ExtraGridlineStyle")) obj.ExtraGridlineStyle = ExtraGridlineStyle;
+            if (bp.ContainsKey("ExtraGridlineThickness")) obj.ExtraGridlineThickness = ExtraGridlineThickness;
+            if (bp.ContainsKey("ExtraGridlines")) obj.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
+            if (bp.ContainsKey("FilterFunction")) obj.FilterFunction = FilterFunction;
+            if (bp.ContainsKey("FilterMaxValue")) obj.FilterMaxValue = FilterMaxValue;
+            if (bp.ContainsKey("FilterMinValue")) obj.FilterMinValue = FilterMinValue;
+            if (bp.ContainsKey("IntervalLength")) obj.IntervalLength = IntervalLength;
+            if (bp.ContainsKey("IsAxisVisible")) obj.IsAxisVisible = IsAxisVisible;
+            if (bp.ContainsKey("IsPanEnabled")) obj.IsPanEnabled = IsPanEnabled;
+            if (bp.ContainsKey("IsZoomEnabled")) obj.IsZoomEnabled = IsZoomEnabled;
+            if (bp.ContainsKey("Key")) obj.Key = Key;
+            if (bp.ContainsKey("LabelFormatter")) obj.LabelFormatter = LabelFormatter;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("MajorGridlineColor")) obj.MajorGridlineColor = MajorGridlineColor;
+            if (bp.ContainsKey("MajorGridlineStyle")) obj.MajorGridlineStyle = MajorGridlineStyle;
+            if (bp.ContainsKey("MajorGridlineThickness")) obj.MajorGridlineThickness = MajorGridlineThickness;
+            if (bp.ContainsKey("MajorStep")) obj.MajorStep = MajorStep;
+            if (bp.ContainsKey("MajorTickSize")) obj.MajorTickSize = MajorTickSize;
+            if (bp.ContainsKey("Maximum")) obj.Maximum = Maximum;
+            if (bp.ContainsKey("MaximumPadding")) obj.MaximumPadding = MaximumPadding;
+            if (bp.ContainsKey("MaximumRange")) obj.MaximumRange = MaximumRange;
+            if (bp.ContainsKey("Minimum")) obj.Minimum = Minimum;
+            if (bp.ContainsKey("MinimumMajorStep")) obj.MinimumMajorStep = MinimumMajorStep;
+            if (bp.ContainsKey("MinimumMinorStep")) obj.MinimumMinorStep = MinimumMinorStep;
+            if (bp.ContainsKey("MinimumPadding")) obj.MinimumPadding = MinimumPadding;
+            if (bp.ContainsKey("MinimumRange")) obj.MinimumRange = MinimumRange;
+            if (bp.ContainsKey("MinorGridlineColor")) obj.MinorGridlineColor = MinorGridlineColor;
+            if (bp.ContainsKey("MinorGridlineStyle")) obj.MinorGridlineStyle = MinorGridlineStyle;
+            if (bp.ContainsKey("MinorGridlineThickness")) obj.MinorGridlineThickness = MinorGridlineThickness;
+            if (bp.ContainsKey("MinorStep")) obj.MinorStep = MinorStep;
+            if (bp.ContainsKey("MinorTicklineColor")) obj.MinorTicklineColor = MinorTicklineColor;
+            if (bp.ContainsKey("MinorTickSize")) obj.MinorTickSize = MinorTickSize;
+            if (bp.ContainsKey("Position")) obj.Position = Position;
+            if (bp.ContainsKey("PositionAtZeroCrossing")) obj.PositionAtZeroCrossing = PositionAtZeroCrossing;
+            if (bp.ContainsKey("PositionTier")) obj.PositionTier = PositionTier;
+            if (bp.ContainsKey("StartPosition")) obj.StartPosition = StartPosition;
+            if (bp.ContainsKey("StringFormat")) obj.StringFormat = StringFormat;
+            if (bp.ContainsKey("TickStyle")) obj.TickStyle = TickStyle;
+            if (bp.ContainsKey("TicklineColor")) obj.TicklineColor = TicklineColor;
+            if (bp.ContainsKey("Title")) obj.Title = Title;
+            if (bp.ContainsKey("TitleClippingLength")) obj.TitleClippingLength = TitleClippingLength;
+            if (bp.ContainsKey("TitleColor")) obj.TitleColor = TitleColor;
+            if (bp.ContainsKey("TitleFont")) obj.TitleFont = TitleFont;
+            if (bp.ContainsKey("TitleFontSize")) obj.TitleFontSize = TitleFontSize;
+            if (bp.ContainsKey("TitleFontWeight")) obj.TitleFontWeight = TitleFontWeight;
+            if (bp.ContainsKey("TitleFormatString")) obj.TitleFormatString = TitleFormatString;
+            if (bp.ContainsKey("TitlePosition")) obj.TitlePosition = TitlePosition;
+            if (bp.ContainsKey("Unit")) obj.Unit = Unit;
+            if (bp.ContainsKey("UseSuperExponentialFormat")) obj.UseSuperExponentialFormat = UseSuperExponentialFormat;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Axes.Add(axis);
+                AddTo.Axes.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -949,99 +949,99 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Axes.CategoryColorAxis();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Axes.CategoryColorAxis();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("InvalidCategoryColor")) axis.InvalidCategoryColor = InvalidCategoryColor;
-            if (bp.ContainsKey("Palette")) axis.Palette = new Horker.OxyPlotCli.TypeAdaptors.OxyPalette(Palette);
-            if (bp.ContainsKey("GapWidth")) axis.GapWidth = GapWidth;
-            if (bp.ContainsKey("IsTickCentered")) axis.IsTickCentered = IsTickCentered;
-            if (bp.ContainsKey("ItemsSource")) axis.ItemsSource = ItemsSource;
-            if (bp.ContainsKey("LabelField")) axis.LabelField = LabelField;
-            if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
-            if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
-            if (bp.ContainsKey("FractionUnitSymbol")) axis.FractionUnitSymbol = FractionUnitSymbol;
-            if (bp.ContainsKey("AbsoluteMaximum")) axis.AbsoluteMaximum = AbsoluteMaximum;
-            if (bp.ContainsKey("AbsoluteMinimum")) axis.AbsoluteMinimum = AbsoluteMinimum;
-            if (bp.ContainsKey("Angle")) axis.Angle = Angle;
-            if (bp.ContainsKey("AxisTickToLabelDistance")) axis.AxisTickToLabelDistance = AxisTickToLabelDistance;
-            if (bp.ContainsKey("AxisTitleDistance")) axis.AxisTitleDistance = AxisTitleDistance;
-            if (bp.ContainsKey("AxisDistance")) axis.AxisDistance = AxisDistance;
-            if (bp.ContainsKey("AxislineColor")) axis.AxislineColor = AxislineColor;
-            if (bp.ContainsKey("AxislineStyle")) axis.AxislineStyle = AxislineStyle;
-            if (bp.ContainsKey("AxislineThickness")) axis.AxislineThickness = AxislineThickness;
-            if (bp.ContainsKey("ClipTitle")) axis.ClipTitle = ClipTitle;
-            if (bp.ContainsKey("CropGridlines")) axis.CropGridlines = CropGridlines;
-            if (bp.ContainsKey("EndPosition")) axis.EndPosition = EndPosition;
-            if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
-            if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
-            if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
-            if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
-            if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
-            if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
-            if (bp.ContainsKey("IntervalLength")) axis.IntervalLength = IntervalLength;
-            if (bp.ContainsKey("IsAxisVisible")) axis.IsAxisVisible = IsAxisVisible;
-            if (bp.ContainsKey("IsPanEnabled")) axis.IsPanEnabled = IsPanEnabled;
-            if (bp.ContainsKey("IsZoomEnabled")) axis.IsZoomEnabled = IsZoomEnabled;
-            if (bp.ContainsKey("Key")) axis.Key = Key;
-            if (bp.ContainsKey("LabelFormatter")) axis.LabelFormatter = LabelFormatter;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("MajorGridlineColor")) axis.MajorGridlineColor = MajorGridlineColor;
-            if (bp.ContainsKey("MajorGridlineStyle")) axis.MajorGridlineStyle = MajorGridlineStyle;
-            if (bp.ContainsKey("MajorGridlineThickness")) axis.MajorGridlineThickness = MajorGridlineThickness;
-            if (bp.ContainsKey("MajorStep")) axis.MajorStep = MajorStep;
-            if (bp.ContainsKey("MajorTickSize")) axis.MajorTickSize = MajorTickSize;
-            if (bp.ContainsKey("Maximum")) axis.Maximum = Maximum;
-            if (bp.ContainsKey("MaximumPadding")) axis.MaximumPadding = MaximumPadding;
-            if (bp.ContainsKey("MaximumRange")) axis.MaximumRange = MaximumRange;
-            if (bp.ContainsKey("Minimum")) axis.Minimum = Minimum;
-            if (bp.ContainsKey("MinimumMajorStep")) axis.MinimumMajorStep = MinimumMajorStep;
-            if (bp.ContainsKey("MinimumMinorStep")) axis.MinimumMinorStep = MinimumMinorStep;
-            if (bp.ContainsKey("MinimumPadding")) axis.MinimumPadding = MinimumPadding;
-            if (bp.ContainsKey("MinimumRange")) axis.MinimumRange = MinimumRange;
-            if (bp.ContainsKey("MinorGridlineColor")) axis.MinorGridlineColor = MinorGridlineColor;
-            if (bp.ContainsKey("MinorGridlineStyle")) axis.MinorGridlineStyle = MinorGridlineStyle;
-            if (bp.ContainsKey("MinorGridlineThickness")) axis.MinorGridlineThickness = MinorGridlineThickness;
-            if (bp.ContainsKey("MinorStep")) axis.MinorStep = MinorStep;
-            if (bp.ContainsKey("MinorTicklineColor")) axis.MinorTicklineColor = MinorTicklineColor;
-            if (bp.ContainsKey("MinorTickSize")) axis.MinorTickSize = MinorTickSize;
-            if (bp.ContainsKey("Position")) axis.Position = Position;
-            if (bp.ContainsKey("PositionAtZeroCrossing")) axis.PositionAtZeroCrossing = PositionAtZeroCrossing;
-            if (bp.ContainsKey("PositionTier")) axis.PositionTier = PositionTier;
-            if (bp.ContainsKey("StartPosition")) axis.StartPosition = StartPosition;
-            if (bp.ContainsKey("StringFormat")) axis.StringFormat = StringFormat;
-            if (bp.ContainsKey("TickStyle")) axis.TickStyle = TickStyle;
-            if (bp.ContainsKey("TicklineColor")) axis.TicklineColor = TicklineColor;
-            if (bp.ContainsKey("Title")) axis.Title = Title;
-            if (bp.ContainsKey("TitleClippingLength")) axis.TitleClippingLength = TitleClippingLength;
-            if (bp.ContainsKey("TitleColor")) axis.TitleColor = TitleColor;
-            if (bp.ContainsKey("TitleFont")) axis.TitleFont = TitleFont;
-            if (bp.ContainsKey("TitleFontSize")) axis.TitleFontSize = TitleFontSize;
-            if (bp.ContainsKey("TitleFontWeight")) axis.TitleFontWeight = TitleFontWeight;
-            if (bp.ContainsKey("TitleFormatString")) axis.TitleFormatString = TitleFormatString;
-            if (bp.ContainsKey("TitlePosition")) axis.TitlePosition = TitlePosition;
-            if (bp.ContainsKey("Unit")) axis.Unit = Unit;
-            if (bp.ContainsKey("UseSuperExponentialFormat")) axis.UseSuperExponentialFormat = UseSuperExponentialFormat;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("InvalidCategoryColor")) obj.InvalidCategoryColor = InvalidCategoryColor;
+            if (bp.ContainsKey("Palette")) obj.Palette = new Horker.OxyPlotCli.TypeAdaptors.OxyPalette(Palette);
+            if (bp.ContainsKey("GapWidth")) obj.GapWidth = GapWidth;
+            if (bp.ContainsKey("IsTickCentered")) obj.IsTickCentered = IsTickCentered;
+            if (bp.ContainsKey("ItemsSource")) obj.ItemsSource = ItemsSource;
+            if (bp.ContainsKey("LabelField")) obj.LabelField = LabelField;
+            if (bp.ContainsKey("FormatAsFractions")) obj.FormatAsFractions = FormatAsFractions;
+            if (bp.ContainsKey("FractionUnit")) obj.FractionUnit = FractionUnit;
+            if (bp.ContainsKey("FractionUnitSymbol")) obj.FractionUnitSymbol = FractionUnitSymbol;
+            if (bp.ContainsKey("AbsoluteMaximum")) obj.AbsoluteMaximum = AbsoluteMaximum;
+            if (bp.ContainsKey("AbsoluteMinimum")) obj.AbsoluteMinimum = AbsoluteMinimum;
+            if (bp.ContainsKey("Angle")) obj.Angle = Angle;
+            if (bp.ContainsKey("AxisTickToLabelDistance")) obj.AxisTickToLabelDistance = AxisTickToLabelDistance;
+            if (bp.ContainsKey("AxisTitleDistance")) obj.AxisTitleDistance = AxisTitleDistance;
+            if (bp.ContainsKey("AxisDistance")) obj.AxisDistance = AxisDistance;
+            if (bp.ContainsKey("AxislineColor")) obj.AxislineColor = AxislineColor;
+            if (bp.ContainsKey("AxislineStyle")) obj.AxislineStyle = AxislineStyle;
+            if (bp.ContainsKey("AxislineThickness")) obj.AxislineThickness = AxislineThickness;
+            if (bp.ContainsKey("ClipTitle")) obj.ClipTitle = ClipTitle;
+            if (bp.ContainsKey("CropGridlines")) obj.CropGridlines = CropGridlines;
+            if (bp.ContainsKey("EndPosition")) obj.EndPosition = EndPosition;
+            if (bp.ContainsKey("ExtraGridlineColor")) obj.ExtraGridlineColor = ExtraGridlineColor;
+            if (bp.ContainsKey("ExtraGridlineStyle")) obj.ExtraGridlineStyle = ExtraGridlineStyle;
+            if (bp.ContainsKey("ExtraGridlineThickness")) obj.ExtraGridlineThickness = ExtraGridlineThickness;
+            if (bp.ContainsKey("ExtraGridlines")) obj.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
+            if (bp.ContainsKey("FilterFunction")) obj.FilterFunction = FilterFunction;
+            if (bp.ContainsKey("FilterMaxValue")) obj.FilterMaxValue = FilterMaxValue;
+            if (bp.ContainsKey("FilterMinValue")) obj.FilterMinValue = FilterMinValue;
+            if (bp.ContainsKey("IntervalLength")) obj.IntervalLength = IntervalLength;
+            if (bp.ContainsKey("IsAxisVisible")) obj.IsAxisVisible = IsAxisVisible;
+            if (bp.ContainsKey("IsPanEnabled")) obj.IsPanEnabled = IsPanEnabled;
+            if (bp.ContainsKey("IsZoomEnabled")) obj.IsZoomEnabled = IsZoomEnabled;
+            if (bp.ContainsKey("Key")) obj.Key = Key;
+            if (bp.ContainsKey("LabelFormatter")) obj.LabelFormatter = LabelFormatter;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("MajorGridlineColor")) obj.MajorGridlineColor = MajorGridlineColor;
+            if (bp.ContainsKey("MajorGridlineStyle")) obj.MajorGridlineStyle = MajorGridlineStyle;
+            if (bp.ContainsKey("MajorGridlineThickness")) obj.MajorGridlineThickness = MajorGridlineThickness;
+            if (bp.ContainsKey("MajorStep")) obj.MajorStep = MajorStep;
+            if (bp.ContainsKey("MajorTickSize")) obj.MajorTickSize = MajorTickSize;
+            if (bp.ContainsKey("Maximum")) obj.Maximum = Maximum;
+            if (bp.ContainsKey("MaximumPadding")) obj.MaximumPadding = MaximumPadding;
+            if (bp.ContainsKey("MaximumRange")) obj.MaximumRange = MaximumRange;
+            if (bp.ContainsKey("Minimum")) obj.Minimum = Minimum;
+            if (bp.ContainsKey("MinimumMajorStep")) obj.MinimumMajorStep = MinimumMajorStep;
+            if (bp.ContainsKey("MinimumMinorStep")) obj.MinimumMinorStep = MinimumMinorStep;
+            if (bp.ContainsKey("MinimumPadding")) obj.MinimumPadding = MinimumPadding;
+            if (bp.ContainsKey("MinimumRange")) obj.MinimumRange = MinimumRange;
+            if (bp.ContainsKey("MinorGridlineColor")) obj.MinorGridlineColor = MinorGridlineColor;
+            if (bp.ContainsKey("MinorGridlineStyle")) obj.MinorGridlineStyle = MinorGridlineStyle;
+            if (bp.ContainsKey("MinorGridlineThickness")) obj.MinorGridlineThickness = MinorGridlineThickness;
+            if (bp.ContainsKey("MinorStep")) obj.MinorStep = MinorStep;
+            if (bp.ContainsKey("MinorTicklineColor")) obj.MinorTicklineColor = MinorTicklineColor;
+            if (bp.ContainsKey("MinorTickSize")) obj.MinorTickSize = MinorTickSize;
+            if (bp.ContainsKey("Position")) obj.Position = Position;
+            if (bp.ContainsKey("PositionAtZeroCrossing")) obj.PositionAtZeroCrossing = PositionAtZeroCrossing;
+            if (bp.ContainsKey("PositionTier")) obj.PositionTier = PositionTier;
+            if (bp.ContainsKey("StartPosition")) obj.StartPosition = StartPosition;
+            if (bp.ContainsKey("StringFormat")) obj.StringFormat = StringFormat;
+            if (bp.ContainsKey("TickStyle")) obj.TickStyle = TickStyle;
+            if (bp.ContainsKey("TicklineColor")) obj.TicklineColor = TicklineColor;
+            if (bp.ContainsKey("Title")) obj.Title = Title;
+            if (bp.ContainsKey("TitleClippingLength")) obj.TitleClippingLength = TitleClippingLength;
+            if (bp.ContainsKey("TitleColor")) obj.TitleColor = TitleColor;
+            if (bp.ContainsKey("TitleFont")) obj.TitleFont = TitleFont;
+            if (bp.ContainsKey("TitleFontSize")) obj.TitleFontSize = TitleFontSize;
+            if (bp.ContainsKey("TitleFontWeight")) obj.TitleFontWeight = TitleFontWeight;
+            if (bp.ContainsKey("TitleFormatString")) obj.TitleFormatString = TitleFormatString;
+            if (bp.ContainsKey("TitlePosition")) obj.TitlePosition = TitlePosition;
+            if (bp.ContainsKey("Unit")) obj.Unit = Unit;
+            if (bp.ContainsKey("UseSuperExponentialFormat")) obj.UseSuperExponentialFormat = UseSuperExponentialFormat;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Axes.Add(axis);
+                AddTo.Axes.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -1299,98 +1299,98 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Axes.DateTimeAxis();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Axes.DateTimeAxis();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("CalendarWeekRule")) axis.CalendarWeekRule = CalendarWeekRule;
-            if (bp.ContainsKey("FirstDayOfWeek")) axis.FirstDayOfWeek = FirstDayOfWeek;
-            if (bp.ContainsKey("IntervalType")) axis.IntervalType = IntervalType;
-            if (bp.ContainsKey("MinorIntervalType")) axis.MinorIntervalType = MinorIntervalType;
-            if (bp.ContainsKey("TimeZone")) axis.TimeZone = TimeZone;
-            if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
-            if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
-            if (bp.ContainsKey("FractionUnitSymbol")) axis.FractionUnitSymbol = FractionUnitSymbol;
-            if (bp.ContainsKey("AbsoluteMaximum")) axis.AbsoluteMaximum = AbsoluteMaximum;
-            if (bp.ContainsKey("AbsoluteMinimum")) axis.AbsoluteMinimum = AbsoluteMinimum;
-            if (bp.ContainsKey("Angle")) axis.Angle = Angle;
-            if (bp.ContainsKey("AxisTickToLabelDistance")) axis.AxisTickToLabelDistance = AxisTickToLabelDistance;
-            if (bp.ContainsKey("AxisTitleDistance")) axis.AxisTitleDistance = AxisTitleDistance;
-            if (bp.ContainsKey("AxisDistance")) axis.AxisDistance = AxisDistance;
-            if (bp.ContainsKey("AxislineColor")) axis.AxislineColor = AxislineColor;
-            if (bp.ContainsKey("AxislineStyle")) axis.AxislineStyle = AxislineStyle;
-            if (bp.ContainsKey("AxislineThickness")) axis.AxislineThickness = AxislineThickness;
-            if (bp.ContainsKey("ClipTitle")) axis.ClipTitle = ClipTitle;
-            if (bp.ContainsKey("CropGridlines")) axis.CropGridlines = CropGridlines;
-            if (bp.ContainsKey("EndPosition")) axis.EndPosition = EndPosition;
-            if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
-            if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
-            if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
-            if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
-            if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
-            if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
-            if (bp.ContainsKey("IntervalLength")) axis.IntervalLength = IntervalLength;
-            if (bp.ContainsKey("IsAxisVisible")) axis.IsAxisVisible = IsAxisVisible;
-            if (bp.ContainsKey("IsPanEnabled")) axis.IsPanEnabled = IsPanEnabled;
-            if (bp.ContainsKey("IsZoomEnabled")) axis.IsZoomEnabled = IsZoomEnabled;
-            if (bp.ContainsKey("Key")) axis.Key = Key;
-            if (bp.ContainsKey("LabelFormatter")) axis.LabelFormatter = LabelFormatter;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("MajorGridlineColor")) axis.MajorGridlineColor = MajorGridlineColor;
-            if (bp.ContainsKey("MajorGridlineStyle")) axis.MajorGridlineStyle = MajorGridlineStyle;
-            if (bp.ContainsKey("MajorGridlineThickness")) axis.MajorGridlineThickness = MajorGridlineThickness;
-            if (bp.ContainsKey("MajorStep")) axis.MajorStep = MajorStep;
-            if (bp.ContainsKey("MajorTickSize")) axis.MajorTickSize = MajorTickSize;
-            if (bp.ContainsKey("Maximum")) axis.Maximum = Maximum;
-            if (bp.ContainsKey("MaximumPadding")) axis.MaximumPadding = MaximumPadding;
-            if (bp.ContainsKey("MaximumRange")) axis.MaximumRange = MaximumRange;
-            if (bp.ContainsKey("Minimum")) axis.Minimum = Minimum;
-            if (bp.ContainsKey("MinimumMajorStep")) axis.MinimumMajorStep = MinimumMajorStep;
-            if (bp.ContainsKey("MinimumMinorStep")) axis.MinimumMinorStep = MinimumMinorStep;
-            if (bp.ContainsKey("MinimumPadding")) axis.MinimumPadding = MinimumPadding;
-            if (bp.ContainsKey("MinimumRange")) axis.MinimumRange = MinimumRange;
-            if (bp.ContainsKey("MinorGridlineColor")) axis.MinorGridlineColor = MinorGridlineColor;
-            if (bp.ContainsKey("MinorGridlineStyle")) axis.MinorGridlineStyle = MinorGridlineStyle;
-            if (bp.ContainsKey("MinorGridlineThickness")) axis.MinorGridlineThickness = MinorGridlineThickness;
-            if (bp.ContainsKey("MinorStep")) axis.MinorStep = MinorStep;
-            if (bp.ContainsKey("MinorTicklineColor")) axis.MinorTicklineColor = MinorTicklineColor;
-            if (bp.ContainsKey("MinorTickSize")) axis.MinorTickSize = MinorTickSize;
-            if (bp.ContainsKey("Position")) axis.Position = Position;
-            if (bp.ContainsKey("PositionAtZeroCrossing")) axis.PositionAtZeroCrossing = PositionAtZeroCrossing;
-            if (bp.ContainsKey("PositionTier")) axis.PositionTier = PositionTier;
-            if (bp.ContainsKey("StartPosition")) axis.StartPosition = StartPosition;
-            if (bp.ContainsKey("StringFormat")) axis.StringFormat = StringFormat;
-            if (bp.ContainsKey("TickStyle")) axis.TickStyle = TickStyle;
-            if (bp.ContainsKey("TicklineColor")) axis.TicklineColor = TicklineColor;
-            if (bp.ContainsKey("Title")) axis.Title = Title;
-            if (bp.ContainsKey("TitleClippingLength")) axis.TitleClippingLength = TitleClippingLength;
-            if (bp.ContainsKey("TitleColor")) axis.TitleColor = TitleColor;
-            if (bp.ContainsKey("TitleFont")) axis.TitleFont = TitleFont;
-            if (bp.ContainsKey("TitleFontSize")) axis.TitleFontSize = TitleFontSize;
-            if (bp.ContainsKey("TitleFontWeight")) axis.TitleFontWeight = TitleFontWeight;
-            if (bp.ContainsKey("TitleFormatString")) axis.TitleFormatString = TitleFormatString;
-            if (bp.ContainsKey("TitlePosition")) axis.TitlePosition = TitlePosition;
-            if (bp.ContainsKey("Unit")) axis.Unit = Unit;
-            if (bp.ContainsKey("UseSuperExponentialFormat")) axis.UseSuperExponentialFormat = UseSuperExponentialFormat;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("CalendarWeekRule")) obj.CalendarWeekRule = CalendarWeekRule;
+            if (bp.ContainsKey("FirstDayOfWeek")) obj.FirstDayOfWeek = FirstDayOfWeek;
+            if (bp.ContainsKey("IntervalType")) obj.IntervalType = IntervalType;
+            if (bp.ContainsKey("MinorIntervalType")) obj.MinorIntervalType = MinorIntervalType;
+            if (bp.ContainsKey("TimeZone")) obj.TimeZone = TimeZone;
+            if (bp.ContainsKey("FormatAsFractions")) obj.FormatAsFractions = FormatAsFractions;
+            if (bp.ContainsKey("FractionUnit")) obj.FractionUnit = FractionUnit;
+            if (bp.ContainsKey("FractionUnitSymbol")) obj.FractionUnitSymbol = FractionUnitSymbol;
+            if (bp.ContainsKey("AbsoluteMaximum")) obj.AbsoluteMaximum = AbsoluteMaximum;
+            if (bp.ContainsKey("AbsoluteMinimum")) obj.AbsoluteMinimum = AbsoluteMinimum;
+            if (bp.ContainsKey("Angle")) obj.Angle = Angle;
+            if (bp.ContainsKey("AxisTickToLabelDistance")) obj.AxisTickToLabelDistance = AxisTickToLabelDistance;
+            if (bp.ContainsKey("AxisTitleDistance")) obj.AxisTitleDistance = AxisTitleDistance;
+            if (bp.ContainsKey("AxisDistance")) obj.AxisDistance = AxisDistance;
+            if (bp.ContainsKey("AxislineColor")) obj.AxislineColor = AxislineColor;
+            if (bp.ContainsKey("AxislineStyle")) obj.AxislineStyle = AxislineStyle;
+            if (bp.ContainsKey("AxislineThickness")) obj.AxislineThickness = AxislineThickness;
+            if (bp.ContainsKey("ClipTitle")) obj.ClipTitle = ClipTitle;
+            if (bp.ContainsKey("CropGridlines")) obj.CropGridlines = CropGridlines;
+            if (bp.ContainsKey("EndPosition")) obj.EndPosition = EndPosition;
+            if (bp.ContainsKey("ExtraGridlineColor")) obj.ExtraGridlineColor = ExtraGridlineColor;
+            if (bp.ContainsKey("ExtraGridlineStyle")) obj.ExtraGridlineStyle = ExtraGridlineStyle;
+            if (bp.ContainsKey("ExtraGridlineThickness")) obj.ExtraGridlineThickness = ExtraGridlineThickness;
+            if (bp.ContainsKey("ExtraGridlines")) obj.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
+            if (bp.ContainsKey("FilterFunction")) obj.FilterFunction = FilterFunction;
+            if (bp.ContainsKey("FilterMaxValue")) obj.FilterMaxValue = FilterMaxValue;
+            if (bp.ContainsKey("FilterMinValue")) obj.FilterMinValue = FilterMinValue;
+            if (bp.ContainsKey("IntervalLength")) obj.IntervalLength = IntervalLength;
+            if (bp.ContainsKey("IsAxisVisible")) obj.IsAxisVisible = IsAxisVisible;
+            if (bp.ContainsKey("IsPanEnabled")) obj.IsPanEnabled = IsPanEnabled;
+            if (bp.ContainsKey("IsZoomEnabled")) obj.IsZoomEnabled = IsZoomEnabled;
+            if (bp.ContainsKey("Key")) obj.Key = Key;
+            if (bp.ContainsKey("LabelFormatter")) obj.LabelFormatter = LabelFormatter;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("MajorGridlineColor")) obj.MajorGridlineColor = MajorGridlineColor;
+            if (bp.ContainsKey("MajorGridlineStyle")) obj.MajorGridlineStyle = MajorGridlineStyle;
+            if (bp.ContainsKey("MajorGridlineThickness")) obj.MajorGridlineThickness = MajorGridlineThickness;
+            if (bp.ContainsKey("MajorStep")) obj.MajorStep = MajorStep;
+            if (bp.ContainsKey("MajorTickSize")) obj.MajorTickSize = MajorTickSize;
+            if (bp.ContainsKey("Maximum")) obj.Maximum = Maximum;
+            if (bp.ContainsKey("MaximumPadding")) obj.MaximumPadding = MaximumPadding;
+            if (bp.ContainsKey("MaximumRange")) obj.MaximumRange = MaximumRange;
+            if (bp.ContainsKey("Minimum")) obj.Minimum = Minimum;
+            if (bp.ContainsKey("MinimumMajorStep")) obj.MinimumMajorStep = MinimumMajorStep;
+            if (bp.ContainsKey("MinimumMinorStep")) obj.MinimumMinorStep = MinimumMinorStep;
+            if (bp.ContainsKey("MinimumPadding")) obj.MinimumPadding = MinimumPadding;
+            if (bp.ContainsKey("MinimumRange")) obj.MinimumRange = MinimumRange;
+            if (bp.ContainsKey("MinorGridlineColor")) obj.MinorGridlineColor = MinorGridlineColor;
+            if (bp.ContainsKey("MinorGridlineStyle")) obj.MinorGridlineStyle = MinorGridlineStyle;
+            if (bp.ContainsKey("MinorGridlineThickness")) obj.MinorGridlineThickness = MinorGridlineThickness;
+            if (bp.ContainsKey("MinorStep")) obj.MinorStep = MinorStep;
+            if (bp.ContainsKey("MinorTicklineColor")) obj.MinorTicklineColor = MinorTicklineColor;
+            if (bp.ContainsKey("MinorTickSize")) obj.MinorTickSize = MinorTickSize;
+            if (bp.ContainsKey("Position")) obj.Position = Position;
+            if (bp.ContainsKey("PositionAtZeroCrossing")) obj.PositionAtZeroCrossing = PositionAtZeroCrossing;
+            if (bp.ContainsKey("PositionTier")) obj.PositionTier = PositionTier;
+            if (bp.ContainsKey("StartPosition")) obj.StartPosition = StartPosition;
+            if (bp.ContainsKey("StringFormat")) obj.StringFormat = StringFormat;
+            if (bp.ContainsKey("TickStyle")) obj.TickStyle = TickStyle;
+            if (bp.ContainsKey("TicklineColor")) obj.TicklineColor = TicklineColor;
+            if (bp.ContainsKey("Title")) obj.Title = Title;
+            if (bp.ContainsKey("TitleClippingLength")) obj.TitleClippingLength = TitleClippingLength;
+            if (bp.ContainsKey("TitleColor")) obj.TitleColor = TitleColor;
+            if (bp.ContainsKey("TitleFont")) obj.TitleFont = TitleFont;
+            if (bp.ContainsKey("TitleFontSize")) obj.TitleFontSize = TitleFontSize;
+            if (bp.ContainsKey("TitleFontWeight")) obj.TitleFontWeight = TitleFontWeight;
+            if (bp.ContainsKey("TitleFormatString")) obj.TitleFormatString = TitleFormatString;
+            if (bp.ContainsKey("TitlePosition")) obj.TitlePosition = TitlePosition;
+            if (bp.ContainsKey("Unit")) obj.Unit = Unit;
+            if (bp.ContainsKey("UseSuperExponentialFormat")) obj.UseSuperExponentialFormat = UseSuperExponentialFormat;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Axes.Add(axis);
+                AddTo.Axes.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -1633,93 +1633,93 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Axes.LinearAxis();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Axes.LinearAxis();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
-            if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
-            if (bp.ContainsKey("FractionUnitSymbol")) axis.FractionUnitSymbol = FractionUnitSymbol;
-            if (bp.ContainsKey("AbsoluteMaximum")) axis.AbsoluteMaximum = AbsoluteMaximum;
-            if (bp.ContainsKey("AbsoluteMinimum")) axis.AbsoluteMinimum = AbsoluteMinimum;
-            if (bp.ContainsKey("Angle")) axis.Angle = Angle;
-            if (bp.ContainsKey("AxisTickToLabelDistance")) axis.AxisTickToLabelDistance = AxisTickToLabelDistance;
-            if (bp.ContainsKey("AxisTitleDistance")) axis.AxisTitleDistance = AxisTitleDistance;
-            if (bp.ContainsKey("AxisDistance")) axis.AxisDistance = AxisDistance;
-            if (bp.ContainsKey("AxislineColor")) axis.AxislineColor = AxislineColor;
-            if (bp.ContainsKey("AxislineStyle")) axis.AxislineStyle = AxislineStyle;
-            if (bp.ContainsKey("AxislineThickness")) axis.AxislineThickness = AxislineThickness;
-            if (bp.ContainsKey("ClipTitle")) axis.ClipTitle = ClipTitle;
-            if (bp.ContainsKey("CropGridlines")) axis.CropGridlines = CropGridlines;
-            if (bp.ContainsKey("EndPosition")) axis.EndPosition = EndPosition;
-            if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
-            if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
-            if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
-            if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
-            if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
-            if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
-            if (bp.ContainsKey("IntervalLength")) axis.IntervalLength = IntervalLength;
-            if (bp.ContainsKey("IsAxisVisible")) axis.IsAxisVisible = IsAxisVisible;
-            if (bp.ContainsKey("IsPanEnabled")) axis.IsPanEnabled = IsPanEnabled;
-            if (bp.ContainsKey("IsZoomEnabled")) axis.IsZoomEnabled = IsZoomEnabled;
-            if (bp.ContainsKey("Key")) axis.Key = Key;
-            if (bp.ContainsKey("LabelFormatter")) axis.LabelFormatter = LabelFormatter;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("MajorGridlineColor")) axis.MajorGridlineColor = MajorGridlineColor;
-            if (bp.ContainsKey("MajorGridlineStyle")) axis.MajorGridlineStyle = MajorGridlineStyle;
-            if (bp.ContainsKey("MajorGridlineThickness")) axis.MajorGridlineThickness = MajorGridlineThickness;
-            if (bp.ContainsKey("MajorStep")) axis.MajorStep = MajorStep;
-            if (bp.ContainsKey("MajorTickSize")) axis.MajorTickSize = MajorTickSize;
-            if (bp.ContainsKey("Maximum")) axis.Maximum = Maximum;
-            if (bp.ContainsKey("MaximumPadding")) axis.MaximumPadding = MaximumPadding;
-            if (bp.ContainsKey("MaximumRange")) axis.MaximumRange = MaximumRange;
-            if (bp.ContainsKey("Minimum")) axis.Minimum = Minimum;
-            if (bp.ContainsKey("MinimumMajorStep")) axis.MinimumMajorStep = MinimumMajorStep;
-            if (bp.ContainsKey("MinimumMinorStep")) axis.MinimumMinorStep = MinimumMinorStep;
-            if (bp.ContainsKey("MinimumPadding")) axis.MinimumPadding = MinimumPadding;
-            if (bp.ContainsKey("MinimumRange")) axis.MinimumRange = MinimumRange;
-            if (bp.ContainsKey("MinorGridlineColor")) axis.MinorGridlineColor = MinorGridlineColor;
-            if (bp.ContainsKey("MinorGridlineStyle")) axis.MinorGridlineStyle = MinorGridlineStyle;
-            if (bp.ContainsKey("MinorGridlineThickness")) axis.MinorGridlineThickness = MinorGridlineThickness;
-            if (bp.ContainsKey("MinorStep")) axis.MinorStep = MinorStep;
-            if (bp.ContainsKey("MinorTicklineColor")) axis.MinorTicklineColor = MinorTicklineColor;
-            if (bp.ContainsKey("MinorTickSize")) axis.MinorTickSize = MinorTickSize;
-            if (bp.ContainsKey("Position")) axis.Position = Position;
-            if (bp.ContainsKey("PositionAtZeroCrossing")) axis.PositionAtZeroCrossing = PositionAtZeroCrossing;
-            if (bp.ContainsKey("PositionTier")) axis.PositionTier = PositionTier;
-            if (bp.ContainsKey("StartPosition")) axis.StartPosition = StartPosition;
-            if (bp.ContainsKey("StringFormat")) axis.StringFormat = StringFormat;
-            if (bp.ContainsKey("TickStyle")) axis.TickStyle = TickStyle;
-            if (bp.ContainsKey("TicklineColor")) axis.TicklineColor = TicklineColor;
-            if (bp.ContainsKey("Title")) axis.Title = Title;
-            if (bp.ContainsKey("TitleClippingLength")) axis.TitleClippingLength = TitleClippingLength;
-            if (bp.ContainsKey("TitleColor")) axis.TitleColor = TitleColor;
-            if (bp.ContainsKey("TitleFont")) axis.TitleFont = TitleFont;
-            if (bp.ContainsKey("TitleFontSize")) axis.TitleFontSize = TitleFontSize;
-            if (bp.ContainsKey("TitleFontWeight")) axis.TitleFontWeight = TitleFontWeight;
-            if (bp.ContainsKey("TitleFormatString")) axis.TitleFormatString = TitleFormatString;
-            if (bp.ContainsKey("TitlePosition")) axis.TitlePosition = TitlePosition;
-            if (bp.ContainsKey("Unit")) axis.Unit = Unit;
-            if (bp.ContainsKey("UseSuperExponentialFormat")) axis.UseSuperExponentialFormat = UseSuperExponentialFormat;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("FormatAsFractions")) obj.FormatAsFractions = FormatAsFractions;
+            if (bp.ContainsKey("FractionUnit")) obj.FractionUnit = FractionUnit;
+            if (bp.ContainsKey("FractionUnitSymbol")) obj.FractionUnitSymbol = FractionUnitSymbol;
+            if (bp.ContainsKey("AbsoluteMaximum")) obj.AbsoluteMaximum = AbsoluteMaximum;
+            if (bp.ContainsKey("AbsoluteMinimum")) obj.AbsoluteMinimum = AbsoluteMinimum;
+            if (bp.ContainsKey("Angle")) obj.Angle = Angle;
+            if (bp.ContainsKey("AxisTickToLabelDistance")) obj.AxisTickToLabelDistance = AxisTickToLabelDistance;
+            if (bp.ContainsKey("AxisTitleDistance")) obj.AxisTitleDistance = AxisTitleDistance;
+            if (bp.ContainsKey("AxisDistance")) obj.AxisDistance = AxisDistance;
+            if (bp.ContainsKey("AxislineColor")) obj.AxislineColor = AxislineColor;
+            if (bp.ContainsKey("AxislineStyle")) obj.AxislineStyle = AxislineStyle;
+            if (bp.ContainsKey("AxislineThickness")) obj.AxislineThickness = AxislineThickness;
+            if (bp.ContainsKey("ClipTitle")) obj.ClipTitle = ClipTitle;
+            if (bp.ContainsKey("CropGridlines")) obj.CropGridlines = CropGridlines;
+            if (bp.ContainsKey("EndPosition")) obj.EndPosition = EndPosition;
+            if (bp.ContainsKey("ExtraGridlineColor")) obj.ExtraGridlineColor = ExtraGridlineColor;
+            if (bp.ContainsKey("ExtraGridlineStyle")) obj.ExtraGridlineStyle = ExtraGridlineStyle;
+            if (bp.ContainsKey("ExtraGridlineThickness")) obj.ExtraGridlineThickness = ExtraGridlineThickness;
+            if (bp.ContainsKey("ExtraGridlines")) obj.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
+            if (bp.ContainsKey("FilterFunction")) obj.FilterFunction = FilterFunction;
+            if (bp.ContainsKey("FilterMaxValue")) obj.FilterMaxValue = FilterMaxValue;
+            if (bp.ContainsKey("FilterMinValue")) obj.FilterMinValue = FilterMinValue;
+            if (bp.ContainsKey("IntervalLength")) obj.IntervalLength = IntervalLength;
+            if (bp.ContainsKey("IsAxisVisible")) obj.IsAxisVisible = IsAxisVisible;
+            if (bp.ContainsKey("IsPanEnabled")) obj.IsPanEnabled = IsPanEnabled;
+            if (bp.ContainsKey("IsZoomEnabled")) obj.IsZoomEnabled = IsZoomEnabled;
+            if (bp.ContainsKey("Key")) obj.Key = Key;
+            if (bp.ContainsKey("LabelFormatter")) obj.LabelFormatter = LabelFormatter;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("MajorGridlineColor")) obj.MajorGridlineColor = MajorGridlineColor;
+            if (bp.ContainsKey("MajorGridlineStyle")) obj.MajorGridlineStyle = MajorGridlineStyle;
+            if (bp.ContainsKey("MajorGridlineThickness")) obj.MajorGridlineThickness = MajorGridlineThickness;
+            if (bp.ContainsKey("MajorStep")) obj.MajorStep = MajorStep;
+            if (bp.ContainsKey("MajorTickSize")) obj.MajorTickSize = MajorTickSize;
+            if (bp.ContainsKey("Maximum")) obj.Maximum = Maximum;
+            if (bp.ContainsKey("MaximumPadding")) obj.MaximumPadding = MaximumPadding;
+            if (bp.ContainsKey("MaximumRange")) obj.MaximumRange = MaximumRange;
+            if (bp.ContainsKey("Minimum")) obj.Minimum = Minimum;
+            if (bp.ContainsKey("MinimumMajorStep")) obj.MinimumMajorStep = MinimumMajorStep;
+            if (bp.ContainsKey("MinimumMinorStep")) obj.MinimumMinorStep = MinimumMinorStep;
+            if (bp.ContainsKey("MinimumPadding")) obj.MinimumPadding = MinimumPadding;
+            if (bp.ContainsKey("MinimumRange")) obj.MinimumRange = MinimumRange;
+            if (bp.ContainsKey("MinorGridlineColor")) obj.MinorGridlineColor = MinorGridlineColor;
+            if (bp.ContainsKey("MinorGridlineStyle")) obj.MinorGridlineStyle = MinorGridlineStyle;
+            if (bp.ContainsKey("MinorGridlineThickness")) obj.MinorGridlineThickness = MinorGridlineThickness;
+            if (bp.ContainsKey("MinorStep")) obj.MinorStep = MinorStep;
+            if (bp.ContainsKey("MinorTicklineColor")) obj.MinorTicklineColor = MinorTicklineColor;
+            if (bp.ContainsKey("MinorTickSize")) obj.MinorTickSize = MinorTickSize;
+            if (bp.ContainsKey("Position")) obj.Position = Position;
+            if (bp.ContainsKey("PositionAtZeroCrossing")) obj.PositionAtZeroCrossing = PositionAtZeroCrossing;
+            if (bp.ContainsKey("PositionTier")) obj.PositionTier = PositionTier;
+            if (bp.ContainsKey("StartPosition")) obj.StartPosition = StartPosition;
+            if (bp.ContainsKey("StringFormat")) obj.StringFormat = StringFormat;
+            if (bp.ContainsKey("TickStyle")) obj.TickStyle = TickStyle;
+            if (bp.ContainsKey("TicklineColor")) obj.TicklineColor = TicklineColor;
+            if (bp.ContainsKey("Title")) obj.Title = Title;
+            if (bp.ContainsKey("TitleClippingLength")) obj.TitleClippingLength = TitleClippingLength;
+            if (bp.ContainsKey("TitleColor")) obj.TitleColor = TitleColor;
+            if (bp.ContainsKey("TitleFont")) obj.TitleFont = TitleFont;
+            if (bp.ContainsKey("TitleFontSize")) obj.TitleFontSize = TitleFontSize;
+            if (bp.ContainsKey("TitleFontWeight")) obj.TitleFontWeight = TitleFontWeight;
+            if (bp.ContainsKey("TitleFormatString")) obj.TitleFormatString = TitleFormatString;
+            if (bp.ContainsKey("TitlePosition")) obj.TitlePosition = TitlePosition;
+            if (bp.ContainsKey("Unit")) obj.Unit = Unit;
+            if (bp.ContainsKey("UseSuperExponentialFormat")) obj.UseSuperExponentialFormat = UseSuperExponentialFormat;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Axes.Add(axis);
+                AddTo.Axes.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -1977,98 +1977,98 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Axes.LinearColorAxis();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Axes.LinearColorAxis();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("InvalidNumberColor")) axis.InvalidNumberColor = InvalidNumberColor;
-            if (bp.ContainsKey("HighColor")) axis.HighColor = HighColor;
-            if (bp.ContainsKey("LowColor")) axis.LowColor = LowColor;
-            if (bp.ContainsKey("Palette")) axis.Palette = new Horker.OxyPlotCli.TypeAdaptors.OxyPalette(Palette);
-            if (bp.ContainsKey("RenderAsImage")) axis.RenderAsImage = RenderAsImage;
-            if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
-            if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
-            if (bp.ContainsKey("FractionUnitSymbol")) axis.FractionUnitSymbol = FractionUnitSymbol;
-            if (bp.ContainsKey("AbsoluteMaximum")) axis.AbsoluteMaximum = AbsoluteMaximum;
-            if (bp.ContainsKey("AbsoluteMinimum")) axis.AbsoluteMinimum = AbsoluteMinimum;
-            if (bp.ContainsKey("Angle")) axis.Angle = Angle;
-            if (bp.ContainsKey("AxisTickToLabelDistance")) axis.AxisTickToLabelDistance = AxisTickToLabelDistance;
-            if (bp.ContainsKey("AxisTitleDistance")) axis.AxisTitleDistance = AxisTitleDistance;
-            if (bp.ContainsKey("AxisDistance")) axis.AxisDistance = AxisDistance;
-            if (bp.ContainsKey("AxislineColor")) axis.AxislineColor = AxislineColor;
-            if (bp.ContainsKey("AxislineStyle")) axis.AxislineStyle = AxislineStyle;
-            if (bp.ContainsKey("AxislineThickness")) axis.AxislineThickness = AxislineThickness;
-            if (bp.ContainsKey("ClipTitle")) axis.ClipTitle = ClipTitle;
-            if (bp.ContainsKey("CropGridlines")) axis.CropGridlines = CropGridlines;
-            if (bp.ContainsKey("EndPosition")) axis.EndPosition = EndPosition;
-            if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
-            if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
-            if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
-            if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
-            if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
-            if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
-            if (bp.ContainsKey("IntervalLength")) axis.IntervalLength = IntervalLength;
-            if (bp.ContainsKey("IsAxisVisible")) axis.IsAxisVisible = IsAxisVisible;
-            if (bp.ContainsKey("IsPanEnabled")) axis.IsPanEnabled = IsPanEnabled;
-            if (bp.ContainsKey("IsZoomEnabled")) axis.IsZoomEnabled = IsZoomEnabled;
-            if (bp.ContainsKey("Key")) axis.Key = Key;
-            if (bp.ContainsKey("LabelFormatter")) axis.LabelFormatter = LabelFormatter;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("MajorGridlineColor")) axis.MajorGridlineColor = MajorGridlineColor;
-            if (bp.ContainsKey("MajorGridlineStyle")) axis.MajorGridlineStyle = MajorGridlineStyle;
-            if (bp.ContainsKey("MajorGridlineThickness")) axis.MajorGridlineThickness = MajorGridlineThickness;
-            if (bp.ContainsKey("MajorStep")) axis.MajorStep = MajorStep;
-            if (bp.ContainsKey("MajorTickSize")) axis.MajorTickSize = MajorTickSize;
-            if (bp.ContainsKey("Maximum")) axis.Maximum = Maximum;
-            if (bp.ContainsKey("MaximumPadding")) axis.MaximumPadding = MaximumPadding;
-            if (bp.ContainsKey("MaximumRange")) axis.MaximumRange = MaximumRange;
-            if (bp.ContainsKey("Minimum")) axis.Minimum = Minimum;
-            if (bp.ContainsKey("MinimumMajorStep")) axis.MinimumMajorStep = MinimumMajorStep;
-            if (bp.ContainsKey("MinimumMinorStep")) axis.MinimumMinorStep = MinimumMinorStep;
-            if (bp.ContainsKey("MinimumPadding")) axis.MinimumPadding = MinimumPadding;
-            if (bp.ContainsKey("MinimumRange")) axis.MinimumRange = MinimumRange;
-            if (bp.ContainsKey("MinorGridlineColor")) axis.MinorGridlineColor = MinorGridlineColor;
-            if (bp.ContainsKey("MinorGridlineStyle")) axis.MinorGridlineStyle = MinorGridlineStyle;
-            if (bp.ContainsKey("MinorGridlineThickness")) axis.MinorGridlineThickness = MinorGridlineThickness;
-            if (bp.ContainsKey("MinorStep")) axis.MinorStep = MinorStep;
-            if (bp.ContainsKey("MinorTicklineColor")) axis.MinorTicklineColor = MinorTicklineColor;
-            if (bp.ContainsKey("MinorTickSize")) axis.MinorTickSize = MinorTickSize;
-            if (bp.ContainsKey("Position")) axis.Position = Position;
-            if (bp.ContainsKey("PositionAtZeroCrossing")) axis.PositionAtZeroCrossing = PositionAtZeroCrossing;
-            if (bp.ContainsKey("PositionTier")) axis.PositionTier = PositionTier;
-            if (bp.ContainsKey("StartPosition")) axis.StartPosition = StartPosition;
-            if (bp.ContainsKey("StringFormat")) axis.StringFormat = StringFormat;
-            if (bp.ContainsKey("TickStyle")) axis.TickStyle = TickStyle;
-            if (bp.ContainsKey("TicklineColor")) axis.TicklineColor = TicklineColor;
-            if (bp.ContainsKey("Title")) axis.Title = Title;
-            if (bp.ContainsKey("TitleClippingLength")) axis.TitleClippingLength = TitleClippingLength;
-            if (bp.ContainsKey("TitleColor")) axis.TitleColor = TitleColor;
-            if (bp.ContainsKey("TitleFont")) axis.TitleFont = TitleFont;
-            if (bp.ContainsKey("TitleFontSize")) axis.TitleFontSize = TitleFontSize;
-            if (bp.ContainsKey("TitleFontWeight")) axis.TitleFontWeight = TitleFontWeight;
-            if (bp.ContainsKey("TitleFormatString")) axis.TitleFormatString = TitleFormatString;
-            if (bp.ContainsKey("TitlePosition")) axis.TitlePosition = TitlePosition;
-            if (bp.ContainsKey("Unit")) axis.Unit = Unit;
-            if (bp.ContainsKey("UseSuperExponentialFormat")) axis.UseSuperExponentialFormat = UseSuperExponentialFormat;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("InvalidNumberColor")) obj.InvalidNumberColor = InvalidNumberColor;
+            if (bp.ContainsKey("HighColor")) obj.HighColor = HighColor;
+            if (bp.ContainsKey("LowColor")) obj.LowColor = LowColor;
+            if (bp.ContainsKey("Palette")) obj.Palette = new Horker.OxyPlotCli.TypeAdaptors.OxyPalette(Palette);
+            if (bp.ContainsKey("RenderAsImage")) obj.RenderAsImage = RenderAsImage;
+            if (bp.ContainsKey("FormatAsFractions")) obj.FormatAsFractions = FormatAsFractions;
+            if (bp.ContainsKey("FractionUnit")) obj.FractionUnit = FractionUnit;
+            if (bp.ContainsKey("FractionUnitSymbol")) obj.FractionUnitSymbol = FractionUnitSymbol;
+            if (bp.ContainsKey("AbsoluteMaximum")) obj.AbsoluteMaximum = AbsoluteMaximum;
+            if (bp.ContainsKey("AbsoluteMinimum")) obj.AbsoluteMinimum = AbsoluteMinimum;
+            if (bp.ContainsKey("Angle")) obj.Angle = Angle;
+            if (bp.ContainsKey("AxisTickToLabelDistance")) obj.AxisTickToLabelDistance = AxisTickToLabelDistance;
+            if (bp.ContainsKey("AxisTitleDistance")) obj.AxisTitleDistance = AxisTitleDistance;
+            if (bp.ContainsKey("AxisDistance")) obj.AxisDistance = AxisDistance;
+            if (bp.ContainsKey("AxislineColor")) obj.AxislineColor = AxislineColor;
+            if (bp.ContainsKey("AxislineStyle")) obj.AxislineStyle = AxislineStyle;
+            if (bp.ContainsKey("AxislineThickness")) obj.AxislineThickness = AxislineThickness;
+            if (bp.ContainsKey("ClipTitle")) obj.ClipTitle = ClipTitle;
+            if (bp.ContainsKey("CropGridlines")) obj.CropGridlines = CropGridlines;
+            if (bp.ContainsKey("EndPosition")) obj.EndPosition = EndPosition;
+            if (bp.ContainsKey("ExtraGridlineColor")) obj.ExtraGridlineColor = ExtraGridlineColor;
+            if (bp.ContainsKey("ExtraGridlineStyle")) obj.ExtraGridlineStyle = ExtraGridlineStyle;
+            if (bp.ContainsKey("ExtraGridlineThickness")) obj.ExtraGridlineThickness = ExtraGridlineThickness;
+            if (bp.ContainsKey("ExtraGridlines")) obj.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
+            if (bp.ContainsKey("FilterFunction")) obj.FilterFunction = FilterFunction;
+            if (bp.ContainsKey("FilterMaxValue")) obj.FilterMaxValue = FilterMaxValue;
+            if (bp.ContainsKey("FilterMinValue")) obj.FilterMinValue = FilterMinValue;
+            if (bp.ContainsKey("IntervalLength")) obj.IntervalLength = IntervalLength;
+            if (bp.ContainsKey("IsAxisVisible")) obj.IsAxisVisible = IsAxisVisible;
+            if (bp.ContainsKey("IsPanEnabled")) obj.IsPanEnabled = IsPanEnabled;
+            if (bp.ContainsKey("IsZoomEnabled")) obj.IsZoomEnabled = IsZoomEnabled;
+            if (bp.ContainsKey("Key")) obj.Key = Key;
+            if (bp.ContainsKey("LabelFormatter")) obj.LabelFormatter = LabelFormatter;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("MajorGridlineColor")) obj.MajorGridlineColor = MajorGridlineColor;
+            if (bp.ContainsKey("MajorGridlineStyle")) obj.MajorGridlineStyle = MajorGridlineStyle;
+            if (bp.ContainsKey("MajorGridlineThickness")) obj.MajorGridlineThickness = MajorGridlineThickness;
+            if (bp.ContainsKey("MajorStep")) obj.MajorStep = MajorStep;
+            if (bp.ContainsKey("MajorTickSize")) obj.MajorTickSize = MajorTickSize;
+            if (bp.ContainsKey("Maximum")) obj.Maximum = Maximum;
+            if (bp.ContainsKey("MaximumPadding")) obj.MaximumPadding = MaximumPadding;
+            if (bp.ContainsKey("MaximumRange")) obj.MaximumRange = MaximumRange;
+            if (bp.ContainsKey("Minimum")) obj.Minimum = Minimum;
+            if (bp.ContainsKey("MinimumMajorStep")) obj.MinimumMajorStep = MinimumMajorStep;
+            if (bp.ContainsKey("MinimumMinorStep")) obj.MinimumMinorStep = MinimumMinorStep;
+            if (bp.ContainsKey("MinimumPadding")) obj.MinimumPadding = MinimumPadding;
+            if (bp.ContainsKey("MinimumRange")) obj.MinimumRange = MinimumRange;
+            if (bp.ContainsKey("MinorGridlineColor")) obj.MinorGridlineColor = MinorGridlineColor;
+            if (bp.ContainsKey("MinorGridlineStyle")) obj.MinorGridlineStyle = MinorGridlineStyle;
+            if (bp.ContainsKey("MinorGridlineThickness")) obj.MinorGridlineThickness = MinorGridlineThickness;
+            if (bp.ContainsKey("MinorStep")) obj.MinorStep = MinorStep;
+            if (bp.ContainsKey("MinorTicklineColor")) obj.MinorTicklineColor = MinorTicklineColor;
+            if (bp.ContainsKey("MinorTickSize")) obj.MinorTickSize = MinorTickSize;
+            if (bp.ContainsKey("Position")) obj.Position = Position;
+            if (bp.ContainsKey("PositionAtZeroCrossing")) obj.PositionAtZeroCrossing = PositionAtZeroCrossing;
+            if (bp.ContainsKey("PositionTier")) obj.PositionTier = PositionTier;
+            if (bp.ContainsKey("StartPosition")) obj.StartPosition = StartPosition;
+            if (bp.ContainsKey("StringFormat")) obj.StringFormat = StringFormat;
+            if (bp.ContainsKey("TickStyle")) obj.TickStyle = TickStyle;
+            if (bp.ContainsKey("TicklineColor")) obj.TicklineColor = TicklineColor;
+            if (bp.ContainsKey("Title")) obj.Title = Title;
+            if (bp.ContainsKey("TitleClippingLength")) obj.TitleClippingLength = TitleClippingLength;
+            if (bp.ContainsKey("TitleColor")) obj.TitleColor = TitleColor;
+            if (bp.ContainsKey("TitleFont")) obj.TitleFont = TitleFont;
+            if (bp.ContainsKey("TitleFontSize")) obj.TitleFontSize = TitleFontSize;
+            if (bp.ContainsKey("TitleFontWeight")) obj.TitleFontWeight = TitleFontWeight;
+            if (bp.ContainsKey("TitleFormatString")) obj.TitleFormatString = TitleFormatString;
+            if (bp.ContainsKey("TitlePosition")) obj.TitlePosition = TitlePosition;
+            if (bp.ContainsKey("Unit")) obj.Unit = Unit;
+            if (bp.ContainsKey("UseSuperExponentialFormat")) obj.UseSuperExponentialFormat = UseSuperExponentialFormat;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Axes.Add(axis);
+                AddTo.Axes.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -2308,92 +2308,92 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Axes.LogarithmicAxis();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Axes.LogarithmicAxis();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("Base")) axis.Base = Base;
-            if (bp.ContainsKey("PowerPadding")) axis.PowerPadding = PowerPadding;
-            if (bp.ContainsKey("AbsoluteMaximum")) axis.AbsoluteMaximum = AbsoluteMaximum;
-            if (bp.ContainsKey("AbsoluteMinimum")) axis.AbsoluteMinimum = AbsoluteMinimum;
-            if (bp.ContainsKey("Angle")) axis.Angle = Angle;
-            if (bp.ContainsKey("AxisTickToLabelDistance")) axis.AxisTickToLabelDistance = AxisTickToLabelDistance;
-            if (bp.ContainsKey("AxisTitleDistance")) axis.AxisTitleDistance = AxisTitleDistance;
-            if (bp.ContainsKey("AxisDistance")) axis.AxisDistance = AxisDistance;
-            if (bp.ContainsKey("AxislineColor")) axis.AxislineColor = AxislineColor;
-            if (bp.ContainsKey("AxislineStyle")) axis.AxislineStyle = AxislineStyle;
-            if (bp.ContainsKey("AxislineThickness")) axis.AxislineThickness = AxislineThickness;
-            if (bp.ContainsKey("ClipTitle")) axis.ClipTitle = ClipTitle;
-            if (bp.ContainsKey("CropGridlines")) axis.CropGridlines = CropGridlines;
-            if (bp.ContainsKey("EndPosition")) axis.EndPosition = EndPosition;
-            if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
-            if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
-            if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
-            if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
-            if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
-            if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
-            if (bp.ContainsKey("IntervalLength")) axis.IntervalLength = IntervalLength;
-            if (bp.ContainsKey("IsAxisVisible")) axis.IsAxisVisible = IsAxisVisible;
-            if (bp.ContainsKey("IsPanEnabled")) axis.IsPanEnabled = IsPanEnabled;
-            if (bp.ContainsKey("IsZoomEnabled")) axis.IsZoomEnabled = IsZoomEnabled;
-            if (bp.ContainsKey("Key")) axis.Key = Key;
-            if (bp.ContainsKey("LabelFormatter")) axis.LabelFormatter = LabelFormatter;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("MajorGridlineColor")) axis.MajorGridlineColor = MajorGridlineColor;
-            if (bp.ContainsKey("MajorGridlineStyle")) axis.MajorGridlineStyle = MajorGridlineStyle;
-            if (bp.ContainsKey("MajorGridlineThickness")) axis.MajorGridlineThickness = MajorGridlineThickness;
-            if (bp.ContainsKey("MajorStep")) axis.MajorStep = MajorStep;
-            if (bp.ContainsKey("MajorTickSize")) axis.MajorTickSize = MajorTickSize;
-            if (bp.ContainsKey("Maximum")) axis.Maximum = Maximum;
-            if (bp.ContainsKey("MaximumPadding")) axis.MaximumPadding = MaximumPadding;
-            if (bp.ContainsKey("MaximumRange")) axis.MaximumRange = MaximumRange;
-            if (bp.ContainsKey("Minimum")) axis.Minimum = Minimum;
-            if (bp.ContainsKey("MinimumMajorStep")) axis.MinimumMajorStep = MinimumMajorStep;
-            if (bp.ContainsKey("MinimumMinorStep")) axis.MinimumMinorStep = MinimumMinorStep;
-            if (bp.ContainsKey("MinimumPadding")) axis.MinimumPadding = MinimumPadding;
-            if (bp.ContainsKey("MinimumRange")) axis.MinimumRange = MinimumRange;
-            if (bp.ContainsKey("MinorGridlineColor")) axis.MinorGridlineColor = MinorGridlineColor;
-            if (bp.ContainsKey("MinorGridlineStyle")) axis.MinorGridlineStyle = MinorGridlineStyle;
-            if (bp.ContainsKey("MinorGridlineThickness")) axis.MinorGridlineThickness = MinorGridlineThickness;
-            if (bp.ContainsKey("MinorStep")) axis.MinorStep = MinorStep;
-            if (bp.ContainsKey("MinorTicklineColor")) axis.MinorTicklineColor = MinorTicklineColor;
-            if (bp.ContainsKey("MinorTickSize")) axis.MinorTickSize = MinorTickSize;
-            if (bp.ContainsKey("Position")) axis.Position = Position;
-            if (bp.ContainsKey("PositionAtZeroCrossing")) axis.PositionAtZeroCrossing = PositionAtZeroCrossing;
-            if (bp.ContainsKey("PositionTier")) axis.PositionTier = PositionTier;
-            if (bp.ContainsKey("StartPosition")) axis.StartPosition = StartPosition;
-            if (bp.ContainsKey("StringFormat")) axis.StringFormat = StringFormat;
-            if (bp.ContainsKey("TickStyle")) axis.TickStyle = TickStyle;
-            if (bp.ContainsKey("TicklineColor")) axis.TicklineColor = TicklineColor;
-            if (bp.ContainsKey("Title")) axis.Title = Title;
-            if (bp.ContainsKey("TitleClippingLength")) axis.TitleClippingLength = TitleClippingLength;
-            if (bp.ContainsKey("TitleColor")) axis.TitleColor = TitleColor;
-            if (bp.ContainsKey("TitleFont")) axis.TitleFont = TitleFont;
-            if (bp.ContainsKey("TitleFontSize")) axis.TitleFontSize = TitleFontSize;
-            if (bp.ContainsKey("TitleFontWeight")) axis.TitleFontWeight = TitleFontWeight;
-            if (bp.ContainsKey("TitleFormatString")) axis.TitleFormatString = TitleFormatString;
-            if (bp.ContainsKey("TitlePosition")) axis.TitlePosition = TitlePosition;
-            if (bp.ContainsKey("Unit")) axis.Unit = Unit;
-            if (bp.ContainsKey("UseSuperExponentialFormat")) axis.UseSuperExponentialFormat = UseSuperExponentialFormat;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("Base")) obj.Base = Base;
+            if (bp.ContainsKey("PowerPadding")) obj.PowerPadding = PowerPadding;
+            if (bp.ContainsKey("AbsoluteMaximum")) obj.AbsoluteMaximum = AbsoluteMaximum;
+            if (bp.ContainsKey("AbsoluteMinimum")) obj.AbsoluteMinimum = AbsoluteMinimum;
+            if (bp.ContainsKey("Angle")) obj.Angle = Angle;
+            if (bp.ContainsKey("AxisTickToLabelDistance")) obj.AxisTickToLabelDistance = AxisTickToLabelDistance;
+            if (bp.ContainsKey("AxisTitleDistance")) obj.AxisTitleDistance = AxisTitleDistance;
+            if (bp.ContainsKey("AxisDistance")) obj.AxisDistance = AxisDistance;
+            if (bp.ContainsKey("AxislineColor")) obj.AxislineColor = AxislineColor;
+            if (bp.ContainsKey("AxislineStyle")) obj.AxislineStyle = AxislineStyle;
+            if (bp.ContainsKey("AxislineThickness")) obj.AxislineThickness = AxislineThickness;
+            if (bp.ContainsKey("ClipTitle")) obj.ClipTitle = ClipTitle;
+            if (bp.ContainsKey("CropGridlines")) obj.CropGridlines = CropGridlines;
+            if (bp.ContainsKey("EndPosition")) obj.EndPosition = EndPosition;
+            if (bp.ContainsKey("ExtraGridlineColor")) obj.ExtraGridlineColor = ExtraGridlineColor;
+            if (bp.ContainsKey("ExtraGridlineStyle")) obj.ExtraGridlineStyle = ExtraGridlineStyle;
+            if (bp.ContainsKey("ExtraGridlineThickness")) obj.ExtraGridlineThickness = ExtraGridlineThickness;
+            if (bp.ContainsKey("ExtraGridlines")) obj.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
+            if (bp.ContainsKey("FilterFunction")) obj.FilterFunction = FilterFunction;
+            if (bp.ContainsKey("FilterMaxValue")) obj.FilterMaxValue = FilterMaxValue;
+            if (bp.ContainsKey("FilterMinValue")) obj.FilterMinValue = FilterMinValue;
+            if (bp.ContainsKey("IntervalLength")) obj.IntervalLength = IntervalLength;
+            if (bp.ContainsKey("IsAxisVisible")) obj.IsAxisVisible = IsAxisVisible;
+            if (bp.ContainsKey("IsPanEnabled")) obj.IsPanEnabled = IsPanEnabled;
+            if (bp.ContainsKey("IsZoomEnabled")) obj.IsZoomEnabled = IsZoomEnabled;
+            if (bp.ContainsKey("Key")) obj.Key = Key;
+            if (bp.ContainsKey("LabelFormatter")) obj.LabelFormatter = LabelFormatter;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("MajorGridlineColor")) obj.MajorGridlineColor = MajorGridlineColor;
+            if (bp.ContainsKey("MajorGridlineStyle")) obj.MajorGridlineStyle = MajorGridlineStyle;
+            if (bp.ContainsKey("MajorGridlineThickness")) obj.MajorGridlineThickness = MajorGridlineThickness;
+            if (bp.ContainsKey("MajorStep")) obj.MajorStep = MajorStep;
+            if (bp.ContainsKey("MajorTickSize")) obj.MajorTickSize = MajorTickSize;
+            if (bp.ContainsKey("Maximum")) obj.Maximum = Maximum;
+            if (bp.ContainsKey("MaximumPadding")) obj.MaximumPadding = MaximumPadding;
+            if (bp.ContainsKey("MaximumRange")) obj.MaximumRange = MaximumRange;
+            if (bp.ContainsKey("Minimum")) obj.Minimum = Minimum;
+            if (bp.ContainsKey("MinimumMajorStep")) obj.MinimumMajorStep = MinimumMajorStep;
+            if (bp.ContainsKey("MinimumMinorStep")) obj.MinimumMinorStep = MinimumMinorStep;
+            if (bp.ContainsKey("MinimumPadding")) obj.MinimumPadding = MinimumPadding;
+            if (bp.ContainsKey("MinimumRange")) obj.MinimumRange = MinimumRange;
+            if (bp.ContainsKey("MinorGridlineColor")) obj.MinorGridlineColor = MinorGridlineColor;
+            if (bp.ContainsKey("MinorGridlineStyle")) obj.MinorGridlineStyle = MinorGridlineStyle;
+            if (bp.ContainsKey("MinorGridlineThickness")) obj.MinorGridlineThickness = MinorGridlineThickness;
+            if (bp.ContainsKey("MinorStep")) obj.MinorStep = MinorStep;
+            if (bp.ContainsKey("MinorTicklineColor")) obj.MinorTicklineColor = MinorTicklineColor;
+            if (bp.ContainsKey("MinorTickSize")) obj.MinorTickSize = MinorTickSize;
+            if (bp.ContainsKey("Position")) obj.Position = Position;
+            if (bp.ContainsKey("PositionAtZeroCrossing")) obj.PositionAtZeroCrossing = PositionAtZeroCrossing;
+            if (bp.ContainsKey("PositionTier")) obj.PositionTier = PositionTier;
+            if (bp.ContainsKey("StartPosition")) obj.StartPosition = StartPosition;
+            if (bp.ContainsKey("StringFormat")) obj.StringFormat = StringFormat;
+            if (bp.ContainsKey("TickStyle")) obj.TickStyle = TickStyle;
+            if (bp.ContainsKey("TicklineColor")) obj.TicklineColor = TicklineColor;
+            if (bp.ContainsKey("Title")) obj.Title = Title;
+            if (bp.ContainsKey("TitleClippingLength")) obj.TitleClippingLength = TitleClippingLength;
+            if (bp.ContainsKey("TitleColor")) obj.TitleColor = TitleColor;
+            if (bp.ContainsKey("TitleFont")) obj.TitleFont = TitleFont;
+            if (bp.ContainsKey("TitleFontSize")) obj.TitleFontSize = TitleFontSize;
+            if (bp.ContainsKey("TitleFontWeight")) obj.TitleFontWeight = TitleFontWeight;
+            if (bp.ContainsKey("TitleFormatString")) obj.TitleFormatString = TitleFormatString;
+            if (bp.ContainsKey("TitlePosition")) obj.TitlePosition = TitlePosition;
+            if (bp.ContainsKey("Unit")) obj.Unit = Unit;
+            if (bp.ContainsKey("UseSuperExponentialFormat")) obj.UseSuperExponentialFormat = UseSuperExponentialFormat;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Axes.Add(axis);
+                AddTo.Axes.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -2636,93 +2636,93 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Axes.MagnitudeAxis();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Axes.MagnitudeAxis();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
-            if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
-            if (bp.ContainsKey("FractionUnitSymbol")) axis.FractionUnitSymbol = FractionUnitSymbol;
-            if (bp.ContainsKey("AbsoluteMaximum")) axis.AbsoluteMaximum = AbsoluteMaximum;
-            if (bp.ContainsKey("AbsoluteMinimum")) axis.AbsoluteMinimum = AbsoluteMinimum;
-            if (bp.ContainsKey("Angle")) axis.Angle = Angle;
-            if (bp.ContainsKey("AxisTickToLabelDistance")) axis.AxisTickToLabelDistance = AxisTickToLabelDistance;
-            if (bp.ContainsKey("AxisTitleDistance")) axis.AxisTitleDistance = AxisTitleDistance;
-            if (bp.ContainsKey("AxisDistance")) axis.AxisDistance = AxisDistance;
-            if (bp.ContainsKey("AxislineColor")) axis.AxislineColor = AxislineColor;
-            if (bp.ContainsKey("AxislineStyle")) axis.AxislineStyle = AxislineStyle;
-            if (bp.ContainsKey("AxislineThickness")) axis.AxislineThickness = AxislineThickness;
-            if (bp.ContainsKey("ClipTitle")) axis.ClipTitle = ClipTitle;
-            if (bp.ContainsKey("CropGridlines")) axis.CropGridlines = CropGridlines;
-            if (bp.ContainsKey("EndPosition")) axis.EndPosition = EndPosition;
-            if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
-            if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
-            if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
-            if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
-            if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
-            if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
-            if (bp.ContainsKey("IntervalLength")) axis.IntervalLength = IntervalLength;
-            if (bp.ContainsKey("IsAxisVisible")) axis.IsAxisVisible = IsAxisVisible;
-            if (bp.ContainsKey("IsPanEnabled")) axis.IsPanEnabled = IsPanEnabled;
-            if (bp.ContainsKey("IsZoomEnabled")) axis.IsZoomEnabled = IsZoomEnabled;
-            if (bp.ContainsKey("Key")) axis.Key = Key;
-            if (bp.ContainsKey("LabelFormatter")) axis.LabelFormatter = LabelFormatter;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("MajorGridlineColor")) axis.MajorGridlineColor = MajorGridlineColor;
-            if (bp.ContainsKey("MajorGridlineStyle")) axis.MajorGridlineStyle = MajorGridlineStyle;
-            if (bp.ContainsKey("MajorGridlineThickness")) axis.MajorGridlineThickness = MajorGridlineThickness;
-            if (bp.ContainsKey("MajorStep")) axis.MajorStep = MajorStep;
-            if (bp.ContainsKey("MajorTickSize")) axis.MajorTickSize = MajorTickSize;
-            if (bp.ContainsKey("Maximum")) axis.Maximum = Maximum;
-            if (bp.ContainsKey("MaximumPadding")) axis.MaximumPadding = MaximumPadding;
-            if (bp.ContainsKey("MaximumRange")) axis.MaximumRange = MaximumRange;
-            if (bp.ContainsKey("Minimum")) axis.Minimum = Minimum;
-            if (bp.ContainsKey("MinimumMajorStep")) axis.MinimumMajorStep = MinimumMajorStep;
-            if (bp.ContainsKey("MinimumMinorStep")) axis.MinimumMinorStep = MinimumMinorStep;
-            if (bp.ContainsKey("MinimumPadding")) axis.MinimumPadding = MinimumPadding;
-            if (bp.ContainsKey("MinimumRange")) axis.MinimumRange = MinimumRange;
-            if (bp.ContainsKey("MinorGridlineColor")) axis.MinorGridlineColor = MinorGridlineColor;
-            if (bp.ContainsKey("MinorGridlineStyle")) axis.MinorGridlineStyle = MinorGridlineStyle;
-            if (bp.ContainsKey("MinorGridlineThickness")) axis.MinorGridlineThickness = MinorGridlineThickness;
-            if (bp.ContainsKey("MinorStep")) axis.MinorStep = MinorStep;
-            if (bp.ContainsKey("MinorTicklineColor")) axis.MinorTicklineColor = MinorTicklineColor;
-            if (bp.ContainsKey("MinorTickSize")) axis.MinorTickSize = MinorTickSize;
-            if (bp.ContainsKey("Position")) axis.Position = Position;
-            if (bp.ContainsKey("PositionAtZeroCrossing")) axis.PositionAtZeroCrossing = PositionAtZeroCrossing;
-            if (bp.ContainsKey("PositionTier")) axis.PositionTier = PositionTier;
-            if (bp.ContainsKey("StartPosition")) axis.StartPosition = StartPosition;
-            if (bp.ContainsKey("StringFormat")) axis.StringFormat = StringFormat;
-            if (bp.ContainsKey("TickStyle")) axis.TickStyle = TickStyle;
-            if (bp.ContainsKey("TicklineColor")) axis.TicklineColor = TicklineColor;
-            if (bp.ContainsKey("Title")) axis.Title = Title;
-            if (bp.ContainsKey("TitleClippingLength")) axis.TitleClippingLength = TitleClippingLength;
-            if (bp.ContainsKey("TitleColor")) axis.TitleColor = TitleColor;
-            if (bp.ContainsKey("TitleFont")) axis.TitleFont = TitleFont;
-            if (bp.ContainsKey("TitleFontSize")) axis.TitleFontSize = TitleFontSize;
-            if (bp.ContainsKey("TitleFontWeight")) axis.TitleFontWeight = TitleFontWeight;
-            if (bp.ContainsKey("TitleFormatString")) axis.TitleFormatString = TitleFormatString;
-            if (bp.ContainsKey("TitlePosition")) axis.TitlePosition = TitlePosition;
-            if (bp.ContainsKey("Unit")) axis.Unit = Unit;
-            if (bp.ContainsKey("UseSuperExponentialFormat")) axis.UseSuperExponentialFormat = UseSuperExponentialFormat;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("FormatAsFractions")) obj.FormatAsFractions = FormatAsFractions;
+            if (bp.ContainsKey("FractionUnit")) obj.FractionUnit = FractionUnit;
+            if (bp.ContainsKey("FractionUnitSymbol")) obj.FractionUnitSymbol = FractionUnitSymbol;
+            if (bp.ContainsKey("AbsoluteMaximum")) obj.AbsoluteMaximum = AbsoluteMaximum;
+            if (bp.ContainsKey("AbsoluteMinimum")) obj.AbsoluteMinimum = AbsoluteMinimum;
+            if (bp.ContainsKey("Angle")) obj.Angle = Angle;
+            if (bp.ContainsKey("AxisTickToLabelDistance")) obj.AxisTickToLabelDistance = AxisTickToLabelDistance;
+            if (bp.ContainsKey("AxisTitleDistance")) obj.AxisTitleDistance = AxisTitleDistance;
+            if (bp.ContainsKey("AxisDistance")) obj.AxisDistance = AxisDistance;
+            if (bp.ContainsKey("AxislineColor")) obj.AxislineColor = AxislineColor;
+            if (bp.ContainsKey("AxislineStyle")) obj.AxislineStyle = AxislineStyle;
+            if (bp.ContainsKey("AxislineThickness")) obj.AxislineThickness = AxislineThickness;
+            if (bp.ContainsKey("ClipTitle")) obj.ClipTitle = ClipTitle;
+            if (bp.ContainsKey("CropGridlines")) obj.CropGridlines = CropGridlines;
+            if (bp.ContainsKey("EndPosition")) obj.EndPosition = EndPosition;
+            if (bp.ContainsKey("ExtraGridlineColor")) obj.ExtraGridlineColor = ExtraGridlineColor;
+            if (bp.ContainsKey("ExtraGridlineStyle")) obj.ExtraGridlineStyle = ExtraGridlineStyle;
+            if (bp.ContainsKey("ExtraGridlineThickness")) obj.ExtraGridlineThickness = ExtraGridlineThickness;
+            if (bp.ContainsKey("ExtraGridlines")) obj.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
+            if (bp.ContainsKey("FilterFunction")) obj.FilterFunction = FilterFunction;
+            if (bp.ContainsKey("FilterMaxValue")) obj.FilterMaxValue = FilterMaxValue;
+            if (bp.ContainsKey("FilterMinValue")) obj.FilterMinValue = FilterMinValue;
+            if (bp.ContainsKey("IntervalLength")) obj.IntervalLength = IntervalLength;
+            if (bp.ContainsKey("IsAxisVisible")) obj.IsAxisVisible = IsAxisVisible;
+            if (bp.ContainsKey("IsPanEnabled")) obj.IsPanEnabled = IsPanEnabled;
+            if (bp.ContainsKey("IsZoomEnabled")) obj.IsZoomEnabled = IsZoomEnabled;
+            if (bp.ContainsKey("Key")) obj.Key = Key;
+            if (bp.ContainsKey("LabelFormatter")) obj.LabelFormatter = LabelFormatter;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("MajorGridlineColor")) obj.MajorGridlineColor = MajorGridlineColor;
+            if (bp.ContainsKey("MajorGridlineStyle")) obj.MajorGridlineStyle = MajorGridlineStyle;
+            if (bp.ContainsKey("MajorGridlineThickness")) obj.MajorGridlineThickness = MajorGridlineThickness;
+            if (bp.ContainsKey("MajorStep")) obj.MajorStep = MajorStep;
+            if (bp.ContainsKey("MajorTickSize")) obj.MajorTickSize = MajorTickSize;
+            if (bp.ContainsKey("Maximum")) obj.Maximum = Maximum;
+            if (bp.ContainsKey("MaximumPadding")) obj.MaximumPadding = MaximumPadding;
+            if (bp.ContainsKey("MaximumRange")) obj.MaximumRange = MaximumRange;
+            if (bp.ContainsKey("Minimum")) obj.Minimum = Minimum;
+            if (bp.ContainsKey("MinimumMajorStep")) obj.MinimumMajorStep = MinimumMajorStep;
+            if (bp.ContainsKey("MinimumMinorStep")) obj.MinimumMinorStep = MinimumMinorStep;
+            if (bp.ContainsKey("MinimumPadding")) obj.MinimumPadding = MinimumPadding;
+            if (bp.ContainsKey("MinimumRange")) obj.MinimumRange = MinimumRange;
+            if (bp.ContainsKey("MinorGridlineColor")) obj.MinorGridlineColor = MinorGridlineColor;
+            if (bp.ContainsKey("MinorGridlineStyle")) obj.MinorGridlineStyle = MinorGridlineStyle;
+            if (bp.ContainsKey("MinorGridlineThickness")) obj.MinorGridlineThickness = MinorGridlineThickness;
+            if (bp.ContainsKey("MinorStep")) obj.MinorStep = MinorStep;
+            if (bp.ContainsKey("MinorTicklineColor")) obj.MinorTicklineColor = MinorTicklineColor;
+            if (bp.ContainsKey("MinorTickSize")) obj.MinorTickSize = MinorTickSize;
+            if (bp.ContainsKey("Position")) obj.Position = Position;
+            if (bp.ContainsKey("PositionAtZeroCrossing")) obj.PositionAtZeroCrossing = PositionAtZeroCrossing;
+            if (bp.ContainsKey("PositionTier")) obj.PositionTier = PositionTier;
+            if (bp.ContainsKey("StartPosition")) obj.StartPosition = StartPosition;
+            if (bp.ContainsKey("StringFormat")) obj.StringFormat = StringFormat;
+            if (bp.ContainsKey("TickStyle")) obj.TickStyle = TickStyle;
+            if (bp.ContainsKey("TicklineColor")) obj.TicklineColor = TicklineColor;
+            if (bp.ContainsKey("Title")) obj.Title = Title;
+            if (bp.ContainsKey("TitleClippingLength")) obj.TitleClippingLength = TitleClippingLength;
+            if (bp.ContainsKey("TitleColor")) obj.TitleColor = TitleColor;
+            if (bp.ContainsKey("TitleFont")) obj.TitleFont = TitleFont;
+            if (bp.ContainsKey("TitleFontSize")) obj.TitleFontSize = TitleFontSize;
+            if (bp.ContainsKey("TitleFontWeight")) obj.TitleFontWeight = TitleFontWeight;
+            if (bp.ContainsKey("TitleFormatString")) obj.TitleFormatString = TitleFormatString;
+            if (bp.ContainsKey("TitlePosition")) obj.TitlePosition = TitlePosition;
+            if (bp.ContainsKey("Unit")) obj.Unit = Unit;
+            if (bp.ContainsKey("UseSuperExponentialFormat")) obj.UseSuperExponentialFormat = UseSuperExponentialFormat;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Axes.Add(axis);
+                AddTo.Axes.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -2974,96 +2974,96 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Axes.RangeColorAxis();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Axes.RangeColorAxis();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("InvalidNumberColor")) axis.InvalidNumberColor = InvalidNumberColor;
-            if (bp.ContainsKey("HighColor")) axis.HighColor = HighColor;
-            if (bp.ContainsKey("LowColor")) axis.LowColor = LowColor;
-            if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
-            if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
-            if (bp.ContainsKey("FractionUnitSymbol")) axis.FractionUnitSymbol = FractionUnitSymbol;
-            if (bp.ContainsKey("AbsoluteMaximum")) axis.AbsoluteMaximum = AbsoluteMaximum;
-            if (bp.ContainsKey("AbsoluteMinimum")) axis.AbsoluteMinimum = AbsoluteMinimum;
-            if (bp.ContainsKey("Angle")) axis.Angle = Angle;
-            if (bp.ContainsKey("AxisTickToLabelDistance")) axis.AxisTickToLabelDistance = AxisTickToLabelDistance;
-            if (bp.ContainsKey("AxisTitleDistance")) axis.AxisTitleDistance = AxisTitleDistance;
-            if (bp.ContainsKey("AxisDistance")) axis.AxisDistance = AxisDistance;
-            if (bp.ContainsKey("AxislineColor")) axis.AxislineColor = AxislineColor;
-            if (bp.ContainsKey("AxislineStyle")) axis.AxislineStyle = AxislineStyle;
-            if (bp.ContainsKey("AxislineThickness")) axis.AxislineThickness = AxislineThickness;
-            if (bp.ContainsKey("ClipTitle")) axis.ClipTitle = ClipTitle;
-            if (bp.ContainsKey("CropGridlines")) axis.CropGridlines = CropGridlines;
-            if (bp.ContainsKey("EndPosition")) axis.EndPosition = EndPosition;
-            if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
-            if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
-            if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
-            if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
-            if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
-            if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
-            if (bp.ContainsKey("IntervalLength")) axis.IntervalLength = IntervalLength;
-            if (bp.ContainsKey("IsAxisVisible")) axis.IsAxisVisible = IsAxisVisible;
-            if (bp.ContainsKey("IsPanEnabled")) axis.IsPanEnabled = IsPanEnabled;
-            if (bp.ContainsKey("IsZoomEnabled")) axis.IsZoomEnabled = IsZoomEnabled;
-            if (bp.ContainsKey("Key")) axis.Key = Key;
-            if (bp.ContainsKey("LabelFormatter")) axis.LabelFormatter = LabelFormatter;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("MajorGridlineColor")) axis.MajorGridlineColor = MajorGridlineColor;
-            if (bp.ContainsKey("MajorGridlineStyle")) axis.MajorGridlineStyle = MajorGridlineStyle;
-            if (bp.ContainsKey("MajorGridlineThickness")) axis.MajorGridlineThickness = MajorGridlineThickness;
-            if (bp.ContainsKey("MajorStep")) axis.MajorStep = MajorStep;
-            if (bp.ContainsKey("MajorTickSize")) axis.MajorTickSize = MajorTickSize;
-            if (bp.ContainsKey("Maximum")) axis.Maximum = Maximum;
-            if (bp.ContainsKey("MaximumPadding")) axis.MaximumPadding = MaximumPadding;
-            if (bp.ContainsKey("MaximumRange")) axis.MaximumRange = MaximumRange;
-            if (bp.ContainsKey("Minimum")) axis.Minimum = Minimum;
-            if (bp.ContainsKey("MinimumMajorStep")) axis.MinimumMajorStep = MinimumMajorStep;
-            if (bp.ContainsKey("MinimumMinorStep")) axis.MinimumMinorStep = MinimumMinorStep;
-            if (bp.ContainsKey("MinimumPadding")) axis.MinimumPadding = MinimumPadding;
-            if (bp.ContainsKey("MinimumRange")) axis.MinimumRange = MinimumRange;
-            if (bp.ContainsKey("MinorGridlineColor")) axis.MinorGridlineColor = MinorGridlineColor;
-            if (bp.ContainsKey("MinorGridlineStyle")) axis.MinorGridlineStyle = MinorGridlineStyle;
-            if (bp.ContainsKey("MinorGridlineThickness")) axis.MinorGridlineThickness = MinorGridlineThickness;
-            if (bp.ContainsKey("MinorStep")) axis.MinorStep = MinorStep;
-            if (bp.ContainsKey("MinorTicklineColor")) axis.MinorTicklineColor = MinorTicklineColor;
-            if (bp.ContainsKey("MinorTickSize")) axis.MinorTickSize = MinorTickSize;
-            if (bp.ContainsKey("Position")) axis.Position = Position;
-            if (bp.ContainsKey("PositionAtZeroCrossing")) axis.PositionAtZeroCrossing = PositionAtZeroCrossing;
-            if (bp.ContainsKey("PositionTier")) axis.PositionTier = PositionTier;
-            if (bp.ContainsKey("StartPosition")) axis.StartPosition = StartPosition;
-            if (bp.ContainsKey("StringFormat")) axis.StringFormat = StringFormat;
-            if (bp.ContainsKey("TickStyle")) axis.TickStyle = TickStyle;
-            if (bp.ContainsKey("TicklineColor")) axis.TicklineColor = TicklineColor;
-            if (bp.ContainsKey("Title")) axis.Title = Title;
-            if (bp.ContainsKey("TitleClippingLength")) axis.TitleClippingLength = TitleClippingLength;
-            if (bp.ContainsKey("TitleColor")) axis.TitleColor = TitleColor;
-            if (bp.ContainsKey("TitleFont")) axis.TitleFont = TitleFont;
-            if (bp.ContainsKey("TitleFontSize")) axis.TitleFontSize = TitleFontSize;
-            if (bp.ContainsKey("TitleFontWeight")) axis.TitleFontWeight = TitleFontWeight;
-            if (bp.ContainsKey("TitleFormatString")) axis.TitleFormatString = TitleFormatString;
-            if (bp.ContainsKey("TitlePosition")) axis.TitlePosition = TitlePosition;
-            if (bp.ContainsKey("Unit")) axis.Unit = Unit;
-            if (bp.ContainsKey("UseSuperExponentialFormat")) axis.UseSuperExponentialFormat = UseSuperExponentialFormat;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("InvalidNumberColor")) obj.InvalidNumberColor = InvalidNumberColor;
+            if (bp.ContainsKey("HighColor")) obj.HighColor = HighColor;
+            if (bp.ContainsKey("LowColor")) obj.LowColor = LowColor;
+            if (bp.ContainsKey("FormatAsFractions")) obj.FormatAsFractions = FormatAsFractions;
+            if (bp.ContainsKey("FractionUnit")) obj.FractionUnit = FractionUnit;
+            if (bp.ContainsKey("FractionUnitSymbol")) obj.FractionUnitSymbol = FractionUnitSymbol;
+            if (bp.ContainsKey("AbsoluteMaximum")) obj.AbsoluteMaximum = AbsoluteMaximum;
+            if (bp.ContainsKey("AbsoluteMinimum")) obj.AbsoluteMinimum = AbsoluteMinimum;
+            if (bp.ContainsKey("Angle")) obj.Angle = Angle;
+            if (bp.ContainsKey("AxisTickToLabelDistance")) obj.AxisTickToLabelDistance = AxisTickToLabelDistance;
+            if (bp.ContainsKey("AxisTitleDistance")) obj.AxisTitleDistance = AxisTitleDistance;
+            if (bp.ContainsKey("AxisDistance")) obj.AxisDistance = AxisDistance;
+            if (bp.ContainsKey("AxislineColor")) obj.AxislineColor = AxislineColor;
+            if (bp.ContainsKey("AxislineStyle")) obj.AxislineStyle = AxislineStyle;
+            if (bp.ContainsKey("AxislineThickness")) obj.AxislineThickness = AxislineThickness;
+            if (bp.ContainsKey("ClipTitle")) obj.ClipTitle = ClipTitle;
+            if (bp.ContainsKey("CropGridlines")) obj.CropGridlines = CropGridlines;
+            if (bp.ContainsKey("EndPosition")) obj.EndPosition = EndPosition;
+            if (bp.ContainsKey("ExtraGridlineColor")) obj.ExtraGridlineColor = ExtraGridlineColor;
+            if (bp.ContainsKey("ExtraGridlineStyle")) obj.ExtraGridlineStyle = ExtraGridlineStyle;
+            if (bp.ContainsKey("ExtraGridlineThickness")) obj.ExtraGridlineThickness = ExtraGridlineThickness;
+            if (bp.ContainsKey("ExtraGridlines")) obj.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
+            if (bp.ContainsKey("FilterFunction")) obj.FilterFunction = FilterFunction;
+            if (bp.ContainsKey("FilterMaxValue")) obj.FilterMaxValue = FilterMaxValue;
+            if (bp.ContainsKey("FilterMinValue")) obj.FilterMinValue = FilterMinValue;
+            if (bp.ContainsKey("IntervalLength")) obj.IntervalLength = IntervalLength;
+            if (bp.ContainsKey("IsAxisVisible")) obj.IsAxisVisible = IsAxisVisible;
+            if (bp.ContainsKey("IsPanEnabled")) obj.IsPanEnabled = IsPanEnabled;
+            if (bp.ContainsKey("IsZoomEnabled")) obj.IsZoomEnabled = IsZoomEnabled;
+            if (bp.ContainsKey("Key")) obj.Key = Key;
+            if (bp.ContainsKey("LabelFormatter")) obj.LabelFormatter = LabelFormatter;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("MajorGridlineColor")) obj.MajorGridlineColor = MajorGridlineColor;
+            if (bp.ContainsKey("MajorGridlineStyle")) obj.MajorGridlineStyle = MajorGridlineStyle;
+            if (bp.ContainsKey("MajorGridlineThickness")) obj.MajorGridlineThickness = MajorGridlineThickness;
+            if (bp.ContainsKey("MajorStep")) obj.MajorStep = MajorStep;
+            if (bp.ContainsKey("MajorTickSize")) obj.MajorTickSize = MajorTickSize;
+            if (bp.ContainsKey("Maximum")) obj.Maximum = Maximum;
+            if (bp.ContainsKey("MaximumPadding")) obj.MaximumPadding = MaximumPadding;
+            if (bp.ContainsKey("MaximumRange")) obj.MaximumRange = MaximumRange;
+            if (bp.ContainsKey("Minimum")) obj.Minimum = Minimum;
+            if (bp.ContainsKey("MinimumMajorStep")) obj.MinimumMajorStep = MinimumMajorStep;
+            if (bp.ContainsKey("MinimumMinorStep")) obj.MinimumMinorStep = MinimumMinorStep;
+            if (bp.ContainsKey("MinimumPadding")) obj.MinimumPadding = MinimumPadding;
+            if (bp.ContainsKey("MinimumRange")) obj.MinimumRange = MinimumRange;
+            if (bp.ContainsKey("MinorGridlineColor")) obj.MinorGridlineColor = MinorGridlineColor;
+            if (bp.ContainsKey("MinorGridlineStyle")) obj.MinorGridlineStyle = MinorGridlineStyle;
+            if (bp.ContainsKey("MinorGridlineThickness")) obj.MinorGridlineThickness = MinorGridlineThickness;
+            if (bp.ContainsKey("MinorStep")) obj.MinorStep = MinorStep;
+            if (bp.ContainsKey("MinorTicklineColor")) obj.MinorTicklineColor = MinorTicklineColor;
+            if (bp.ContainsKey("MinorTickSize")) obj.MinorTickSize = MinorTickSize;
+            if (bp.ContainsKey("Position")) obj.Position = Position;
+            if (bp.ContainsKey("PositionAtZeroCrossing")) obj.PositionAtZeroCrossing = PositionAtZeroCrossing;
+            if (bp.ContainsKey("PositionTier")) obj.PositionTier = PositionTier;
+            if (bp.ContainsKey("StartPosition")) obj.StartPosition = StartPosition;
+            if (bp.ContainsKey("StringFormat")) obj.StringFormat = StringFormat;
+            if (bp.ContainsKey("TickStyle")) obj.TickStyle = TickStyle;
+            if (bp.ContainsKey("TicklineColor")) obj.TicklineColor = TicklineColor;
+            if (bp.ContainsKey("Title")) obj.Title = Title;
+            if (bp.ContainsKey("TitleClippingLength")) obj.TitleClippingLength = TitleClippingLength;
+            if (bp.ContainsKey("TitleColor")) obj.TitleColor = TitleColor;
+            if (bp.ContainsKey("TitleFont")) obj.TitleFont = TitleFont;
+            if (bp.ContainsKey("TitleFontSize")) obj.TitleFontSize = TitleFontSize;
+            if (bp.ContainsKey("TitleFontWeight")) obj.TitleFontWeight = TitleFontWeight;
+            if (bp.ContainsKey("TitleFormatString")) obj.TitleFormatString = TitleFormatString;
+            if (bp.ContainsKey("TitlePosition")) obj.TitlePosition = TitlePosition;
+            if (bp.ContainsKey("Unit")) obj.Unit = Unit;
+            if (bp.ContainsKey("UseSuperExponentialFormat")) obj.UseSuperExponentialFormat = UseSuperExponentialFormat;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Axes.Add(axis);
+                AddTo.Axes.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -3306,93 +3306,93 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Axes.TimeSpanAxis();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Axes.TimeSpanAxis();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("FormatAsFractions")) axis.FormatAsFractions = FormatAsFractions;
-            if (bp.ContainsKey("FractionUnit")) axis.FractionUnit = FractionUnit;
-            if (bp.ContainsKey("FractionUnitSymbol")) axis.FractionUnitSymbol = FractionUnitSymbol;
-            if (bp.ContainsKey("AbsoluteMaximum")) axis.AbsoluteMaximum = AbsoluteMaximum;
-            if (bp.ContainsKey("AbsoluteMinimum")) axis.AbsoluteMinimum = AbsoluteMinimum;
-            if (bp.ContainsKey("Angle")) axis.Angle = Angle;
-            if (bp.ContainsKey("AxisTickToLabelDistance")) axis.AxisTickToLabelDistance = AxisTickToLabelDistance;
-            if (bp.ContainsKey("AxisTitleDistance")) axis.AxisTitleDistance = AxisTitleDistance;
-            if (bp.ContainsKey("AxisDistance")) axis.AxisDistance = AxisDistance;
-            if (bp.ContainsKey("AxislineColor")) axis.AxislineColor = AxislineColor;
-            if (bp.ContainsKey("AxislineStyle")) axis.AxislineStyle = AxislineStyle;
-            if (bp.ContainsKey("AxislineThickness")) axis.AxislineThickness = AxislineThickness;
-            if (bp.ContainsKey("ClipTitle")) axis.ClipTitle = ClipTitle;
-            if (bp.ContainsKey("CropGridlines")) axis.CropGridlines = CropGridlines;
-            if (bp.ContainsKey("EndPosition")) axis.EndPosition = EndPosition;
-            if (bp.ContainsKey("ExtraGridlineColor")) axis.ExtraGridlineColor = ExtraGridlineColor;
-            if (bp.ContainsKey("ExtraGridlineStyle")) axis.ExtraGridlineStyle = ExtraGridlineStyle;
-            if (bp.ContainsKey("ExtraGridlineThickness")) axis.ExtraGridlineThickness = ExtraGridlineThickness;
-            if (bp.ContainsKey("ExtraGridlines")) axis.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
-            if (bp.ContainsKey("FilterFunction")) axis.FilterFunction = FilterFunction;
-            if (bp.ContainsKey("FilterMaxValue")) axis.FilterMaxValue = FilterMaxValue;
-            if (bp.ContainsKey("FilterMinValue")) axis.FilterMinValue = FilterMinValue;
-            if (bp.ContainsKey("IntervalLength")) axis.IntervalLength = IntervalLength;
-            if (bp.ContainsKey("IsAxisVisible")) axis.IsAxisVisible = IsAxisVisible;
-            if (bp.ContainsKey("IsPanEnabled")) axis.IsPanEnabled = IsPanEnabled;
-            if (bp.ContainsKey("IsZoomEnabled")) axis.IsZoomEnabled = IsZoomEnabled;
-            if (bp.ContainsKey("Key")) axis.Key = Key;
-            if (bp.ContainsKey("LabelFormatter")) axis.LabelFormatter = LabelFormatter;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("MajorGridlineColor")) axis.MajorGridlineColor = MajorGridlineColor;
-            if (bp.ContainsKey("MajorGridlineStyle")) axis.MajorGridlineStyle = MajorGridlineStyle;
-            if (bp.ContainsKey("MajorGridlineThickness")) axis.MajorGridlineThickness = MajorGridlineThickness;
-            if (bp.ContainsKey("MajorStep")) axis.MajorStep = MajorStep;
-            if (bp.ContainsKey("MajorTickSize")) axis.MajorTickSize = MajorTickSize;
-            if (bp.ContainsKey("Maximum")) axis.Maximum = Maximum;
-            if (bp.ContainsKey("MaximumPadding")) axis.MaximumPadding = MaximumPadding;
-            if (bp.ContainsKey("MaximumRange")) axis.MaximumRange = MaximumRange;
-            if (bp.ContainsKey("Minimum")) axis.Minimum = Minimum;
-            if (bp.ContainsKey("MinimumMajorStep")) axis.MinimumMajorStep = MinimumMajorStep;
-            if (bp.ContainsKey("MinimumMinorStep")) axis.MinimumMinorStep = MinimumMinorStep;
-            if (bp.ContainsKey("MinimumPadding")) axis.MinimumPadding = MinimumPadding;
-            if (bp.ContainsKey("MinimumRange")) axis.MinimumRange = MinimumRange;
-            if (bp.ContainsKey("MinorGridlineColor")) axis.MinorGridlineColor = MinorGridlineColor;
-            if (bp.ContainsKey("MinorGridlineStyle")) axis.MinorGridlineStyle = MinorGridlineStyle;
-            if (bp.ContainsKey("MinorGridlineThickness")) axis.MinorGridlineThickness = MinorGridlineThickness;
-            if (bp.ContainsKey("MinorStep")) axis.MinorStep = MinorStep;
-            if (bp.ContainsKey("MinorTicklineColor")) axis.MinorTicklineColor = MinorTicklineColor;
-            if (bp.ContainsKey("MinorTickSize")) axis.MinorTickSize = MinorTickSize;
-            if (bp.ContainsKey("Position")) axis.Position = Position;
-            if (bp.ContainsKey("PositionAtZeroCrossing")) axis.PositionAtZeroCrossing = PositionAtZeroCrossing;
-            if (bp.ContainsKey("PositionTier")) axis.PositionTier = PositionTier;
-            if (bp.ContainsKey("StartPosition")) axis.StartPosition = StartPosition;
-            if (bp.ContainsKey("StringFormat")) axis.StringFormat = StringFormat;
-            if (bp.ContainsKey("TickStyle")) axis.TickStyle = TickStyle;
-            if (bp.ContainsKey("TicklineColor")) axis.TicklineColor = TicklineColor;
-            if (bp.ContainsKey("Title")) axis.Title = Title;
-            if (bp.ContainsKey("TitleClippingLength")) axis.TitleClippingLength = TitleClippingLength;
-            if (bp.ContainsKey("TitleColor")) axis.TitleColor = TitleColor;
-            if (bp.ContainsKey("TitleFont")) axis.TitleFont = TitleFont;
-            if (bp.ContainsKey("TitleFontSize")) axis.TitleFontSize = TitleFontSize;
-            if (bp.ContainsKey("TitleFontWeight")) axis.TitleFontWeight = TitleFontWeight;
-            if (bp.ContainsKey("TitleFormatString")) axis.TitleFormatString = TitleFormatString;
-            if (bp.ContainsKey("TitlePosition")) axis.TitlePosition = TitlePosition;
-            if (bp.ContainsKey("Unit")) axis.Unit = Unit;
-            if (bp.ContainsKey("UseSuperExponentialFormat")) axis.UseSuperExponentialFormat = UseSuperExponentialFormat;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("FormatAsFractions")) obj.FormatAsFractions = FormatAsFractions;
+            if (bp.ContainsKey("FractionUnit")) obj.FractionUnit = FractionUnit;
+            if (bp.ContainsKey("FractionUnitSymbol")) obj.FractionUnitSymbol = FractionUnitSymbol;
+            if (bp.ContainsKey("AbsoluteMaximum")) obj.AbsoluteMaximum = AbsoluteMaximum;
+            if (bp.ContainsKey("AbsoluteMinimum")) obj.AbsoluteMinimum = AbsoluteMinimum;
+            if (bp.ContainsKey("Angle")) obj.Angle = Angle;
+            if (bp.ContainsKey("AxisTickToLabelDistance")) obj.AxisTickToLabelDistance = AxisTickToLabelDistance;
+            if (bp.ContainsKey("AxisTitleDistance")) obj.AxisTitleDistance = AxisTitleDistance;
+            if (bp.ContainsKey("AxisDistance")) obj.AxisDistance = AxisDistance;
+            if (bp.ContainsKey("AxislineColor")) obj.AxislineColor = AxislineColor;
+            if (bp.ContainsKey("AxislineStyle")) obj.AxislineStyle = AxislineStyle;
+            if (bp.ContainsKey("AxislineThickness")) obj.AxislineThickness = AxislineThickness;
+            if (bp.ContainsKey("ClipTitle")) obj.ClipTitle = ClipTitle;
+            if (bp.ContainsKey("CropGridlines")) obj.CropGridlines = CropGridlines;
+            if (bp.ContainsKey("EndPosition")) obj.EndPosition = EndPosition;
+            if (bp.ContainsKey("ExtraGridlineColor")) obj.ExtraGridlineColor = ExtraGridlineColor;
+            if (bp.ContainsKey("ExtraGridlineStyle")) obj.ExtraGridlineStyle = ExtraGridlineStyle;
+            if (bp.ContainsKey("ExtraGridlineThickness")) obj.ExtraGridlineThickness = ExtraGridlineThickness;
+            if (bp.ContainsKey("ExtraGridlines")) obj.ExtraGridlines = Horker.OxyPlotCli.TypeAdaptors.Double.ConvertArray(ExtraGridlines);
+            if (bp.ContainsKey("FilterFunction")) obj.FilterFunction = FilterFunction;
+            if (bp.ContainsKey("FilterMaxValue")) obj.FilterMaxValue = FilterMaxValue;
+            if (bp.ContainsKey("FilterMinValue")) obj.FilterMinValue = FilterMinValue;
+            if (bp.ContainsKey("IntervalLength")) obj.IntervalLength = IntervalLength;
+            if (bp.ContainsKey("IsAxisVisible")) obj.IsAxisVisible = IsAxisVisible;
+            if (bp.ContainsKey("IsPanEnabled")) obj.IsPanEnabled = IsPanEnabled;
+            if (bp.ContainsKey("IsZoomEnabled")) obj.IsZoomEnabled = IsZoomEnabled;
+            if (bp.ContainsKey("Key")) obj.Key = Key;
+            if (bp.ContainsKey("LabelFormatter")) obj.LabelFormatter = LabelFormatter;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("MajorGridlineColor")) obj.MajorGridlineColor = MajorGridlineColor;
+            if (bp.ContainsKey("MajorGridlineStyle")) obj.MajorGridlineStyle = MajorGridlineStyle;
+            if (bp.ContainsKey("MajorGridlineThickness")) obj.MajorGridlineThickness = MajorGridlineThickness;
+            if (bp.ContainsKey("MajorStep")) obj.MajorStep = MajorStep;
+            if (bp.ContainsKey("MajorTickSize")) obj.MajorTickSize = MajorTickSize;
+            if (bp.ContainsKey("Maximum")) obj.Maximum = Maximum;
+            if (bp.ContainsKey("MaximumPadding")) obj.MaximumPadding = MaximumPadding;
+            if (bp.ContainsKey("MaximumRange")) obj.MaximumRange = MaximumRange;
+            if (bp.ContainsKey("Minimum")) obj.Minimum = Minimum;
+            if (bp.ContainsKey("MinimumMajorStep")) obj.MinimumMajorStep = MinimumMajorStep;
+            if (bp.ContainsKey("MinimumMinorStep")) obj.MinimumMinorStep = MinimumMinorStep;
+            if (bp.ContainsKey("MinimumPadding")) obj.MinimumPadding = MinimumPadding;
+            if (bp.ContainsKey("MinimumRange")) obj.MinimumRange = MinimumRange;
+            if (bp.ContainsKey("MinorGridlineColor")) obj.MinorGridlineColor = MinorGridlineColor;
+            if (bp.ContainsKey("MinorGridlineStyle")) obj.MinorGridlineStyle = MinorGridlineStyle;
+            if (bp.ContainsKey("MinorGridlineThickness")) obj.MinorGridlineThickness = MinorGridlineThickness;
+            if (bp.ContainsKey("MinorStep")) obj.MinorStep = MinorStep;
+            if (bp.ContainsKey("MinorTicklineColor")) obj.MinorTicklineColor = MinorTicklineColor;
+            if (bp.ContainsKey("MinorTickSize")) obj.MinorTickSize = MinorTickSize;
+            if (bp.ContainsKey("Position")) obj.Position = Position;
+            if (bp.ContainsKey("PositionAtZeroCrossing")) obj.PositionAtZeroCrossing = PositionAtZeroCrossing;
+            if (bp.ContainsKey("PositionTier")) obj.PositionTier = PositionTier;
+            if (bp.ContainsKey("StartPosition")) obj.StartPosition = StartPosition;
+            if (bp.ContainsKey("StringFormat")) obj.StringFormat = StringFormat;
+            if (bp.ContainsKey("TickStyle")) obj.TickStyle = TickStyle;
+            if (bp.ContainsKey("TicklineColor")) obj.TicklineColor = TicklineColor;
+            if (bp.ContainsKey("Title")) obj.Title = Title;
+            if (bp.ContainsKey("TitleClippingLength")) obj.TitleClippingLength = TitleClippingLength;
+            if (bp.ContainsKey("TitleColor")) obj.TitleColor = TitleColor;
+            if (bp.ContainsKey("TitleFont")) obj.TitleFont = TitleFont;
+            if (bp.ContainsKey("TitleFontSize")) obj.TitleFontSize = TitleFontSize;
+            if (bp.ContainsKey("TitleFontWeight")) obj.TitleFontWeight = TitleFontWeight;
+            if (bp.ContainsKey("TitleFormatString")) obj.TitleFormatString = TitleFormatString;
+            if (bp.ContainsKey("TitlePosition")) obj.TitlePosition = TitlePosition;
+            if (bp.ContainsKey("Unit")) obj.Unit = Unit;
+            if (bp.ContainsKey("UseSuperExponentialFormat")) obj.UseSuperExponentialFormat = UseSuperExponentialFormat;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Axes.Add(axis);
+                AddTo.Axes.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -3494,46 +3494,46 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Annotations.ArrowAnnotation();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Annotations.ArrowAnnotation();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("ArrowDirection")) axis.ArrowDirection = new Horker.OxyPlotCli.TypeAdaptors.ScreenVector(ArrowDirection);
-            if (bp.ContainsKey("Color")) axis.Color = Color;
-            if (bp.ContainsKey("EndPoint")) axis.EndPoint = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(EndPoint);
-            if (bp.ContainsKey("HeadLength")) axis.HeadLength = HeadLength;
-            if (bp.ContainsKey("HeadWidth")) axis.HeadWidth = HeadWidth;
-            if (bp.ContainsKey("LineJoin")) axis.LineJoin = LineJoin;
-            if (bp.ContainsKey("LineStyle")) axis.LineStyle = LineStyle;
-            if (bp.ContainsKey("StartPoint")) axis.StartPoint = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(StartPoint);
-            if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
-            if (bp.ContainsKey("Veeness")) axis.Veeness = Veeness;
-            if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
-            if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
-            if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
-            if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("XAxisKey")) axis.XAxisKey = XAxisKey;
-            if (bp.ContainsKey("YAxisKey")) axis.YAxisKey = YAxisKey;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("ArrowDirection")) obj.ArrowDirection = new Horker.OxyPlotCli.TypeAdaptors.ScreenVector(ArrowDirection);
+            if (bp.ContainsKey("Color")) obj.Color = Color;
+            if (bp.ContainsKey("EndPoint")) obj.EndPoint = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(EndPoint);
+            if (bp.ContainsKey("HeadLength")) obj.HeadLength = HeadLength;
+            if (bp.ContainsKey("HeadWidth")) obj.HeadWidth = HeadWidth;
+            if (bp.ContainsKey("LineJoin")) obj.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) obj.LineStyle = LineStyle;
+            if (bp.ContainsKey("StartPoint")) obj.StartPoint = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(StartPoint);
+            if (bp.ContainsKey("StrokeThickness")) obj.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("Veeness")) obj.Veeness = Veeness;
+            if (bp.ContainsKey("Text")) obj.Text = Text;
+            if (bp.ContainsKey("TextPosition")) obj.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
+            if (bp.ContainsKey("TextHorizontalAlignment")) obj.TextHorizontalAlignment = TextHorizontalAlignment;
+            if (bp.ContainsKey("TextVerticalAlignment")) obj.TextVerticalAlignment = TextVerticalAlignment;
+            if (bp.ContainsKey("TextRotation")) obj.TextRotation = TextRotation;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("XAxisKey")) obj.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) obj.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Annotations.Add(axis);
+                AddTo.Annotations.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -3626,43 +3626,43 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Annotations.EllipseAnnotation();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Annotations.EllipseAnnotation();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("X")) axis.X = X;
-            if (bp.ContainsKey("Y")) axis.Y = Y;
-            if (bp.ContainsKey("Width")) axis.Width = Width;
-            if (bp.ContainsKey("Height")) axis.Height = Height;
-            if (bp.ContainsKey("Fill")) axis.Fill = Fill;
-            if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
-            if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
-            if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
-            if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
-            if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
-            if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("XAxisKey")) axis.XAxisKey = XAxisKey;
-            if (bp.ContainsKey("YAxisKey")) axis.YAxisKey = YAxisKey;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("X")) obj.X = X;
+            if (bp.ContainsKey("Y")) obj.Y = Y;
+            if (bp.ContainsKey("Width")) obj.Width = Width;
+            if (bp.ContainsKey("Height")) obj.Height = Height;
+            if (bp.ContainsKey("Fill")) obj.Fill = Fill;
+            if (bp.ContainsKey("Stroke")) obj.Stroke = Stroke;
+            if (bp.ContainsKey("StrokeThickness")) obj.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("Text")) obj.Text = Text;
+            if (bp.ContainsKey("TextPosition")) obj.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
+            if (bp.ContainsKey("TextHorizontalAlignment")) obj.TextHorizontalAlignment = TextHorizontalAlignment;
+            if (bp.ContainsKey("TextVerticalAlignment")) obj.TextVerticalAlignment = TextVerticalAlignment;
+            if (bp.ContainsKey("TextRotation")) obj.TextRotation = TextRotation;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("XAxisKey")) obj.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) obj.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Annotations.Add(axis);
+                AddTo.Annotations.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -3788,54 +3788,54 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Annotations.FunctionAnnotation();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Annotations.FunctionAnnotation();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("Type")) axis.Type = Type;
-            if (bp.ContainsKey("Equation")) axis.Equation = Equation;
-            if (bp.ContainsKey("Resolution")) axis.Resolution = Resolution;
-            if (bp.ContainsKey("Color")) axis.Color = Color;
-            if (bp.ContainsKey("LineJoin")) axis.LineJoin = LineJoin;
-            if (bp.ContainsKey("LineStyle")) axis.LineStyle = LineStyle;
-            if (bp.ContainsKey("MaximumX")) axis.MaximumX = MaximumX;
-            if (bp.ContainsKey("MaximumY")) axis.MaximumY = MaximumY;
-            if (bp.ContainsKey("MinimumX")) axis.MinimumX = MinimumX;
-            if (bp.ContainsKey("MinimumY")) axis.MinimumY = MinimumY;
-            if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
-            if (bp.ContainsKey("TextMargin")) axis.TextMargin = TextMargin;
-            if (bp.ContainsKey("TextPadding")) axis.TextPadding = TextPadding;
-            if (bp.ContainsKey("TextOrientation")) axis.TextOrientation = TextOrientation;
-            if (bp.ContainsKey("TextLinePosition")) axis.TextLinePosition = TextLinePosition;
-            if (bp.ContainsKey("ClipText")) axis.ClipText = ClipText;
-            if (bp.ContainsKey("ClipByXAxis")) axis.ClipByXAxis = ClipByXAxis;
-            if (bp.ContainsKey("ClipByYAxis")) axis.ClipByYAxis = ClipByYAxis;
-            if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
-            if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
-            if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
-            if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("XAxisKey")) axis.XAxisKey = XAxisKey;
-            if (bp.ContainsKey("YAxisKey")) axis.YAxisKey = YAxisKey;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("Type")) obj.Type = Type;
+            if (bp.ContainsKey("Equation")) obj.Equation = Equation;
+            if (bp.ContainsKey("Resolution")) obj.Resolution = Resolution;
+            if (bp.ContainsKey("Color")) obj.Color = Color;
+            if (bp.ContainsKey("LineJoin")) obj.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) obj.LineStyle = LineStyle;
+            if (bp.ContainsKey("MaximumX")) obj.MaximumX = MaximumX;
+            if (bp.ContainsKey("MaximumY")) obj.MaximumY = MaximumY;
+            if (bp.ContainsKey("MinimumX")) obj.MinimumX = MinimumX;
+            if (bp.ContainsKey("MinimumY")) obj.MinimumY = MinimumY;
+            if (bp.ContainsKey("StrokeThickness")) obj.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("TextMargin")) obj.TextMargin = TextMargin;
+            if (bp.ContainsKey("TextPadding")) obj.TextPadding = TextPadding;
+            if (bp.ContainsKey("TextOrientation")) obj.TextOrientation = TextOrientation;
+            if (bp.ContainsKey("TextLinePosition")) obj.TextLinePosition = TextLinePosition;
+            if (bp.ContainsKey("ClipText")) obj.ClipText = ClipText;
+            if (bp.ContainsKey("ClipByXAxis")) obj.ClipByXAxis = ClipByXAxis;
+            if (bp.ContainsKey("ClipByYAxis")) obj.ClipByYAxis = ClipByYAxis;
+            if (bp.ContainsKey("Text")) obj.Text = Text;
+            if (bp.ContainsKey("TextPosition")) obj.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
+            if (bp.ContainsKey("TextHorizontalAlignment")) obj.TextHorizontalAlignment = TextHorizontalAlignment;
+            if (bp.ContainsKey("TextVerticalAlignment")) obj.TextVerticalAlignment = TextVerticalAlignment;
+            if (bp.ContainsKey("TextRotation")) obj.TextRotation = TextRotation;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("XAxisKey")) obj.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) obj.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Annotations.Add(axis);
+                AddTo.Annotations.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -3925,42 +3925,42 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Annotations.ImageAnnotation();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Annotations.ImageAnnotation();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("ImageSource")) axis.ImageSource = ImageSource;
-            if (bp.ContainsKey("HorizontalAlignment")) axis.HorizontalAlignment = HorizontalAlignment;
-            if (bp.ContainsKey("X")) axis.X = X;
-            if (bp.ContainsKey("Y")) axis.Y = Y;
-            if (bp.ContainsKey("OffsetX")) axis.OffsetX = OffsetX;
-            if (bp.ContainsKey("OffsetY")) axis.OffsetY = OffsetY;
-            if (bp.ContainsKey("Width")) axis.Width = Width;
-            if (bp.ContainsKey("Height")) axis.Height = Height;
-            if (bp.ContainsKey("Opacity")) axis.Opacity = Opacity;
-            if (bp.ContainsKey("Interpolate")) axis.Interpolate = Interpolate;
-            if (bp.ContainsKey("VerticalAlignment")) axis.VerticalAlignment = VerticalAlignment;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("XAxisKey")) axis.XAxisKey = XAxisKey;
-            if (bp.ContainsKey("YAxisKey")) axis.YAxisKey = YAxisKey;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("ImageSource")) obj.ImageSource = ImageSource;
+            if (bp.ContainsKey("HorizontalAlignment")) obj.HorizontalAlignment = HorizontalAlignment;
+            if (bp.ContainsKey("X")) obj.X = X;
+            if (bp.ContainsKey("Y")) obj.Y = Y;
+            if (bp.ContainsKey("OffsetX")) obj.OffsetX = OffsetX;
+            if (bp.ContainsKey("OffsetY")) obj.OffsetY = OffsetY;
+            if (bp.ContainsKey("Width")) obj.Width = Width;
+            if (bp.ContainsKey("Height")) obj.Height = Height;
+            if (bp.ContainsKey("Opacity")) obj.Opacity = Opacity;
+            if (bp.ContainsKey("Interpolate")) obj.Interpolate = Interpolate;
+            if (bp.ContainsKey("VerticalAlignment")) obj.VerticalAlignment = VerticalAlignment;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("XAxisKey")) obj.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) obj.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Annotations.Add(axis);
+                AddTo.Annotations.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -4092,56 +4092,56 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Annotations.LineAnnotation();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Annotations.LineAnnotation();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("Intercept")) axis.Intercept = Intercept;
-            if (bp.ContainsKey("Slope")) axis.Slope = Slope;
-            if (bp.ContainsKey("Type")) axis.Type = Type;
-            if (bp.ContainsKey("X")) axis.X = X;
-            if (bp.ContainsKey("Y")) axis.Y = Y;
-            if (bp.ContainsKey("Color")) axis.Color = Color;
-            if (bp.ContainsKey("LineJoin")) axis.LineJoin = LineJoin;
-            if (bp.ContainsKey("LineStyle")) axis.LineStyle = LineStyle;
-            if (bp.ContainsKey("MaximumX")) axis.MaximumX = MaximumX;
-            if (bp.ContainsKey("MaximumY")) axis.MaximumY = MaximumY;
-            if (bp.ContainsKey("MinimumX")) axis.MinimumX = MinimumX;
-            if (bp.ContainsKey("MinimumY")) axis.MinimumY = MinimumY;
-            if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
-            if (bp.ContainsKey("TextMargin")) axis.TextMargin = TextMargin;
-            if (bp.ContainsKey("TextPadding")) axis.TextPadding = TextPadding;
-            if (bp.ContainsKey("TextOrientation")) axis.TextOrientation = TextOrientation;
-            if (bp.ContainsKey("TextLinePosition")) axis.TextLinePosition = TextLinePosition;
-            if (bp.ContainsKey("ClipText")) axis.ClipText = ClipText;
-            if (bp.ContainsKey("ClipByXAxis")) axis.ClipByXAxis = ClipByXAxis;
-            if (bp.ContainsKey("ClipByYAxis")) axis.ClipByYAxis = ClipByYAxis;
-            if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
-            if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
-            if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
-            if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("XAxisKey")) axis.XAxisKey = XAxisKey;
-            if (bp.ContainsKey("YAxisKey")) axis.YAxisKey = YAxisKey;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("Intercept")) obj.Intercept = Intercept;
+            if (bp.ContainsKey("Slope")) obj.Slope = Slope;
+            if (bp.ContainsKey("Type")) obj.Type = Type;
+            if (bp.ContainsKey("X")) obj.X = X;
+            if (bp.ContainsKey("Y")) obj.Y = Y;
+            if (bp.ContainsKey("Color")) obj.Color = Color;
+            if (bp.ContainsKey("LineJoin")) obj.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) obj.LineStyle = LineStyle;
+            if (bp.ContainsKey("MaximumX")) obj.MaximumX = MaximumX;
+            if (bp.ContainsKey("MaximumY")) obj.MaximumY = MaximumY;
+            if (bp.ContainsKey("MinimumX")) obj.MinimumX = MinimumX;
+            if (bp.ContainsKey("MinimumY")) obj.MinimumY = MinimumY;
+            if (bp.ContainsKey("StrokeThickness")) obj.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("TextMargin")) obj.TextMargin = TextMargin;
+            if (bp.ContainsKey("TextPadding")) obj.TextPadding = TextPadding;
+            if (bp.ContainsKey("TextOrientation")) obj.TextOrientation = TextOrientation;
+            if (bp.ContainsKey("TextLinePosition")) obj.TextLinePosition = TextLinePosition;
+            if (bp.ContainsKey("ClipText")) obj.ClipText = ClipText;
+            if (bp.ContainsKey("ClipByXAxis")) obj.ClipByXAxis = ClipByXAxis;
+            if (bp.ContainsKey("ClipByYAxis")) obj.ClipByYAxis = ClipByYAxis;
+            if (bp.ContainsKey("Text")) obj.Text = Text;
+            if (bp.ContainsKey("TextPosition")) obj.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
+            if (bp.ContainsKey("TextHorizontalAlignment")) obj.TextHorizontalAlignment = TextHorizontalAlignment;
+            if (bp.ContainsKey("TextVerticalAlignment")) obj.TextVerticalAlignment = TextVerticalAlignment;
+            if (bp.ContainsKey("TextRotation")) obj.TextRotation = TextRotation;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("XAxisKey")) obj.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) obj.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Annotations.Add(axis);
+                AddTo.Annotations.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -4240,45 +4240,45 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Annotations.PointAnnotation();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Annotations.PointAnnotation();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("X")) axis.X = X;
-            if (bp.ContainsKey("Y")) axis.Y = Y;
-            if (bp.ContainsKey("Size")) axis.Size = Size;
-            if (bp.ContainsKey("TextMargin")) axis.TextMargin = TextMargin;
-            if (bp.ContainsKey("Shape")) axis.Shape = Shape;
-            if (bp.ContainsKey("CustomOutline")) axis.CustomOutline = Horker.OxyPlotCli.TypeAdaptors.ScreenPoint.ConvertArray(CustomOutline);
-            if (bp.ContainsKey("Fill")) axis.Fill = Fill;
-            if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
-            if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
-            if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
-            if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
-            if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
-            if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("XAxisKey")) axis.XAxisKey = XAxisKey;
-            if (bp.ContainsKey("YAxisKey")) axis.YAxisKey = YAxisKey;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("X")) obj.X = X;
+            if (bp.ContainsKey("Y")) obj.Y = Y;
+            if (bp.ContainsKey("Size")) obj.Size = Size;
+            if (bp.ContainsKey("TextMargin")) obj.TextMargin = TextMargin;
+            if (bp.ContainsKey("Shape")) obj.Shape = Shape;
+            if (bp.ContainsKey("CustomOutline")) obj.CustomOutline = Horker.OxyPlotCli.TypeAdaptors.ScreenPoint.ConvertArray(CustomOutline);
+            if (bp.ContainsKey("Fill")) obj.Fill = Fill;
+            if (bp.ContainsKey("Stroke")) obj.Stroke = Stroke;
+            if (bp.ContainsKey("StrokeThickness")) obj.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("Text")) obj.Text = Text;
+            if (bp.ContainsKey("TextPosition")) obj.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
+            if (bp.ContainsKey("TextHorizontalAlignment")) obj.TextHorizontalAlignment = TextHorizontalAlignment;
+            if (bp.ContainsKey("TextVerticalAlignment")) obj.TextVerticalAlignment = TextVerticalAlignment;
+            if (bp.ContainsKey("TextRotation")) obj.TextRotation = TextRotation;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("XAxisKey")) obj.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) obj.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Annotations.Add(axis);
+                AddTo.Annotations.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -4365,41 +4365,41 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Annotations.PolygonAnnotation();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Annotations.PolygonAnnotation();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("LineJoin")) axis.LineJoin = LineJoin;
-            if (bp.ContainsKey("LineStyle")) axis.LineStyle = LineStyle;
-            if (bp.ContainsKey("Fill")) axis.Fill = Fill;
-            if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
-            if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
-            if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
-            if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
-            if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
-            if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("XAxisKey")) axis.XAxisKey = XAxisKey;
-            if (bp.ContainsKey("YAxisKey")) axis.YAxisKey = YAxisKey;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("LineJoin")) obj.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) obj.LineStyle = LineStyle;
+            if (bp.ContainsKey("Fill")) obj.Fill = Fill;
+            if (bp.ContainsKey("Stroke")) obj.Stroke = Stroke;
+            if (bp.ContainsKey("StrokeThickness")) obj.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("Text")) obj.Text = Text;
+            if (bp.ContainsKey("TextPosition")) obj.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
+            if (bp.ContainsKey("TextHorizontalAlignment")) obj.TextHorizontalAlignment = TextHorizontalAlignment;
+            if (bp.ContainsKey("TextVerticalAlignment")) obj.TextVerticalAlignment = TextVerticalAlignment;
+            if (bp.ContainsKey("TextRotation")) obj.TextRotation = TextRotation;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("XAxisKey")) obj.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) obj.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Annotations.Add(axis);
+                AddTo.Annotations.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -4522,53 +4522,53 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Annotations.PolylineAnnotation();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Annotations.PolylineAnnotation();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("MinimumSegmentLength")) axis.MinimumSegmentLength = MinimumSegmentLength;
-            if (bp.ContainsKey("InterpolationAlgorithm")) axis.InterpolationAlgorithm = InterpolationAlgorithm.Value;
-            if (bp.ContainsKey("Color")) axis.Color = Color;
-            if (bp.ContainsKey("LineJoin")) axis.LineJoin = LineJoin;
-            if (bp.ContainsKey("LineStyle")) axis.LineStyle = LineStyle;
-            if (bp.ContainsKey("MaximumX")) axis.MaximumX = MaximumX;
-            if (bp.ContainsKey("MaximumY")) axis.MaximumY = MaximumY;
-            if (bp.ContainsKey("MinimumX")) axis.MinimumX = MinimumX;
-            if (bp.ContainsKey("MinimumY")) axis.MinimumY = MinimumY;
-            if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
-            if (bp.ContainsKey("TextMargin")) axis.TextMargin = TextMargin;
-            if (bp.ContainsKey("TextPadding")) axis.TextPadding = TextPadding;
-            if (bp.ContainsKey("TextOrientation")) axis.TextOrientation = TextOrientation;
-            if (bp.ContainsKey("TextLinePosition")) axis.TextLinePosition = TextLinePosition;
-            if (bp.ContainsKey("ClipText")) axis.ClipText = ClipText;
-            if (bp.ContainsKey("ClipByXAxis")) axis.ClipByXAxis = ClipByXAxis;
-            if (bp.ContainsKey("ClipByYAxis")) axis.ClipByYAxis = ClipByYAxis;
-            if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
-            if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
-            if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
-            if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("XAxisKey")) axis.XAxisKey = XAxisKey;
-            if (bp.ContainsKey("YAxisKey")) axis.YAxisKey = YAxisKey;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("MinimumSegmentLength")) obj.MinimumSegmentLength = MinimumSegmentLength;
+            if (bp.ContainsKey("InterpolationAlgorithm")) obj.InterpolationAlgorithm = InterpolationAlgorithm.Value;
+            if (bp.ContainsKey("Color")) obj.Color = Color;
+            if (bp.ContainsKey("LineJoin")) obj.LineJoin = LineJoin;
+            if (bp.ContainsKey("LineStyle")) obj.LineStyle = LineStyle;
+            if (bp.ContainsKey("MaximumX")) obj.MaximumX = MaximumX;
+            if (bp.ContainsKey("MaximumY")) obj.MaximumY = MaximumY;
+            if (bp.ContainsKey("MinimumX")) obj.MinimumX = MinimumX;
+            if (bp.ContainsKey("MinimumY")) obj.MinimumY = MinimumY;
+            if (bp.ContainsKey("StrokeThickness")) obj.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("TextMargin")) obj.TextMargin = TextMargin;
+            if (bp.ContainsKey("TextPadding")) obj.TextPadding = TextPadding;
+            if (bp.ContainsKey("TextOrientation")) obj.TextOrientation = TextOrientation;
+            if (bp.ContainsKey("TextLinePosition")) obj.TextLinePosition = TextLinePosition;
+            if (bp.ContainsKey("ClipText")) obj.ClipText = ClipText;
+            if (bp.ContainsKey("ClipByXAxis")) obj.ClipByXAxis = ClipByXAxis;
+            if (bp.ContainsKey("ClipByYAxis")) obj.ClipByYAxis = ClipByYAxis;
+            if (bp.ContainsKey("Text")) obj.Text = Text;
+            if (bp.ContainsKey("TextPosition")) obj.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
+            if (bp.ContainsKey("TextHorizontalAlignment")) obj.TextHorizontalAlignment = TextHorizontalAlignment;
+            if (bp.ContainsKey("TextVerticalAlignment")) obj.TextVerticalAlignment = TextVerticalAlignment;
+            if (bp.ContainsKey("TextRotation")) obj.TextRotation = TextRotation;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("XAxisKey")) obj.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) obj.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Annotations.Add(axis);
+                AddTo.Annotations.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -4667,45 +4667,45 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Annotations.RectangleAnnotation();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Annotations.RectangleAnnotation();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("MinimumX")) axis.MinimumX = MinimumX;
-            if (bp.ContainsKey("MaximumX")) axis.MaximumX = MaximumX;
-            if (bp.ContainsKey("MinimumY")) axis.MinimumY = MinimumY;
-            if (bp.ContainsKey("MaximumY")) axis.MaximumY = MaximumY;
-            if (bp.ContainsKey("ClipByXAxis")) axis.ClipByXAxis = ClipByXAxis;
-            if (bp.ContainsKey("ClipByYAxis")) axis.ClipByYAxis = ClipByYAxis;
-            if (bp.ContainsKey("Fill")) axis.Fill = Fill;
-            if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
-            if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
-            if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
-            if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
-            if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
-            if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("XAxisKey")) axis.XAxisKey = XAxisKey;
-            if (bp.ContainsKey("YAxisKey")) axis.YAxisKey = YAxisKey;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("MinimumX")) obj.MinimumX = MinimumX;
+            if (bp.ContainsKey("MaximumX")) obj.MaximumX = MaximumX;
+            if (bp.ContainsKey("MinimumY")) obj.MinimumY = MinimumY;
+            if (bp.ContainsKey("MaximumY")) obj.MaximumY = MaximumY;
+            if (bp.ContainsKey("ClipByXAxis")) obj.ClipByXAxis = ClipByXAxis;
+            if (bp.ContainsKey("ClipByYAxis")) obj.ClipByYAxis = ClipByYAxis;
+            if (bp.ContainsKey("Fill")) obj.Fill = Fill;
+            if (bp.ContainsKey("Stroke")) obj.Stroke = Stroke;
+            if (bp.ContainsKey("StrokeThickness")) obj.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("Text")) obj.Text = Text;
+            if (bp.ContainsKey("TextPosition")) obj.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
+            if (bp.ContainsKey("TextHorizontalAlignment")) obj.TextHorizontalAlignment = TextHorizontalAlignment;
+            if (bp.ContainsKey("TextVerticalAlignment")) obj.TextVerticalAlignment = TextVerticalAlignment;
+            if (bp.ContainsKey("TextRotation")) obj.TextRotation = TextRotation;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("XAxisKey")) obj.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) obj.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Annotations.Add(axis);
+                AddTo.Annotations.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }
@@ -4792,41 +4792,41 @@ namespace Horker.OxyPlotCli.Cmdlets
             var bp = MyInvocation.BoundParameters;
             var style = TypeAdaptors.Style.ConvertFrom(Style);
 
-            var axis = new OxyPlot.Annotations.TextAnnotation();
-            style.ApplyStyleTo(style);
+            var obj = new OxyPlot.Annotations.TextAnnotation();
+            style.ApplyStyleTo(obj);
 
-            if (bp.ContainsKey("Background")) axis.Background = Background;
-            if (bp.ContainsKey("Offset")) axis.Offset = new Horker.OxyPlotCli.TypeAdaptors.ScreenVector(Offset);
-            if (bp.ContainsKey("Padding")) axis.Padding = new Horker.OxyPlotCli.TypeAdaptors.OxyThickness(Padding);
-            if (bp.ContainsKey("Stroke")) axis.Stroke = Stroke;
-            if (bp.ContainsKey("StrokeThickness")) axis.StrokeThickness = StrokeThickness;
-            if (bp.ContainsKey("Text")) axis.Text = Text;
-            if (bp.ContainsKey("TextPosition")) axis.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
-            if (bp.ContainsKey("TextHorizontalAlignment")) axis.TextHorizontalAlignment = TextHorizontalAlignment;
-            if (bp.ContainsKey("TextVerticalAlignment")) axis.TextVerticalAlignment = TextVerticalAlignment;
-            if (bp.ContainsKey("TextRotation")) axis.TextRotation = TextRotation;
-            if (bp.ContainsKey("Layer")) axis.Layer = Layer;
-            if (bp.ContainsKey("XAxisKey")) axis.XAxisKey = XAxisKey;
-            if (bp.ContainsKey("YAxisKey")) axis.YAxisKey = YAxisKey;
-            if (bp.ContainsKey("Font")) axis.Font = Font;
-            if (bp.ContainsKey("FontSize")) axis.FontSize = FontSize;
-            if (bp.ContainsKey("FontWeight")) axis.FontWeight = FontWeight;
-            if (bp.ContainsKey("Tag")) axis.Tag = Tag;
-            if (bp.ContainsKey("TextColor")) axis.TextColor = TextColor;
-            if (bp.ContainsKey("ToolTip")) axis.ToolTip = ToolTip;
-            if (bp.ContainsKey("Selectable")) axis.Selectable = Selectable;
-            if (bp.ContainsKey("SelectionMode")) axis.SelectionMode = SelectionMode;
+            if (bp.ContainsKey("Background")) obj.Background = Background;
+            if (bp.ContainsKey("Offset")) obj.Offset = new Horker.OxyPlotCli.TypeAdaptors.ScreenVector(Offset);
+            if (bp.ContainsKey("Padding")) obj.Padding = new Horker.OxyPlotCli.TypeAdaptors.OxyThickness(Padding);
+            if (bp.ContainsKey("Stroke")) obj.Stroke = Stroke;
+            if (bp.ContainsKey("StrokeThickness")) obj.StrokeThickness = StrokeThickness;
+            if (bp.ContainsKey("Text")) obj.Text = Text;
+            if (bp.ContainsKey("TextPosition")) obj.TextPosition = new Horker.OxyPlotCli.TypeAdaptors.DataPoint(TextPosition);
+            if (bp.ContainsKey("TextHorizontalAlignment")) obj.TextHorizontalAlignment = TextHorizontalAlignment;
+            if (bp.ContainsKey("TextVerticalAlignment")) obj.TextVerticalAlignment = TextVerticalAlignment;
+            if (bp.ContainsKey("TextRotation")) obj.TextRotation = TextRotation;
+            if (bp.ContainsKey("Layer")) obj.Layer = Layer;
+            if (bp.ContainsKey("XAxisKey")) obj.XAxisKey = XAxisKey;
+            if (bp.ContainsKey("YAxisKey")) obj.YAxisKey = YAxisKey;
+            if (bp.ContainsKey("Font")) obj.Font = Font;
+            if (bp.ContainsKey("FontSize")) obj.FontSize = FontSize;
+            if (bp.ContainsKey("FontWeight")) obj.FontWeight = FontWeight;
+            if (bp.ContainsKey("Tag")) obj.Tag = Tag;
+            if (bp.ContainsKey("TextColor")) obj.TextColor = TextColor;
+            if (bp.ContainsKey("ToolTip")) obj.ToolTip = ToolTip;
+            if (bp.ContainsKey("Selectable")) obj.Selectable = Selectable;
+            if (bp.ContainsKey("SelectionMode")) obj.SelectionMode = SelectionMode;
 
             if (AddTo != null)
             {
-                AddTo.Annotations.Add(axis);
+                AddTo.Annotations.Add(obj);
             
                 if (PassThru)
-                    WriteObject(axis);
+                    WriteObject(obj);
             }
             else
             {
-                WriteObject(axis);
+                WriteObject(obj);
             }
         }
     }

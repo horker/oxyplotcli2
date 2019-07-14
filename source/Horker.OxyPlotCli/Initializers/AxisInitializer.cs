@@ -25,7 +25,7 @@ namespace Horker.OxyPlotCli.Initializers
                 _axisClasses.Add(t);
         }
 
-        public static Type GetAxisTypeByPartialName(string typeName)
+        private static Type GetAxisTypeByPartialName(string typeName)
         {
             var n = typeName.ToLower();
             var matches = _axisClasses.Where(t => t.Name.ToLower().IndexOf(n) == 0).ToList();
@@ -37,9 +37,52 @@ namespace Horker.OxyPlotCli.Initializers
             return matches[0];
         }
 
+        private static Axis GetDefaultAxisObject(AxisKind axisKind, Series series, ISeriesInfo seriesInfo, Type userSpecifiedAxisType, Style style)
+        {
+            // Determine the axis type.
+
+            Type axisType = userSpecifiedAxisType ?? seriesInfo?.AxisTypes[(int)axisKind];
+
+            if (axisType == SeriesBuilderStore.OfType(series.GetType()).DefaultAxisTypes[(int)axisKind])
+                axisType = null;
+
+            // Create an axis instance.
+
+            Axis axis;
+            if (axisType != null)
+            {
+                axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);
+                axis.Position = axisKind.GetDefaultPosition();
+            }
+            else
+            {
+                axis = SeriesBuilderStore.OfType(series.GetType()).GetDefaultAxisObject(axisKind);
+            }
+
+            if (axisKind == AxisKind.Az && series is CandleStickAndVolumeSeries candlev)
+            {
+                var key = "Volume Axis_" + Guid.NewGuid().ToString();
+                axis.Key = key;
+                candlev.VolumeAxisKey = axis.Key;
+            }
+
+            if (axis != null)
+            {
+                if (axis is CategoryAxis ca && seriesInfo?.CategoryNames != null)
+                {
+                    foreach (var n in seriesInfo.CategoryNames)
+                        ca.Labels.Add(n);
+                }
+
+                style.ApplyStyleTo(axis);
+            }
+
+            return axis;
+        }
+
         public static void EnsureAxes(PlotModel model, ISeriesInfo si, Style style)
         {
-            if (!string.IsNullOrEmpty(si?.GroupName))
+            if (!string.IsNullOrEmpty(si?.GroupName) && string.IsNullOrEmpty(model.LegendTitle))
                 model.LegendTitle = si.GroupName;
 
             bool hasXAxis = false;
@@ -53,17 +96,17 @@ namespace Horker.OxyPlotCli.Initializers
 
                 if (s is XYAxisSeries xy)
                 {
-                    hasXAxis = hasXAxis || !string.IsNullOrEmpty(xy.XAxisKey);
-                    hasYAxis = hasYAxis || !string.IsNullOrEmpty(xy.YAxisKey);
+                    hasXAxis = hasXAxis || !string.IsNullOrEmpty(xy.XAxisKey) || xy.XAxis != null || model.Axes.Any(a => a.IsXyAxis() && a.IsHorizontal());
+                    hasYAxis = hasYAxis || !string.IsNullOrEmpty(xy.YAxisKey) || xy.YAxis != null || model.Axes.Any(a => a.IsXyAxis() && a.IsVertical());
                 }
 
                 // CandleStickAndVolumeSeries doesn't remain VolumeAxisKey to be null.
                 if (s is CandleStickAndVolumeSeries candlev)
-                    hasZAxis = hasZAxis || candlev.VolumeAxis != null;
+                    hasZAxis = hasZAxis || !string.IsNullOrEmpty(candlev.VolumeAxisKey) || candlev.VolumeAxis != null;
                 else if (s is HeatMapSeries h)
-                    hasZAxis = hasZAxis || !string.IsNullOrEmpty(h.ColorAxisKey);
+                    hasZAxis = hasZAxis || !string.IsNullOrEmpty(h.ColorAxisKey) || h.ColorAxis != null;
                 else if (s is RectangleSeries r)
-                    hasZAxis = hasZAxis || !string.IsNullOrEmpty(r.ColorAxisKey);
+                    hasZAxis = hasZAxis || !string.IsNullOrEmpty(r.ColorAxisKey) || r.ColorAxis != null;
             }
 
             if (!hasXAxis)
@@ -72,8 +115,7 @@ namespace Horker.OxyPlotCli.Initializers
                 {
                     if (s.IsVisible)
                     {
-                        var selector = AxisSelector.GetInstanceOf(s.GetType());
-                        var ax = selector.GetXAxisObject(s, si, style);
+                        var ax = GetDefaultAxisObject(AxisKind.Ax, s, si, null, style);
                         if (ax != null)
                         {
                             model.Axes.Add(ax);
@@ -89,8 +131,7 @@ namespace Horker.OxyPlotCli.Initializers
                 {
                     if (s.IsVisible)
                     {
-                        var selector = AxisSelector.GetInstanceOf(s.GetType());
-                        var ay = selector.GetYAxisObject(s, si, style);
+                        var ay = GetDefaultAxisObject(AxisKind.Ay, s, si, null, style);
                         if (ay != null)
                         {
                             model.Axes.Add(ay);
@@ -106,8 +147,7 @@ namespace Horker.OxyPlotCli.Initializers
                 {
                     if (s.IsVisible)
                     {
-                        var selector = AxisSelector.GetInstanceOf(s.GetType());
-                        var az = selector.GetAdditionalAxisObject(s, si, style);
+                        var az = GetDefaultAxisObject(AxisKind.Az, s, si, null, style);
                         if (az != null)
                         {
                             model.Axes.Add(az);
@@ -132,12 +172,16 @@ namespace Horker.OxyPlotCli.Initializers
             }
         }
 
-        public static Axis CreateWithPrefixedParameters(Dictionary<string, object> parameters, string prefix, Type defaultAxisType, AxisPosition position, Style style)
+        public static Axis CreateWithPrefixedParameters(Dictionary<string, object> parameters, AxisKind axisKind, Series series, ISeriesInfo seriesInfo, Style style)
         {
+            var prefix = axisKind.GetParameterPrefix();
+
+            // Check if any parameters with the prefix are specified. If not, return without do anything.
+
             bool create = false;
             foreach (var entry in parameters)
             {
-                if (entry.Key.StartsWith(prefix))
+                if (entry.Key.StartsWith(prefix) && char.IsUpper(entry.Key[2]))
                 {
                     create = true;
                     break;
@@ -147,15 +191,17 @@ namespace Horker.OxyPlotCli.Initializers
             if (!create)
                 return null;
 
-            var axisType = defaultAxisType;
+            // Determine the user specified axis type.
+
+            Type axisType = null;
             if (parameters.TryGetValue(prefix + "Type", out var typeName))
                 axisType = GetAxisTypeByPartialName(typeName.ToString());
 
-            var axis = (Axis)axisType.GetConstructor(new Type[0]).Invoke(new object[0]);
-            axis.Position = position;
-            axis.Key = axisType.Name + "_" + Guid.NewGuid().ToString();
+            // Create an axis instance.
 
-            style.ApplyStyleTo(axis);
+            Axis axis = GetDefaultAxisObject(axisKind, series, seriesInfo, axisType, style);
+
+            // Assign the command-line parameters to the axis.
 
             AssignParameters(axis, parameters, prefix);
 

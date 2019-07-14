@@ -797,6 +797,9 @@ namespace Horker.OxyPlotCli.Cmdlets
 
         protected override void ProcessRecord()
         {
+            if (InputObject == null)
+                return;
+
             if (InputObject is PSObject pso)
                 InputObject = pso.BaseObject;
 
@@ -834,6 +837,15 @@ namespace Horker.OxyPlotCli.Cmdlets
             var model = _plotModel ?? new PlotModel();
 
             PlotModelInitializer.Create(model, _seriesInfoList, style);
+
+            foreach (var s in _seriesList)
+                model.Series.Add(s);
+
+            foreach (var a in Axis)
+                model.Axes.Add(a);
+
+            foreach (var a in Annotation)
+                model.Annotations.Add(a);
 
             if (bp.ContainsKey("DefaultFont")) model.DefaultFont = DefaultFont;
             if (bp.ContainsKey("DefaultFontSize")) model.DefaultFontSize = DefaultFontSize;
@@ -892,18 +904,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             if (bp.ContainsKey("TitlePadding")) model.TitlePadding = TitlePadding;
             if (bp.ContainsKey("SelectionColor")) model.SelectionColor = SelectionColor;
 
-            foreach (var a in Axis)
-                model.Axes.Add(a);
-
-            foreach (var a in Annotation)
-                model.Annotations.Add(a);
-
-            foreach (var s in _seriesList)
-                model.Series.Add(s);
-
-            var si2 = _seriesInfoList.Count > 0 ? _seriesInfoList[0] : null;
-
-            PostProcess(model, si2, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(model, _seriesInfoList, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
         }
     }
 }
