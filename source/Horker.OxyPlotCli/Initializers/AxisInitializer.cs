@@ -68,6 +68,10 @@ namespace Horker.OxyPlotCli.Initializers
 
             if (axis != null)
             {
+                var title = seriesInfo?.AxisTitles[(int)axisKind];
+                if (!string.IsNullOrEmpty(title))
+                    axis.Title = title;
+
                 if (axis is CategoryAxis ca && seriesInfo?.CategoryNames != null)
                 {
                     foreach (var n in seriesInfo.CategoryNames)

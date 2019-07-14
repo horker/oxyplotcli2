@@ -5,10 +5,7 @@ histogram/boxplot helpers
 ordinal instead of prop name
 -grouporder / -categoryorder
 grid view title
-BUG: axis name
-BUG: candlev
 proper padding setting
-BUG: add multiple objects to -SeriesInfo in oxy.model
 describe cmdlet names in psd1
 Optimize SmartConverter.ToDouble() by avoiding exception
 (oxy.model).Add($seriesInfo)
@@ -96,3 +93,6 @@ DONE xl2016 style
 DONE allow to specify a font and a color scheme when defining a default style
 DONE window support
 DONE AddOxyAxisShare
+DONE BUG: candlev
+DONE BUG: add multiple objects to -SeriesInfo in oxy.model
+DONE BUG: axis name
