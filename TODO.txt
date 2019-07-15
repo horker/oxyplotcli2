@@ -8,6 +8,11 @@ grid view title
 proper padding setting
 Optimize SmartConverter.ToDouble() by avoiding exception
 (oxy.model).Add($seriesInfo)
+histogram design (tick, border color)
+histogram by count
+Move to foreground when windwow is reused
+bubble chart
+rader chart
 
 examples in Example Browser:
 Custom series: PolarHeapMap

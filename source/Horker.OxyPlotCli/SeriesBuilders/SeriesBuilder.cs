@@ -413,8 +413,10 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                     i < _e7.Count ? _e7[i] : GetNaN<E7>()
                 );
 
-                Postprocess(s);
             }
+
+            foreach (var entry in seriesSet)
+                Postprocess(entry.Value);
 
             var keys = seriesSet.Keys.ToArray();
             Array.Sort(keys);

@@ -266,20 +266,55 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         }
     }
 
-    public class HistogramSeriesBuilder : SeriesBuilder<HistogramSeries, HistogramItem, double, double, double, double, VoidT, VoidT, VoidT>
+    public class HistogramSeriesBuilder : SeriesBuilder<HistogramSeries, HistogramItem, double, double, double, double, double, VoidT, VoidT>
     {
-        public override string[] DataPointItemNames => new[] { "RangeStart", "RangeEnd", "Area", "Count" };
-        public override bool[] DataPointItemMandatoriness => new[] { true, true, false, false };
-        public override int[] AxisItemIndexes => new[] { 0, -1, 1, -1 };
+        public override string[] DataPointItemNames => new[] { "RangeStart", "RangeEnd", "Area", "Count", "Data" };
+        public override bool[] DataPointItemMandatoriness => new[] { false, false, false, false, false };
+        public override int[] AxisItemIndexes => new[] { -1, -1, -1, 1, 0 };
         public override Type[] DefaultAxisTypes => new[] { typeof(LinearAxis), typeof(LinearAxis), null };
         public override string[] Aliases => new[] { "oxy.histogram", "oxy.hist", "oxyhist" };
 
-        protected override void AddDataPointToSeries(HistogramSeries series, double rangeStart, double rangeEnd, double area, double count, VoidT e5, VoidT e6, VoidT e7)
+        private List<double> _data = null;
+
+        protected override void AddDataPointToSeries(HistogramSeries series, double rangeStart, double rangeEnd, double area, double count, double data, VoidT e6, VoidT e7)
         {
-            if (Double.IsNaN(area))
+            if (!double.IsNaN(data))
+            {
+                if (_data == null)
+                    _data = new List<double>();
+                _data.Add(data);
+                return;
+            }
+
+            if (double.IsNaN(rangeStart))
+                throw new ArgumentException("RangeStart is mandatory but not specified");
+
+            if (double.IsNaN(rangeEnd))
+                throw new ArgumentException("RangeEnd is mandatory but not specified");
+
+            if (double.IsNaN(area) && double.IsNaN(count))
+                throw new ArgumentException("Area and Count cannot be specfied at the same time");
+
+            if (double.IsNaN(area))
                 area = count * (rangeEnd - rangeStart);
 
             series.Items.Add(new HistogramItem(rangeStart, rangeEnd, area));
+        }
+
+        protected override void Postprocess(HistogramSeries series)
+        {
+            if (_data == null || _data.Count == 0)
+                return;
+
+            if (series.Items.Count > 0)
+                throw new ArgumentException("-Data and the other data items cannot be specify at the same time");
+
+            var min = _data.Min();
+            var max = _data.Max();
+            var binCount = HistogramSeriesHelpers.GetBinCount(min, max, _data.Count);
+            var h = HistogramSeriesHelpers.GetPrettyBinWidth(min, max, binCount);
+
+            series.Items.AddRange(HistogramHelpers.Collect(_data, h.AdjustedLower, h.AdjustedUpper, h.BinCount, false));
         }
     }
 

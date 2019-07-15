@@ -95,6 +95,7 @@
     <Compile Include="Cmdlets\SeriesCmdletBase.cs" />
     <Compile Include="Cmdlets\StyleCmdlets\SetOxyDefaultStyle.cs" />
     <Compile Include="Cmdlets\WpfWindowCmdlets\AddOxyAxisShare.cs" />
+    <Compile Include="Helpers\HistogramSeriesHelpers.cs" />
     <Compile Include="Initializers\AxisKind.cs" />
     <Compile Include="Wpf\WpfWindow.cs" />
     <Compile Include="Wpf\Win32Api.cs" />
