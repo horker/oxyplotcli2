@@ -8,11 +8,14 @@ grid view title
 proper padding setting
 Optimize SmartConverter.ToDouble() by avoiding exception
 (oxy.model).Add($seriesInfo)
-histogram design (tick, border color)
-histogram by count
 Move to foreground when windwow is reused
 bubble chart
 rader chart
+BUG: grouping in conterSeries
+SeriesInfo should contain style
+Histogram BinCount ByRatio
+Histogram axis tick
+HistogramSeries2 help document
 
 examples in Example Browser:
 Custom series: PolarHeapMap
@@ -101,3 +104,5 @@ DONE BUG: candlev
 DONE BUG: add multiple objects to -SeriesInfo in oxy.model
 DONE BUG: axis name
 DONE enumerate cmdlet names explicity in psd1
+DONE histogram design (tick, border color)
+DONE histogram by count

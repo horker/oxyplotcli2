@@ -11,6 +11,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
     public interface ISeriesBuilder
     {
         Type SeriesType { get; }
+        string CmdletName { get; }
         string[] DataPointItemNames { get; }
         bool[] DataPointItemMandatoriness { get; }
         int[] AxisItemIndexes { get; }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Horker.OxyPlotCli.SeriesBuilders;
 using OxyPlot.Series;
 
 namespace Horker.OxyPlotCli
@@ -17,6 +18,8 @@ namespace Horker.OxyPlotCli
         public Type[] AxisTypes { get; set; }
         public string GroupName { get; set; }
         public string[] CategoryNames { get; set; }
+
+        public ISeriesBuilder SeriesBuilder { get; set; }
 
         public SeriesInfo()
         {

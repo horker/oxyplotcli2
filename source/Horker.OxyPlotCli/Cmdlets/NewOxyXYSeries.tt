@@ -26,9 +26,11 @@ foreach (var builderType in builderTypes)
 {
     var builderInstance = (ISeriesBuilder)builderType.AsType().GetConstructor(new Type[0]).Invoke(new object[0]);
     var baseType = builderType.BaseType;
-    var seriesType = baseType.GenericTypeArguments[0];
 
+    var seriesType = builderInstance.SeriesType;
     var name = seriesType.Name;
+    var cmdletName = builderInstance.CmdletName;
+
     var pointItemNames = (string[])builderType.GetMethod("get_DataPointItemNames").Invoke(builderInstance, null);
     var pointItemMandatoriness = (bool[])builderType.GetMethod("get_DataPointItemMandatoriness").Invoke(builderInstance, null);
     var aliases = "\"" + string.Join("\", \"", (string[])builderType.GetMethod("get_Aliases").Invoke(builderInstance, null)) + "\"";
@@ -36,10 +38,10 @@ foreach (var builderType in builderTypes)
     var pointItemTypes = baseType.GenericTypeArguments.Where((x, i) => i >= 2).Select(t => TypeAdaptorHelper.GetAdaptorType(t)).ToArray();
     var itemCount = pointItemNames.Length;
 #>
-    [Cmdlet("New", "Oxy<#= name #>")]
+    [Cmdlet("New", "Oxy<#= cmdletName #>")]
     [Alias(<#= aliases #>)]
     [OutputType(typeof(SeriesInfo<<#= name #>>))]
-    public class NewOxy<#= name #> : SeriesCmdletBase
+    public class NewOxy<#= cmdletName #> : SeriesCmdletBase
     {
         [Parameter(Position = 0, Mandatory = false, ValueFromPipeline = true)]
         public PSObject InputObject;
@@ -162,7 +164,7 @@ foreach (var builderType in builderTypes)
         }
     }
 #>
-        private <#= name #>Builder _builder;
+        private <#= builderType.FullName #> _builder;
 
         private void AssignParameters(<#= name #> series, Dictionary<string, object> bp)
         {
@@ -178,7 +180,7 @@ foreach (var builderType in builderTypes)
 
         protected override void BeginProcessing()
         {
-            _builder = new <#= name #>Builder();
+            _builder = new <#= builderType.FullName #>();
             _builder.ReadBoundParameters(MyInvocation.BoundParameters);
         }
 

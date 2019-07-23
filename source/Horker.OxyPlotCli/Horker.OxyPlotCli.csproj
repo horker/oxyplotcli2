@@ -97,6 +97,7 @@
     <Compile Include="Cmdlets\WpfWindowCmdlets\AddOxyAxisShare.cs" />
     <Compile Include="Helpers\HistogramSeriesHelpers.cs" />
     <Compile Include="Initializers\AxisKind.cs" />
+    <Compile Include="SeriesBuilders\HistogramSeriesBuilder.cs" />
     <Compile Include="Wpf\WpfWindow.cs" />
     <Compile Include="Wpf\Win32Api.cs" />
     <Compile Include="Cmdlets\WpfWindowCmdlets\WpfWindowCmdlets.cs" />

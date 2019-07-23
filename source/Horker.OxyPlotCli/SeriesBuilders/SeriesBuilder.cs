@@ -18,6 +18,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         where SeriesT : Series, new()
     {
         public Type SeriesType => typeof(SeriesT);
+        public virtual string CmdletName => typeof(SeriesT).Name;
 
         // Abstract properties
 
@@ -46,7 +47,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
 
         protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6, E7 e7);
 
-        protected virtual void Postprocess(SeriesT series) { }
+        protected virtual void Postprocess(IDictionary<object, SeriesT> series) { }
 
         private T GetNaN<T>()
         {
@@ -243,7 +244,10 @@ namespace Horker.OxyPlotCli.SeriesBuilders
 
             // Infer axis types and initialize axis names based on bound parameters.
 
-            _info = new SeriesInfo<SeriesT>();
+            _info = new SeriesInfo<SeriesT>()
+            {
+                SeriesBuilder = this
+            };
 
             for (var i = 0; i < 2; ++i)
             {
@@ -415,8 +419,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
 
             }
 
-            foreach (var entry in seriesSet)
-                Postprocess(entry.Value);
+            Postprocess(seriesSet);
 
             var keys = seriesSet.Keys.ToArray();
             Array.Sort(keys);

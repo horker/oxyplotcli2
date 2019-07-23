@@ -181,7 +181,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
             _z.Add(z);
         }
 
-        protected override void Postprocess(ContourSeries series)
+        protected override void Postprocess(IDictionary<object, ContourSeries> seriesSet)
         {
             if (_x.Count == 0)
                 return;
@@ -206,9 +206,14 @@ namespace Horker.OxyPlotCli.SeriesBuilders
             for (var i = 0; i < _x.Count; ++i)
                 data[xToIndex[_x[i]], yToIndex[_y[i]]] = _z[i];
 
-            series.ColumnCoordinates = xSorted;
-            series.RowCoordinates = ySorted;
-            series.Data = data;
+            // TODO: grouping
+            foreach (var entry in seriesSet)
+            {
+                var series = entry.Value;
+                series.ColumnCoordinates = xSorted;
+                series.RowCoordinates = ySorted;
+                series.Data = data;
+            }
         }
     }
 
@@ -301,20 +306,74 @@ namespace Horker.OxyPlotCli.SeriesBuilders
             series.Items.Add(new HistogramItem(rangeStart, rangeEnd, area));
         }
 
-        protected override void Postprocess(HistogramSeries series)
+        protected override void Postprocess(IDictionary<object, HistogramSeries> seriesSet)
         {
             if (_data == null || _data.Count == 0)
                 return;
-
-            if (series.Items.Count > 0)
-                throw new ArgumentException("-Data and the other data items cannot be specify at the same time");
 
             var min = _data.Min();
             var max = _data.Max();
             var binCount = HistogramSeriesHelpers.GetBinCount(min, max, _data.Count);
             var h = HistogramSeriesHelpers.GetPrettyBinWidth(min, max, binCount);
 
-            series.Items.AddRange(HistogramHelpers.Collect(_data, h.AdjustedLower, h.AdjustedUpper, h.BinCount, false));
+            foreach (var entry in seriesSet)
+            {
+                var series = entry.Value;
+                if (series.Items.Count > 0)
+                    throw new ArgumentException("-Data and the other data items cannot be specify at the same time");
+
+                // Grouping is not supported in HistogramSeries
+                var counts = HistogramHelpers.Collect(_data, h.AdjustedLower, h.AdjustedUpper, h.BinCount, false);
+                series.Items.AddRange(counts);
+            }
+        }
+    }
+
+    public class Histogram2SeriesBuilder : HistogramSeriesBuilder<ColumnSeries, ColumnItem, double, VoidT, VoidT, VoidT, VoidT, VoidT, VoidT>
+    {
+        public override string CmdletName => "HistogramSeries2";
+        public override string[] DataPointItemNames => new[] { "Data" };
+        public override bool[] DataPointItemMandatoriness => new[] { true };
+        public override int[] AxisItemIndexes => new[] { 0 };
+        public override Type[] DefaultAxisTypes => new[] { typeof(CategoryAxis), typeof(LinearAxis), null };
+        public override string[] Aliases => new[] { "oxy.histogram2", "oxy.hist2", "oxyhist2" };
+
+        private List<double> _data = new List<double>();
+        private Dictionary<ColumnSeries, List<double>> _seriesData = new Dictionary<ColumnSeries, List<double>>();
+
+        protected override void AddDataPointToSeries(ColumnSeries series, double data, VoidT e2, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
+        {
+            List<double> d;
+            if (!_seriesData.TryGetValue(series, out d))
+            {
+                d = new List<double>();
+                _seriesData.Add(series, d);
+            }
+
+            _data.Add(data);
+            d.Add(data);
+        }
+
+        protected override void Postprocess(IDictionary<object, ColumnSeries> seriesSet)
+        {
+            if (_data.Count == 0)
+                return;
+
+            var min = _data.Min();
+            var max = _data.Max();
+            var binCount = HistogramSeriesHelpers.GetBinCount(min, max, _data.Count);
+            var h = HistogramSeriesHelpers.GetPrettyBinWidth(min, max, binCount);
+
+            SetCategories(h);
+
+            foreach (var entry in seriesSet)
+            {
+                var series = entry.Value;
+                var bins = HistogramSeriesHelpers.Collect(_seriesData[series], h);
+
+                for (var i = 0; i < h.BinCount; ++i)
+                    series.Items.Add(new ColumnItem(bins[i], i));
+            }
         }
     }
 

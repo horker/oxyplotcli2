@@ -43,7 +43,8 @@ namespace Horker.OxyPlotCli.Initializers
 
             Type axisType = userSpecifiedAxisType ?? seriesInfo?.AxisTypes[(int)axisKind];
 
-            if (axisType == SeriesBuilderStore.OfType(series.GetType()).DefaultAxisTypes[(int)axisKind])
+            var builder = seriesInfo?.SeriesBuilder ?? SeriesBuilderStore.OfType(series.GetType());
+            if (axisType == builder.DefaultAxisTypes[(int)axisKind])
                 axisType = null;
 
             // Create an axis instance.
@@ -56,7 +57,7 @@ namespace Horker.OxyPlotCli.Initializers
             }
             else
             {
-                axis = SeriesBuilderStore.OfType(series.GetType()).GetDefaultAxisObject(axisKind);
+                axis = builder.GetDefaultAxisObject(axisKind);
             }
 
             if (axisKind == AxisKind.Az && series is CandleStickAndVolumeSeries candlev)

@@ -18,7 +18,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
             foreach (var ti in typeof(SeriesBuilderStore).Assembly.DefinedTypes)
             {
                 var t = ti.AsType();
-                if (t.Name.EndsWith("SeriesBuilder") && !t.IsAbstract)
+                if (t.Name.EndsWith("SeriesBuilder") && !t.IsAbstract && t.Name != "Histogram2SeriesBuilder")
                 {
                     var instance = (ISeriesBuilder)t.GetConstructor(new Type[0]).Invoke(new object[0]);
                     var seriesType = instance.SeriesType;

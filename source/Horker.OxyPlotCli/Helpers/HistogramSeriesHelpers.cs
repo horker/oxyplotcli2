@@ -10,13 +10,19 @@ namespace Horker.OxyPlotCli
     {
         public static int GetBinCount(double min, double max, int count)
         {
-            var w = (int)Math.Ceiling(Math.Sqrt(count));
-            if (w < 5)
-                w = 5;
-            else if (w > 100)
-                w = 100;
+            // square root
+            var binCount = (int)Math.Ceiling(Math.Sqrt(count));
 
-            return w;
+            // Sturges
+            // var binCount = (int)Math.Floor(Math.Log(count) / Math.Log(2) + 1);
+
+            if (binCount > count)
+                binCount = count;
+
+            if (binCount > 50)
+                binCount = 50;
+
+            return binCount;
         }
 
         public class HistogramInterval
@@ -44,7 +50,8 @@ namespace Horker.OxyPlotCli
 
             var baseLower = Math.Floor(min / binWidth);
             var baseUpper = Math.Ceiling(max / binWidth);
-            var newBinCount = baseUpper - baseLower;
+
+            var newBinCount = baseUpper - baseLower + 1;
 
             var adjustedLower = binWidth * baseLower;
             var adjustedUpper = binWidth * baseUpper;
@@ -56,6 +63,19 @@ namespace Horker.OxyPlotCli
                 AdjustedLower = adjustedLower,
                 AdjustedUpper = adjustedUpper
             };
+        }
+
+        public static IList<double> Collect(IList<double> data, HistogramInterval intervals)
+        {
+            var result = new double[intervals.BinCount];
+
+            foreach (var value in data)
+            {
+                var bin = (int)Math.Floor((value - intervals.AdjustedLower) / intervals.BinWidth);
+                ++result[bin];
+            }
+
+            return result;
         }
     }
 }
