@@ -7,6 +7,7 @@ using Horker.OxyPlotCli.Initializers;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
+using static Horker.OxyPlotCli.HistogramSeriesHelpers;
 
 namespace Horker.OxyPlotCli.SeriesBuilders
 {
@@ -280,6 +281,9 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         public override string[] Aliases => new[] { "oxy.histogram", "oxy.hist", "oxyhist" };
 
         private List<double> _data = null;
+        private HistogramInterval _intervals;
+
+        public HistogramInterval HistogramInterval => _intervals;
 
         protected override void AddDataPointToSeries(HistogramSeries series, double rangeStart, double rangeEnd, double area, double count, double data, VoidT e6, VoidT e7)
         {
@@ -314,7 +318,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
             var min = _data.Min();
             var max = _data.Max();
             var binCount = HistogramSeriesHelpers.GetBinCount(min, max, _data.Count);
-            var h = HistogramSeriesHelpers.GetPrettyBinWidth(min, max, binCount);
+            _intervals = HistogramSeriesHelpers.GetPrettyBinWidth(min, max, binCount);
 
             foreach (var entry in seriesSet)
             {
@@ -323,9 +327,46 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                     throw new ArgumentException("-Data and the other data items cannot be specify at the same time");
 
                 // Grouping is not supported in HistogramSeries
-                var counts = HistogramHelpers.Collect(_data, h.AdjustedLower, h.AdjustedUpper, h.BinCount, false);
-                series.Items.AddRange(counts);
+                var bins = HistogramSeriesHelpers.Collect(_data, _intervals);
+
+                var s = _intervals.AdjustedLower;
+                for (var i = 0; i < binCount; ++i)
+                {
+                    var item = new HistogramItem(s, s + _intervals.BinWidth, bins[i] * _intervals.BinWidth);
+                    series.Items.Add(item);
+                    s += _intervals.BinWidth;
+                }
             }
+        }
+
+        public override Axis GetDefaultAxisObject(AxisKind kind)
+        {
+            Axis axis;
+
+            switch (kind)
+            {
+                case AxisKind.Ax:
+                    axis = new LinearAxis()
+                    {
+                        Position = AxisPosition.Bottom,
+                        MajorStep = _intervals.BinWidth
+                    };
+                    break;
+                case AxisKind.Ay:
+                    axis = new LinearAxis()
+                    {
+                        Position = AxisPosition.Left,
+                        Title = "Frequency"
+                    };
+                    break;
+                case AxisKind.Az:
+                    axis = null;
+                    break;
+                default:
+                    throw new ArgumentException($"Unknown axis kind: {kind}");
+            }
+
+            return axis;
         }
     }
 

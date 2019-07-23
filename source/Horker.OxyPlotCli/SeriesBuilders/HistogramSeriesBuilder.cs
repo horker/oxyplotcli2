@@ -42,7 +42,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                     axis = new LinearAxis()
                     {
                         Position = AxisPosition.Left,
-                        Title = "Count"
+                        Title = "Frequency"
                     };
                     break;
                 case AxisKind.Az:
