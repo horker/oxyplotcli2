@@ -17,6 +17,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         int[] AxisItemIndexes { get; }
         Type[] DefaultAxisTypes { get; }
         string[] Aliases { get; }
+        Tuple<string, Type>[] AdditionalParameters { get; }
 
         Axis GetDefaultAxisObject(AxisKind kind);
     }

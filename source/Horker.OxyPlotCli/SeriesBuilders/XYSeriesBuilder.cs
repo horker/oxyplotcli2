@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 using Horker.OxyPlotCli.Initializers;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
-using static Horker.OxyPlotCli.HistogramSeriesHelpers;
 
 namespace Horker.OxyPlotCli.SeriesBuilders
 {
@@ -318,7 +318,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
             var min = _data.Min();
             var max = _data.Max();
             var binCount = HistogramSeriesHelpers.GetBinCount(min, max, _data.Count);
-            _intervals = HistogramSeriesHelpers.GetPrettyBinWidth(min, max, binCount);
+            _intervals = HistogramSeriesHelpers.GetHistogramIntervalFromBinCount(min, max, binCount);
 
             foreach (var entry in seriesSet)
             {
@@ -327,7 +327,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                     throw new ArgumentException("-Data and the other data items cannot be specify at the same time");
 
                 // Grouping is not supported in HistogramSeries
-                var bins = HistogramSeriesHelpers.Collect(_data, _intervals);
+                var bins = HistogramSeriesHelpers.Collect(_data, _intervals, false);
 
                 var s = _intervals.AdjustedLower;
                 for (var i = 0; i < binCount; ++i)
@@ -378,9 +378,29 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         public override int[] AxisItemIndexes => new[] { 0 };
         public override Type[] DefaultAxisTypes => new[] { typeof(CategoryAxis), typeof(LinearAxis), null };
         public override string[] Aliases => new[] { "oxy.histogram2", "oxy.hist2", "oxyhist2" };
+        public override Tuple<string, Type>[] AdditionalParameters => new[]
+        {
+            Tuple.Create("BinCount", typeof(int)),
+            Tuple.Create("BinWidth", typeof(TypeAdaptors.Double)),
+            Tuple.Create("Normalize", typeof(SwitchParameter))
+        };
+
+        private int _binCount = -1;
+        private double _binWidth = double.NaN;
+        private bool _normalize = false;
 
         private List<double> _data = new List<double>();
         private Dictionary<ColumnSeries, List<double>> _seriesData = new Dictionary<ColumnSeries, List<double>>();
+
+        protected override void ReadSpecificParameters(Dictionary<string, object> boundParameters)
+        {
+            if (boundParameters.TryGetValue("BinCount", out var value))
+                _binCount = (int)value;
+            if (boundParameters.TryGetValue("BinWidth", out value))
+                _binWidth = (TypeAdaptors.Double)value;
+            if (boundParameters.TryGetValue("Normalize", out value))
+                _normalize = (SwitchParameter)value;
+        }
 
         protected override void AddDataPointToSeries(ColumnSeries series, double data, VoidT e2, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -400,17 +420,28 @@ namespace Horker.OxyPlotCli.SeriesBuilders
             if (_data.Count == 0)
                 return;
 
+            HistogramInterval h;
+
             var min = _data.Min();
             var max = _data.Max();
-            var binCount = HistogramSeriesHelpers.GetBinCount(min, max, _data.Count);
-            var h = HistogramSeriesHelpers.GetPrettyBinWidth(min, max, binCount);
+
+            if (double.IsNaN(_binWidth))
+            {
+                if (_binCount == -1)
+                    _binCount = HistogramSeriesHelpers.GetBinCount(min, max, _data.Count);
+                h = HistogramSeriesHelpers.GetHistogramIntervalFromBinCount(min, max, _binCount);
+            }
+            else
+            {
+                h = HistogramSeriesHelpers.GetHistogramIntervalFromBinWidth(min, max, _binWidth);
+            }
 
             SetCategories(h);
 
             foreach (var entry in seriesSet)
             {
                 var series = entry.Value;
-                var bins = HistogramSeriesHelpers.Collect(_seriesData[series], h);
+                var bins = HistogramSeriesHelpers.Collect(_seriesData[series], h, _normalize);
 
                 for (var i = 0; i < h.BinCount; ++i)
                     series.Items.Add(new ColumnItem(bins[i], i));

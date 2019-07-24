@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace Horker.OxyPlotCli
 {
+    public class HistogramInterval
+    {
+        public int BinCount { get; internal set; }
+        public double BinWidth { get; internal set; }
+        public double AdjustedLower { get; internal set; }
+        public double AdjustedUpper { get; internal set; }
+    }
+
     public static class HistogramSeriesHelpers
     {
         public static int GetBinCount(double min, double max, int count)
@@ -25,15 +33,7 @@ namespace Horker.OxyPlotCli
             return binCount;
         }
 
-        public class HistogramInterval
-        {
-            public int BinCount { get; internal set; }
-            public double BinWidth { get; internal set; }
-            public double AdjustedLower { get; internal set; }
-            public double AdjustedUpper { get; internal set; }
-        }
-
-        public static HistogramInterval GetPrettyBinWidth(double min, double max, int binCount)
+        public static HistogramInterval GetHistogramIntervalFromBinCount(double min, double max, int binCount)
         {
             var ceiling = (max - min) / binCount;
             var widthBase = Math.Pow(10, Math.Floor(Math.Log10(ceiling)));
@@ -48,31 +48,44 @@ namespace Horker.OxyPlotCli
             else
                 binWidth = 5 * widthBase;
 
+            return GetHistogramIntervalFromBinWidth(min, max, binWidth);
+        }
+
+        public static HistogramInterval GetHistogramIntervalFromBinWidth(double min, double max, double binWidth)
+        {
             var baseLower = Math.Floor(min / binWidth);
             var baseUpper = Math.Ceiling(max / binWidth);
 
-            var newBinCount = baseUpper - baseLower + 1;
+            var binCount = baseUpper - baseLower + 1;
 
             var adjustedLower = binWidth * baseLower;
             var adjustedUpper = binWidth * baseUpper;
 
             return new HistogramInterval()
             {
-                BinCount = (int)newBinCount,
+                BinCount = (int)binCount,
                 BinWidth = binWidth,
                 AdjustedLower = adjustedLower,
                 AdjustedUpper = adjustedUpper
             };
         }
 
-        public static IList<double> Collect(IList<double> data, HistogramInterval intervals)
+        public static IList<double> Collect(IList<double> data, HistogramInterval intervals, bool normalize)
         {
             var result = new double[intervals.BinCount];
+            var total = 0;
 
             foreach (var value in data)
             {
                 var bin = (int)Math.Floor((value - intervals.AdjustedLower) / intervals.BinWidth);
                 ++result[bin];
+                ++total;
+            }
+
+            if (normalize)
+            {
+                for (var i = 0; i < result.Length; ++i)
+                    result[i] = result[i] / total;
             }
 
             return result;

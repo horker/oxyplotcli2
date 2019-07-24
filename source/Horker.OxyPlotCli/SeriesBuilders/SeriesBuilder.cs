@@ -28,6 +28,8 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         public abstract Type[] DefaultAxisTypes { get; }
         public abstract string[] Aliases { get; }
 
+        public virtual Tuple<string, Type>[] AdditionalParameters => new Tuple<string, Type>[0];
+
         protected string[] _propertyNames;
 
         protected List<E1> _e1;
@@ -47,6 +49,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
 
         protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6, E7 e7);
 
+        protected virtual void ReadSpecificParameters(Dictionary<string, object> boundParameters) { }
         protected virtual void Postprocess(IDictionary<object, SeriesT> series) { }
 
         private T GetNaN<T>()
@@ -295,6 +298,10 @@ namespace Horker.OxyPlotCli.SeriesBuilders
 
             if (boundParameters.TryGetValue("Group", out var groups))
                 _groups.AddRange((IEnumerable<object>)groups);
+
+            // Read cmdlet-specific parameters.
+
+            ReadSpecificParameters(boundParameters);
         }
 
         protected virtual void ValidateInputData()

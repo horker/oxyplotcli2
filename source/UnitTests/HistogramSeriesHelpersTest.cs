@@ -19,7 +19,7 @@ namespace UnitTests
             var max = data.Max();
 
             var binCount = HistogramSeriesHelpers.GetBinCount(min, max, data.Length);
-            var h = HistogramSeriesHelpers.GetPrettyBinWidth(min, max, binCount);
+            var h = HistogramSeriesHelpers.GetHistogramIntervalFromBinCount(min, max, binCount);
 
             Assert.AreEqual(3, binCount);
 

@@ -73,6 +73,16 @@ foreach (var builderType in builderTypes)
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public object[] Group = null;
 
+<#
+    foreach (var param in builderInstance.AdditionalParameters)
+    {
+#>
+        [Parameter(Position = <#= position++ #>, Mandatory = false)]
+        public <#= param.Item2.FullName #> <#= param.Item1 #>;
+
+<#
+    }
+#>
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public PlotModel AddTo = null;
 
