@@ -272,7 +272,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         }
     }
 
-    public class HistogramSeriesBuilder : SeriesBuilder<HistogramSeries, HistogramItem, double, double, double, double, double, VoidT, VoidT>
+    public class HistogramSeriesBuilder : HistogramSeriesBuilder<HistogramSeries, HistogramItem, double, double, double, double, double, VoidT, VoidT>
     {
         public override string[] DataPointItemNames => new[] { "RangeStart", "RangeEnd", "Area", "Count", "Data" };
         public override bool[] DataPointItemMandatoriness => new[] { false, false, false, false, false };
@@ -315,10 +315,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
             if (_data == null || _data.Count == 0)
                 return;
 
-            var min = _data.Min();
-            var max = _data.Max();
-            var binCount = HistogramSeriesHelpers.GetBinCount(min, max, _data.Count);
-            _intervals = HistogramSeriesHelpers.GetHistogramIntervalFromBinCount(min, max, binCount);
+            _intervals = GetHistogramInterval(_data.Min(), _data.Max(), _data.Count);
 
             foreach (var entry in seriesSet)
             {
@@ -327,10 +324,10 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                     throw new ArgumentException("-Data and the other data items cannot be specify at the same time");
 
                 // Grouping is not supported in HistogramSeries
-                var bins = HistogramSeriesHelpers.Collect(_data, _intervals, false);
+                var bins = HistogramSeriesHelpers.Collect(_data, _intervals, _normalize);
 
                 var s = _intervals.AdjustedLower;
-                for (var i = 0; i < binCount; ++i)
+                for (var i = 0; i < _intervals.BinCount; ++i)
                 {
                     var item = new HistogramItem(s, s + _intervals.BinWidth, bins[i] * _intervals.BinWidth);
                     series.Items.Add(item);
@@ -378,29 +375,13 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         public override int[] AxisItemIndexes => new[] { 0 };
         public override Type[] DefaultAxisTypes => new[] { typeof(CategoryAxis), typeof(LinearAxis), null };
         public override string[] Aliases => new[] { "oxy.histogram2", "oxy.hist2", "oxyhist2" };
-        public override Tuple<string, Type>[] AdditionalParameters => new[]
-        {
-            Tuple.Create("BinCount", typeof(int)),
-            Tuple.Create("BinWidth", typeof(TypeAdaptors.Double)),
-            Tuple.Create("Normalize", typeof(SwitchParameter))
-        };
-
-        private int _binCount = -1;
-        private double _binWidth = double.NaN;
-        private bool _normalize = false;
 
         private List<double> _data = new List<double>();
         private Dictionary<ColumnSeries, List<double>> _seriesData = new Dictionary<ColumnSeries, List<double>>();
 
-        protected override void ReadSpecificParameters(Dictionary<string, object> boundParameters)
-        {
-            if (boundParameters.TryGetValue("BinCount", out var value))
-                _binCount = (int)value;
-            if (boundParameters.TryGetValue("BinWidth", out value))
-                _binWidth = (TypeAdaptors.Double)value;
-            if (boundParameters.TryGetValue("Normalize", out value))
-                _normalize = (SwitchParameter)value;
-        }
+        private string[] _categories = null;
+
+        protected override string[] GetCategoryNames() => _categories;
 
         protected override void AddDataPointToSeries(ColumnSeries series, double data, VoidT e2, VoidT e3, VoidT e4, VoidT e5, VoidT e6, VoidT e7)
         {
@@ -420,21 +401,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
             if (_data.Count == 0)
                 return;
 
-            HistogramInterval h;
-
-            var min = _data.Min();
-            var max = _data.Max();
-
-            if (double.IsNaN(_binWidth))
-            {
-                if (_binCount == -1)
-                    _binCount = HistogramSeriesHelpers.GetBinCount(min, max, _data.Count);
-                h = HistogramSeriesHelpers.GetHistogramIntervalFromBinCount(min, max, _binCount);
-            }
-            else
-            {
-                h = HistogramSeriesHelpers.GetHistogramIntervalFromBinWidth(min, max, _binWidth);
-            }
+            var h = GetHistogramInterval(_data.Min(), _data.Max(), _data.Count);
 
             SetCategories(h);
 
@@ -446,6 +413,44 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                 for (var i = 0; i < h.BinCount; ++i)
                     series.Items.Add(new ColumnItem(bins[i], i));
             }
+        }
+
+        protected void SetCategories(HistogramInterval h)
+        {
+            _categories = new string[h.BinCount];
+            for (var i = 0; i < h.BinCount; ++i)
+                _categories[i] = $"{Math.Round(h.AdjustedLower + i * h.BinWidth, 5)} - {Math.Round(h.AdjustedLower + (i + 1) * h.BinWidth, 5)}";
+        }
+
+        public override Axis GetDefaultAxisObject(AxisKind kind)
+        {
+            Axis axis;
+
+            switch (kind)
+            {
+                case AxisKind.Ax:
+                    axis = new CategoryAxis()
+                    {
+                        Position = AxisPosition.Bottom,
+                        IsTickCentered = false,
+                        GapWidth = 0.0
+                    };
+                    break;
+                case AxisKind.Ay:
+                    axis = new LinearAxis()
+                    {
+                        Position = AxisPosition.Left,
+                        Title = "Frequency"
+                    };
+                    break;
+                case AxisKind.Az:
+                    axis = null;
+                    break;
+                default:
+                    throw new ArgumentException($"Unknown axis kind: {kind}");
+            }
+
+            return axis;
         }
     }
 
