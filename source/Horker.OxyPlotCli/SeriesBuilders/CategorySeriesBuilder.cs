@@ -7,7 +7,7 @@ using OxyPlot.Series;
 
 namespace Horker.OxyPlotCli.SeriesBuilders
 {
-    public abstract class CategorySeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6, E7> : SeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6, E7>
+    public abstract class CategorySeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6, E7, E8> : SeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6, E7, E8>
         where SeriesT : Series, new()
     {
         private List<string> _categories = new List<string>();

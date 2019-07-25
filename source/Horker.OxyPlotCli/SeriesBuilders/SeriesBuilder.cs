@@ -14,7 +14,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
 {
     public class VoidT { }
 
-    public abstract class SeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6, E7> : ISeriesBuilder
+    public abstract class SeriesBuilder<SeriesT, DataPointT, E1, E2, E3, E4, E5, E6, E7, E8> : ISeriesBuilder
         where SeriesT : Series, new()
     {
         public Type SeriesType => typeof(SeriesT);
@@ -39,6 +39,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         protected List<E5> _e5;
         protected List<E6> _e6;
         protected List<E7> _e7;
+        protected List<E8> _e8;
 
         protected string _groupName;
         protected List<object> _groups;
@@ -47,7 +48,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
 
         protected static readonly string DefaultGroupName = "default group!!??##$%&' ";
 
-        protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6, E7 e7);
+        protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6, E7 e7, E8 e8);
 
         protected virtual void ReadSpecificParameters(Dictionary<string, object> boundParameters) { }
         protected virtual void Postprocess(IDictionary<object, SeriesT> series) { }
@@ -179,7 +180,11 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                                 {
                                     ReadDataPointElementFromPipeline(_e6, inputObject, 5);
                                     if (typeof(E7) != typeof(VoidT))
+                                    {
                                         ReadDataPointElementFromPipeline(_e7, inputObject, 6);
+                                        if (typeof(E8) != typeof(VoidT))
+                                            ReadDataPointElementFromPipeline(_e8, inputObject, 7);
+                                    }
                                 }
                             }
                         }
@@ -229,6 +234,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
             _e5 = new List<E5>();
             _e6 = new List<E6>();
             _e7 = new List<E7>();
+            _e8 = new List<E8>();
 
             _groups = new List<object>();
 
@@ -293,6 +299,8 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                 ReadArray(_e6, boundParameters, 5);
             if (typeof(E7) != typeof(VoidT))
                 ReadArray(_e7, boundParameters, 6);
+            if (typeof(E8) != typeof(VoidT))
+                ReadArray(_e8, boundParameters, 7);
 
             // Read groups.
 
@@ -306,7 +314,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
 
         protected virtual void ValidateInputData()
         {
-            int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count, _e7.Count }).Max();
+            int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count, _e7.Count, _e8.Count }).Max();
             var ma = DataPointItemMandatoriness;
 
             if (typeof(E1) != typeof(VoidT))
@@ -365,6 +373,14 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                     throw new ArgumentException($"Length of {DataPointItemNames[6]} is different from the other items");
             }
 
+            if (typeof(E8) != typeof(VoidT))
+            {
+                if (ma[6] && _e8.Count == 0)
+                    throw new ArgumentException($"{DataPointItemNames[7]} is mandatory but not specified");
+                if (_e8.Count > 0 && _e8.Count != count)
+                    throw new ArgumentException($"Length of {DataPointItemNames[7]} is different from the other items");
+            }
+
             if (!(_groups.Count == count || _groups.Count == 0))
                 throw new ArgumentException("Length of grouping items is different from the others");
 
@@ -381,7 +397,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         /// <returns>A SeriesInfo object.</returns>
         public virtual SeriesInfo<SeriesT> CreateSeriesInfo(Style style)
         {
-            int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count, _e7.Count }).Max();
+            int count = (new int[] { _e1.Count, _e2.Count, _e3.Count, _e4.Count, _e5.Count, _e6.Count, _e7.Count, _e8.Count }).Max();
 
             if (count == 0)
             {
@@ -421,7 +437,8 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                     i < _e4.Count ? _e4[i] : GetNaN<E4>(),
                     i < _e5.Count ? _e5[i] : GetNaN<E5>(),
                     i < _e6.Count ? _e6[i] : GetNaN<E6>(),
-                    i < _e7.Count ? _e7[i] : GetNaN<E7>()
+                    i < _e7.Count ? _e7[i] : GetNaN<E7>(),
+                    i < _e8.Count ? _e8[i] : GetNaN<E8>()
                 );
 
             }
