@@ -53,7 +53,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
     public class BoxPlotSeriesBuilder : CategorySeriesBuilder<BoxPlotSeries, BoxPlotItem, TypeAdaptors.Category, double, double, double, double, double, object, double>
     {
         public override string[] DataPointItemNames => new[] { "Category", "LowerWhisker", "BoxBottom", "Median", "BoxTop", "UpperWhisker", "Outliers", "Data" };
-        public override bool[] DataPointItemMandatoriness => new[] { true, false, false, false, false, false, false };
+        public override bool[] DataPointItemMandatoriness => new[] { false, false, false, false, false, false, false };
         public override int[] AxisItemIndexes => new[] { 0, -1, -1, -1, -1, -1, -1, 1 };
         public override Type[] DefaultAxisTypes => new[] { typeof(CategoryAxis), typeof(LinearAxis), null };
         public override string[] Aliases => new[] { "oxy.boxPlot", "oxy.box", "oxybox" };
@@ -62,7 +62,9 @@ namespace Horker.OxyPlotCli.SeriesBuilders
 
         protected override void AddDataPointToSeries(BoxPlotSeries series, TypeAdaptors.Category category, double lowerWhisker, double boxBottom, double median, double boxTop, double upperWhisker, object outliers, double data)
         {
-            var index = GetCategoryIndex(category);
+            var index = 0;
+            if (category != null)
+                index = GetCategoryIndex(category);
 
             if (!double.IsNaN(data))
             {
