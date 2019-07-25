@@ -1,12 +1,13 @@
-$size = 1000
-$values = New-Object double[] $size
-$random = New-Object Random
+Set-StrictMode -Version Latest
 
-for ($i = 0; $i -lt $size; ++$i) {
-    # Pseudo normal distribution
-    $values[$i] = $random.NextDouble() + $random.NextDouble() + $random.NextDouble() + $random.NextDouble() +
-        $random.NextDouble() + $random.NextDouble() + $random.NextDouble() + $random.NextDouble() +
-        $random.NextDouble() + $random.NextDouble() + $random.NextDouble() + $random.NextDouble()
+$modulePath = Split-Path -Parent (Get-Module oxyplotcli).Path
+
+$params = @{
+    OutFile = "$PSScriptRoot\images\HistogramSeries2.png"
+    OutWidth = 1200
+    OutHeight = 1200
 }
 
-oxy.hist2 -data $values -Show
+Import-Csv $modulePath\datasets\r\iris.csv |
+    oxy.hist2 -DataName Sepal.Width -GroupName Species |
+    oxy.model -Title "Sepal Width by Species" @params
