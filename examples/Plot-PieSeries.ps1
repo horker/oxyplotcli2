@@ -9,5 +9,5 @@ $params = @{
 dir -file c:\windows |
     group Extension |
     oxy.pie -LabelName Name -ValueName Count |
-    oxy.model -Title "Counting Files By Extensions" -Subtitle "(In the C:\Windows Directory)" @params
+    oxy.model -Title "Counting Extensions in the C:\Windows Directory" @params
 

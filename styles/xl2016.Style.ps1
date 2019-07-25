@@ -42,7 +42,7 @@ $config = @{
   # *Axis: Tick
   "*Axis.TickStyle" = "None"
   "*Axis.TextColor" = "#595959"
-  "*Axis.FontSize" = $baseSize * 0.8
+  "*Axis.FontSize" = $baseSize
 
   # *Axis: MinorTick
   "*Axis.MinorTickSize" = 0
@@ -58,7 +58,7 @@ $config = @{
   # *Axis: Title
   "*Axis.TitleFontSize" = $baseSize * 1.2
   "*Axis.TitleColor" = "#4D4D4D"
-  "*Axis.AxisTitleDistance" = $baseSize * 1.5
+  "*Axis.AxisTitleDistance" = $baseSize
 
   # CategoryAxis: FontSize
   "CategoryAxis.FontSize" = $baseSize
@@ -68,7 +68,7 @@ $config = @{
   "Scatter*Series.MarkerSize" = "3px"
 
   # BoxPlotSeries
-  "BoxPlotSeries.BoxWidth" = .9
+  "BoxPlotSeries.BoxWidth" = .6
   "BoxPlotSeries.Stroke" = "Black"
 
   # CandleStickAndVolumeSeries
