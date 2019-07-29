@@ -13,9 +13,9 @@ bubble chart
 rader chart
 BUG: grouping in conterSeries
 SeriesInfo should contain style
-Histogram BinCount ByRatio
-Histogram axis tick
-HistogramSeries2 help document
+BUG: hist series in Plot-Summary
+multiple histograms with half transparent colors
+DateTime axis support for oxy.hist2
 
 examples in Example Browser:
 Custom series: PolarHeapMap
@@ -106,3 +106,6 @@ DONE BUG: axis name
 DONE enumerate cmdlet names explicity in psd1
 DONE histogram design (tick, border color)
 DONE histogram by count
+DONE Histogram axis tick
+DONE Histogram BinCount Normalize
+DONE HistogramSeries2 help document

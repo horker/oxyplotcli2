@@ -1,5 +1,4 @@
 # xl2016 style
-# https://github.com/tidyverse/ggplot2/blob/master/R/theme-defaults.r
 
 Set-StrictMode -Version 3
 
