@@ -63,7 +63,7 @@ namespace {0} {{
             return cr.CompiledAssembly;
         }
 
-        public static Func<double, double> Compile(string funcString, string compilerVersion = "v3.5")
+        public static Func<double, double> Compile(string funcString, string compilerVersion = "v4.0")
         {
             if (CodeCache.TryGetValue(funcString, out Func<double, double> f))
                 return f;
