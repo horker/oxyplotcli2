@@ -149,6 +149,14 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         public override Type[] DefaultAxisTypes => new[] { typeof(DateTimeAxis), typeof(LinearAxis), typeof(LinearAxis) };
         public override string[] Aliases => new[] { "oxy.candleStickAndVolume", "oxy.candlev", "oxycandlev" };
 
+        protected override CandleStickAndVolumeSeries Create()
+        {
+            return new CandleStickAndVolumeSeries()
+            {
+                VolumeAxisKey = null
+            };
+        }
+
         protected override void AddDataPointToSeries(CandleStickAndVolumeSeries series, double x, double open, double high, double low, double close, double buyVolume, double sellVolume, VoidT e8)
         {
             if (double.IsNaN(buyVolume))

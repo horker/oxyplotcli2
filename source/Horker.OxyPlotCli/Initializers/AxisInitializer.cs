@@ -105,7 +105,6 @@ namespace Horker.OxyPlotCli.Initializers
                     hasYAxis = hasYAxis || !string.IsNullOrEmpty(xy.YAxisKey) || xy.YAxis != null || model.Axes.Any(a => a.IsXyAxis() && a.IsVertical());
                 }
 
-                // CandleStickAndVolumeSeries doesn't remain VolumeAxisKey to be null.
                 if (s is CandleStickAndVolumeSeries candlev)
                     hasZAxis = hasZAxis || !string.IsNullOrEmpty(candlev.VolumeAxisKey) || candlev.VolumeAxis != null;
                 else if (s is HeatMapSeries h)

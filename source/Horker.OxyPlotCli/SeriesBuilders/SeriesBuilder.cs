@@ -20,13 +20,15 @@ namespace Horker.OxyPlotCli.SeriesBuilders
         public Type SeriesType => typeof(SeriesT);
         public virtual string CmdletName => typeof(SeriesT).Name;
 
-        // Abstract properties
+        // Abstract properties and methods
 
         public abstract string[] DataPointItemNames { get; }
         public abstract bool[] DataPointItemMandatoriness { get; }
         public abstract int[] AxisItemIndexes { get; }
         public abstract Type[] DefaultAxisTypes { get; }
         public abstract string[] Aliases { get; }
+
+        protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6, E7 e7, E8 e8);
 
         public virtual Tuple<string, Type>[] AdditionalParameters => new Tuple<string, Type>[0];
 
@@ -48,7 +50,10 @@ namespace Horker.OxyPlotCli.SeriesBuilders
 
         protected static readonly string DefaultGroupName = "default group!!??##$%&' ";
 
-        protected abstract void AddDataPointToSeries(SeriesT series, E1 e1, E2 e2, E3 e3, E4 e4, E5 e5, E6 e6, E7 e7, E8 e8);
+        protected virtual SeriesT Create()
+        {
+            return new SeriesT();
+        }
 
         protected virtual void ReadSpecificParameters(Dictionary<string, object> boundParameters) { }
         protected virtual void Postprocess(IDictionary<object, SeriesT> series) { }
@@ -401,7 +406,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
 
             if (count == 0)
             {
-                var s = new SeriesT();
+                var s = Create();
                 style.ApplyStyleTo(s);
                 _info.Series = new[] { s };
                 return _info;
@@ -423,7 +428,7 @@ namespace Horker.OxyPlotCli.SeriesBuilders
                 SeriesT s;
                 if (!seriesSet.TryGetValue(g, out s))
                 {
-                    s = new SeriesT();
+                    s = Create();
                     if (g.ToString() != DefaultGroupName)
                         s.Title = g.ToString();
                     seriesSet.Add(g, s);
