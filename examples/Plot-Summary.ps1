@@ -1,10 +1,8 @@
-Set-StrictMode -Version Latest
+param(
+    [Hashtable]$OutParams = @{ Show = $true }
+)
 
-$params = @{
-    OutFile = "$PSScriptRoot\images\Summary.png"
-    OutWidth = 1600
-    OutHeight = 1600
-}
+Set-StrictMode -Version Latest
 
 $s = (
   @(oxy.area -x1 10,20,30 -y1 10,30,20 -x2 10,15,25,30 -y2 -10,-20,-15,5 | oxy.model -title "Area Series"),
@@ -16,8 +14,8 @@ $s = (
   @(oxy.errorColumn -value 1,2,3 -error .2,.3,.4 -category a,b,c | oxy.model -title "Error Column Series"),
   @(oxy.func -f "x => Math.Sin(x) * Math.Cos(2 * x)" -x0 -7 -x1 7 | oxy.model -title "Function Series"),
   @(oxy.heatMap -data @(@(1,2,3,4),@(4,5,6,7), @(7,8,15,10),@(10,11,12,13)) -Interpolate $true | oxy.model -title "Heatmap Series"),
-  @(oxy.highLow -x "2019/1/1", "2019/2/1", "2019/3/1", "2019/4/1", "2019/5/1" -open 10,11,14,13,12 -high 15,16,6,7,17 -low 8,7,16,17,6 -close 12,13,12,11,14 | oxy.model -title "High Low Series"),
-  @(oxy.hist -RangeStart 10,20,30,40 -RangeEnd 20,30,40,50 -Count 5,10,7,5 | oxy.model -title "Histogram Series"),
+  @(oxy.highLow -x "2019/1/1", "2019/2/1", "2019/3/1", "2019/4/1", "2019/5/1" -open 10,11,14,13,12 -high 13,14,15,14,13 -low 9,10,11,10,9 -close 12,13,12,11,10 | oxy.model -title "High Low Series"),
+  @(oxy.hist2 -Data 1,2,3,4,5,2,3,4,5,2,3,4,2 | oxy.model -title "Histogram Series"),
   @(oxy.intervalBar -start 1,2,3 -end 11,12,13 -bartitle a,b,c -category X,Y,Z | oxy.model -title "Interval Bar Series"),
   @(oxy.linearBar -x 1,2,3,4,5 -y 11,15,13,12,13 | oxy.model -title "Linear Bar Series"),
   @(oxy.line -x 1,2,3,4,5 -y 11,15,13,12,13 | oxy.model -title "Line Series"),
@@ -35,4 +33,4 @@ $s = (
   @(oxy.volume -x "2019/1/1", "2019/2/1", "2019/3/1" -open 10,11,12 -high 15,16,17 -low 8,7,6 -close 12,13,14 -buyvolume 1000,2000,1500 -sellvolume 100,200,150 -volumestyle stacked | oxy.model -title "Volume Series" -axmaximum 2019/4/1 -aymaximum 2000 -ayminimum -100)
 )
 
-oxy.gridView $s @params
+oxy.gridView $s @OutParams

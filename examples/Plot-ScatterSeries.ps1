@@ -1,13 +1,11 @@
+param(
+    [Hashtable]$OutParams = @{ Show = $true }
+)
+
 Set-StrictMode -Version Latest
 
 $modulePath = Split-Path -Parent (Get-Module oxyplotcli).Path
 
-$params = @{
-    OutFile = "$PSScriptRoot\images\ScatterSeries.png"
-    OutWidth = 800
-    OutHeight = 800
-}
-
 Import-Csv $modulePath\datasets\r\diamonds.csv |
     oxy.scat -XName carat -YName price -GroupName clarity |
-    oxy.model -Title "Diamond Prices" @params
+    oxy.model -Title "Diamond Prices by Carats" @OutParams

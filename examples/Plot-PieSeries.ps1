@@ -1,13 +1,10 @@
-Set-StrictMode -Version Latest
+param(
+    [Hashtable]$OutParams = @{ Show = $true }
+)
 
-$params = @{
-    OutFile = "$PSScriptRoot\images\PieSeries.png"
-    OutWidth = 800
-    OutHeight = 800
-}
+Set-StrictMode -Version Latest
 
 dir -file c:\windows |
     group Extension |
-    oxy.pie -LabelName Name -ValueName Count |
-    oxy.model -Title "Counting Extensions in the C:\Windows Directory" @params
-
+    oxy.pie -LabelName Name -ValueName Count -FontSize 16 -Diameter .8 |
+    oxy.model -Title "File Extensions in the C:\Windows Directory" @OutParams
