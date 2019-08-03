@@ -1,4 +1,4 @@
----
+﻿---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
 online version: http://en.wikipedia.org/wiki/Pie_chart
@@ -8,23 +8,27 @@ schema: 2.0.0
 # New-OxyPlotModel
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+
+Returns an object that represents a plot.
+ 
+
 
 ## SYNTAX
 
 ```
-New-OxyPlotModel [[-Series] <Series>] [[-SeriesInfo] <ISeriesInfo>] [[-Axis] <Axis[]>]
- [[-Annotation] <Annotation[]>] [[-OutFile] <String>] [[-OutWidth] <Int32>] [[-OutHeight] <Int32>]
- [-SvgIsDocument] [-PassThru] [[-Style] <String>] [-AsUIElement] [-Show] [-ReuseWindow]
- [[-DefaultFont] <String>] [[-DefaultFontSize] <Double>] [[-Background] <OxyColor>] [[-Culture] <CultureInfo>]
- [[-DefaultColors] <System.Collections.Generic.IList`1[OxyPlot.OxyColor]>] [[-IsLegendVisible] <Bool>]
- [[-LegendBackground] <OxyColor>] [[-LegendBorder] <OxyColor>] [[-LegendBorderThickness] <Double>]
- [[-LegendColumnSpacing] <Double>] [[-LegendFont] <String>] [[-LegendFontSize] <Double>]
- [[-LegendTextColor] <OxyColor>] [[-LegendFontWeight] <Double>] [[-LegendItemAlignment] <HorizontalAlignment>]
- [[-LegendItemOrder] <LegendItemOrder>] [[-LegendItemSpacing] <Double>] [[-LegendLineSpacing] <Double>]
- [[-LegendMargin] <Double>] [[-LegendMaxWidth] <Double>] [[-LegendMaxHeight] <Double>]
- [[-LegendOrientation] <LegendOrientation>] [[-LegendPadding] <Double>] [[-LegendPlacement] <LegendPlacement>]
- [[-LegendPosition] <LegendPosition>] [[-LegendSymbolLength] <Double>] [[-LegendSymbolMargin] <Double>]
+New-OxyPlotModel [-InputObject <Object>] [[-Series] <Series[]>] [[-SeriesInfo] <ISeriesInfo[]>]
+ [-PlotModel <PlotModel>] [[-Axis] <Axis[]>] [[-Annotation] <Annotation[]>] [[-OutFile] <String>]
+ [[-OutWidth] <Int32>] [[-OutHeight] <Int32>] [-SvgIsDocument] [-PassThru] [[-Style] <String>] [-AsUIElement]
+ [-Show] [-ReuseWindow] [[-DefaultFont] <String>] [[-DefaultFontSize] <Double>] [[-Background] <OxyColor>]
+ [[-Culture] <CultureInfo>] [[-DefaultColors] <System.Collections.Generic.IList`1[OxyPlot.OxyColor]>]
+ [[-IsLegendVisible] <Bool>] [[-LegendBackground] <OxyColor>] [[-LegendBorder] <OxyColor>]
+ [[-LegendBorderThickness] <Double>] [[-LegendColumnSpacing] <Double>] [[-LegendFont] <String>]
+ [[-LegendFontSize] <Double>] [[-LegendTextColor] <OxyColor>] [[-LegendFontWeight] <Double>]
+ [[-LegendItemAlignment] <HorizontalAlignment>] [[-LegendItemOrder] <LegendItemOrder>]
+ [[-LegendItemSpacing] <Double>] [[-LegendLineSpacing] <Double>] [[-LegendMargin] <Double>]
+ [[-LegendMaxWidth] <Double>] [[-LegendMaxHeight] <Double>] [[-LegendOrientation] <LegendOrientation>]
+ [[-LegendPadding] <Double>] [[-LegendPlacement] <LegendPlacement>] [[-LegendPosition] <LegendPosition>]
+ [[-LegendSymbolLength] <Double>] [[-LegendSymbolMargin] <Double>]
  [[-LegendSymbolPlacement] <LegendSymbolPlacement>] [[-LegendTitle] <String>] [[-LegendTitleColor] <OxyColor>]
  [[-LegendTitleFont] <String>] [[-LegendTitleFontSize] <Double>] [[-LegendTitleFontWeight] <Double>]
  [[-Padding] <Double[]>] [[-AxisTierDistance] <Double>] [[-PlotAreaBackground] <OxyColor>]
@@ -102,21 +106,16 @@ New-OxyPlotModel [[-Series] <Series>] [[-SeriesInfo] <ISeriesInfo>] [[-Axis] <Ax
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
 
-## EXAMPLES
+Returns an object that represents a plot.
+ 
 
-### Example 1
-```
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
 ### -Annotation
-{{Fill Annotation Description}}
+
+
 
 ```yaml
 Type: OxyPlot.Annotations.Annotation[]
@@ -131,7 +130,8 @@ Accept wildcard characters: False
 ```
 
 ### -AsUIElement
-{{Fill AsUIElement Description}}
+
+Returns an object as a PlotView object.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -146,7 +146,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxAbsoluteMaximum
-{{Fill AxAbsoluteMaximum Description}}
+
+Specifies the AbsoluteMaximum parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -161,7 +162,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxAbsoluteMinimum
-{{Fill AxAbsoluteMinimum Description}}
+
+Specifies the AbsoluteMinimum parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -176,7 +178,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxAngle
-{{Fill AxAngle Description}}
+
+Specifies the Angle parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -191,7 +194,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxAxisDistance
-{{Fill AxAxisDistance Description}}
+
+Specifies the AxisDistance parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -206,7 +210,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxAxisTickToLabelDistance
-{{Fill AxAxisTickToLabelDistance Description}}
+
+Specifies the AxisTickToLabelDistance parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -221,7 +226,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxAxisTitleDistance
-{{Fill AxAxisTitleDistance Description}}
+
+Specifies the AxisTitleDistance parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -236,7 +242,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxAxislineColor
-{{Fill AxAxislineColor Description}}
+
+Specifies the AxislineColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -251,7 +258,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxAxislineStyle
-{{Fill AxAxislineStyle Description}}
+
+Specifies the AxislineStyle parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.LineStyle
@@ -267,7 +275,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxAxislineThickness
-{{Fill AxAxislineThickness Description}}
+
+Specifies the AxislineThickness parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -282,7 +291,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxBase
-{{Fill AxBase Description}}
+
+Specifies the Base parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -297,7 +307,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxCalendarWeekRule
-{{Fill AxCalendarWeekRule Description}}
+
+Specifies the CalendarWeekRule parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Globalization.CalendarWeekRule
@@ -313,7 +324,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxClipTitle
-{{Fill AxClipTitle Description}}
+
+Specifies the ClipTitle parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -328,7 +340,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxCropGridlines
-{{Fill AxCropGridlines Description}}
+
+Specifies the CropGridlines parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -343,7 +356,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxEndAngle
-{{Fill AxEndAngle Description}}
+
+Specifies the EndAngle parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -358,7 +372,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxEndPosition
-{{Fill AxEndPosition Description}}
+
+Specifies the EndPosition parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -373,7 +388,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxExtraGridlineColor
-{{Fill AxExtraGridlineColor Description}}
+
+Specifies the ExtraGridlineColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -388,7 +404,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxExtraGridlineStyle
-{{Fill AxExtraGridlineStyle Description}}
+
+Specifies the ExtraGridlineStyle parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.LineStyle
@@ -404,7 +421,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxExtraGridlineThickness
-{{Fill AxExtraGridlineThickness Description}}
+
+Specifies the ExtraGridlineThickness parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -419,7 +437,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxExtraGridlines
-{{Fill AxExtraGridlines Description}}
+
+Specifies the ExtraGridlines parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
@@ -434,7 +453,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxFilterFunction
-{{Fill AxFilterFunction Description}}
+
+Specifies the FilterFunction parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Func`2[System.Double,System.Boolean]
@@ -449,7 +469,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxFilterMaxValue
-{{Fill AxFilterMaxValue Description}}
+
+Specifies the FilterMaxValue parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -464,7 +485,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxFilterMinValue
-{{Fill AxFilterMinValue Description}}
+
+Specifies the FilterMinValue parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -479,7 +501,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxFirstDayOfWeek
-{{Fill AxFirstDayOfWeek Description}}
+
+Specifies the FirstDayOfWeek parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.DayOfWeek
@@ -495,7 +518,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxFont
-{{Fill AxFont Description}}
+
+Specifies the Font parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -510,7 +534,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxFontSize
-{{Fill AxFontSize Description}}
+
+Specifies the FontSize parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -525,7 +550,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxFontWeight
-{{Fill AxFontWeight Description}}
+
+Specifies the FontWeight parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -540,7 +566,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxFormatAsFractions
-{{Fill AxFormatAsFractions Description}}
+
+Specifies the FormatAsFractions parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -555,7 +582,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxFractionUnit
-{{Fill AxFractionUnit Description}}
+
+Specifies the FractionUnit parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -570,7 +598,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxFractionUnitSymbol
-{{Fill AxFractionUnitSymbol Description}}
+
+Specifies the FractionUnitSymbol parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -585,7 +614,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxGapWidth
-{{Fill AxGapWidth Description}}
+
+Specifies the GapWidth parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -600,7 +630,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxHighColor
-{{Fill AxHighColor Description}}
+
+Specifies the HighColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -615,7 +646,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxIntervalLength
-{{Fill AxIntervalLength Description}}
+
+Specifies the IntervalLength parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -630,7 +662,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxIntervalType
-{{Fill AxIntervalType Description}}
+
+Specifies the IntervalType parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.Axes.DateTimeIntervalType
@@ -646,7 +679,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxInvalidCategoryColor
-{{Fill AxInvalidCategoryColor Description}}
+
+Specifies the InvalidCategoryColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -661,7 +695,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxInvalidNumberColor
-{{Fill AxInvalidNumberColor Description}}
+
+Specifies the InvalidNumberColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -676,7 +711,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxIsAxisVisible
-{{Fill AxIsAxisVisible Description}}
+
+Specifies the IsAxisVisible parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -691,7 +727,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxIsPanEnabled
-{{Fill AxIsPanEnabled Description}}
+
+Specifies the IsPanEnabled parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -706,7 +743,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxIsTickCentered
-{{Fill AxIsTickCentered Description}}
+
+Specifies the IsTickCentered parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -721,7 +759,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxIsZoomEnabled
-{{Fill AxIsZoomEnabled Description}}
+
+Specifies the IsZoomEnabled parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -736,7 +775,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxItemsSource
-{{Fill AxItemsSource Description}}
+
+Specifies the ItemsSource parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Collections.IEnumerable
@@ -751,7 +791,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxKey
-{{Fill AxKey Description}}
+
+Specifies the Key parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -766,7 +807,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxLabelField
-{{Fill AxLabelField Description}}
+
+Specifies the LabelField parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -781,7 +823,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxLabelFormatter
-{{Fill AxLabelFormatter Description}}
+
+Specifies the LabelFormatter parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Func`2[System.Double,System.String]
@@ -796,7 +839,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxLayer
-{{Fill AxLayer Description}}
+
+Specifies the Layer parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.Axes.AxisLayer
@@ -812,7 +856,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxLowColor
-{{Fill AxLowColor Description}}
+
+Specifies the LowColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -827,7 +872,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMajorGridlineColor
-{{Fill AxMajorGridlineColor Description}}
+
+Specifies the MajorGridlineColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -842,7 +888,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMajorGridlineStyle
-{{Fill AxMajorGridlineStyle Description}}
+
+Specifies the MajorGridlineStyle parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.LineStyle
@@ -858,7 +905,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMajorGridlineThickness
-{{Fill AxMajorGridlineThickness Description}}
+
+Specifies the MajorGridlineThickness parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -873,7 +921,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMajorStep
-{{Fill AxMajorStep Description}}
+
+Specifies the MajorStep parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -888,7 +937,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMajorTickSize
-{{Fill AxMajorTickSize Description}}
+
+Specifies the MajorTickSize parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -903,7 +953,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMaximum
-{{Fill AxMaximum Description}}
+
+Specifies the Maximum parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -918,7 +969,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMaximumPadding
-{{Fill AxMaximumPadding Description}}
+
+Specifies the MaximumPadding parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -933,7 +985,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMaximumRange
-{{Fill AxMaximumRange Description}}
+
+Specifies the MaximumRange parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -948,7 +1001,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinimum
-{{Fill AxMinimum Description}}
+
+Specifies the Minimum parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -963,7 +1017,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinimumMajorStep
-{{Fill AxMinimumMajorStep Description}}
+
+Specifies the MinimumMajorStep parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -978,7 +1033,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinimumMinorStep
-{{Fill AxMinimumMinorStep Description}}
+
+Specifies the MinimumMinorStep parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -993,7 +1049,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinimumPadding
-{{Fill AxMinimumPadding Description}}
+
+Specifies the MinimumPadding parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1008,7 +1065,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinimumRange
-{{Fill AxMinimumRange Description}}
+
+Specifies the MinimumRange parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1023,7 +1081,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinorGridlineColor
-{{Fill AxMinorGridlineColor Description}}
+
+Specifies the MinorGridlineColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -1038,7 +1097,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinorGridlineStyle
-{{Fill AxMinorGridlineStyle Description}}
+
+Specifies the MinorGridlineStyle parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.LineStyle
@@ -1054,7 +1114,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinorGridlineThickness
-{{Fill AxMinorGridlineThickness Description}}
+
+Specifies the MinorGridlineThickness parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1069,7 +1130,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinorIntervalType
-{{Fill AxMinorIntervalType Description}}
+
+Specifies the MinorIntervalType parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.Axes.DateTimeIntervalType
@@ -1085,7 +1147,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinorStep
-{{Fill AxMinorStep Description}}
+
+Specifies the MinorStep parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1100,7 +1163,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinorTickSize
-{{Fill AxMinorTickSize Description}}
+
+Specifies the MinorTickSize parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1115,7 +1179,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxMinorTicklineColor
-{{Fill AxMinorTicklineColor Description}}
+
+Specifies the MinorTicklineColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -1130,7 +1195,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxPalette
-{{Fill AxPalette Description}}
+
+Specifies the Palette parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyPaletteItem[]
@@ -1145,7 +1211,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxPosition
-{{Fill AxPosition Description}}
+
+Specifies the Position parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.Axes.AxisPosition
@@ -1161,7 +1228,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxPositionAtZeroCrossing
-{{Fill AxPositionAtZeroCrossing Description}}
+
+Specifies the PositionAtZeroCrossing parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -1176,7 +1244,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxPositionTier
-{{Fill AxPositionTier Description}}
+
+Specifies the PositionTier parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Int32
@@ -1191,7 +1260,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxPowerPadding
-{{Fill AxPowerPadding Description}}
+
+Specifies the PowerPadding parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -1206,7 +1276,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxRenderAsImage
-{{Fill AxRenderAsImage Description}}
+
+Specifies the RenderAsImage parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -1221,7 +1292,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxSelectable
-{{Fill AxSelectable Description}}
+
+Specifies the Selectable parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -1236,7 +1308,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxSelectionMode
-{{Fill AxSelectionMode Description}}
+
+Specifies the SelectionMode parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.SelectionMode
@@ -1252,7 +1325,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxStartAngle
-{{Fill AxStartAngle Description}}
+
+Specifies the StartAngle parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1267,7 +1341,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxStartPosition
-{{Fill AxStartPosition Description}}
+
+Specifies the StartPosition parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1282,7 +1357,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxStringFormat
-{{Fill AxStringFormat Description}}
+
+Specifies the StringFormat parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -1297,7 +1373,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTag
-{{Fill AxTag Description}}
+
+Specifies the Tag parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Object
@@ -1312,7 +1389,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTextColor
-{{Fill AxTextColor Description}}
+
+Specifies the TextColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -1327,7 +1405,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTickStyle
-{{Fill AxTickStyle Description}}
+
+Specifies the TickStyle parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.Axes.TickStyle
@@ -1343,7 +1422,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTicklineColor
-{{Fill AxTicklineColor Description}}
+
+Specifies the TicklineColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -1358,7 +1438,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTimeZone
-{{Fill AxTimeZone Description}}
+
+Specifies the TimeZone parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.TimeZoneInfo
@@ -1373,7 +1454,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTitle
-{{Fill AxTitle Description}}
+
+Specifies the Title parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -1388,7 +1470,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTitleClippingLength
-{{Fill AxTitleClippingLength Description}}
+
+Specifies the TitleClippingLength parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1403,7 +1486,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTitleColor
-{{Fill AxTitleColor Description}}
+
+Specifies the TitleColor parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -1418,7 +1502,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTitleFont
-{{Fill AxTitleFont Description}}
+
+Specifies the TitleFont parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -1433,7 +1518,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTitleFontSize
-{{Fill AxTitleFontSize Description}}
+
+Specifies the TitleFontSize parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1448,7 +1534,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTitleFontWeight
-{{Fill AxTitleFontWeight Description}}
+
+Specifies the TitleFontWeight parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1463,7 +1550,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTitleFormatString
-{{Fill AxTitleFormatString Description}}
+
+Specifies the TitleFormatString parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -1478,7 +1566,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxTitlePosition
-{{Fill AxTitlePosition Description}}
+
+Specifies the TitlePosition parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1493,7 +1582,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxToolTip
-{{Fill AxToolTip Description}}
+
+Specifies the ToolTip parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -1508,7 +1598,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxUnit
-{{Fill AxUnit Description}}
+
+Specifies the Unit parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -1523,7 +1614,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxUseSuperExponentialFormat
-{{Fill AxUseSuperExponentialFormat Description}}
+
+Specifies the UseSuperExponentialFormat parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -1538,7 +1630,8 @@ Accept wildcard characters: False
 ```
 
 ### -Axis
-{{Fill Axis Description}}
+
+Specifies the is parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.Axes.Axis[]
@@ -1553,7 +1646,8 @@ Accept wildcard characters: False
 ```
 
 ### -AxisTierDistance
-{{Fill AxisTierDistance Description}}
+
+Specifies the isTierDistance parameter of the x-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1568,7 +1662,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyAbsoluteMaximum
-{{Fill AyAbsoluteMaximum Description}}
+
+Specifies the AbsoluteMaximum parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1583,7 +1678,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyAbsoluteMinimum
-{{Fill AyAbsoluteMinimum Description}}
+
+Specifies the AbsoluteMinimum parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1598,7 +1694,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyAngle
-{{Fill AyAngle Description}}
+
+Specifies the Angle parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1613,7 +1710,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyAxisDistance
-{{Fill AyAxisDistance Description}}
+
+Specifies the AxisDistance parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1628,7 +1726,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyAxisTickToLabelDistance
-{{Fill AyAxisTickToLabelDistance Description}}
+
+Specifies the AxisTickToLabelDistance parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1643,7 +1742,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyAxisTitleDistance
-{{Fill AyAxisTitleDistance Description}}
+
+Specifies the AxisTitleDistance parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1658,7 +1758,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyAxislineColor
-{{Fill AyAxislineColor Description}}
+
+Specifies the AxislineColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -1673,7 +1774,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyAxislineStyle
-{{Fill AyAxislineStyle Description}}
+
+Specifies the AxislineStyle parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.LineStyle
@@ -1689,7 +1791,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyAxislineThickness
-{{Fill AyAxislineThickness Description}}
+
+Specifies the AxislineThickness parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1704,7 +1807,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyBase
-{{Fill AyBase Description}}
+
+Specifies the Base parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1719,7 +1823,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyCalendarWeekRule
-{{Fill AyCalendarWeekRule Description}}
+
+Specifies the CalendarWeekRule parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Globalization.CalendarWeekRule
@@ -1735,7 +1840,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyClipTitle
-{{Fill AyClipTitle Description}}
+
+Specifies the ClipTitle parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -1750,7 +1856,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyCropGridlines
-{{Fill AyCropGridlines Description}}
+
+Specifies the CropGridlines parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -1765,7 +1872,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyEndAngle
-{{Fill AyEndAngle Description}}
+
+Specifies the EndAngle parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1780,7 +1888,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyEndPosition
-{{Fill AyEndPosition Description}}
+
+Specifies the EndPosition parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1795,7 +1904,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyExtraGridlineColor
-{{Fill AyExtraGridlineColor Description}}
+
+Specifies the ExtraGridlineColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -1810,7 +1920,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyExtraGridlineStyle
-{{Fill AyExtraGridlineStyle Description}}
+
+Specifies the ExtraGridlineStyle parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.LineStyle
@@ -1826,7 +1937,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyExtraGridlineThickness
-{{Fill AyExtraGridlineThickness Description}}
+
+Specifies the ExtraGridlineThickness parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1841,7 +1953,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyExtraGridlines
-{{Fill AyExtraGridlines Description}}
+
+Specifies the ExtraGridlines parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
@@ -1856,7 +1969,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyFilterFunction
-{{Fill AyFilterFunction Description}}
+
+Specifies the FilterFunction parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Func`2[System.Double,System.Boolean]
@@ -1871,7 +1985,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyFilterMaxValue
-{{Fill AyFilterMaxValue Description}}
+
+Specifies the FilterMaxValue parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1886,7 +2001,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyFilterMinValue
-{{Fill AyFilterMinValue Description}}
+
+Specifies the FilterMinValue parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1901,7 +2017,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyFirstDayOfWeek
-{{Fill AyFirstDayOfWeek Description}}
+
+Specifies the FirstDayOfWeek parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.DayOfWeek
@@ -1917,7 +2034,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyFont
-{{Fill AyFont Description}}
+
+Specifies the Font parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -1932,7 +2050,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyFontSize
-{{Fill AyFontSize Description}}
+
+Specifies the FontSize parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1947,7 +2066,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyFontWeight
-{{Fill AyFontWeight Description}}
+
+Specifies the FontWeight parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1962,7 +2082,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyFormatAsFractions
-{{Fill AyFormatAsFractions Description}}
+
+Specifies the FormatAsFractions parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -1977,7 +2098,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyFractionUnit
-{{Fill AyFractionUnit Description}}
+
+Specifies the FractionUnit parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -1992,7 +2114,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyFractionUnitSymbol
-{{Fill AyFractionUnitSymbol Description}}
+
+Specifies the FractionUnitSymbol parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -2007,7 +2130,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyGapWidth
-{{Fill AyGapWidth Description}}
+
+Specifies the GapWidth parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2022,7 +2146,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyHighColor
-{{Fill AyHighColor Description}}
+
+Specifies the HighColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -2037,7 +2162,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyIntervalLength
-{{Fill AyIntervalLength Description}}
+
+Specifies the IntervalLength parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2052,7 +2178,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyIntervalType
-{{Fill AyIntervalType Description}}
+
+Specifies the IntervalType parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.Axes.DateTimeIntervalType
@@ -2068,7 +2195,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyInvalidCategoryColor
-{{Fill AyInvalidCategoryColor Description}}
+
+Specifies the InvalidCategoryColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -2083,7 +2211,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyInvalidNumberColor
-{{Fill AyInvalidNumberColor Description}}
+
+Specifies the InvalidNumberColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -2098,7 +2227,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyIsAxisVisible
-{{Fill AyIsAxisVisible Description}}
+
+Specifies the IsAxisVisible parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -2113,7 +2243,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyIsPanEnabled
-{{Fill AyIsPanEnabled Description}}
+
+Specifies the IsPanEnabled parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -2128,7 +2259,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyIsTickCentered
-{{Fill AyIsTickCentered Description}}
+
+Specifies the IsTickCentered parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -2143,7 +2275,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyIsZoomEnabled
-{{Fill AyIsZoomEnabled Description}}
+
+Specifies the IsZoomEnabled parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -2158,7 +2291,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyItemsSource
-{{Fill AyItemsSource Description}}
+
+Specifies the ItemsSource parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Collections.IEnumerable
@@ -2173,7 +2307,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyKey
-{{Fill AyKey Description}}
+
+Specifies the Key parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -2188,7 +2323,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyLabelField
-{{Fill AyLabelField Description}}
+
+Specifies the LabelField parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -2203,7 +2339,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyLabelFormatter
-{{Fill AyLabelFormatter Description}}
+
+Specifies the LabelFormatter parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Func`2[System.Double,System.String]
@@ -2218,7 +2355,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyLayer
-{{Fill AyLayer Description}}
+
+Specifies the Layer parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.Axes.AxisLayer
@@ -2234,7 +2372,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyLowColor
-{{Fill AyLowColor Description}}
+
+Specifies the LowColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -2249,7 +2388,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMajorGridlineColor
-{{Fill AyMajorGridlineColor Description}}
+
+Specifies the MajorGridlineColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -2264,7 +2404,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMajorGridlineStyle
-{{Fill AyMajorGridlineStyle Description}}
+
+Specifies the MajorGridlineStyle parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.LineStyle
@@ -2280,7 +2421,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMajorGridlineThickness
-{{Fill AyMajorGridlineThickness Description}}
+
+Specifies the MajorGridlineThickness parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2295,7 +2437,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMajorStep
-{{Fill AyMajorStep Description}}
+
+Specifies the MajorStep parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2310,7 +2453,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMajorTickSize
-{{Fill AyMajorTickSize Description}}
+
+Specifies the MajorTickSize parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2325,7 +2469,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMaximum
-{{Fill AyMaximum Description}}
+
+Specifies the Maximum parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2340,7 +2485,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMaximumPadding
-{{Fill AyMaximumPadding Description}}
+
+Specifies the MaximumPadding parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2355,7 +2501,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMaximumRange
-{{Fill AyMaximumRange Description}}
+
+Specifies the MaximumRange parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2370,7 +2517,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinimum
-{{Fill AyMinimum Description}}
+
+Specifies the Minimum parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2385,7 +2533,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinimumMajorStep
-{{Fill AyMinimumMajorStep Description}}
+
+Specifies the MinimumMajorStep parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2400,7 +2549,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinimumMinorStep
-{{Fill AyMinimumMinorStep Description}}
+
+Specifies the MinimumMinorStep parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2415,7 +2565,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinimumPadding
-{{Fill AyMinimumPadding Description}}
+
+Specifies the MinimumPadding parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2430,7 +2581,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinimumRange
-{{Fill AyMinimumRange Description}}
+
+Specifies the MinimumRange parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2445,7 +2597,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinorGridlineColor
-{{Fill AyMinorGridlineColor Description}}
+
+Specifies the MinorGridlineColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -2460,7 +2613,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinorGridlineStyle
-{{Fill AyMinorGridlineStyle Description}}
+
+Specifies the MinorGridlineStyle parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.LineStyle
@@ -2476,7 +2630,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinorGridlineThickness
-{{Fill AyMinorGridlineThickness Description}}
+
+Specifies the MinorGridlineThickness parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2491,7 +2646,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinorIntervalType
-{{Fill AyMinorIntervalType Description}}
+
+Specifies the MinorIntervalType parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.Axes.DateTimeIntervalType
@@ -2507,7 +2663,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinorStep
-{{Fill AyMinorStep Description}}
+
+Specifies the MinorStep parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2522,7 +2679,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinorTickSize
-{{Fill AyMinorTickSize Description}}
+
+Specifies the MinorTickSize parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2537,7 +2695,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyMinorTicklineColor
-{{Fill AyMinorTicklineColor Description}}
+
+Specifies the MinorTicklineColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -2552,7 +2711,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyPalette
-{{Fill AyPalette Description}}
+
+Specifies the Palette parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyPaletteItem[]
@@ -2567,7 +2727,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyPosition
-{{Fill AyPosition Description}}
+
+Specifies the Position parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.Axes.AxisPosition
@@ -2583,7 +2744,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyPositionAtZeroCrossing
-{{Fill AyPositionAtZeroCrossing Description}}
+
+Specifies the PositionAtZeroCrossing parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -2598,7 +2760,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyPositionTier
-{{Fill AyPositionTier Description}}
+
+Specifies the PositionTier parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Int32
@@ -2613,7 +2776,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyPowerPadding
-{{Fill AyPowerPadding Description}}
+
+Specifies the PowerPadding parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -2628,7 +2792,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyRenderAsImage
-{{Fill AyRenderAsImage Description}}
+
+Specifies the RenderAsImage parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -2643,7 +2808,8 @@ Accept wildcard characters: False
 ```
 
 ### -AySelectable
-{{Fill AySelectable Description}}
+
+Specifies the Selectable parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -2658,7 +2824,8 @@ Accept wildcard characters: False
 ```
 
 ### -AySelectionMode
-{{Fill AySelectionMode Description}}
+
+Specifies the SelectionMode parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.SelectionMode
@@ -2674,7 +2841,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyStartAngle
-{{Fill AyStartAngle Description}}
+
+Specifies the StartAngle parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2689,7 +2857,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyStartPosition
-{{Fill AyStartPosition Description}}
+
+Specifies the StartPosition parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2704,7 +2873,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyStringFormat
-{{Fill AyStringFormat Description}}
+
+Specifies the StringFormat parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -2719,7 +2889,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTag
-{{Fill AyTag Description}}
+
+Specifies the Tag parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.Object
@@ -2734,7 +2905,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTextColor
-{{Fill AyTextColor Description}}
+
+Specifies the TextColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -2749,7 +2921,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTickStyle
-{{Fill AyTickStyle Description}}
+
+Specifies the TickStyle parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: OxyPlot.Axes.TickStyle
@@ -2765,7 +2938,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTicklineColor
-{{Fill AyTicklineColor Description}}
+
+Specifies the TicklineColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -2780,7 +2954,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTimeZone
-{{Fill AyTimeZone Description}}
+
+Specifies the TimeZone parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.TimeZoneInfo
@@ -2795,7 +2970,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTitle
-{{Fill AyTitle Description}}
+
+Specifies the Title parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -2810,7 +2986,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTitleClippingLength
-{{Fill AyTitleClippingLength Description}}
+
+Specifies the TitleClippingLength parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2825,7 +3002,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTitleColor
-{{Fill AyTitleColor Description}}
+
+Specifies the TitleColor parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -2840,7 +3018,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTitleFont
-{{Fill AyTitleFont Description}}
+
+Specifies the TitleFont parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -2855,7 +3034,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTitleFontSize
-{{Fill AyTitleFontSize Description}}
+
+Specifies the TitleFontSize parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2870,7 +3050,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTitleFontWeight
-{{Fill AyTitleFontWeight Description}}
+
+Specifies the TitleFontWeight parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2885,7 +3066,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTitleFormatString
-{{Fill AyTitleFormatString Description}}
+
+Specifies the TitleFormatString parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -2900,7 +3082,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyTitlePosition
-{{Fill AyTitlePosition Description}}
+
+Specifies the TitlePosition parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -2915,7 +3098,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyToolTip
-{{Fill AyToolTip Description}}
+
+Specifies the ToolTip parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -2930,7 +3114,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyUnit
-{{Fill AyUnit Description}}
+
+Specifies the Unit parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: System.String
@@ -2945,7 +3130,8 @@ Accept wildcard characters: False
 ```
 
 ### -AyUseSuperExponentialFormat
-{{Fill AyUseSuperExponentialFormat Description}}
+
+Specifies the UseSuperExponentialFormat parameter of the y-axis. For more details, refer to the help topic of the axis of interest.
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -2960,7 +3146,8 @@ Accept wildcard characters: False
 ```
 
 ### -Background
-{{Fill Background Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -2975,7 +3162,8 @@ Accept wildcard characters: False
 ```
 
 ### -Culture
-{{Fill Culture Description}}
+
+
 
 ```yaml
 Type: System.Globalization.CultureInfo
@@ -2990,7 +3178,8 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultColors
-{{Fill DefaultColors Description}}
+
+
 
 ```yaml
 Type: System.Collections.Generic.IList`1[OxyPlot.OxyColor]
@@ -3005,7 +3194,8 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultFont
-{{Fill DefaultFont Description}}
+
+
 
 ```yaml
 Type: System.String
@@ -3020,7 +3210,8 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultFontSize
-{{Fill DefaultFontSize Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3035,7 +3226,8 @@ Accept wildcard characters: False
 ```
 
 ### -IsLegendVisible
-{{Fill IsLegendVisible Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Bool
@@ -3050,7 +3242,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendBackground
-{{Fill LegendBackground Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -3065,7 +3258,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendBorder
-{{Fill LegendBorder Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -3080,7 +3274,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendBorderThickness
-{{Fill LegendBorderThickness Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3095,7 +3290,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendColumnSpacing
-{{Fill LegendColumnSpacing Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3110,7 +3306,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendFont
-{{Fill LegendFont Description}}
+
+
 
 ```yaml
 Type: System.String
@@ -3125,7 +3322,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendFontSize
-{{Fill LegendFontSize Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3140,7 +3338,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendFontWeight
-{{Fill LegendFontWeight Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3155,7 +3354,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendItemAlignment
-{{Fill LegendItemAlignment Description}}
+
+
 
 ```yaml
 Type: OxyPlot.HorizontalAlignment
@@ -3171,7 +3371,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendItemOrder
-{{Fill LegendItemOrder Description}}
+
+
 
 ```yaml
 Type: OxyPlot.LegendItemOrder
@@ -3187,7 +3388,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendItemSpacing
-{{Fill LegendItemSpacing Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3202,7 +3404,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendLineSpacing
-{{Fill LegendLineSpacing Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3217,7 +3420,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendMargin
-{{Fill LegendMargin Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3232,7 +3436,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendMaxHeight
-{{Fill LegendMaxHeight Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3247,7 +3452,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendMaxWidth
-{{Fill LegendMaxWidth Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3262,7 +3468,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendOrientation
-{{Fill LegendOrientation Description}}
+
+
 
 ```yaml
 Type: OxyPlot.LegendOrientation
@@ -3278,7 +3485,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendPadding
-{{Fill LegendPadding Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3293,7 +3501,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendPlacement
-{{Fill LegendPlacement Description}}
+
+
 
 ```yaml
 Type: OxyPlot.LegendPlacement
@@ -3309,7 +3518,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendPosition
-{{Fill LegendPosition Description}}
+
+
 
 ```yaml
 Type: OxyPlot.LegendPosition
@@ -3325,7 +3535,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendSymbolLength
-{{Fill LegendSymbolLength Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3340,7 +3551,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendSymbolMargin
-{{Fill LegendSymbolMargin Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3355,7 +3567,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendSymbolPlacement
-{{Fill LegendSymbolPlacement Description}}
+
+
 
 ```yaml
 Type: OxyPlot.LegendSymbolPlacement
@@ -3371,7 +3584,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendTextColor
-{{Fill LegendTextColor Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -3386,7 +3600,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendTitle
-{{Fill LegendTitle Description}}
+
+
 
 ```yaml
 Type: System.String
@@ -3401,7 +3616,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendTitleColor
-{{Fill LegendTitleColor Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -3416,7 +3632,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendTitleFont
-{{Fill LegendTitleFont Description}}
+
+
 
 ```yaml
 Type: System.String
@@ -3431,7 +3648,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendTitleFontSize
-{{Fill LegendTitleFontSize Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3446,7 +3664,8 @@ Accept wildcard characters: False
 ```
 
 ### -LegendTitleFontWeight
-{{Fill LegendTitleFontWeight Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3461,7 +3680,8 @@ Accept wildcard characters: False
 ```
 
 ### -OutFile
-{{Fill OutFile Description}}
+
+Specifies the output file name. The output format is determined based on the file extension, which should be either ".png" or ".svg".
 
 ```yaml
 Type: System.String
@@ -3476,7 +3696,8 @@ Accept wildcard characters: False
 ```
 
 ### -OutHeight
-{{Fill OutHeight Description}}
+
+Specifies the height of the output image. Use with the -OutFile parameter.
 
 ```yaml
 Type: System.Int32
@@ -3491,7 +3712,8 @@ Accept wildcard characters: False
 ```
 
 ### -OutWidth
-{{Fill OutWidth Description}}
+
+Specifies the width of the output image. Use with the -OutFile parameter.
 
 ```yaml
 Type: System.Int32
@@ -3506,7 +3728,8 @@ Accept wildcard characters: False
 ```
 
 ### -Padding
-{{Fill Padding Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
@@ -3521,7 +3744,8 @@ Accept wildcard characters: False
 ```
 
 ### -PassThru
-{{Fill PassThru Description}}
+
+Returns a created object when the -AddTo, -OutFile or -Show parameter is specified.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -3536,7 +3760,8 @@ Accept wildcard characters: False
 ```
 
 ### -PlotAreaBackground
-{{Fill PlotAreaBackground Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -3551,7 +3776,8 @@ Accept wildcard characters: False
 ```
 
 ### -PlotAreaBorderColor
-{{Fill PlotAreaBorderColor Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -3566,7 +3792,8 @@ Accept wildcard characters: False
 ```
 
 ### -PlotAreaBorderThickness
-{{Fill PlotAreaBorderThickness Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
@@ -3581,7 +3808,8 @@ Accept wildcard characters: False
 ```
 
 ### -PlotMargins
-{{Fill PlotMargins Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
@@ -3596,7 +3824,8 @@ Accept wildcard characters: False
 ```
 
 ### -PlotType
-{{Fill PlotType Description}}
+
+
 
 ```yaml
 Type: OxyPlot.PlotType
@@ -3612,7 +3841,8 @@ Accept wildcard characters: False
 ```
 
 ### -RenderingDecorator
-{{Fill RenderingDecorator Description}}
+
+
 
 ```yaml
 Type: System.Func`2[OxyPlot.IRenderContext,OxyPlot.IRenderContext]
@@ -3627,7 +3857,8 @@ Accept wildcard characters: False
 ```
 
 ### -ReuseWindow
-{{Fill ReuseWindow Description}}
+
+Indicates to reuse the most recently used window to show the chart instead of creating a new one. Use with the -Show parameter.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -3642,7 +3873,8 @@ Accept wildcard characters: False
 ```
 
 ### -SelectionColor
-{{Fill SelectionColor Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -3657,37 +3889,40 @@ Accept wildcard characters: False
 ```
 
 ### -Series
-{{Fill Series Description}}
+
+
 
 ```yaml
-Type: OxyPlot.Series.Series
+Type: OxyPlot.Series.Series[]
 Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: 0
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -SeriesInfo
-{{Fill SeriesInfo Description}}
+
+
 
 ```yaml
-Type: Horker.OxyPlotCli.ISeriesInfo
+Type: Horker.OxyPlotCli.ISeriesInfo[]
 Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: 1
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Show
-{{Fill Show Description}}
+
+Shows the chart in the GUI window.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -3702,7 +3937,8 @@ Accept wildcard characters: False
 ```
 
 ### -Style
-{{Fill Style Description}}
+
+Specifies the style.
 
 ```yaml
 Type: System.String
@@ -3717,7 +3953,8 @@ Accept wildcard characters: False
 ```
 
 ### -Subtitle
-{{Fill Subtitle Description}}
+
+
 
 ```yaml
 Type: System.String
@@ -3732,7 +3969,8 @@ Accept wildcard characters: False
 ```
 
 ### -SubtitleColor
-{{Fill SubtitleColor Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -3747,7 +3985,8 @@ Accept wildcard characters: False
 ```
 
 ### -SubtitleFont
-{{Fill SubtitleFont Description}}
+
+
 
 ```yaml
 Type: System.String
@@ -3762,7 +4001,8 @@ Accept wildcard characters: False
 ```
 
 ### -SubtitleFontSize
-{{Fill SubtitleFontSize Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3777,7 +4017,8 @@ Accept wildcard characters: False
 ```
 
 ### -SubtitleFontWeight
-{{Fill SubtitleFontWeight Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3792,7 +4033,8 @@ Accept wildcard characters: False
 ```
 
 ### -SvgIsDocument
-{{Fill SvgIsDocument Description}}
+
+Indicates that a SVG file should be generated as a complete document. Use with the -OutFile parameter.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -3807,7 +4049,8 @@ Accept wildcard characters: False
 ```
 
 ### -TextColor
-{{Fill TextColor Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -3822,7 +4065,8 @@ Accept wildcard characters: False
 ```
 
 ### -Title
-{{Fill Title Description}}
+
+
 
 ```yaml
 Type: System.String
@@ -3837,7 +4081,8 @@ Accept wildcard characters: False
 ```
 
 ### -TitleColor
-{{Fill TitleColor Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
@@ -3852,7 +4097,8 @@ Accept wildcard characters: False
 ```
 
 ### -TitleFont
-{{Fill TitleFont Description}}
+
+
 
 ```yaml
 Type: System.String
@@ -3867,7 +4113,8 @@ Accept wildcard characters: False
 ```
 
 ### -TitleFontSize
-{{Fill TitleFontSize Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3882,7 +4129,8 @@ Accept wildcard characters: False
 ```
 
 ### -TitleFontWeight
-{{Fill TitleFontWeight Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3897,7 +4145,8 @@ Accept wildcard characters: False
 ```
 
 ### -TitleHorizontalAlignment
-{{Fill TitleHorizontalAlignment Description}}
+
+
 
 ```yaml
 Type: OxyPlot.TitleHorizontalAlignment
@@ -3913,7 +4162,8 @@ Accept wildcard characters: False
 ```
 
 ### -TitlePadding
-{{Fill TitlePadding Description}}
+
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double
@@ -3928,7 +4178,8 @@ Accept wildcard characters: False
 ```
 
 ### -TitleToolTip
-{{Fill TitleToolTip Description}}
+
+
 
 ```yaml
 Type: System.String
@@ -3937,6 +4188,38 @@ Aliases:
 
 Required: False
 Position: 60
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -InputObject
+
+Specifies a dataset that represents the data points of the series.
+
+```yaml
+Type: System.Object
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -PlotModel
+
+
+
+```yaml
+Type: OxyPlot.PlotModel
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3955,3 +4238,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+

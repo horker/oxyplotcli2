@@ -89,7 +89,7 @@ New-OxyColumnSeries [-InputObject <PSObject>] [-ValueName <String>] [-CategoryNa
 
 ## DESCRIPTION
 
-Returns an OxyPlot.Series.ColumnSeries object that represents a series for clustered or stacked column charts.
+Returns an object that represents a series for clustered or stacked column charts.
  
 
 
@@ -97,7 +97,7 @@ Returns an OxyPlot.Series.ColumnSeries object that represents a series for clust
 
 ### -AddTo
 
-Specifies the PlotModel to which the object is added.
+Specifies the PlotModel object to which the object is added.
 
 ```yaml
 Type: OxyPlot.PlotModel
@@ -1569,7 +1569,7 @@ Accept wildcard characters: False
 
 ### -AxType
 
-Specifies the type name of the x-axis.
+Specifies the (partial) type name of the x-axis.
 
 ```yaml
 Type: System.String
@@ -3057,7 +3057,7 @@ Accept wildcard characters: False
 
 ### -AyType
 
-Specifies the type name of the y-axis.
+Specifies the (partial) type name of the y-axis.
 
 ```yaml
 Type: System.String
@@ -3105,9 +3105,6 @@ Accept wildcard characters: False
 
 ### -Background
 
-Sets the background color of the series. The default is OxyColors.Undefined.
- 
-This property defines the background color in the area defined by the x and y axes used by this series.
 
 
 ```yaml
@@ -3124,8 +3121,6 @@ Accept wildcard characters: False
 
 ### -BaseValue
 
-Sets the base value.
- 
 
 
 ```yaml
@@ -3158,7 +3153,7 @@ Accept wildcard characters: False
 
 ### -CategoryName
 
-Specifies the property name of the input object to be treated as the element Category of the data point.
+Specifies the property name of the input object to be processed as the element Category of the data point.
 
 ```yaml
 Type: System.String
@@ -3174,8 +3169,6 @@ Accept wildcard characters: False
 
 ### -ColorField
 
-Sets the color field.
- 
 
 
 ```yaml
@@ -3192,8 +3185,6 @@ Accept wildcard characters: False
 
 ### -ColumnWidth
 
-Sets the width of the column.
- 
 
 
 ```yaml
@@ -3210,8 +3201,6 @@ Accept wildcard characters: False
 
 ### -FillColor
 
-Sets the color of the interior of the bars.
- 
 
 
 ```yaml
@@ -3228,9 +3217,6 @@ Accept wildcard characters: False
 
 ### -Font
 
-Sets the font. The default is null (use OxyPlot.PlotModel.DefaultFont.
- 
-If the value is null, the DefaultFont of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3247,9 +3233,6 @@ Accept wildcard characters: False
 
 ### -FontSize
 
-Sets the size of the font. The default is double.NaN (use OxyPlot.PlotModel.DefaultFontSize).
- 
-If the value is NaN, the DefaultFontSize of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3266,8 +3249,6 @@ Accept wildcard characters: False
 
 ### -FontWeight
 
-Sets the font weight. The default is FontWeights.Normal.
- 
 
 
 ```yaml
@@ -3332,8 +3313,6 @@ Accept wildcard characters: False
 
 ### -IsStacked
 
-Sets a value indicating whether this bar series is stacked.
- 
 
 
 ```yaml
@@ -3350,8 +3329,6 @@ Accept wildcard characters: False
 
 ### -IsVisible
 
-Sets a value indicating whether this series is visible. The default is true.
- 
 
 
 ```yaml
@@ -3368,8 +3345,6 @@ Accept wildcard characters: False
 
 ### -ItemsSource
 
-Sets the items source. The default is null.
- 
 
 
 ```yaml
@@ -3386,8 +3361,6 @@ Accept wildcard characters: False
 
 ### -LabelFormatString
 
-Sets the label format string.
- 
 
 
 ```yaml
@@ -3404,8 +3377,6 @@ Accept wildcard characters: False
 
 ### -LabelMargin
 
-Sets the label margins.
- 
 
 
 ```yaml
@@ -3422,8 +3393,6 @@ Accept wildcard characters: False
 
 ### -LabelPlacement
 
-Sets label placements.
- 
 
 
 ```yaml
@@ -3440,8 +3409,6 @@ Accept wildcard characters: False
 
 ### -NegativeFillColor
 
-Sets the color of the interior of the bars when the value is negative.
- 
 
 
 ```yaml
@@ -3506,7 +3473,7 @@ Accept wildcard characters: False
 
 ### -PassThru
 
-Returns an output object even when the -AddTo, -OutFile or -Show parameter is specified.
+Returns a created object when the -AddTo, -OutFile or -Show parameter is specified.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -3522,8 +3489,6 @@ Accept wildcard characters: False
 
 ### -RenderInLegend
 
-Sets a value indicating whether the series should be rendered in the legend. The default is true.
- 
 
 
 ```yaml
@@ -3556,8 +3521,6 @@ Accept wildcard characters: False
 
 ### -Selectable
 
-Sets a value indicating whether this element can be selected. The default is true.
- 
 
 
 ```yaml
@@ -3574,9 +3537,6 @@ Accept wildcard characters: False
 
 ### -SelectionMode
 
-Sets the selection mode of items in this element. The default is SelectionMode.All.
- 
-This is only used by the select/unselect functionality, not by the rendering.
 
 
 ```yaml
@@ -3609,8 +3569,6 @@ Accept wildcard characters: False
 
 ### -StackGroup
 
-Sets the stack index indication to which stack the series belongs. Default is 0. Hence, all stacked series belong to the same stack.
- 
 
 
 ```yaml
@@ -3627,8 +3585,6 @@ Accept wildcard characters: False
 
 ### -StrokeColor
 
-Sets the color of the border around the bars.
- 
 
 
 ```yaml
@@ -3645,8 +3601,6 @@ Accept wildcard characters: False
 
 ### -StrokeThickness
 
-Sets the thickness of the bar border strokes.
- 
 
 
 ```yaml
@@ -3695,9 +3649,6 @@ Accept wildcard characters: False
 
 ### -Tag
 
-Sets an arbitrary object value that can be used to store custom information about this plot element. The default is null.
- 
-This property is analogous to Tag properties in other Microsoft programming models. Tag is intended to provide a pre-existing property location where you can store some basic custom information about any PlotElement without requiring you to subclass an element.
 
 
 ```yaml
@@ -3714,9 +3665,6 @@ Accept wildcard characters: False
 
 ### -TextColor
 
-Sets the color of the text. The default is OxyColors.Automatic (use OxyPlot.PlotModel.TextColor).
- 
-If the value is OxyColors.Automatic, the TextColor of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3733,8 +3681,6 @@ Accept wildcard characters: False
 
 ### -Title
 
-Sets the title of the series. The default is null.
- 
 
 
 ```yaml
@@ -3751,8 +3697,6 @@ Accept wildcard characters: False
 
 ### -ToolTip
 
-Sets the tool tip. The default is null.
- 
 
 
 ```yaml
@@ -3769,10 +3713,6 @@ Accept wildcard characters: False
 
 ### -TrackerFormatString
 
-Sets a format string used for the tracker. The default depends on the series.
- 
-The arguments for the format string may be different for each type of series. See the documentation.
- 
 
 
 ```yaml
@@ -3789,10 +3729,6 @@ Accept wildcard characters: False
 
 ### -TrackerKey
 
-Sets the key for the tracker to use on this series. The default is null.
- 
-This key may be used by the plot view to show a custom tracker for the series.
- 
 
 
 ```yaml
@@ -3825,8 +3761,6 @@ Accept wildcard characters: False
 
 ### -ValueField
 
-Sets the value field.
- 
 
 
 ```yaml
@@ -3843,7 +3777,7 @@ Accept wildcard characters: False
 
 ### -ValueName
 
-Specifies the property name of the input object to be treated as the element Value of the data point.
+Specifies the property name of the input object to be processed as the element Value of the data point.
 
 ```yaml
 Type: System.String
@@ -3859,8 +3793,6 @@ Accept wildcard characters: False
 
 ### -XAxisKey
 
-Sets the x-axis key. The default is null.
- 
 
 
 ```yaml
@@ -3877,8 +3809,6 @@ Accept wildcard characters: False
 
 ### -YAxisKey
 
-Sets the y-axis key. The default is null.
- 
 
 
 ```yaml

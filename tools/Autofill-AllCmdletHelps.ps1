@@ -6,10 +6,12 @@ param(
 
 Set-StrictMode -Version Latest
 
+$xmlDocument = [xml](Get-Content "$PSScriptRoot\OxyPlot.xml")
+
 get-command -module oxyplotcli |
-    where { $_.Name -match "(Series|Axis|Annotation|PlotModel)$" } |
+    where { $_.Name -match "(Series2?|Axis|Annotation|PlotModel)$" } |
     select -expand Name |
     foreach {
         Write-Host $_
-        & "$PSScriptRoot\Autofill-CmdletHelp.ps1" $_ $SourceDir $DestinationDir
+        & "$PSScriptRoot\Autofill-CmdletHelp.ps1" $_ $SourceDir $DestinationDir $xmlDocument
     }

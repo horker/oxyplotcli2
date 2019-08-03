@@ -2,7 +2,8 @@
 param(
     [string]$CmdletName,
     [string]$SourceDir = "$PSScriptRoot\..\docs\generated",
-    [string]$DestinationDir = "$PSScriptRoot\..\docs\autofilled"
+    [string]$DestinationDir = "$PSScriptRoot\..\docs\autofilled",
+    [xml]$XmlDocument = (Get-Content "$PSScriptRoot\OxyPlot.xml")
 )
 
 Set-StrictMode -Version Latest
@@ -16,13 +17,16 @@ $outFile = Join-Path $DestinationDir "$CmdletName.md"
 
 $objectName = $CmdletName -replace "New-Oxy", ""
 
-if ($ObjectName.EndsWith("Series")) {
+if ($objectName -eq "HistogramSeries2") {
+    $className = "OxyPlot.Series.ColumnSeries"
+}
+elseif ($objectName.EndsWith("Series")) {
     $className = "OxyPlot.Series.$objectName"
 }
-elseif ($ObjectName.EndsWith("Axis")) {
+elseif ($objectName.EndsWith("Axis")) {
     $className = "OxyPlot.Axes.$objectName"
 }
-elseif ($ObjectName.EndsWith("Annotation")) {
+elseif ($objectName.EndsWith("Annotation")) {
     $className = "OxyPlot.Annotations.$objectName"
 }
 else {
@@ -31,7 +35,7 @@ else {
 
 Write-Verbose $className
 
-$items = & "$PSScriptRoot\Get-HelpItems.ps1" $className
+$HelpItems = & "$PSScriptRoot\Get-HelpItems.ps1" $objectName $className $XmlDocument
 
 ############################################################
 # Get-ParameterDescription
@@ -43,15 +47,15 @@ function Get-ParameterDescription {
     )
 
     if ($Name -eq "AxType") {
-        return "Specifies the type name of the x-axis."
+        return "Specifies the (partial) type name of the x-axis."
     }
 
     if ($Name -eq "AyType") {
-        return "Specifies the type name of the y-axis."
+        return "Specifies the (partial) type name of the y-axis."
     }
 
     if ($Name -eq "AzType") {
-        return "Specifies the type name of the series-specific additional axis."
+        return "Specifies the (partial) type name of the series-specific additional axis."
     }
 
     if ($Name -match "^A([xyz])(\w+)$") {
@@ -68,7 +72,7 @@ function Get-ParameterDescription {
         return "Specifies the $propName parameter of the $($axis)axis. For more details, refer to the help topic of the axis of interest."
     }
 
-    return $items.Parameters[$Name]
+    return $HelpItems.Parameters[$Name]
 }
 
 ############################################################
@@ -92,14 +96,14 @@ foreach ($line in $doc) {
     if ($line -match "^## SYNOPSIS") {
         [void]$out.AppendLine($line)
         [void]$out.AppendLine()
-        [void]$out.AppendLine($items.Synopsis)
+        [void]$out.AppendLine($HelpItems.Synopsis)
         [void]$out.AppendLine()
         $skipToNextSection = $true
     }
     elseif ($line -match "^## DESCRIPTION") {
         [void]$out.AppendLine($line)
         [void]$out.AppendLine()
-        [void]$out.AppendLine($items.Description)
+        [void]$out.AppendLine($HelpItems.Description)
         [void]$out.AppendLine()
         $skipToNextSection = $true
     }
@@ -112,7 +116,7 @@ foreach ($line in $doc) {
     elseif ($line -match "^## RELATED LINKS") {
         [void]$out.AppendLine($line)
         [void]$out.AppendLine()
-        foreach ($l in $items.Links) {
+        foreach ($l in $HelpItems.Links) {
             [void]$out.AppendLine("[$l]($l)")
         }
         $skipToNextSection = $true

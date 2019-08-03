@@ -5,38 +5,28 @@ online version: http://www.mathworks.com/help/toolbox/finance/highlowfts.html
 schema: 2.0.0
 ---
 
-# New-OxyCandleStickAndVolumeSeries
+# New-OxyHistogramSeries2
 
 ## SYNOPSIS
 
-Returns an object that represents a dual view (candlestick + volume) series for OHLCV bars
- 
- Note that to use this series, one *must* define two y-axes, one named "Bars" and the other named
- "Volume". Typically would set up the volume on StartPosition =0, EndPosition = fraction and for
- the bar axis StartPosition = fraction + delta, EndPosition = 1.0.
- 
-See [link](http://www.mathworks.com/help/toolbox/finance/highlowfts.html)
-
+Returns an object that represents a histogram.
 
 ## SYNTAX
 
 ```
-New-OxyCandleStickAndVolumeSeries [[-InputObject] <PSObject>] [[-XName] <String>] [[-OpenName] <String>]
- [[-HighName] <String>] [[-LowName] <String>] [[-CloseName] <String>] [[-BuyVolumeName] <String>]
- [[-SellVolumeName] <String>] [[-GroupName] <String>] [[-X] <Double[]>] [[-Open] <Double[]>]
- [[-High] <Double[]>] [[-Low] <Double[]>] [[-Close] <Double[]>] [[-BuyVolume] <Double[]>]
- [[-SellVolume] <Double[]>] [[-Group] <Object[]>] [[-AddTo] <PlotModel>] [[-OutFile] <String>]
- [[-OutWidth] <Int32>] [[-OutHeight] <Int32>] [-SvgIsDocument] [-PassThru] [[-Style] <String>] [-AsUIElement]
- [-Show] [-ReuseWindow] [[-Items] <System.Collections.Generic.List`1[OxyPlot.Series.OhlcvItem]>]
- [[-VolumeAxisKey] <String>] [[-BarAxisKey] <String>] [[-VolumeStyle] <VolumeStyle>]
- [[-StrokeThickness] <Double>] [[-StrokeIntensity] <Double>] [[-SeparatorStrokeThickness] <Double>]
- [[-SeparatorLineStyle] <LineStyle>] [[-PositiveColor] <OxyColor>] [[-NegativeColor] <OxyColor>]
- [[-SeparatorColor] <OxyColor>] [[-PositiveHollow] <Bool>] [[-NegativeHollow] <Bool>] [[-CandleWidth] <Double>]
- [[-XAxisKey] <String>] [[-YAxisKey] <String>] [[-ItemsSource] <IEnumerable>] [[-Background] <OxyColor>]
- [[-IsVisible] <Bool>] [[-Title] <String>] [[-RenderInLegend] <Bool>] [[-TrackerFormatString] <String>]
- [[-TrackerKey] <String>] [[-Font] <String>] [[-FontSize] <Double>] [[-FontWeight] <Double>] [[-Tag] <Object>]
- [[-TextColor] <OxyColor>] [[-ToolTip] <String>] [[-Selectable] <Bool>] [[-SelectionMode] <SelectionMode>]
- [[-AxType] <String>] [[-AxStartAngle] <Double>] [[-AxEndAngle] <Double>] [[-AxFormatAsFractions] <Bool>]
+New-OxyHistogramSeries2 [[-InputObject] <PSObject>] [[-DataName] <String>] [[-GroupName] <String>]
+ [[-Data] <Double[]>] [[-Group] <Object[]>] [[-BinCount] <Int32>] [[-BinWidth] <Double>] [-Normalize]
+ [[-AddTo] <PlotModel>] [[-OutFile] <String>] [[-OutWidth] <Int32>] [[-OutHeight] <Int32>] [-SvgIsDocument]
+ [-PassThru] [[-Style] <String>] [-AsUIElement] [-Show] [-ReuseWindow] [[-ColumnWidth] <Double>]
+ [[-BaseValue] <Double>] [[-ColorField] <String>] [[-FillColor] <OxyColor>] [[-IsStacked] <Bool>]
+ [[-LabelFormatString] <String>] [[-LabelMargin] <Double>] [[-LabelPlacement] <LabelPlacement>]
+ [[-NegativeFillColor] <OxyColor>] [[-StackGroup] <String>] [[-StrokeColor] <OxyColor>]
+ [[-StrokeThickness] <Double>] [[-ValueField] <String>] [[-XAxisKey] <String>] [[-YAxisKey] <String>]
+ [[-ItemsSource] <IEnumerable>] [[-Background] <OxyColor>] [[-IsVisible] <Bool>] [[-Title] <String>]
+ [[-RenderInLegend] <Bool>] [[-TrackerFormatString] <String>] [[-TrackerKey] <String>] [[-Font] <String>]
+ [[-FontSize] <Double>] [[-FontWeight] <Double>] [[-Tag] <Object>] [[-TextColor] <OxyColor>]
+ [[-ToolTip] <String>] [[-Selectable] <Bool>] [[-SelectionMode] <SelectionMode>] [[-AxType] <String>]
+ [[-AxStartAngle] <Double>] [[-AxEndAngle] <Double>] [[-AxFormatAsFractions] <Bool>]
  [[-AxFractionUnit] <Double>] [[-AxFractionUnitSymbol] <String>] [[-AxAbsoluteMaximum] <Double>]
  [[-AxAbsoluteMinimum] <Double>] [[-AxAngle] <Double>] [[-AxAxisTickToLabelDistance] <Double>]
  [[-AxAxisTitleDistance] <Double>] [[-AxAxisDistance] <Double>] [[-AxAxislineColor] <OxyColor>]
@@ -98,50 +88,12 @@ New-OxyCandleStickAndVolumeSeries [[-InputObject] <PSObject>] [[-XName] <String>
  [[-AyIntervalType] <DateTimeIntervalType>] [[-AyMinorIntervalType] <DateTimeIntervalType>]
  [[-AyTimeZone] <TimeZoneInfo>] [[-AyInvalidNumberColor] <OxyColor>] [[-AyHighColor] <OxyColor>]
  [[-AyLowColor] <OxyColor>] [[-AyRenderAsImage] <Bool>] [[-AyBase] <Double>] [[-AyPowerPadding] <Bool>]
- [[-AzType] <String>] [[-AzStartAngle] <Double>] [[-AzEndAngle] <Double>] [[-AzFormatAsFractions] <Bool>]
- [[-AzFractionUnit] <Double>] [[-AzFractionUnitSymbol] <String>] [[-AzAbsoluteMaximum] <Double>]
- [[-AzAbsoluteMinimum] <Double>] [[-AzAngle] <Double>] [[-AzAxisTickToLabelDistance] <Double>]
- [[-AzAxisTitleDistance] <Double>] [[-AzAxisDistance] <Double>] [[-AzAxislineColor] <OxyColor>]
- [[-AzAxislineStyle] <LineStyle>] [[-AzAxislineThickness] <Double>] [[-AzClipTitle] <Bool>]
- [[-AzCropGridlines] <Bool>] [[-AzEndPosition] <Double>] [[-AzExtraGridlineColor] <OxyColor>]
- [[-AzExtraGridlineStyle] <LineStyle>] [[-AzExtraGridlineThickness] <Double>] [[-AzExtraGridlines] <Double[]>]
- [[-AzFilterFunction] <System.Func`2[System.Double,System.Boolean]>] [[-AzFilterMaxValue] <Double>]
- [[-AzFilterMinValue] <Double>] [[-AzIntervalLength] <Double>] [[-AzIsAxisVisible] <Bool>]
- [[-AzIsPanEnabled] <Bool>] [[-AzIsZoomEnabled] <Bool>] [[-AzKey] <String>]
- [[-AzLabelFormatter] <System.Func`2[System.Double,System.String]>] [[-AzLayer] <AxisLayer>]
- [[-AzMajorGridlineColor] <OxyColor>] [[-AzMajorGridlineStyle] <LineStyle>]
- [[-AzMajorGridlineThickness] <Double>] [[-AzMajorStep] <Double>] [[-AzMajorTickSize] <Double>]
- [[-AzMaximum] <Double>] [[-AzMaximumPadding] <Double>] [[-AzMaximumRange] <Double>] [[-AzMinimum] <Double>]
- [[-AzMinimumMajorStep] <Double>] [[-AzMinimumMinorStep] <Double>] [[-AzMinimumPadding] <Double>]
- [[-AzMinimumRange] <Double>] [[-AzMinorGridlineColor] <OxyColor>] [[-AzMinorGridlineStyle] <LineStyle>]
- [[-AzMinorGridlineThickness] <Double>] [[-AzMinorStep] <Double>] [[-AzMinorTicklineColor] <OxyColor>]
- [[-AzMinorTickSize] <Double>] [[-AzPosition] <AxisPosition>] [[-AzPositionAtZeroCrossing] <Bool>]
- [[-AzPositionTier] <Int32>] [[-AzStartPosition] <Double>] [[-AzStringFormat] <String>]
- [[-AzTickStyle] <TickStyle>] [[-AzTicklineColor] <OxyColor>] [[-AzTitle] <String>]
- [[-AzTitleClippingLength] <Double>] [[-AzTitleColor] <OxyColor>] [[-AzTitleFont] <String>]
- [[-AzTitleFontSize] <Double>] [[-AzTitleFontWeight] <Double>] [[-AzTitleFormatString] <String>]
- [[-AzTitlePosition] <Double>] [[-AzUnit] <String>] [[-AzUseSuperExponentialFormat] <Bool>]
- [[-AzFont] <String>] [[-AzFontSize] <Double>] [[-AzFontWeight] <Double>] [[-AzTag] <Object>]
- [[-AzTextColor] <OxyColor>] [[-AzToolTip] <String>] [[-AzSelectable] <Bool>]
- [[-AzSelectionMode] <SelectionMode>] [[-AzGapWidth] <Double>] [[-AzIsTickCentered] <Bool>]
- [[-AzItemsSource] <IEnumerable>] [[-AzLabelField] <String>] [[-AzInvalidCategoryColor] <OxyColor>]
- [[-AzPalette] <OxyPaletteItem[]>] [[-AzCalendarWeekRule] <CalendarWeekRule>] [[-AzFirstDayOfWeek] <DayOfWeek>]
- [[-AzIntervalType] <DateTimeIntervalType>] [[-AzMinorIntervalType] <DateTimeIntervalType>]
- [[-AzTimeZone] <TimeZoneInfo>] [[-AzInvalidNumberColor] <OxyColor>] [[-AzHighColor] <OxyColor>]
- [[-AzLowColor] <OxyColor>] [[-AzRenderAsImage] <Bool>] [[-AzBase] <Double>] [[-AzPowerPadding] <Bool>]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Returns an object that represents a dual view (candlestick + volume) series for OHLCV bars
- 
- Note that to use this series, one *must* define two y-axes, one named "Bars" and the other named
- "Volume". Typically would set up the volume on StartPosition =0, EndPosition = fraction and for
- the bar axis StartPosition = fraction + delta, EndPosition = 1.0.
- 
-See [link](http://www.mathworks.com/help/toolbox/finance/highlowfts.html)
-
+Returns an object that represents a histogram.
 
 ## PARAMETERS
 
@@ -155,7 +107,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 17
+Position: 8
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -171,8 +123,8 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 24
-Default value: False
+Position: 15
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -187,7 +139,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 64
+Position: 54
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -203,7 +155,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 65
+Position: 55
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -219,7 +171,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 66
+Position: 56
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -235,7 +187,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 69
+Position: 59
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -251,7 +203,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 67
+Position: 57
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -267,7 +219,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 68
+Position: 58
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -283,7 +235,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 70
+Position: 60
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -300,7 +252,7 @@ Aliases:
 Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
 
 Required: False
-Position: 71
+Position: 61
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -316,7 +268,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 72
+Position: 62
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -332,7 +284,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 149
+Position: 139
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -349,7 +301,7 @@ Aliases:
 Accepted values: FirstDay, FirstFullWeek, FirstFourDayWeek
 
 Required: False
-Position: 140
+Position: 130
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -365,7 +317,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 73
+Position: 63
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -381,7 +333,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 74
+Position: 64
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -397,7 +349,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 60
+Position: 50
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -413,7 +365,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 75
+Position: 65
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -429,7 +381,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 76
+Position: 66
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -446,7 +398,7 @@ Aliases:
 Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
 
 Required: False
-Position: 77
+Position: 67
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -462,7 +414,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 78
+Position: 68
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -478,7 +430,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 79
+Position: 69
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -494,7 +446,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 80
+Position: 70
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -510,7 +462,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 81
+Position: 71
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -526,7 +478,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 82
+Position: 72
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -543,7 +495,7 @@ Aliases:
 Accepted values: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 
 Required: False
-Position: 141
+Position: 131
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -559,7 +511,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 126
+Position: 116
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -575,7 +527,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 127
+Position: 117
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -591,7 +543,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 128
+Position: 118
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -607,7 +559,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 61
+Position: 51
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -623,7 +575,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 62
+Position: 52
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -639,7 +591,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 63
+Position: 53
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -655,7 +607,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 134
+Position: 124
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -671,7 +623,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 146
+Position: 136
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -687,7 +639,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 83
+Position: 73
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -704,7 +656,7 @@ Aliases:
 Accepted values: Auto, Manual, Milliseconds, Seconds, Minutes, Hours, Days, Weeks, Months, Years
 
 Required: False
-Position: 142
+Position: 132
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -720,7 +672,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 138
+Position: 128
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -736,7 +688,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 145
+Position: 135
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -752,7 +704,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 84
+Position: 74
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -768,7 +720,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 85
+Position: 75
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -784,7 +736,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 135
+Position: 125
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -800,7 +752,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 86
+Position: 76
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -816,7 +768,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 136
+Position: 126
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -832,7 +784,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 87
+Position: 77
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -848,7 +800,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 137
+Position: 127
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -864,7 +816,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 88
+Position: 78
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -881,7 +833,7 @@ Aliases:
 Accepted values: BelowSeries, AboveSeries
 
 Required: False
-Position: 89
+Position: 79
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -897,7 +849,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 147
+Position: 137
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -913,7 +865,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 90
+Position: 80
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -930,7 +882,7 @@ Aliases:
 Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
 
 Required: False
-Position: 91
+Position: 81
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -946,7 +898,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 92
+Position: 82
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -962,7 +914,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 93
+Position: 83
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -978,7 +930,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 94
+Position: 84
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -994,7 +946,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 95
+Position: 85
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1010,7 +962,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 96
+Position: 86
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1026,7 +978,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 97
+Position: 87
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1042,7 +994,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 98
+Position: 88
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1058,7 +1010,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 99
+Position: 89
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1074,7 +1026,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 100
+Position: 90
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1090,7 +1042,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 101
+Position: 91
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1106,7 +1058,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 102
+Position: 92
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1122,7 +1074,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 103
+Position: 93
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1139,7 +1091,7 @@ Aliases:
 Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
 
 Required: False
-Position: 104
+Position: 94
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1155,7 +1107,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 105
+Position: 95
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1172,7 +1124,7 @@ Aliases:
 Accepted values: Auto, Manual, Milliseconds, Seconds, Minutes, Hours, Days, Weeks, Months, Years
 
 Required: False
-Position: 143
+Position: 133
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1188,7 +1140,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 106
+Position: 96
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1204,7 +1156,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 108
+Position: 98
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1220,7 +1172,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 107
+Position: 97
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1236,7 +1188,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 139
+Position: 129
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1253,7 +1205,7 @@ Aliases:
 Accepted values: None, Left, Right, Top, Bottom
 
 Required: False
-Position: 109
+Position: 99
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1269,7 +1221,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 110
+Position: 100
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1285,7 +1237,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 111
+Position: 101
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1301,7 +1253,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 150
+Position: 140
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1317,7 +1269,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 148
+Position: 138
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1333,7 +1285,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 132
+Position: 122
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1350,7 +1302,7 @@ Aliases:
 Accepted values: All, Single, Multiple
 
 Required: False
-Position: 133
+Position: 123
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1366,7 +1318,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 59
+Position: 49
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1382,7 +1334,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 112
+Position: 102
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1398,7 +1350,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 113
+Position: 103
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1414,7 +1366,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 129
+Position: 119
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1430,7 +1382,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 130
+Position: 120
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1447,7 +1399,7 @@ Aliases:
 Accepted values: Crossing, Inside, Outside, None
 
 Required: False
-Position: 114
+Position: 104
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1463,7 +1415,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 115
+Position: 105
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1479,7 +1431,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 144
+Position: 134
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1495,7 +1447,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 116
+Position: 106
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1511,7 +1463,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 117
+Position: 107
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1527,7 +1479,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 118
+Position: 108
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1543,7 +1495,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 119
+Position: 109
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1559,7 +1511,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 120
+Position: 110
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1575,7 +1527,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 121
+Position: 111
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1591,7 +1543,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 122
+Position: 112
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1607,7 +1559,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 123
+Position: 113
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1623,7 +1575,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 131
+Position: 121
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1639,7 +1591,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 58
+Position: 48
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1655,7 +1607,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 124
+Position: 114
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1671,7 +1623,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 125
+Position: 115
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1687,7 +1639,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 157
+Position: 147
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1703,7 +1655,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 158
+Position: 148
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1719,7 +1671,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 159
+Position: 149
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1735,7 +1687,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 162
+Position: 152
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1751,7 +1703,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 160
+Position: 150
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1767,7 +1719,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 161
+Position: 151
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1783,7 +1735,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 163
+Position: 153
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1800,7 +1752,7 @@ Aliases:
 Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
 
 Required: False
-Position: 164
+Position: 154
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1816,7 +1768,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 165
+Position: 155
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1832,7 +1784,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 242
+Position: 232
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1849,7 +1801,7 @@ Aliases:
 Accepted values: FirstDay, FirstFullWeek, FirstFourDayWeek
 
 Required: False
-Position: 233
+Position: 223
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1865,7 +1817,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 166
+Position: 156
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1881,7 +1833,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 167
+Position: 157
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1897,7 +1849,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 153
+Position: 143
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1913,7 +1865,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 168
+Position: 158
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1929,7 +1881,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 169
+Position: 159
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1946,7 +1898,7 @@ Aliases:
 Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
 
 Required: False
-Position: 170
+Position: 160
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1962,7 +1914,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 171
+Position: 161
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1978,7 +1930,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 172
+Position: 162
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -1994,7 +1946,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 173
+Position: 163
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2010,7 +1962,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 174
+Position: 164
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2026,7 +1978,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 175
+Position: 165
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2043,7 +1995,7 @@ Aliases:
 Accepted values: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 
 Required: False
-Position: 234
+Position: 224
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2059,7 +2011,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 219
+Position: 209
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2075,7 +2027,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 220
+Position: 210
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2091,7 +2043,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 221
+Position: 211
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2107,7 +2059,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 154
+Position: 144
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2123,7 +2075,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 155
+Position: 145
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2139,7 +2091,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 156
+Position: 146
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2155,7 +2107,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 227
+Position: 217
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2171,7 +2123,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 239
+Position: 229
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2187,7 +2139,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 176
+Position: 166
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2204,7 +2156,7 @@ Aliases:
 Accepted values: Auto, Manual, Milliseconds, Seconds, Minutes, Hours, Days, Weeks, Months, Years
 
 Required: False
-Position: 235
+Position: 225
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2220,7 +2172,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 231
+Position: 221
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2236,7 +2188,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 238
+Position: 228
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2252,7 +2204,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 177
+Position: 167
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2268,7 +2220,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 178
+Position: 168
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2284,7 +2236,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 228
+Position: 218
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2300,7 +2252,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 179
+Position: 169
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2316,7 +2268,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 229
+Position: 219
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2332,7 +2284,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 180
+Position: 170
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2348,7 +2300,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 230
+Position: 220
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2364,7 +2316,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 181
+Position: 171
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2381,7 +2333,7 @@ Aliases:
 Accepted values: BelowSeries, AboveSeries
 
 Required: False
-Position: 182
+Position: 172
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2397,7 +2349,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 240
+Position: 230
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2413,7 +2365,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 183
+Position: 173
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2430,7 +2382,7 @@ Aliases:
 Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
 
 Required: False
-Position: 184
+Position: 174
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2446,7 +2398,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 185
+Position: 175
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2462,7 +2414,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 186
+Position: 176
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2478,7 +2430,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 187
+Position: 177
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2494,7 +2446,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 188
+Position: 178
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2510,7 +2462,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 189
+Position: 179
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2526,7 +2478,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 190
+Position: 180
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2542,7 +2494,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 191
+Position: 181
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2558,7 +2510,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 192
+Position: 182
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2574,7 +2526,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 193
+Position: 183
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2590,7 +2542,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 194
+Position: 184
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2606,7 +2558,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 195
+Position: 185
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2622,7 +2574,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 196
+Position: 186
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2639,7 +2591,7 @@ Aliases:
 Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
 
 Required: False
-Position: 197
+Position: 187
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2655,7 +2607,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 198
+Position: 188
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2672,7 +2624,7 @@ Aliases:
 Accepted values: Auto, Manual, Milliseconds, Seconds, Minutes, Hours, Days, Weeks, Months, Years
 
 Required: False
-Position: 236
+Position: 226
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2688,7 +2640,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 199
+Position: 189
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2704,7 +2656,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 201
+Position: 191
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2720,7 +2672,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 200
+Position: 190
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2736,7 +2688,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 232
+Position: 222
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2753,7 +2705,7 @@ Aliases:
 Accepted values: None, Left, Right, Top, Bottom
 
 Required: False
-Position: 202
+Position: 192
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2769,7 +2721,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 203
+Position: 193
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2785,7 +2737,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 204
+Position: 194
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2801,7 +2753,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 243
+Position: 233
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2817,7 +2769,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 241
+Position: 231
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2833,7 +2785,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 225
+Position: 215
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2850,7 +2802,7 @@ Aliases:
 Accepted values: All, Single, Multiple
 
 Required: False
-Position: 226
+Position: 216
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2866,7 +2818,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 152
+Position: 142
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2882,7 +2834,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 205
+Position: 195
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2898,7 +2850,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 206
+Position: 196
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2914,7 +2866,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 222
+Position: 212
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2930,7 +2882,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 223
+Position: 213
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2947,7 +2899,7 @@ Aliases:
 Accepted values: Crossing, Inside, Outside, None
 
 Required: False
-Position: 207
+Position: 197
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2963,7 +2915,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 208
+Position: 198
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2979,7 +2931,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 237
+Position: 227
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -2995,7 +2947,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 209
+Position: 199
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3011,7 +2963,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 210
+Position: 200
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3027,7 +2979,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 211
+Position: 201
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3043,7 +2995,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 212
+Position: 202
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3059,7 +3011,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 213
+Position: 203
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3075,7 +3027,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 214
+Position: 204
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3091,7 +3043,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 215
+Position: 205
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3107,7 +3059,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 216
+Position: 206
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3123,7 +3075,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 224
+Position: 214
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3139,7 +3091,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 151
+Position: 141
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3155,7 +3107,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 217
+Position: 207
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -3171,1507 +3123,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 218
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzAbsoluteMaximum
-
-Specifies the AbsoluteMaximum parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 250
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzAbsoluteMinimum
-
-Specifies the AbsoluteMinimum parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 251
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzAngle
-
-Specifies the Angle parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 252
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzAxisDistance
-
-Specifies the AxisDistance parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 255
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzAxisTickToLabelDistance
-
-Specifies the AxisTickToLabelDistance parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 253
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzAxisTitleDistance
-
-Specifies the AxisTitleDistance parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 254
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzAxislineColor
-
-Specifies the AxislineColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 256
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzAxislineStyle
-
-Specifies the AxislineStyle parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: OxyPlot.LineStyle
-Parameter Sets: (All)
-Aliases:
-Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
-
-Required: False
-Position: 257
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzAxislineThickness
-
-Specifies the AxislineThickness parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 258
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzBase
-
-Specifies the Base parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 335
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzCalendarWeekRule
-
-Specifies the CalendarWeekRule parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.Globalization.CalendarWeekRule
-Parameter Sets: (All)
-Aliases:
-Accepted values: FirstDay, FirstFullWeek, FirstFourDayWeek
-
-Required: False
-Position: 326
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzClipTitle
-
-Specifies the ClipTitle parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 259
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzCropGridlines
-
-Specifies the CropGridlines parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 260
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzEndAngle
-
-Specifies the EndAngle parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 246
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzEndPosition
-
-Specifies the EndPosition parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 261
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzExtraGridlineColor
-
-Specifies the ExtraGridlineColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 262
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzExtraGridlineStyle
-
-Specifies the ExtraGridlineStyle parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: OxyPlot.LineStyle
-Parameter Sets: (All)
-Aliases:
-Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
-
-Required: False
-Position: 263
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzExtraGridlineThickness
-
-Specifies the ExtraGridlineThickness parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 264
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzExtraGridlines
-
-Specifies the ExtraGridlines parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 265
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzFilterFunction
-
-Specifies the FilterFunction parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.Func`2[System.Double,System.Boolean]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 266
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzFilterMaxValue
-
-Specifies the FilterMaxValue parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 267
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzFilterMinValue
-
-Specifies the FilterMinValue parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 268
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzFirstDayOfWeek
-
-Specifies the FirstDayOfWeek parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.DayOfWeek
-Parameter Sets: (All)
-Aliases:
-Accepted values: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-
-Required: False
-Position: 327
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzFont
-
-Specifies the Font parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 312
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzFontSize
-
-Specifies the FontSize parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 313
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzFontWeight
-
-Specifies the FontWeight parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 314
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzFormatAsFractions
-
-Specifies the FormatAsFractions parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 247
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzFractionUnit
-
-Specifies the FractionUnit parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 248
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzFractionUnitSymbol
-
-Specifies the FractionUnitSymbol parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 249
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzGapWidth
-
-Specifies the GapWidth parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 320
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzHighColor
-
-Specifies the HighColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 332
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzIntervalLength
-
-Specifies the IntervalLength parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 269
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzIntervalType
-
-Specifies the IntervalType parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: OxyPlot.Axes.DateTimeIntervalType
-Parameter Sets: (All)
-Aliases:
-Accepted values: Auto, Manual, Milliseconds, Seconds, Minutes, Hours, Days, Weeks, Months, Years
-
-Required: False
-Position: 328
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzInvalidCategoryColor
-
-Specifies the InvalidCategoryColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 324
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzInvalidNumberColor
-
-Specifies the InvalidNumberColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 331
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzIsAxisVisible
-
-Specifies the IsAxisVisible parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 270
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzIsPanEnabled
-
-Specifies the IsPanEnabled parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 271
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzIsTickCentered
-
-Specifies the IsTickCentered parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 321
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzIsZoomEnabled
-
-Specifies the IsZoomEnabled parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 272
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzItemsSource
-
-Specifies the ItemsSource parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.Collections.IEnumerable
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 322
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzKey
-
-Specifies the Key parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 273
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzLabelField
-
-Specifies the LabelField parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 323
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzLabelFormatter
-
-Specifies the LabelFormatter parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.Func`2[System.Double,System.String]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 274
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzLayer
-
-Specifies the Layer parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: OxyPlot.Axes.AxisLayer
-Parameter Sets: (All)
-Aliases:
-Accepted values: BelowSeries, AboveSeries
-
-Required: False
-Position: 275
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzLowColor
-
-Specifies the LowColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 333
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMajorGridlineColor
-
-Specifies the MajorGridlineColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 276
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMajorGridlineStyle
-
-Specifies the MajorGridlineStyle parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: OxyPlot.LineStyle
-Parameter Sets: (All)
-Aliases:
-Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
-
-Required: False
-Position: 277
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMajorGridlineThickness
-
-Specifies the MajorGridlineThickness parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 278
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMajorStep
-
-Specifies the MajorStep parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 279
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMajorTickSize
-
-Specifies the MajorTickSize parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 280
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMaximum
-
-Specifies the Maximum parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 281
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMaximumPadding
-
-Specifies the MaximumPadding parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 282
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMaximumRange
-
-Specifies the MaximumRange parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 283
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinimum
-
-Specifies the Minimum parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 284
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinimumMajorStep
-
-Specifies the MinimumMajorStep parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 285
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinimumMinorStep
-
-Specifies the MinimumMinorStep parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 286
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinimumPadding
-
-Specifies the MinimumPadding parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 287
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinimumRange
-
-Specifies the MinimumRange parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 288
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinorGridlineColor
-
-Specifies the MinorGridlineColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 289
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinorGridlineStyle
-
-Specifies the MinorGridlineStyle parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: OxyPlot.LineStyle
-Parameter Sets: (All)
-Aliases:
-Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
-
-Required: False
-Position: 290
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinorGridlineThickness
-
-Specifies the MinorGridlineThickness parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 291
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinorIntervalType
-
-Specifies the MinorIntervalType parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: OxyPlot.Axes.DateTimeIntervalType
-Parameter Sets: (All)
-Aliases:
-Accepted values: Auto, Manual, Milliseconds, Seconds, Minutes, Hours, Days, Weeks, Months, Years
-
-Required: False
-Position: 329
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinorStep
-
-Specifies the MinorStep parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 292
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinorTickSize
-
-Specifies the MinorTickSize parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 294
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzMinorTicklineColor
-
-Specifies the MinorTicklineColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 293
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzPalette
-
-Specifies the Palette parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyPaletteItem[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 325
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzPosition
-
-Specifies the Position parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: OxyPlot.Axes.AxisPosition
-Parameter Sets: (All)
-Aliases:
-Accepted values: None, Left, Right, Top, Bottom
-
-Required: False
-Position: 295
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzPositionAtZeroCrossing
-
-Specifies the PositionAtZeroCrossing parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 296
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzPositionTier
-
-Specifies the PositionTier parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 297
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzPowerPadding
-
-Specifies the PowerPadding parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 336
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzRenderAsImage
-
-Specifies the RenderAsImage parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 334
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzSelectable
-
-Specifies the Selectable parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 318
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzSelectionMode
-
-Specifies the SelectionMode parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: OxyPlot.SelectionMode
-Parameter Sets: (All)
-Aliases:
-Accepted values: All, Single, Multiple
-
-Required: False
-Position: 319
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzStartAngle
-
-Specifies the StartAngle parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 245
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzStartPosition
-
-Specifies the StartPosition parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 298
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzStringFormat
-
-Specifies the StringFormat parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 299
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTag
-
-Specifies the Tag parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.Object
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 315
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTextColor
-
-Specifies the TextColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 316
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTickStyle
-
-Specifies the TickStyle parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: OxyPlot.Axes.TickStyle
-Parameter Sets: (All)
-Aliases:
-Accepted values: Crossing, Inside, Outside, None
-
-Required: False
-Position: 300
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTicklineColor
-
-Specifies the TicklineColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 301
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTimeZone
-
-Specifies the TimeZone parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.TimeZoneInfo
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 330
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTitle
-
-Specifies the Title parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 302
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTitleClippingLength
-
-Specifies the TitleClippingLength parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 303
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTitleColor
-
-Specifies the TitleColor parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 304
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTitleFont
-
-Specifies the TitleFont parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 305
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTitleFontSize
-
-Specifies the TitleFontSize parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 306
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTitleFontWeight
-
-Specifies the TitleFontWeight parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 307
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTitleFormatString
-
-Specifies the TitleFormatString parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 308
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzTitlePosition
-
-Specifies the TitlePosition parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 309
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzToolTip
-
-Specifies the ToolTip parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 317
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzType
-
-Specifies the (partial) type name of the series-specific additional axis.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 244
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzUnit
-
-Specifies the Unit parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 310
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AzUseSuperExponentialFormat
-
-Specifies the UseSuperExponentialFormat parameter of the series-specific additional axis. For more details, refer to the help topic of the axis of interest.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 311
+Position: 208
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -4687,50 +3139,50 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 44
+Position: 34
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -BarAxisKey
+### -BaseValue
 
 
 
 ```yaml
-Type: System.String
+Type: Horker.OxyPlotCli.TypeAdaptors.Double
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 29
+Position: 19
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -BuyVolume
+### -BinCount
 
-Specifies the sequence of the element BuyVolume of the data point.
+
 
 ```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
+Type: System.Int32
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 14
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -BuyVolumeName
+### -BinWidth
 
-Specifies the property name of the input object to be processed as the element BuyVolume of the data point.
+
 
 ```yaml
-Type: System.String
+Type: Horker.OxyPlotCli.TypeAdaptors.Double
 Parameter Sets: (All)
 Aliases:
 
@@ -4741,7 +3193,23 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -CandleWidth
+### -ColorField
+
+
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 20
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ColumnWidth
 
 
 
@@ -4751,15 +3219,15 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 40
+Position: 18
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Close
+### -Data
 
-Specifies the sequence of the element Close of the data point.
+
 
 ```yaml
 Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
@@ -4767,15 +3235,15 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 13
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -CloseName
+### -DataName
 
-Specifies the property name of the input object to be processed as the element Close of the data point.
+
 
 ```yaml
 Type: System.String
@@ -4783,7 +3251,23 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 5
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FillColor
+
+
+
+```yaml
+Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 21
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -4799,7 +3283,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 50
+Position: 40
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -4815,7 +3299,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 51
+Position: 41
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -4831,7 +3315,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 52
+Position: 42
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -4847,7 +3331,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 16
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -4863,39 +3347,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 8
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -High
-
-Specifies the sequence of the element High of the data point.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 11
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -HighName
-
-Specifies the property name of the input object to be processed as the element High of the data point.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -4917,6 +3369,22 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
+### -IsStacked
+
+
+
+```yaml
+Type: Horker.OxyPlotCli.TypeAdaptors.Bool
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 22
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -IsVisible
 
 
@@ -4927,23 +3395,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 45
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Items
-
-
-
-```yaml
-Type: System.Collections.Generic.List`1[OxyPlot.Series.OhlcvItem]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 27
+Position: 35
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -4959,31 +3411,15 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 43
+Position: 33
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Low
+### -LabelFormatString
 
-Specifies the sequence of the element Low of the data point.
 
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 12
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -LowName
-
-Specifies the property name of the input object to be processed as the element Low of the data point.
 
 ```yaml
 Type: System.String
@@ -4991,13 +3427,46 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 4
+Position: 23
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -NegativeColor
+### -LabelMargin
+
+
+
+```yaml
+Type: Horker.OxyPlotCli.TypeAdaptors.Double
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 24
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LabelPlacement
+
+
+
+```yaml
+Type: OxyPlot.Series.LabelPlacement
+Parameter Sets: (All)
+Aliases:
+Accepted values: Outside, Inside, Middle, Base
+
+Required: False
+Position: 25
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -NegativeFillColor
 
 
 
@@ -5007,55 +3476,23 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 36
+Position: 26
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -NegativeHollow
+### -Normalize
 
 
 
 ```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 39
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Open
-
-Specifies the sequence of the element Open of the data point.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 10
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -OpenName
-
-Specifies the property name of the input object to be processed as the element Open of the data point.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5071,7 +3508,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 18
+Position: 9
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5087,7 +3524,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 20
+Position: 11
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5103,7 +3540,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 19
+Position: 10
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5119,39 +3556,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 22
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -PositiveColor
-
-
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 35
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -PositiveHollow
-
-
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Bool
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 38
+Position: 13
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5167,7 +3572,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 47
+Position: 37
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5183,8 +3588,8 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 26
-Default value: False
+Position: 17
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -5199,7 +3604,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 56
+Position: 46
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5216,88 +3621,7 @@ Aliases:
 Accepted values: All, Single, Multiple
 
 Required: False
-Position: 57
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SellVolume
-
-Specifies the sequence of the element SellVolume of the data point.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 15
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SellVolumeName
-
-Specifies the property name of the input object to be processed as the element SellVolume of the data point.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 7
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SeparatorColor
-
-
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 37
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SeparatorLineStyle
-
-
-
-```yaml
-Type: OxyPlot.LineStyle
-Parameter Sets: (All)
-Aliases:
-Accepted values: Solid, Dash, Dot, DashDot, DashDashDot, DashDotDot, DashDashDotDot, LongDash, LongDashDot, LongDashDotDot, None, Automatic
-
-Required: False
-Position: 34
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SeparatorStrokeThickness
-
-
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 33
+Position: 47
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5313,23 +3637,39 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 25
-Default value: False
+Position: 16
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -StrokeIntensity
+### -StackGroup
 
 
 
 ```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 32
+Position: 27
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -StrokeColor
+
+
+
+```yaml
+Type: Horker.OxyPlotCli.TypeAdaptors.OxyColor
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 28
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5345,7 +3685,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 31
+Position: 29
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5361,7 +3701,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 23
+Position: 14
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5377,8 +3717,8 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 21
-Default value: False
+Position: 12
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -5393,7 +3733,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 53
+Position: 43
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5409,7 +3749,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 54
+Position: 44
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5425,7 +3765,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 46
+Position: 36
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5441,7 +3781,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 55
+Position: 45
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5457,7 +3797,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 48
+Position: 38
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5473,13 +3813,13 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 49
+Position: 39
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -VolumeAxisKey
+### -ValueField
 
 
 
@@ -5489,40 +3829,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 28
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -VolumeStyle
-
-
-
-```yaml
-Type: OxyPlot.Series.VolumeStyle
-Parameter Sets: (All)
-Aliases:
-Accepted values: None, Combined, Stacked, PositiveNegative
-
-Required: False
 Position: 30
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -X
-
-Specifies the sequence of the element X of the data point.
-
-```yaml
-Type: Horker.OxyPlotCli.TypeAdaptors.Double[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 9
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5538,23 +3845,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 41
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -XName
-
-Specifies the property name of the input object to be processed as the element X of the data point.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
+Position: 31
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5570,7 +3861,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 42
+Position: 32
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -5582,12 +3873,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Management.Automation.PSObject
+
 ## OUTPUTS
 
-### Horker.OxyPlotCli.SeriesInfo`1[[OxyPlot.Series.CandleStickAndVolumeSeries, OxyPlot, Version=2.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9]]
+### Horker.OxyPlotCli.SeriesInfo`1[[OxyPlot.Series.ColumnSeries, OxyPlot, Version=2.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9]]
+
 ## NOTES
 
 ## RELATED LINKS
 
-[http://www.mathworks.com/help/toolbox/finance/highlowfts.html](http://www.mathworks.com/help/toolbox/finance/highlowfts.html)
 

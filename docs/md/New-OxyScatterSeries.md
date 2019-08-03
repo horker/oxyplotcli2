@@ -93,7 +93,7 @@ New-OxyScatterSeries [-InputObject <PSObject>] [-XName <String>] [-YName <String
 
 ## DESCRIPTION
 
-Returns an OxyPlot.Series.ScatterSeries object that represents a series for scatter plots.
+Returns an object that represents a series for scatter plots.
  
 See http://en.wikipedia.org/wiki/Scatter_plot
 
@@ -102,7 +102,7 @@ See http://en.wikipedia.org/wiki/Scatter_plot
 
 ### -AddTo
 
-Specifies the PlotModel to which the object is added.
+Specifies the PlotModel object to which the object is added.
 
 ```yaml
 Type: OxyPlot.PlotModel
@@ -127,7 +127,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -1574,7 +1574,7 @@ Accept wildcard characters: False
 
 ### -AxType
 
-Specifies the type name of the x-axis.
+Specifies the (partial) type name of the x-axis.
 
 ```yaml
 Type: System.String
@@ -3062,7 +3062,7 @@ Accept wildcard characters: False
 
 ### -AyType
 
-Specifies the type name of the y-axis.
+Specifies the (partial) type name of the y-axis.
 
 ```yaml
 Type: System.String
@@ -3110,9 +3110,6 @@ Accept wildcard characters: False
 
 ### -Background
 
-Sets the background color of the series. The default is OxyColors.Undefined.
- 
-This property defines the background color in the area defined by the x and y axes used by this series.
 
 
 ```yaml
@@ -3241,9 +3238,6 @@ Accept wildcard characters: False
 
 ### -Font
 
-Sets the font. The default is null (use OxyPlot.PlotModel.DefaultFont.
- 
-If the value is null, the DefaultFont of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3260,9 +3254,6 @@ Accept wildcard characters: False
 
 ### -FontSize
 
-Sets the size of the font. The default is double.NaN (use OxyPlot.PlotModel.DefaultFontSize).
- 
-If the value is NaN, the DefaultFontSize of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3279,8 +3270,6 @@ Accept wildcard characters: False
 
 ### -FontWeight
 
-Sets the font weight. The default is FontWeights.Normal.
- 
 
 
 ```yaml
@@ -3345,8 +3334,6 @@ Accept wildcard characters: False
 
 ### -IsVisible
 
-Sets a value indicating whether this series is visible. The default is true.
- 
 
 
 ```yaml
@@ -3363,8 +3350,6 @@ Accept wildcard characters: False
 
 ### -ItemsSource
 
-Sets the items source. The default is null.
- 
 
 
 ```yaml
@@ -3573,7 +3558,7 @@ Accept wildcard characters: False
 
 ### -PassThru
 
-Returns an output object even when the -AddTo, -OutFile or -Show parameter is specified.
+Returns a created object when the -AddTo, -OutFile or -Show parameter is specified.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -3582,15 +3567,13 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -RenderInLegend
 
-Sets a value indicating whether the series should be rendered in the legend. The default is true.
- 
 
 
 ```yaml
@@ -3616,15 +3599,13 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Selectable
 
-Sets a value indicating whether this element can be selected. The default is true.
- 
 
 
 ```yaml
@@ -3641,9 +3622,6 @@ Accept wildcard characters: False
 
 ### -SelectionMode
 
-Sets the selection mode of items in this element. The default is SelectionMode.All.
- 
-This is only used by the select/unselect functionality, not by the rendering.
 
 
 ```yaml
@@ -3660,7 +3638,7 @@ Accept wildcard characters: False
 
 ### -Show
 
-Shows the chart in the window.
+Shows the chart in the GUI window.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -3669,7 +3647,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -3692,7 +3670,7 @@ Accept wildcard characters: False
 
 ### -SizeName
 
-Specifies the property name of the input object to be treated as the element Size of the data point.
+Specifies the property name of the input object to be processed as the element Size of the data point.
 
 ```yaml
 Type: System.String
@@ -3724,7 +3702,7 @@ Accept wildcard characters: False
 
 ### -SvgIsDocument
 
-Indicates that a SVG file should be generated as a complete document. Use with the -OutFile parameter
+Indicates that a SVG file should be generated as a complete document. Use with the -OutFile parameter.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -3733,16 +3711,13 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Tag
 
-Sets an arbitrary object value that can be used to store custom information about this plot element. The default is null.
- 
-This property is analogous to Tag properties in other Microsoft programming models. Tag is intended to provide a pre-existing property location where you can store some basic custom information about any PlotElement without requiring you to subclass an element.
 
 
 ```yaml
@@ -3759,9 +3734,6 @@ Accept wildcard characters: False
 
 ### -TextColor
 
-Sets the color of the text. The default is OxyColors.Automatic (use OxyPlot.PlotModel.TextColor).
- 
-If the value is OxyColors.Automatic, the TextColor of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3778,8 +3750,6 @@ Accept wildcard characters: False
 
 ### -Title
 
-Sets the title of the series. The default is null.
- 
 
 
 ```yaml
@@ -3796,8 +3766,6 @@ Accept wildcard characters: False
 
 ### -ToolTip
 
-Sets the tool tip. The default is null.
- 
 
 
 ```yaml
@@ -3814,10 +3782,6 @@ Accept wildcard characters: False
 
 ### -TrackerFormatString
 
-Sets a format string used for the tracker. The default depends on the series.
- 
-The arguments for the format string may be different for each type of series. See the documentation.
- 
 
 
 ```yaml
@@ -3834,10 +3798,6 @@ Accept wildcard characters: False
 
 ### -TrackerKey
 
-Sets the key for the tracker to use on this series. The default is null.
- 
-This key may be used by the plot view to show a custom tracker for the series.
- 
 
 
 ```yaml
@@ -3870,7 +3830,7 @@ Accept wildcard characters: False
 
 ### -ValueName
 
-Specifies the property name of the input object to be treated as the element Value of the data point.
+Specifies the property name of the input object to be processed as the element Value of the data point.
 
 ```yaml
 Type: System.String
@@ -3902,8 +3862,6 @@ Accept wildcard characters: False
 
 ### -XAxisKey
 
-Sets the x-axis key. The default is null.
- 
 
 
 ```yaml
@@ -3920,7 +3878,7 @@ Accept wildcard characters: False
 
 ### -XName
 
-Specifies the property name of the input object to be treated as the element X of the data point.
+Specifies the property name of the input object to be processed as the element X of the data point.
 
 ```yaml
 Type: System.String
@@ -3952,8 +3910,6 @@ Accept wildcard characters: False
 
 ### -YAxisKey
 
-Sets the y-axis key. The default is null.
- 
 
 
 ```yaml
@@ -3970,7 +3926,7 @@ Accept wildcard characters: False
 
 ### -YName
 
-Specifies the property name of the input object to be treated as the element Y of the data point.
+Specifies the property name of the input object to be processed as the element Y of the data point.
 
 ```yaml
 Type: System.String

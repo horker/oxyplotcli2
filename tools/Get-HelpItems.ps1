@@ -1,6 +1,7 @@
 [cmdletbinding()]
 param(
-  [string[]]$ClassName,
+  [string]$ObjectName,
+  [string]$ClassName,
   [string]$Prefix,
   [xml]$HelpDocument = (Get-Content "$PSScriptRoot\OxyPlot.xml")
 )
@@ -30,7 +31,7 @@ function Get-PlainText {
         # Modify descriptions for properties to those for cmdlet parameters
         $s = $node.InnerText -replace "^\s*Gets or sets ", "Sets "
 
-        # .NET XML component returns multiple lines that end with LF only.
+        # .NET XML component returns multiple lines that end with LF.
         $s = $s -replace "`n", "`r`n"
 
         [void]$out.Append($s)
@@ -77,9 +78,8 @@ function Get-DefaultParamterItems {
         InputObject = "Specifies a dataset that represents the data points of the series."
         Group = "Specifies groups to which each data point belongs. If this parameter is specified, the data points will be grouped by these values, and multiple series will be produced for each group."
         GroupName = "Specifies the property name of the input object to be treated as groups."
-        PassThru = "Returns an output object even when the -AddTo parameter is specified."
         Style = "Specifies the style."
-        AddTo = "Specifies the PlotModel to which the object is added."
+        AddTo = "Specifies the PlotModel object to which the object is added."
         OutFile = "Specifies the output file name. The output format is determined based on the file extension, which should be either `".png`" or `".svg`"."
         OutWidth = "Specifies the width of the output image. Use with the -OutFile parameter."
         OutHeight = "Specifies the height of the output image. Use with the -OutFile parameter."
@@ -87,15 +87,14 @@ function Get-DefaultParamterItems {
         AsUIElement = "Returns an object as a PlotView object."
         Show = "Shows the chart in the GUI window."
         ReuseWindow = "Indicates to reuse the most recently used window to show the chart instead of creating a new one. Use with the -Show parameter."
+        PassThru = "Returns a created object when the -AddTo, -OutFile or -Show parameter is specified."
     }
 
     if ($ClassName.EndsWith("Series")) {
-        $result["PassThru"] = "Returns an output object even when the -AddTo, -OutFile or -Show parameter is specified."
-
         $c = Invoke-Expression "[$ClassName]"
         $itemNames = [Horker.OxyPlotCli.SeriesBuilders.SeriesBuilderStore]::OfType($c).DataPointItemNames
         foreach ($i in $itemNames) {
-            $result[$i + "Name"] = "Specifies the property name of the input object to be treated as the element $i of the data point."
+            $result[$i + "Name"] = "Specifies the property name of the input object to be processed as the element $i of the data point."
             $result[$i] = "Specifies the sequence of the element $i of the data point."
         }
     }
@@ -109,25 +108,34 @@ function Get-DefaultParamterItems {
 
 $members = $HelpDocument.doc.members.member
 
-$desc = $members |
-    where { $_.name -match "^T:" -and $ClassName -Contains ($_.name -replace "^.:") }
+if ($ObjectName -eq "HistogramSeries2") {
+    $desc = "represents a histogram."
+}
+else {
+    $desc = $members |
+        where { $_.name -match "^T:" -and $ClassName -Contains ($_.name -replace "^.:") }
+    $desc = Get-PlainText $desc
+}
 
-$desc = Get-PlainText $desc
+if ($null -eq $desc) {
+    Write-Error "$ClassName not found"
+    exit
+}
+
 $synopsis = "Returns an object that " + $desc.Substring(0, 1).ToLower() + $desc.Substring(1)
-$description = "Returns an $ClassName object that " + $desc.Substring(0, 1).ToLower() + $desc.Substring(1)
+$description = $synopsis
 
 ############################################################
 # Properties
 ############################################################
 
 $h = @{}
-foreach ($cn in $ClassName) {
-    $c = Invoke-Expression "[$cn]"
-    while ($c) {
-        $h[$c.FullName] = 1
-        $c = $c.BaseType
-    }
+$c = Invoke-Expression "[$ClassName]"
+while ($c) {
+    $h[$c.FullName] = 1
+    $c = $c.BaseType
 }
+
 $classes = $h.Keys
 
 $props = $members |
