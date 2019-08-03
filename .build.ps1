@@ -114,7 +114,7 @@ task Build {
       Copy-Item2 "$PSScriptRoot\datasets\*" "$TargetPath\datasets" -Recurse
 
       # Help topics
-      Copy-Item2 "$DOC_ROOT\xml\*" "$TargetPath"
+      Copy-Item2 "$DOC_WORK\xml\*" "$TargetPath"
 
       # DLL files
       $OBJECT_FILES | foreach {
@@ -145,30 +145,32 @@ task Clean {
 # Building Help topics
 ############################################################
 
-$DOC_ROOT = "$PSScriptRoot\docs"
+$DOC_ROOT = "$PSScriptRoot\docs\cmdlets"
+$DOC_WORK = "$DOC_ROOT\work"
+$DOC_OUT = $DOC_ROOT
 
 task GenerateBaseHelpFile {
-    New-MarkdownHelp -Module oxyplotcli -OutputFolder $DOC_ROOT\generated -Locale en-US -UseFullTypeName -Force
+    New-MarkdownHelp -Module oxyplotcli -OutputFolder $DOC_WORK\generated -Locale en-US -UseFullTypeName -Force
 }
 
 task AutofillHelp {
-    tools\Autofill-AllCmdletHelps.ps1 $DOC_ROOT\generated $DOC_ROOT\autofilled
+    tools\Autofill-AllCmdletHelps.ps1 $DOC_WORK\generated $DOC_WORK\autofilled
 }
 
 task UpdateHandwrittenHelp {
-    Update-MarkdownHelp -Path $DOC_ROOT\handwritten -UseFullTypeName -Force
+    Update-MarkdownHelp -Path $DOC_WORK\handwritten -UseFullTypeName -Force
 }
 
 task CompileHelp {
-    Copy-Item $DOC_ROOT\autofilled\*.md $DOC_ROOT\md
-    Copy-Item $DOC_ROOT\handwritten\*.md $DOC_ROOT\md
-    Copy-Item $DOC_ROOT\md\*.md $DOC_ROOT\xml_source
+    Copy-Item $DOC_WORK\autofilled\*.md $DOC_OUT
+    Copy-Item $DOC_WORK\handwritten\*.md $DOC_OUT
+    Copy-Item $DOC_OUT\*.md $DOC_WORK\xml_source
 
     # ***HACK***
     # platyPS gets panicked by too many cmdlet parameters in the markdown file.
-    # To make it work, just delete the contents of the SYNTAX section at all.
+    # To avoid this, just delete the contents of the SYNTAX section at all before invoking New-ExternalHelp.
 
-    $file = "$DOC_ROOT\xml_source\New-OxyCandleStickAndVolumeSeries.md"
+    $file = "$DOC_WORK\xml_source\New-OxyCandleStickAndVolumeSeries.md"
     $doc = Get-Content -Encoding utf8 $file
     Clear-Content $file
     $skip = $false
@@ -184,7 +186,7 @@ task CompileHelp {
         $_ | Add-Content $file
     }
 
-    New-ExternalHelp -Path $DOC_ROOT\xml_source -OutputPath $DOC_ROOT\xml -Force
+    New-ExternalHelp -Path $DOC_WORK\xml_source -OutputPath $DOC_WORK\xml -Force
 
-    Remove-Item $DOC_ROOT\xml_source\*
+    Remove-Item $DOC_WORK\xml_source\*
 }
