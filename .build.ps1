@@ -145,9 +145,9 @@ task Clean {
 # Building Help topics
 ############################################################
 
-$DOC_ROOT = "$PSScriptRoot\docs\cmdlets"
+$DOC_ROOT = "$PSScriptRoot\docs"
 $DOC_WORK = "$DOC_ROOT\work"
-$DOC_OUT = $DOC_ROOT
+$DOC_OUT = "$DOC_ROOT\cmdlets"
 
 task GenerateBaseHelpFile {
     New-MarkdownHelp -Module oxyplotcli -OutputFolder $DOC_WORK\generated -Locale en-US -UseFullTypeName -Force
