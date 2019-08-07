@@ -72,7 +72,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 19, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -861,7 +861,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -913,7 +913,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 15, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -1630,7 +1630,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -1718,7 +1718,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 26, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 27, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -2455,7 +2455,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -2525,7 +2525,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 21, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -3250,7 +3250,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -3332,7 +3332,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 24, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 25, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -4332,7 +4332,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -4384,7 +4384,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 15, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -5101,7 +5101,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -5159,7 +5159,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 17, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -5876,7 +5876,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -5934,7 +5934,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 16, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 17, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -6659,7 +6659,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -6729,7 +6729,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 21, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -7442,7 +7442,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -7521,7 +7521,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 23, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 24, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -8226,7 +8226,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -8281,7 +8281,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 15, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 16, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -8998,7 +8998,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -9062,7 +9062,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 19, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -9767,7 +9767,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -9819,7 +9819,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 15, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -10524,7 +10524,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -10576,7 +10576,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 15, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -11341,7 +11341,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -11405,7 +11405,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 19, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -11596,7 +11596,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -11660,7 +11660,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 19, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -12345,7 +12345,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -12415,7 +12415,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 20, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 21, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -13379,7 +13379,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -13443,7 +13443,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 19, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -14172,7 +14172,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -14248,7 +14248,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 23, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -15001,7 +15001,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -15053,7 +15053,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 15, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -15826,7 +15826,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -15878,7 +15878,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 15, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -16647,7 +16647,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -16699,7 +16699,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 15, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -17496,7 +17496,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -17572,7 +17572,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 22, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 23, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -18289,7 +18289,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -18353,7 +18353,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 18, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 19, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -19166,7 +19166,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -19218,7 +19218,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 14, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 15, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -19999,7 +19999,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 
@@ -20081,7 +20081,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 24, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 25, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -20794,7 +20794,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 

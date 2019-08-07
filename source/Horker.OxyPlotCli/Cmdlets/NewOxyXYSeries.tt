@@ -105,7 +105,7 @@ foreach (var builderType in builderTypes)
         public string Style = null;
 
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = <#= position++ #>, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -213,7 +213,7 @@ foreach (var builderType in builderTypes)
             foreach (var s in si.Series)
                 AssignParameters(s, bp);
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 

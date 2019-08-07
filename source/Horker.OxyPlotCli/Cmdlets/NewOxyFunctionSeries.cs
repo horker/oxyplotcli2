@@ -66,7 +66,7 @@ namespace Horker.OxyPlotCli.Cmdlets
         public string Style = null;
 
         [Parameter(Position = 13, Mandatory = false)]
-        public SwitchParameter AsUIElement = false;
+        public SwitchParameter AsPlotView = false;
 
         [Parameter(Position = 14, Mandatory = false)]
         public SwitchParameter Show = false;
@@ -866,7 +866,7 @@ namespace Horker.OxyPlotCli.Cmdlets
                 }
             }
 
-            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsUIElement, Show, ReuseWindow);
+            PostProcess(AddTo, new[] { si }, OutFile, OutWidth, OutHeight, SvgIsDocument, PassThru, style, AsPlotView, Show, ReuseWindow);
         }
     }
 }
