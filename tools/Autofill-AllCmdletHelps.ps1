@@ -6,7 +6,7 @@ param(
 
 Set-StrictMode -Version Latest
 
-$xmlDocument = [xml](Get-Content "$PSScriptRoot\OxyPlot.xml")
+$xmlDocument = [xml](Get-Content -Encoding utf8 "$PSScriptRoot\OxyPlot.xml")
 
 get-command -module oxyplotcli |
     where { $_.Name -match "(Series2?|Axis|Annotation|PlotModel)$" } |

@@ -1,7 +1,7 @@
 ﻿---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version: http://en.wikipedia.org/wiki/Contour_line
+online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/New-OxyHeatMapSeries.md
 schema: 2.0.0
 ---
 
@@ -17,7 +17,7 @@ Returns an object that represents a heat map.
 
 ```
 New-OxyHeatMapSeries [-AddTo <PlotModel>] [-OutFile <String>] [-OutWidth <Int32>] [-OutHeight <Int32>]
- [-SvgIsDocument] [-PassThru] [-Style <String>] [-AsUIElement] [-Show] [-ReuseWindow] [-X0 <Double>]
+ [-SvgIsDocument] [-PassThru] [-Style <String>] [-AsPlotView] [-Show] [-ReuseWindow] [-X0 <Double>]
  [-X1 <Double>] [-Y0 <Double>] [-Y1 <Double>] [-Data <Object>] [-Interpolate <Bool>] [-ColorAxisKey <String>]
  [-CoordinateDefinition <HeatMapCoordinateDefinition>] [-RenderMethod <HeatMapRenderMethod>]
  [-LabelFormatString <String>] [-LabelFontSize <Double>] [-XAxisKey <String>] [-YAxisKey <String>]
@@ -134,22 +134,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AsUIElement
-
-Returns an object as a PlotView object.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -4620,6 +4604,9 @@ Accept wildcard characters: False
 
 ### -Background
 
+Sets the background color of the series. The default is OxyColors.Undefined.
+ 
+This property defines the background color in the area defined by the x and y axes used by this series.
 
 
 ```yaml
@@ -4636,6 +4623,8 @@ Accept wildcard characters: False
 
 ### -ColorAxisKey
 
+Sets the color axis key.
+ 
 
 
 ```yaml
@@ -4652,6 +4641,8 @@ Accept wildcard characters: False
 
 ### -CoordinateDefinition
 
+Sets the coordinate definition. The default value is OxyPlot.Series.HeatMapCoordinateDefinition.Center.
+ 
 
 
 ```yaml
@@ -4668,6 +4659,12 @@ Accept wildcard characters: False
 
 ### -Data
 
+Sets the data array.
+ 
+Note that the indices of the data array refer to [x,y].
+ The first dimension is along the x-axis.
+ The second dimension is along the y-axis.
+ Remember to call the OxyPlot.Series.HeatMapSeries.Invalidate method if the contents of the OxyPlot.Series.HeatMapSeries.Data array is changed.
 
 
 ```yaml
@@ -4684,6 +4681,9 @@ Accept wildcard characters: False
 
 ### -Font
 
+Sets the font. The default is null (use OxyPlot.PlotModel.DefaultFont.
+ 
+If the value is null, the DefaultFont of the parent PlotModel will be used.
 
 
 ```yaml
@@ -4700,6 +4700,9 @@ Accept wildcard characters: False
 
 ### -FontSize
 
+Sets the size of the font. The default is double.NaN (use OxyPlot.PlotModel.DefaultFontSize).
+ 
+If the value is NaN, the DefaultFontSize of the parent PlotModel will be used.
 
 
 ```yaml
@@ -4716,6 +4719,8 @@ Accept wildcard characters: False
 
 ### -FontWeight
 
+Sets the font weight. The default is FontWeights.Normal.
+ 
 
 
 ```yaml
@@ -4732,6 +4737,9 @@ Accept wildcard characters: False
 
 ### -Interpolate
 
+Sets a value indicating whether to interpolate when rendering. The default value is true.
+ 
+This property is not supported on all platforms. Ignored (off) if OxyPlot.Series.HeatMapSeries.RenderMethod is OxyPlot.Series.HeatMapRenderMethod.Rectangles.
 
 
 ```yaml
@@ -4748,6 +4756,8 @@ Accept wildcard characters: False
 
 ### -IsVisible
 
+Sets a value indicating whether this series is visible. The default is true.
+ 
 
 
 ```yaml
@@ -4764,6 +4774,8 @@ Accept wildcard characters: False
 
 ### -ItemsSource
 
+Sets the items source. The default is null.
+ 
 
 
 ```yaml
@@ -4780,6 +4792,8 @@ Accept wildcard characters: False
 
 ### -LabelFontSize
 
+Sets the font size of the labels. The default value is 0 (labels not visible).
+ 
 
 
 ```yaml
@@ -4796,6 +4810,9 @@ Accept wildcard characters: False
 
 ### -LabelFormatString
 
+Sets the format string for the cell labels. The default value is 0.00.
+ 
+The label format string is only used when OxyPlot.Series.HeatMapSeries.LabelFontSize is greater than 0.
 
 
 ```yaml
@@ -4876,6 +4893,8 @@ Accept wildcard characters: False
 
 ### -RenderInLegend
 
+Sets a value indicating whether the series should be rendered in the legend. The default is true.
+ 
 
 
 ```yaml
@@ -4892,6 +4911,8 @@ Accept wildcard characters: False
 
 ### -RenderMethod
 
+Sets the render method. The default value is OxyPlot.Series.HeatMapRenderMethod.Bitmap.
+ 
 
 
 ```yaml
@@ -4924,6 +4945,8 @@ Accept wildcard characters: False
 
 ### -Selectable
 
+Sets a value indicating whether this element can be selected. The default is true.
+ 
 
 
 ```yaml
@@ -4940,6 +4963,9 @@ Accept wildcard characters: False
 
 ### -SelectionMode
 
+Sets the selection mode of items in this element. The default is SelectionMode.All.
+ 
+This is only used by the select/unselect functionality, not by the rendering.
 
 
 ```yaml
@@ -5004,6 +5030,9 @@ Accept wildcard characters: False
 
 ### -Tag
 
+Sets an arbitrary object value that can be used to store custom information about this plot element. The default is null.
+ 
+This property is analogous to Tag properties in other Microsoft programming models. Tag is intended to provide a pre-existing property location where you can store some basic custom information about any PlotElement without requiring you to subclass an element.
 
 
 ```yaml
@@ -5020,6 +5049,9 @@ Accept wildcard characters: False
 
 ### -TextColor
 
+Sets the color of the text. The default is OxyColors.Automatic (use OxyPlot.PlotModel.TextColor).
+ 
+If the value is OxyColors.Automatic, the TextColor of the parent PlotModel will be used.
 
 
 ```yaml
@@ -5036,6 +5068,8 @@ Accept wildcard characters: False
 
 ### -Title
 
+Sets the title of the series. The default is null.
+ 
 
 
 ```yaml
@@ -5052,6 +5086,8 @@ Accept wildcard characters: False
 
 ### -ToolTip
 
+Sets the tool tip. The default is null.
+ 
 
 
 ```yaml
@@ -5068,6 +5104,10 @@ Accept wildcard characters: False
 
 ### -TrackerFormatString
 
+Sets a format string used for the tracker. The default depends on the series.
+ 
+The arguments for the format string may be different for each type of series. See the documentation.
+ 
 
 
 ```yaml
@@ -5084,6 +5124,10 @@ Accept wildcard characters: False
 
 ### -TrackerKey
 
+Sets the key for the tracker to use on this series. The default is null.
+ 
+This key may be used by the plot view to show a custom tracker for the series.
+ 
 
 
 ```yaml
@@ -5100,6 +5144,8 @@ Accept wildcard characters: False
 
 ### -X0
 
+Sets the x-coordinate of the elements at index [0,*] in the data set.
+ 
 
 
 ```yaml
@@ -5116,6 +5162,8 @@ Accept wildcard characters: False
 
 ### -X1
 
+Sets the x-coordinate of the mid point for the elements at index [m-1,*] in the data set.
+ 
 
 
 ```yaml
@@ -5132,6 +5180,8 @@ Accept wildcard characters: False
 
 ### -XAxisKey
 
+Sets the x-axis key. The default is null.
+ 
 
 
 ```yaml
@@ -5148,6 +5198,8 @@ Accept wildcard characters: False
 
 ### -Y0
 
+Sets the y-coordinate of the mid point for the elements at index [*,0] in the data set.
+ 
 
 
 ```yaml
@@ -5164,6 +5216,8 @@ Accept wildcard characters: False
 
 ### -Y1
 
+Sets the y-coordinate of the mid point for the elements at index [*,n-1] in the data set.
+ 
 
 
 ```yaml
@@ -5180,10 +5234,28 @@ Accept wildcard characters: False
 
 ### -YAxisKey
 
+Sets the y-axis key. The default is null.
+ 
 
 
 ```yaml
 Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AsPlotView
+
+
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases:
 

@@ -1,7 +1,7 @@
 ---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version:
+online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/Get-OxyStyle.md https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/Get-OxyStyle.md https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/Get-OxyStyle.md
 schema: 2.0.0
 ---
 

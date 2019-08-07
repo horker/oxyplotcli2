@@ -1,7 +1,7 @@
 ﻿---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version: http://en.wikipedia.org/wiki/Pie_chart
+online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/New-OxyRectangleBarSeries.md
 schema: 2.0.0
 ---
 
@@ -19,7 +19,7 @@ Returns an object that represents a series for bar charts where the bars are def
 New-OxyRectangleBarSeries [-InputObject <PSObject>] [-X0Name <String>] [-Y0Name <String>] [-X1Name <String>]
  [-Y1Name <String>] [-GroupName <String>] [-X0 <Double[]>] [-Y0 <Double[]>] [-X1 <Double[]>] [-Y1 <Double[]>]
  [-Group <Object[]>] [-AddTo <PlotModel>] [-OutFile <String>] [-OutWidth <Int32>] [-OutHeight <Int32>]
- [-SvgIsDocument] [-PassThru] [-Style <String>] [-AsUIElement] [-Show] [-ReuseWindow] [-FillColor <OxyColor>]
+ [-SvgIsDocument] [-PassThru] [-Style <String>] [-AsPlotView] [-Show] [-ReuseWindow] [-FillColor <OxyColor>]
  [-LabelColor <OxyColor>] [-LabelFormatString <String>] [-StrokeColor <OxyColor>] [-StrokeThickness <Double>]
  [-XAxisKey <String>] [-YAxisKey <String>] [-ItemsSource <IEnumerable>] [-Background <OxyColor>]
  [-IsVisible <Bool>] [-Title <String>] [-RenderInLegend <Bool>] [-TrackerFormatString <String>]
@@ -106,22 +106,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AsUIElement
-
-Returns an object as a PlotView object.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -3104,6 +3088,9 @@ Accept wildcard characters: False
 
 ### -Background
 
+Sets the background color of the series. The default is OxyColors.Undefined.
+ 
+This property defines the background color in the area defined by the x and y axes used by this series.
 
 
 ```yaml
@@ -3120,6 +3107,8 @@ Accept wildcard characters: False
 
 ### -FillColor
 
+Sets the default color of the interior of the rectangles.
+ 
 
 
 ```yaml
@@ -3136,6 +3125,9 @@ Accept wildcard characters: False
 
 ### -Font
 
+Sets the font. The default is null (use OxyPlot.PlotModel.DefaultFont.
+ 
+If the value is null, the DefaultFont of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3152,6 +3144,9 @@ Accept wildcard characters: False
 
 ### -FontSize
 
+Sets the size of the font. The default is double.NaN (use OxyPlot.PlotModel.DefaultFontSize).
+ 
+If the value is NaN, the DefaultFontSize of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3168,6 +3163,8 @@ Accept wildcard characters: False
 
 ### -FontWeight
 
+Sets the font weight. The default is FontWeights.Normal.
+ 
 
 
 ```yaml
@@ -3232,6 +3229,8 @@ Accept wildcard characters: False
 
 ### -IsVisible
 
+Sets a value indicating whether this series is visible. The default is true.
+ 
 
 
 ```yaml
@@ -3248,6 +3247,8 @@ Accept wildcard characters: False
 
 ### -ItemsSource
 
+Sets the items source. The default is null.
+ 
 
 
 ```yaml
@@ -3264,6 +3265,8 @@ Accept wildcard characters: False
 
 ### -LabelColor
 
+Sets the label color.
+ 
 
 
 ```yaml
@@ -3280,6 +3283,8 @@ Accept wildcard characters: False
 
 ### -LabelFormatString
 
+Sets the format string for the labels.
+ 
 
 
 ```yaml
@@ -3360,6 +3365,8 @@ Accept wildcard characters: False
 
 ### -RenderInLegend
 
+Sets a value indicating whether the series should be rendered in the legend. The default is true.
+ 
 
 
 ```yaml
@@ -3392,6 +3399,8 @@ Accept wildcard characters: False
 
 ### -Selectable
 
+Sets a value indicating whether this element can be selected. The default is true.
+ 
 
 
 ```yaml
@@ -3408,6 +3417,9 @@ Accept wildcard characters: False
 
 ### -SelectionMode
 
+Sets the selection mode of items in this element. The default is SelectionMode.All.
+ 
+This is only used by the select/unselect functionality, not by the rendering.
 
 
 ```yaml
@@ -3440,6 +3452,8 @@ Accept wildcard characters: False
 
 ### -StrokeColor
 
+Sets the color of the border around the rectangles.
+ 
 
 
 ```yaml
@@ -3456,6 +3470,8 @@ Accept wildcard characters: False
 
 ### -StrokeThickness
 
+Sets the thickness of the border around the rectangles.
+ 
 
 
 ```yaml
@@ -3504,6 +3520,9 @@ Accept wildcard characters: False
 
 ### -Tag
 
+Sets an arbitrary object value that can be used to store custom information about this plot element. The default is null.
+ 
+This property is analogous to Tag properties in other Microsoft programming models. Tag is intended to provide a pre-existing property location where you can store some basic custom information about any PlotElement without requiring you to subclass an element.
 
 
 ```yaml
@@ -3520,6 +3539,9 @@ Accept wildcard characters: False
 
 ### -TextColor
 
+Sets the color of the text. The default is OxyColors.Automatic (use OxyPlot.PlotModel.TextColor).
+ 
+If the value is OxyColors.Automatic, the TextColor of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3536,6 +3558,8 @@ Accept wildcard characters: False
 
 ### -Title
 
+Sets the title of the series. The default is null.
+ 
 
 
 ```yaml
@@ -3552,6 +3576,8 @@ Accept wildcard characters: False
 
 ### -ToolTip
 
+Sets the tool tip. The default is null.
+ 
 
 
 ```yaml
@@ -3568,6 +3594,10 @@ Accept wildcard characters: False
 
 ### -TrackerFormatString
 
+Sets a format string used for the tracker. The default depends on the series.
+ 
+The arguments for the format string may be different for each type of series. See the documentation.
+ 
 
 
 ```yaml
@@ -3584,6 +3614,10 @@ Accept wildcard characters: False
 
 ### -TrackerKey
 
+Sets the key for the tracker to use on this series. The default is null.
+ 
+This key may be used by the plot view to show a custom tracker for the series.
+ 
 
 
 ```yaml
@@ -3664,6 +3698,8 @@ Accept wildcard characters: False
 
 ### -XAxisKey
 
+Sets the x-axis key. The default is null.
+ 
 
 
 ```yaml
@@ -3744,10 +3780,28 @@ Accept wildcard characters: False
 
 ### -YAxisKey
 
+Sets the y-axis key. The default is null.
+ 
 
 
 ```yaml
 Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AsPlotView
+
+
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases:
 

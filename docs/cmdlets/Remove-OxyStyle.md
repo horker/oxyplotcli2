@@ -1,7 +1,7 @@
 ---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version: http://www.mathworks.com/help/toolbox/finance/highlowfts.html
+online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/Remove-OxyStyle.md https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/Remove-OxyStyle.md https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/Remove-OxyStyle.md
 schema: 2.0.0
 ---
 

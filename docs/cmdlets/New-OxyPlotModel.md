@@ -1,7 +1,7 @@
 ﻿---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version: http://en.wikipedia.org/wiki/Pie_chart
+online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/New-OxyPlotModel.md
 schema: 2.0.0
 ---
 
@@ -3147,6 +3147,9 @@ Accept wildcard characters: False
 
 ### -Background
 
+Sets the color of the background of the plot.
+ 
+If the background color is set to OxyPlot.OxyColors.Undefined, the default color of the plot view will be used.
 
 
 ```yaml
@@ -3163,6 +3166,8 @@ Accept wildcard characters: False
 
 ### -Culture
 
+Sets the culture.
+ 
 
 
 ```yaml
@@ -3179,6 +3184,8 @@ Accept wildcard characters: False
 
 ### -DefaultColors
 
+Sets the default colors.
+ 
 
 
 ```yaml
@@ -3195,6 +3202,9 @@ Accept wildcard characters: False
 
 ### -DefaultFont
 
+Sets the default font.
+ 
+This font is used for text on axes, series, legends and plot titles unless other fonts are specified.
 
 
 ```yaml
@@ -3211,6 +3221,8 @@ Accept wildcard characters: False
 
 ### -DefaultFontSize
 
+Sets the default size of the fonts.
+ 
 
 
 ```yaml
@@ -3227,6 +3239,8 @@ Accept wildcard characters: False
 
 ### -IsLegendVisible
 
+Sets a value indicating whether the legend is visible. The titles of the series must be set to use the legend.
+ 
 
 
 ```yaml
@@ -3243,6 +3257,8 @@ Accept wildcard characters: False
 
 ### -LegendBackground
 
+Sets the background color of the legend. Use null for no background.
+ 
 
 
 ```yaml
@@ -3259,6 +3275,8 @@ Accept wildcard characters: False
 
 ### -LegendBorder
 
+Sets the border color of the legend.
+ 
 
 
 ```yaml
@@ -3275,6 +3293,8 @@ Accept wildcard characters: False
 
 ### -LegendBorderThickness
 
+Sets the thickness of the legend border. Use 0 for no border.
+ 
 
 
 ```yaml
@@ -3291,6 +3311,8 @@ Accept wildcard characters: False
 
 ### -LegendColumnSpacing
 
+Sets the spacing between columns of legend items (only for vertical orientation).
+ 
 
 
 ```yaml
@@ -3307,6 +3329,8 @@ Accept wildcard characters: False
 
 ### -LegendFont
 
+Sets the legend font.
+ 
 
 
 ```yaml
@@ -3323,6 +3347,8 @@ Accept wildcard characters: False
 
 ### -LegendFontSize
 
+Sets the size of the legend font.
+ 
 
 
 ```yaml
@@ -3339,6 +3365,8 @@ Accept wildcard characters: False
 
 ### -LegendFontWeight
 
+Sets the legend font weight.
+ 
 
 
 ```yaml
@@ -3355,6 +3383,8 @@ Accept wildcard characters: False
 
 ### -LegendItemAlignment
 
+Sets the legend item alignment.
+ 
 
 
 ```yaml
@@ -3372,6 +3402,8 @@ Accept wildcard characters: False
 
 ### -LegendItemOrder
 
+Sets the legend item order.
+ 
 
 
 ```yaml
@@ -3389,6 +3421,8 @@ Accept wildcard characters: False
 
 ### -LegendItemSpacing
 
+Sets the horizontal spacing between legend items when the orientation is horizontal.
+ 
 
 
 ```yaml
@@ -3405,6 +3439,8 @@ Accept wildcard characters: False
 
 ### -LegendLineSpacing
 
+Sets the vertical spacing between legend items.
+ 
 
 
 ```yaml
@@ -3421,6 +3457,8 @@ Accept wildcard characters: False
 
 ### -LegendMargin
 
+Sets the legend margin.
+ 
 
 
 ```yaml
@@ -3437,6 +3475,8 @@ Accept wildcard characters: False
 
 ### -LegendMaxHeight
 
+Sets the max height of the legend.
+ 
 
 
 ```yaml
@@ -3453,6 +3493,8 @@ Accept wildcard characters: False
 
 ### -LegendMaxWidth
 
+Sets the max width of the legend.
+ 
 
 
 ```yaml
@@ -3469,6 +3511,8 @@ Accept wildcard characters: False
 
 ### -LegendOrientation
 
+Sets the legend orientation.
+ 
 
 
 ```yaml
@@ -3486,6 +3530,8 @@ Accept wildcard characters: False
 
 ### -LegendPadding
 
+Sets the legend padding.
+ 
 
 
 ```yaml
@@ -3502,6 +3548,8 @@ Accept wildcard characters: False
 
 ### -LegendPlacement
 
+Sets the legend placement.
+ 
 
 
 ```yaml
@@ -3519,6 +3567,8 @@ Accept wildcard characters: False
 
 ### -LegendPosition
 
+Sets the legend position.
+ 
 
 
 ```yaml
@@ -3536,6 +3586,8 @@ Accept wildcard characters: False
 
 ### -LegendSymbolLength
 
+Sets the length of the legend symbols (the default value is 16).
+ 
 
 
 ```yaml
@@ -3552,6 +3604,8 @@ Accept wildcard characters: False
 
 ### -LegendSymbolMargin
 
+Sets the legend symbol margins (distance between the symbol and the text).
+ 
 
 
 ```yaml
@@ -3568,6 +3622,8 @@ Accept wildcard characters: False
 
 ### -LegendSymbolPlacement
 
+Sets the legend symbol placement.
+ 
 
 
 ```yaml
@@ -3585,6 +3641,9 @@ Accept wildcard characters: False
 
 ### -LegendTextColor
 
+Sets the color of the legend text.
+ 
+If this value is null, the TextColor will be used.
 
 
 ```yaml
@@ -3601,6 +3660,8 @@ Accept wildcard characters: False
 
 ### -LegendTitle
 
+Sets the legend title.
+ 
 
 
 ```yaml
@@ -3617,6 +3678,9 @@ Accept wildcard characters: False
 
 ### -LegendTitleColor
 
+Sets the color of the legend title.
+ 
+If this value is null, the TextColor will be used.
 
 
 ```yaml
@@ -3633,6 +3697,8 @@ Accept wildcard characters: False
 
 ### -LegendTitleFont
 
+Sets the legend title font.
+ 
 
 
 ```yaml
@@ -3649,6 +3715,8 @@ Accept wildcard characters: False
 
 ### -LegendTitleFontSize
 
+Sets the size of the legend title font.
+ 
 
 
 ```yaml
@@ -3665,6 +3733,8 @@ Accept wildcard characters: False
 
 ### -LegendTitleFontWeight
 
+Sets the legend title font weight.
+ 
 
 
 ```yaml
@@ -3729,6 +3799,8 @@ Accept wildcard characters: False
 
 ### -Padding
 
+Sets the padding around the plot.
+ 
 
 
 ```yaml
@@ -3761,6 +3833,8 @@ Accept wildcard characters: False
 
 ### -PlotAreaBackground
 
+Sets the color of the background of the plot area.
+ 
 
 
 ```yaml
@@ -3777,6 +3851,8 @@ Accept wildcard characters: False
 
 ### -PlotAreaBorderColor
 
+Sets the color of the border around the plot area.
+ 
 
 
 ```yaml
@@ -3793,6 +3869,8 @@ Accept wildcard characters: False
 
 ### -PlotAreaBorderThickness
 
+Sets the thickness of the border around the plot area.
+ 
 
 
 ```yaml
@@ -3809,6 +3887,9 @@ Accept wildcard characters: False
 
 ### -PlotMargins
 
+Sets the margins around the plot (this should be large enough to fit the axes).
+ If any of the values is set to double.NaN, the margin is adjusted to the value required by the axes.
+ 
 
 
 ```yaml
@@ -3825,6 +3906,8 @@ Accept wildcard characters: False
 
 ### -PlotType
 
+Sets the type of the coordinate system.
+ 
 
 
 ```yaml
@@ -3842,6 +3925,8 @@ Accept wildcard characters: False
 
 ### -RenderingDecorator
 
+Sets the rendering decorator.
+ 
 
 
 ```yaml
@@ -3874,6 +3959,8 @@ Accept wildcard characters: False
 
 ### -SelectionColor
 
+Sets the color of the selection.
+ 
 
 
 ```yaml
@@ -3890,6 +3977,8 @@ Accept wildcard characters: False
 
 ### -Series
 
+Gets the series.
+ 
 
 
 ```yaml
@@ -3954,6 +4043,8 @@ Accept wildcard characters: False
 
 ### -Subtitle
 
+Sets the subtitle.
+ 
 
 
 ```yaml
@@ -3970,6 +4061,8 @@ Accept wildcard characters: False
 
 ### -SubtitleColor
 
+Sets the color of the subtitle.
+ 
 
 
 ```yaml
@@ -3986,6 +4079,8 @@ Accept wildcard characters: False
 
 ### -SubtitleFont
 
+Sets the subtitle font. If this property is null, the Title font will be used.
+ 
 
 
 ```yaml
@@ -4002,6 +4097,8 @@ Accept wildcard characters: False
 
 ### -SubtitleFontSize
 
+Sets the size of the subtitle font.
+ 
 
 
 ```yaml
@@ -4018,6 +4115,8 @@ Accept wildcard characters: False
 
 ### -SubtitleFontWeight
 
+Sets the subtitle font weight.
+ 
 
 
 ```yaml
@@ -4050,6 +4149,8 @@ Accept wildcard characters: False
 
 ### -TextColor
 
+Sets the default color of the text in the plot (titles, legends, annotations, axes).
+ 
 
 
 ```yaml
@@ -4066,6 +4167,8 @@ Accept wildcard characters: False
 
 ### -Title
 
+Sets the title.
+ 
 
 
 ```yaml
@@ -4082,6 +4185,9 @@ Accept wildcard characters: False
 
 ### -TitleColor
 
+Sets the color of the title.
+ 
+If the value is null, the TextColor will be used.
 
 
 ```yaml
@@ -4098,6 +4204,8 @@ Accept wildcard characters: False
 
 ### -TitleFont
 
+Sets the title font.
+ 
 
 
 ```yaml
@@ -4114,6 +4222,8 @@ Accept wildcard characters: False
 
 ### -TitleFontSize
 
+Sets the size of the title font.
+ 
 
 
 ```yaml
@@ -4130,6 +4240,8 @@ Accept wildcard characters: False
 
 ### -TitleFontWeight
 
+Sets the title font weight.
+ 
 
 
 ```yaml
@@ -4146,6 +4258,8 @@ Accept wildcard characters: False
 
 ### -TitleHorizontalAlignment
 
+Sets the horizontal alignment of the title and subtitle.
+ 
 
 
 ```yaml
@@ -4163,6 +4277,8 @@ Accept wildcard characters: False
 
 ### -TitlePadding
 
+Sets the padding around the title.
+ 
 
 
 ```yaml
@@ -4179,6 +4295,8 @@ Accept wildcard characters: False
 
 ### -TitleToolTip
 
+Sets the title tool tip.
+ 
 
 
 ```yaml

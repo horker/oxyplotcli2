@@ -149,8 +149,17 @@ $DOC_ROOT = "$PSScriptRoot\docs"
 $DOC_WORK = "$DOC_ROOT\work"
 $DOC_OUT = "$DOC_ROOT\cmdlets"
 
-task GenerateBaseHelpFile {
-    New-MarkdownHelp -Module oxyplotcli -OutputFolder $DOC_WORK\generated -Locale en-US -UseFullTypeName -Force
+task GenerateBaseHelp {
+    Get-Command -Type Cmdlet -Module oxyplotcli |
+    foreach {
+        $name = $_.Name
+        New-MarkdownHelp -Command $name `
+            -OnlineVersion https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/$name.md `
+            -OutputFolder $DOC_WORK\generated `
+            -Encoding ([Text.Encoding]::UTF8) `
+            -UseFullTypeName `
+            -Force
+    }
 }
 
 task AutofillHelp {
@@ -163,7 +172,7 @@ task UpdateHandwrittenHelp {
 
 task CompileHelp {
     Copy-Item $DOC_WORK\autofilled\*.md $DOC_OUT
-    Copy-Item $DOC_WORK\handwritten\*.md $DOC_OUT
+    Copy-Item $DOC_WORK\handwritten\*.md $DOC_OUT # Overwrite
     Copy-Item $DOC_OUT\*.md $DOC_WORK\xml_source
 
     # ***HACK***

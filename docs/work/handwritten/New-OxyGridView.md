@@ -1,7 +1,7 @@
 ---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version: http://en.wikipedia.org/wiki/Contour_line
+online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/New-OxyGridView.md https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/New-OxyGridView.md https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/New-OxyGridView.md
 schema: 2.0.0
 ---
 

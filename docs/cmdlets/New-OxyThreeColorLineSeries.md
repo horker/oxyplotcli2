@@ -1,7 +1,7 @@
 ﻿---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version: http://en.wikipedia.org/wiki/Stemplot
+online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/New-OxyThreeColorLineSeries.md
 schema: 2.0.0
 ---
 
@@ -18,7 +18,7 @@ Returns an object that represents a two-color line series.
 ```
 New-OxyThreeColorLineSeries [-InputObject <PSObject>] [-XName <String>] [-YName <String>] [-GroupName <String>]
  [-X <Double[]>] [-Y <Double[]>] [-Group <Object[]>] [-AddTo <PlotModel>] [-OutFile <String>]
- [-OutWidth <Int32>] [-OutHeight <Int32>] [-SvgIsDocument] [-PassThru] [-Style <String>] [-AsUIElement] [-Show]
+ [-OutWidth <Int32>] [-OutHeight <Int32>] [-SvgIsDocument] [-PassThru] [-Style <String>] [-AsPlotView] [-Show]
  [-ReuseWindow] [-ColorLo <OxyColor>] [-ColorHi <OxyColor>] [-LimitHi <Double>] [-LimitLo <Double>]
  [-DashesHi <Double[]>] [-DashesLo <Double[]>] [-LineStyleHi <LineStyle>] [-LineStyleLo <LineStyle>]
  [-Color <OxyColor>] [-BrokenLineColor <OxyColor>] [-BrokenLineStyle <LineStyle>]
@@ -115,22 +115,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AsUIElement
-
-Returns an object as a PlotView object.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -3113,6 +3097,9 @@ Accept wildcard characters: False
 
 ### -Background
 
+Sets the background color of the series. The default is OxyColors.Undefined.
+ 
+This property defines the background color in the area defined by the x and y axes used by this series.
 
 
 ```yaml
@@ -3129,6 +3116,9 @@ Accept wildcard characters: False
 
 ### -BrokenLineColor
 
+Sets the color of the broken line segments. The default is OxyPlot.OxyColors.Undefined. Set it to OxyPlot.OxyColors.Automatic if it should follow the OxyPlot.Series.LineSeries.Color.
+ 
+Add DataPoint.Undefined in the Points collection to create breaks in the line.
 
 
 ```yaml
@@ -3145,6 +3135,8 @@ Accept wildcard characters: False
 
 ### -BrokenLineStyle
 
+Sets the broken line style. The default is OxyPlot.LineStyle.Solid.
+ 
 
 
 ```yaml
@@ -3161,6 +3153,8 @@ Accept wildcard characters: False
 
 ### -BrokenLineThickness
 
+Sets the broken line thickness. The default is 0 (no line).
+ 
 
 
 ```yaml
@@ -3177,6 +3171,8 @@ Accept wildcard characters: False
 
 ### -CanTrackerInterpolatePoints
 
+Sets a value indicating whether the tracker can interpolate points.
+ 
 
 
 ```yaml
@@ -3193,6 +3189,8 @@ Accept wildcard characters: False
 
 ### -Color
 
+Sets the color of the curve.
+ 
 
 
 ```yaml
@@ -3209,6 +3207,8 @@ Accept wildcard characters: False
 
 ### -ColorHi
 
+Sets the color for the part of the line that is above the limit.
+ 
 
 
 ```yaml
@@ -3225,6 +3225,8 @@ Accept wildcard characters: False
 
 ### -ColorLo
 
+Sets the color for the part of the line that is below the limit.
+ 
 
 
 ```yaml
@@ -3241,6 +3243,9 @@ Accept wildcard characters: False
 
 ### -Dashes
 
+Sets the dash array for the rendered line (overrides OxyPlot.Series.LineSeries.LineStyle). The default is null.
+ 
+If this is not null it overrides the OxyPlot.Series.LineSeries.LineStyle property.
 
 
 ```yaml
@@ -3257,6 +3262,9 @@ Accept wildcard characters: False
 
 ### -DashesHi
 
+Sets the dash array for the rendered line that is above the limit (overrides OxyPlot.LineStyle).
+ 
+If this is not null it overrides the OxyPlot.LineStyle property.
 
 
 ```yaml
@@ -3273,6 +3281,9 @@ Accept wildcard characters: False
 
 ### -DashesLo
 
+Sets the dash array for the rendered line that is below the limit (overrides OxyPlot.LineStyle).
+ 
+If this is not null it overrides the OxyPlot.LineStyle property.
 
 
 ```yaml
@@ -3289,6 +3300,8 @@ Accept wildcard characters: False
 
 ### -DataFieldX
 
+Sets the data field X. The default is null.
+ 
 
 
 ```yaml
@@ -3305,6 +3318,8 @@ Accept wildcard characters: False
 
 ### -DataFieldY
 
+Sets the data field Y. The default is null.
+ 
 
 
 ```yaml
@@ -3321,6 +3336,9 @@ Accept wildcard characters: False
 
 ### -Decimator
 
+Sets the decimator.
+ 
+The decimator can be used to improve the performance of the rendering. See the example.
 
 
 ```yaml
@@ -3337,6 +3355,9 @@ Accept wildcard characters: False
 
 ### -Font
 
+Sets the font. The default is null (use OxyPlot.PlotModel.DefaultFont.
+ 
+If the value is null, the DefaultFont of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3353,6 +3374,9 @@ Accept wildcard characters: False
 
 ### -FontSize
 
+Sets the size of the font. The default is double.NaN (use OxyPlot.PlotModel.DefaultFontSize).
+ 
+If the value is NaN, the DefaultFontSize of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3369,6 +3393,8 @@ Accept wildcard characters: False
 
 ### -FontWeight
 
+Sets the font weight. The default is FontWeights.Normal.
+ 
 
 
 ```yaml
@@ -3433,6 +3459,8 @@ Accept wildcard characters: False
 
 ### -InterpolationAlgorithm
 
+Sets a type of interpolation algorithm used for smoothing this OxyPlot.Series.DataPointSeries.
+ 
 
 
 ```yaml
@@ -3449,6 +3477,8 @@ Accept wildcard characters: False
 
 ### -IsVisible
 
+Sets a value indicating whether this series is visible. The default is true.
+ 
 
 
 ```yaml
@@ -3465,6 +3495,8 @@ Accept wildcard characters: False
 
 ### -ItemsSource
 
+Sets the items source. The default is null.
+ 
 
 
 ```yaml
@@ -3481,6 +3513,8 @@ Accept wildcard characters: False
 
 ### -LabelFormatString
 
+Sets the label format string. The default is null (no labels).
+ 
 
 
 ```yaml
@@ -3497,6 +3531,8 @@ Accept wildcard characters: False
 
 ### -LabelMargin
 
+Sets the label margins. The default is 6.
+ 
 
 
 ```yaml
@@ -3513,6 +3549,10 @@ Accept wildcard characters: False
 
 ### -LimitHi
 
+Sets the high limit.
+ 
+The parts of the line that is below this limit will be rendered with ColorHi.
+ The parts of the line that is above the limit will be rendered with Color.
 
 
 ```yaml
@@ -3529,6 +3569,10 @@ Accept wildcard characters: False
 
 ### -LimitLo
 
+Sets the low limit.
+ 
+The parts of the line that is below this limit will be rendered with ColorLo.
+ The parts of the line that is above the limit will be rendered with Color.
 
 
 ```yaml
@@ -3545,6 +3589,8 @@ Accept wildcard characters: False
 
 ### -LineJoin
 
+Sets the line join. The default is OxyPlot.LineJoin.Bevel.
+ 
 
 
 ```yaml
@@ -3561,6 +3607,8 @@ Accept wildcard characters: False
 
 ### -LineLegendPosition
 
+Sets a value specifying the position of a legend rendered on the line. The default is LineLegendPosition.None.
+ 
 
 
 ```yaml
@@ -3577,6 +3625,8 @@ Accept wildcard characters: False
 
 ### -LineStyle
 
+Sets the line style. The default is OxyPlot.LineStyle.Automatic.
+ 
 
 
 ```yaml
@@ -3593,6 +3643,8 @@ Accept wildcard characters: False
 
 ### -LineStyleHi
 
+Sets the line style for the part of the line that is above the limit.
+ 
 
 
 ```yaml
@@ -3609,6 +3661,8 @@ Accept wildcard characters: False
 
 ### -LineStyleLo
 
+Sets the line style for the part of the line that is below the limit.
+ 
 
 
 ```yaml
@@ -3625,6 +3679,9 @@ Accept wildcard characters: False
 
 ### -Mapping
 
+Sets the delegate used to map from OxyPlot.Series.ItemsSeries.ItemsSource to the OxyPlot.Series.DataPointSeries.ActualPoints. The default is null.
+ 
+Example: series1.Mapping = item => new DataPoint(((MyType)item).Time,((MyType)item).Value);
 
 
 ```yaml
@@ -3641,6 +3698,8 @@ Accept wildcard characters: False
 
 ### -MarkerFill
 
+Sets the marker fill color. The default is OxyPlot.OxyColors.Automatic.
+ 
 
 
 ```yaml
@@ -3657,6 +3716,8 @@ Accept wildcard characters: False
 
 ### -MarkerOutline
 
+Sets the a custom polygon outline for the markers. Set OxyPlot.Series.LineSeries.MarkerType to OxyPlot.MarkerType.Custom to use this property. The default is null.
+ 
 
 
 ```yaml
@@ -3673,6 +3734,8 @@ Accept wildcard characters: False
 
 ### -MarkerResolution
 
+Sets the marker resolution. The default is 0.
+ 
 
 
 ```yaml
@@ -3689,6 +3752,8 @@ Accept wildcard characters: False
 
 ### -MarkerSize
 
+Sets the size of the marker. The default is 3.
+ 
 
 
 ```yaml
@@ -3705,6 +3770,8 @@ Accept wildcard characters: False
 
 ### -MarkerStroke
 
+Sets the marker stroke. The default is OxyColors.Automatic.
+ 
 
 
 ```yaml
@@ -3721,6 +3788,8 @@ Accept wildcard characters: False
 
 ### -MarkerStrokeThickness
 
+Sets the marker stroke thickness. The default is 2.
+ 
 
 
 ```yaml
@@ -3737,6 +3806,9 @@ Accept wildcard characters: False
 
 ### -MarkerType
 
+Sets the type of the marker. The default is MarkerType.None.
+ 
+If MarkerType.Custom is used, the MarkerOutline property must be specified.
 
 
 ```yaml
@@ -3753,6 +3825,10 @@ Accept wildcard characters: False
 
 ### -MinimumSegmentLength
 
+Sets the minimum length of the segment.
+ Increasing this number will increase performance,
+ but make the curve less accurate. The default is 2.
+ 
 
 
 ```yaml
@@ -3833,6 +3909,8 @@ Accept wildcard characters: False
 
 ### -RenderInLegend
 
+Sets a value indicating whether the series should be rendered in the legend. The default is true.
+ 
 
 
 ```yaml
@@ -3865,6 +3943,8 @@ Accept wildcard characters: False
 
 ### -Selectable
 
+Sets a value indicating whether this element can be selected. The default is true.
+ 
 
 
 ```yaml
@@ -3881,6 +3961,9 @@ Accept wildcard characters: False
 
 ### -SelectionMode
 
+Sets the selection mode of items in this element. The default is SelectionMode.All.
+ 
+This is only used by the select/unselect functionality, not by the rendering.
 
 
 ```yaml
@@ -3913,6 +3996,8 @@ Accept wildcard characters: False
 
 ### -StrokeThickness
 
+Sets the thickness of the curve.
+ 
 
 
 ```yaml
@@ -3961,6 +4046,9 @@ Accept wildcard characters: False
 
 ### -Tag
 
+Sets an arbitrary object value that can be used to store custom information about this plot element. The default is null.
+ 
+This property is analogous to Tag properties in other Microsoft programming models. Tag is intended to provide a pre-existing property location where you can store some basic custom information about any PlotElement without requiring you to subclass an element.
 
 
 ```yaml
@@ -3977,6 +4065,9 @@ Accept wildcard characters: False
 
 ### -TextColor
 
+Sets the color of the text. The default is OxyColors.Automatic (use OxyPlot.PlotModel.TextColor).
+ 
+If the value is OxyColors.Automatic, the TextColor of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3993,6 +4084,8 @@ Accept wildcard characters: False
 
 ### -Title
 
+Sets the title of the series. The default is null.
+ 
 
 
 ```yaml
@@ -4009,6 +4102,8 @@ Accept wildcard characters: False
 
 ### -ToolTip
 
+Sets the tool tip. The default is null.
+ 
 
 
 ```yaml
@@ -4025,6 +4120,10 @@ Accept wildcard characters: False
 
 ### -TrackerFormatString
 
+Sets a format string used for the tracker. The default depends on the series.
+ 
+The arguments for the format string may be different for each type of series. See the documentation.
+ 
 
 
 ```yaml
@@ -4041,6 +4140,10 @@ Accept wildcard characters: False
 
 ### -TrackerKey
 
+Sets the key for the tracker to use on this series. The default is null.
+ 
+This key may be used by the plot view to show a custom tracker for the series.
+ 
 
 
 ```yaml
@@ -4073,6 +4176,8 @@ Accept wildcard characters: False
 
 ### -XAxisKey
 
+Sets the x-axis key. The default is null.
+ 
 
 
 ```yaml
@@ -4121,6 +4226,8 @@ Accept wildcard characters: False
 
 ### -YAxisKey
 
+Sets the y-axis key. The default is null.
+ 
 
 
 ```yaml
@@ -4141,6 +4248,22 @@ Specifies the property name of the input object to be processed as the element Y
 
 ```yaml
 Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AsPlotView
+
+
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases:
 

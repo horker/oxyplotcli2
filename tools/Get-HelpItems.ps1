@@ -1,12 +1,12 @@
 [cmdletbinding()]
 param(
-  [string]$ObjectName,
-  [string]$ClassName,
-  [string]$Prefix,
-  [xml]$HelpDocument = (Get-Content "$PSScriptRoot\OxyPlot.xml")
+    [string]$ObjectName,
+    [string]$ClassName,
+    [string]$Prefix,
+    [Xml.XmlDocument]$HelpDocument = [xml](Get-Content -Encoding utf8 "$PSScriptRoot\OxyPlot.xml")
 )
 
-Set-StrictMode -Version 3
+Set-StrictMode -Version Latest
 
 ############################################################
 # Get-PlainText
@@ -15,58 +15,58 @@ Set-StrictMode -Version 3
 $links = New-Object Collections.Generic.List[string]
 
 function Get-PlainText {
-  param(
-    [xml.XmlElement]$Xml
-  )
+    param(
+        [xml.XmlElement]$Xml
+    )
 
-  if ($null -eq $Xml) {
-    return
-  }
-
-  $out = New-Object Text.StringBuilder
-
-  foreach ($node in $Xml.ChildNodes) {
-    switch ($node.Name) {
-      "#text" {
-        # Modify descriptions for properties to those for cmdlet parameters
-        $s = $node.InnerText -replace "^\s*Gets or sets ", "Sets "
-
-        # .NET XML component returns multiple lines that end with LF.
-        $s = $s -replace "`n", "`r`n"
-
-        [void]$out.Append($s)
-      }
-      "see" {
-        if ($node.SelectSingleNode("@cref")) {
-            [void]$out.Append(($node.cref -replace "^.:", ""))
-        }
-        elseif ($node.SelectSingleNode("@href")) {
-            [void]$out.Append("`r`n`r`nSee $($node.href).")
-            $links.Add($node.href)
-        }
-        else {
-            Write-Error "Invalid node: $($node.ToString())"
-        }
-      }
-      "a" {
-        $text = Get-PlainText $node
-        [void]$out.Append("[$text]($($node.href))")
-        $links.Add($node.href)
-      }
-      "value" {
-        # Skip the <value> element because it contains little valuable information
-      }
-      default {
-        [void]$out.Append((Get-PlainText $node))
-      }
+    if ($null -eq $Xml) {
+        return
     }
-  }
 
-  if ($Xml.Name -eq "summary" -or $Xml.Name -eq "remarks" -or $Xml.Name -eq "para") {
-    [void]$out.Append("`r`n")
-  }
+    $out = New-Object Text.StringBuilder
 
-  $out.ToString().TrimStart() -replace "[ \t]+", " "
+    foreach ($node in $Xml.ChildNodes) {
+        switch ($node.Name) {
+            "#text" {
+                # Modify descriptions for properties to those for cmdlet parameters
+                $s = $node.InnerText -replace "^\s*Gets or sets ", "Sets "
+
+                # .NET XML component returns multiple lines that end with LF.
+                $s = $s -replace "`n", "`r`n"
+
+                [void]$out.Append($s)
+            }
+            "see" {
+                if ($node.SelectSingleNode("@cref")) {
+                    [void]$out.Append(($node.cref -replace "^.:", ""))
+                }
+                elseif ($node.SelectSingleNode("@href")) {
+                    [void]$out.Append("`r`n`r`nSee $($node.href).")
+                    $links.Add($node.href)
+                }
+                else {
+                    Write-Error "Invalid node: $($node.ToString())"
+                }
+            }
+            "a" {
+                $text = Get-PlainText $node
+                [void]$out.Append("[$text]($($node.href))")
+                $links.Add($node.href)
+            }
+            "value" {
+                # Skip the <value> element because it contains little valuable information
+            }
+            default {
+                [void]$out.Append((Get-PlainText $node))
+            }
+        }
+    }
+
+    if ($Xml.Name -eq "summary" -or $Xml.Name -eq "remarks" -or $Xml.Name -eq "para") {
+        [void]$out.Append("`r`n")
+    }
+
+    $out.ToString().TrimStart() -replace "[ \t]+", " "
 }
 
 ############################################################
@@ -131,7 +131,9 @@ $description = $synopsis
 
 $h = @{}
 $c = Invoke-Expression "[$ClassName]"
+
 while ($c) {
+    Write-Verbose "Class: $($c.FullName)"
     $h[$c.FullName] = 1
     $c = $c.BaseType
 }
@@ -145,7 +147,11 @@ $props = $members |
 $params = Get-DefaultParamterItems
 
 foreach ($p in $props) {
-    $params["$Prefix$($p.name -replace "^.+\.", '')"] = Get-PlainText $p
+    $name = "$Prefix$($p.name -replace "^.+\.", '')"
+    $desc = Get-PlainText $p
+    Write-Verbose "parameter: `"$name`""
+    Write-Verbose "desc: `"$desc`""
+    $params[$name] = $desc
 }
 
 ############################################################

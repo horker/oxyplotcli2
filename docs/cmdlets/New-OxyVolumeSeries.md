@@ -1,7 +1,7 @@
 ﻿---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version: http://www.mathworks.com/help/toolbox/finance/highlowfts.html
+online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/New-OxyVolumeSeries.md
 schema: 2.0.0
 ---
 
@@ -22,7 +22,7 @@ New-OxyVolumeSeries [-InputObject <PSObject>] [-XName <String>] [-OpenName <Stri
  [-GroupName <String>] [-X <Double[]>] [-Open <Double[]>] [-High <Double[]>] [-Low <Double[]>]
  [-Close <Double[]>] [-BuyVolume <Double[]>] [-SellVolume <Double[]>] [-Group <Object[]>] [-AddTo <PlotModel>]
  [-OutFile <String>] [-OutWidth <Int32>] [-OutHeight <Int32>] [-SvgIsDocument] [-PassThru] [-Style <String>]
- [-AsUIElement] [-Show] [-ReuseWindow] [-Items <System.Collections.Generic.List`1[OxyPlot.Series.OhlcvItem]>]
+ [-AsPlotView] [-Show] [-ReuseWindow] [-Items <System.Collections.Generic.List`1[OxyPlot.Series.OhlcvItem]>]
  [-VolumeStyle <VolumeStyle>] [-StrokeThickness <Double>] [-StrokeIntensity <Double>]
  [-PositiveColor <OxyColor>] [-NegativeColor <OxyColor>] [-InterceptColor <OxyColor>]
  [-InterceptStrokeThickness <Double>] [-InterceptLineStyle <LineStyle>] [-PositiveHollow <Bool>]
@@ -112,22 +112,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AsUIElement
-
-Returns an object as a PlotView object.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -3110,6 +3094,9 @@ Accept wildcard characters: False
 
 ### -Background
 
+Sets the background color of the series. The default is OxyColors.Undefined.
+ 
+This property defines the background color in the area defined by the x and y axes used by this series.
 
 
 ```yaml
@@ -3126,6 +3113,10 @@ Accept wildcard characters: False
 
 ### -BarWidth
 
+Sets the bar width in data units (for example if the X axis is date/time based, then should
+ use the difference of DateTimeAxis.ToDouble(date) to indicate the width). By default candlestick
+ series will use 0.80 x the minimum difference in data points.
+ 
 
 
 ```yaml
@@ -3206,6 +3197,9 @@ Accept wildcard characters: False
 
 ### -Font
 
+Sets the font. The default is null (use OxyPlot.PlotModel.DefaultFont.
+ 
+If the value is null, the DefaultFont of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3222,6 +3216,9 @@ Accept wildcard characters: False
 
 ### -FontSize
 
+Sets the size of the font. The default is double.NaN (use OxyPlot.PlotModel.DefaultFontSize).
+ 
+If the value is NaN, the DefaultFontSize of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3238,6 +3235,8 @@ Accept wildcard characters: False
 
 ### -FontWeight
 
+Sets the font weight. The default is FontWeights.Normal.
+ 
 
 
 ```yaml
@@ -3334,6 +3333,8 @@ Accept wildcard characters: False
 
 ### -InterceptColor
 
+Sets the stroke color of the Y=0 intercept
+ 
 
 
 ```yaml
@@ -3350,6 +3351,8 @@ Accept wildcard characters: False
 
 ### -InterceptLineStyle
 
+Sets the line style of the Y=0 intercept
+ 
 
 
 ```yaml
@@ -3366,6 +3369,8 @@ Accept wildcard characters: False
 
 ### -InterceptStrokeThickness
 
+Sets the thickness of the Y=0 intercept
+ 
 
 
 ```yaml
@@ -3382,6 +3387,8 @@ Accept wildcard characters: False
 
 ### -IsVisible
 
+Sets a value indicating whether this series is visible. The default is true.
+ 
 
 
 ```yaml
@@ -3398,6 +3405,8 @@ Accept wildcard characters: False
 
 ### -Items
 
+Sets the items of the series.
+ 
 
 
 ```yaml
@@ -3414,6 +3423,8 @@ Accept wildcard characters: False
 
 ### -ItemsSource
 
+Sets the items source. The default is null.
+ 
 
 
 ```yaml
@@ -3462,6 +3473,9 @@ Accept wildcard characters: False
 
 ### -NegativeColor
 
+Sets the fill color used when the closing value is less than opening value or
+ for selling volume
+ 
 
 
 ```yaml
@@ -3478,6 +3492,8 @@ Accept wildcard characters: False
 
 ### -NegativeHollow
 
+Sets a value indicating whether negative bars are shown as filled (false) or hollow (true) candlesticks
+ 
 
 
 ```yaml
@@ -3590,6 +3606,9 @@ Accept wildcard characters: False
 
 ### -PositiveColor
 
+Sets the color used when the closing value is greater than opening value or
+ for buying volume.
+ 
 
 
 ```yaml
@@ -3606,6 +3625,8 @@ Accept wildcard characters: False
 
 ### -PositiveHollow
 
+Sets a value indicating whether positive bars are shown as filled (false) or hollow (true) candlesticks
+ 
 
 
 ```yaml
@@ -3622,6 +3643,8 @@ Accept wildcard characters: False
 
 ### -RenderInLegend
 
+Sets a value indicating whether the series should be rendered in the legend. The default is true.
+ 
 
 
 ```yaml
@@ -3654,6 +3677,8 @@ Accept wildcard characters: False
 
 ### -Selectable
 
+Sets a value indicating whether this element can be selected. The default is true.
+ 
 
 
 ```yaml
@@ -3670,6 +3695,9 @@ Accept wildcard characters: False
 
 ### -SelectionMode
 
+Sets the selection mode of items in this element. The default is SelectionMode.All.
+ 
+This is only used by the select/unselect functionality, not by the rendering.
 
 
 ```yaml
@@ -3734,6 +3762,9 @@ Accept wildcard characters: False
 
 ### -StrokeIntensity
 
+Sets the stroke intensity scale (used to generate stroke color from positive or negative color).
+ For example, 1.0 = same color and 0.5 is 1/2 of the intensity of the source fill color.
+ 
 
 
 ```yaml
@@ -3750,6 +3781,8 @@ Accept wildcard characters: False
 
 ### -StrokeThickness
 
+Sets the thickness of the bar lines
+ 
 
 
 ```yaml
@@ -3798,6 +3831,9 @@ Accept wildcard characters: False
 
 ### -Tag
 
+Sets an arbitrary object value that can be used to store custom information about this plot element. The default is null.
+ 
+This property is analogous to Tag properties in other Microsoft programming models. Tag is intended to provide a pre-existing property location where you can store some basic custom information about any PlotElement without requiring you to subclass an element.
 
 
 ```yaml
@@ -3814,6 +3850,9 @@ Accept wildcard characters: False
 
 ### -TextColor
 
+Sets the color of the text. The default is OxyColors.Automatic (use OxyPlot.PlotModel.TextColor).
+ 
+If the value is OxyColors.Automatic, the TextColor of the parent PlotModel will be used.
 
 
 ```yaml
@@ -3830,6 +3869,8 @@ Accept wildcard characters: False
 
 ### -Title
 
+Sets the title of the series. The default is null.
+ 
 
 
 ```yaml
@@ -3846,6 +3887,8 @@ Accept wildcard characters: False
 
 ### -ToolTip
 
+Sets the tool tip. The default is null.
+ 
 
 
 ```yaml
@@ -3862,6 +3905,10 @@ Accept wildcard characters: False
 
 ### -TrackerFormatString
 
+Sets a format string used for the tracker. The default depends on the series.
+ 
+The arguments for the format string may be different for each type of series. See the documentation.
+ 
 
 
 ```yaml
@@ -3878,6 +3925,10 @@ Accept wildcard characters: False
 
 ### -TrackerKey
 
+Sets the key for the tracker to use on this series. The default is null.
+ 
+This key may be used by the plot view to show a custom tracker for the series.
+ 
 
 
 ```yaml
@@ -3894,6 +3945,8 @@ Accept wildcard characters: False
 
 ### -VolumeStyle
 
+Sets the style of volume rendering (defaults to Combined)
+ 
 
 
 ```yaml
@@ -3926,6 +3979,8 @@ Accept wildcard characters: False
 
 ### -XAxisKey
 
+Sets the x-axis key. The default is null.
+ 
 
 
 ```yaml
@@ -3958,10 +4013,28 @@ Accept wildcard characters: False
 
 ### -YAxisKey
 
+Sets the y-axis key. The default is null.
+ 
 
 
 ```yaml
 Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AsPlotView
+
+
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases:
 

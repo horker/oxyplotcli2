@@ -1,7 +1,7 @@
 ﻿---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version: http://www.mathworks.com/help/toolbox/finance/highlowfts.html
+online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/New-OxyImageAnnotation.md
 schema: 2.0.0
 ---
 
@@ -50,6 +50,9 @@ Accept wildcard characters: False
 
 ### -Font
 
+Sets the font. The default is null (use OxyPlot.PlotModel.DefaultFont.
+ 
+If the value is null, the DefaultFont of the parent PlotModel will be used.
 
 
 ```yaml
@@ -66,6 +69,9 @@ Accept wildcard characters: False
 
 ### -FontSize
 
+Sets the size of the font. The default is double.NaN (use OxyPlot.PlotModel.DefaultFontSize).
+ 
+If the value is NaN, the DefaultFontSize of the parent PlotModel will be used.
 
 
 ```yaml
@@ -82,6 +88,8 @@ Accept wildcard characters: False
 
 ### -FontWeight
 
+Sets the font weight. The default is FontWeights.Normal.
+ 
 
 
 ```yaml
@@ -98,6 +106,8 @@ Accept wildcard characters: False
 
 ### -Height
 
+Sets the height.
+ 
 
 
 ```yaml
@@ -114,6 +124,8 @@ Accept wildcard characters: False
 
 ### -HorizontalAlignment
 
+Sets the horizontal alignment.
+ 
 
 
 ```yaml
@@ -130,6 +142,8 @@ Accept wildcard characters: False
 
 ### -ImageSource
 
+Sets the image source.
+ 
 
 
 ```yaml
@@ -146,6 +160,8 @@ Accept wildcard characters: False
 
 ### -Interpolate
 
+Sets a value indicating whether to apply smooth interpolation to the image.
+ 
 
 
 ```yaml
@@ -162,6 +178,8 @@ Accept wildcard characters: False
 
 ### -Layer
 
+Sets the rendering layer of the annotation. The default value is OxyPlot.Annotations.AnnotationLayer.AboveSeries.
+ 
 
 
 ```yaml
@@ -178,6 +196,8 @@ Accept wildcard characters: False
 
 ### -OffsetX
 
+Sets the X offset.
+ 
 
 
 ```yaml
@@ -194,6 +214,8 @@ Accept wildcard characters: False
 
 ### -OffsetY
 
+Sets the Y offset.
+ 
 
 
 ```yaml
@@ -210,6 +232,8 @@ Accept wildcard characters: False
 
 ### -Opacity
 
+Sets the opacity (0-1).
+ 
 
 
 ```yaml
@@ -242,6 +266,8 @@ Accept wildcard characters: False
 
 ### -Selectable
 
+Sets a value indicating whether this element can be selected. The default is true.
+ 
 
 
 ```yaml
@@ -258,6 +284,9 @@ Accept wildcard characters: False
 
 ### -SelectionMode
 
+Sets the selection mode of items in this element. The default is SelectionMode.All.
+ 
+This is only used by the select/unselect functionality, not by the rendering.
 
 
 ```yaml
@@ -290,6 +319,9 @@ Accept wildcard characters: False
 
 ### -Tag
 
+Sets an arbitrary object value that can be used to store custom information about this plot element. The default is null.
+ 
+This property is analogous to Tag properties in other Microsoft programming models. Tag is intended to provide a pre-existing property location where you can store some basic custom information about any PlotElement without requiring you to subclass an element.
 
 
 ```yaml
@@ -306,6 +338,9 @@ Accept wildcard characters: False
 
 ### -TextColor
 
+Sets the color of the text. The default is OxyColors.Automatic (use OxyPlot.PlotModel.TextColor).
+ 
+If the value is OxyColors.Automatic, the TextColor of the parent PlotModel will be used.
 
 
 ```yaml
@@ -322,6 +357,8 @@ Accept wildcard characters: False
 
 ### -ToolTip
 
+Sets the tool tip. The default is null.
+ 
 
 
 ```yaml
@@ -338,6 +375,8 @@ Accept wildcard characters: False
 
 ### -VerticalAlignment
 
+Sets the vertical alignment.
+ 
 
 
 ```yaml
@@ -354,6 +393,8 @@ Accept wildcard characters: False
 
 ### -Width
 
+Sets the width.
+ 
 
 
 ```yaml
@@ -370,6 +411,8 @@ Accept wildcard characters: False
 
 ### -X
 
+Sets the X position of the image.
+ 
 
 
 ```yaml
@@ -386,6 +429,8 @@ Accept wildcard characters: False
 
 ### -XAxisKey
 
+Sets the X axis key.
+ 
 
 
 ```yaml
@@ -402,6 +447,8 @@ Accept wildcard characters: False
 
 ### -Y
 
+Sets the Y position of the image.
+ 
 
 
 ```yaml
@@ -418,6 +465,8 @@ Accept wildcard characters: False
 
 ### -YAxisKey
 
+Sets the Y axis key.
+ 
 
 
 ```yaml

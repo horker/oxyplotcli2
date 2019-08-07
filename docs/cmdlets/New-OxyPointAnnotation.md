@@ -1,7 +1,7 @@
 ﻿---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version: http://en.wikipedia.org/wiki/Pie_chart
+online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/New-OxyPointAnnotation.md
 schema: 2.0.0
 ---
 
@@ -52,6 +52,8 @@ Accept wildcard characters: False
 
 ### -CustomOutline
 
+Sets a custom polygon outline for the point marker. Set OxyPlot.Annotations.PointAnnotation.Shape to OxyPlot.MarkerType.Custom to use this property.
+ 
 
 
 ```yaml
@@ -68,6 +70,8 @@ Accept wildcard characters: False
 
 ### -Fill
 
+Sets the fill color.
+ 
 
 
 ```yaml
@@ -84,6 +88,9 @@ Accept wildcard characters: False
 
 ### -Font
 
+Sets the font. The default is null (use OxyPlot.PlotModel.DefaultFont.
+ 
+If the value is null, the DefaultFont of the parent PlotModel will be used.
 
 
 ```yaml
@@ -100,6 +107,9 @@ Accept wildcard characters: False
 
 ### -FontSize
 
+Sets the size of the font. The default is double.NaN (use OxyPlot.PlotModel.DefaultFontSize).
+ 
+If the value is NaN, the DefaultFontSize of the parent PlotModel will be used.
 
 
 ```yaml
@@ -116,6 +126,8 @@ Accept wildcard characters: False
 
 ### -FontWeight
 
+Sets the font weight. The default is FontWeights.Normal.
+ 
 
 
 ```yaml
@@ -132,6 +144,8 @@ Accept wildcard characters: False
 
 ### -Layer
 
+Sets the rendering layer of the annotation. The default value is OxyPlot.Annotations.AnnotationLayer.AboveSeries.
+ 
 
 
 ```yaml
@@ -164,6 +178,8 @@ Accept wildcard characters: False
 
 ### -Selectable
 
+Sets a value indicating whether this element can be selected. The default is true.
+ 
 
 
 ```yaml
@@ -180,6 +196,9 @@ Accept wildcard characters: False
 
 ### -SelectionMode
 
+Sets the selection mode of items in this element. The default is SelectionMode.All.
+ 
+This is only used by the select/unselect functionality, not by the rendering.
 
 
 ```yaml
@@ -196,6 +215,8 @@ Accept wildcard characters: False
 
 ### -Shape
 
+Sets the shape of the rendered point.
+ 
 
 
 ```yaml
@@ -212,6 +233,8 @@ Accept wildcard characters: False
 
 ### -Size
 
+Sets the size of the rendered point.
+ 
 
 
 ```yaml
@@ -228,6 +251,8 @@ Accept wildcard characters: False
 
 ### -Stroke
 
+Sets the stroke color.
+ 
 
 
 ```yaml
@@ -244,6 +269,8 @@ Accept wildcard characters: False
 
 ### -StrokeThickness
 
+Sets the stroke thickness.
+ 
 
 
 ```yaml
@@ -276,6 +303,9 @@ Accept wildcard characters: False
 
 ### -Tag
 
+Sets an arbitrary object value that can be used to store custom information about this plot element. The default is null.
+ 
+This property is analogous to Tag properties in other Microsoft programming models. Tag is intended to provide a pre-existing property location where you can store some basic custom information about any PlotElement without requiring you to subclass an element.
 
 
 ```yaml
@@ -292,6 +322,8 @@ Accept wildcard characters: False
 
 ### -Text
 
+Sets the annotation text.
+ 
 
 
 ```yaml
@@ -308,6 +340,9 @@ Accept wildcard characters: False
 
 ### -TextColor
 
+Sets the color of the text. The default is OxyColors.Automatic (use OxyPlot.PlotModel.TextColor).
+ 
+If the value is OxyColors.Automatic, the TextColor of the parent PlotModel will be used.
 
 
 ```yaml
@@ -324,6 +359,8 @@ Accept wildcard characters: False
 
 ### -TextHorizontalAlignment
 
+Sets the horizontal alignment of the text.
+ 
 
 
 ```yaml
@@ -340,6 +377,8 @@ Accept wildcard characters: False
 
 ### -TextMargin
 
+Sets the distance between the rendered point and the text.
+ 
 
 
 ```yaml
@@ -356,6 +395,9 @@ Accept wildcard characters: False
 
 ### -TextPosition
 
+Sets the position of the text.
+ 
+If the value is DataPoint.Undefined, the default position of the text will be used.
 
 
 ```yaml
@@ -372,6 +414,8 @@ Accept wildcard characters: False
 
 ### -TextRotation
 
+Sets the rotation of the text.
+ 
 
 
 ```yaml
@@ -388,6 +432,8 @@ Accept wildcard characters: False
 
 ### -TextVerticalAlignment
 
+Sets the vertical alignment of the text.
+ 
 
 
 ```yaml
@@ -404,6 +450,8 @@ Accept wildcard characters: False
 
 ### -ToolTip
 
+Sets the tool tip. The default is null.
+ 
 
 
 ```yaml
@@ -420,6 +468,8 @@ Accept wildcard characters: False
 
 ### -X
 
+Sets the x-coordinate of the center.
+ 
 
 
 ```yaml
@@ -436,6 +486,8 @@ Accept wildcard characters: False
 
 ### -XAxisKey
 
+Sets the X axis key.
+ 
 
 
 ```yaml
@@ -452,6 +504,8 @@ Accept wildcard characters: False
 
 ### -Y
 
+Sets the y-coordinate of the center.
+ 
 
 
 ```yaml
@@ -468,6 +522,8 @@ Accept wildcard characters: False
 
 ### -YAxisKey
 
+Sets the Y axis key.
+ 
 
 
 ```yaml

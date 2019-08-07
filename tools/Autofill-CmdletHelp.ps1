@@ -1,9 +1,9 @@
 [CmdletBinding()]
 param(
     [string]$CmdletName,
-    [string]$SourceDir = "$PSScriptRoot\..\docs\generated",
-    [string]$DestinationDir = "$PSScriptRoot\..\docs\autofilled",
-    [xml]$XmlDocument = (Get-Content "$PSScriptRoot\OxyPlot.xml")
+    [string]$SourceDir = "$PSScriptRoot\..\docs\work\generated",
+    [string]$DestinationDir = "$PSScriptRoot\..\docs\work\autofilled",
+    [Xml.XmlDocument]$XmlDocument = [xml](Get-Content -Encoding utf8 "$PSScriptRoot\OxyPlot.xml")
 )
 
 Set-StrictMode -Version Latest
@@ -35,7 +35,7 @@ else {
 
 Write-Verbose $className
 
-$HelpItems = & "$PSScriptRoot\Get-HelpItems.ps1" $objectName $className $XmlDocument
+$HelpItems = & "$PSScriptRoot\Get-HelpItems.ps1" $objectName $className "" $XmlDocument
 
 ############################################################
 # Get-ParameterDescription
@@ -122,7 +122,11 @@ foreach ($line in $doc) {
         $skipToNextSection = $true
     }
     elseif ($line -match "^### -(\w+)") {
-        $desc = Get-ParameterDescription $matches[1]
+        $p = $matches[1]
+        Write-Verbose "parameter: `"$p`""
+        $desc = Get-ParameterDescription $p
+        Write-Verbose "desc: `"$desc`""
+
         [void]$out.AppendLine($line)
         [void]$out.AppendLine()
         [void]$out.AppendLine($desc)
