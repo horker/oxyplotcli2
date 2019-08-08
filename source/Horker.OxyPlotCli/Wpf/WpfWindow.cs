@@ -9,6 +9,7 @@ using System.Management.Automation.Runspaces;
 using System.Windows.Markup;
 using System.Collections;
 using System;
+using System.Windows.Threading;
 
 #pragma warning disable CS1591
 

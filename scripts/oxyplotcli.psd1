@@ -138,6 +138,8 @@ CmdletsToExport = @(
     "New-OxyVolumeSeries"
     "Remove-OxyStyle"
     "Set-OxyDefaultStyle"
+    "Get-OxyPlotViewDispatcher"
+    "Set-OxyPlotViewDispatcher"
 )
 
 # Variables to export from this module

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
+using Horker.OxyPlotCli.Helpers;
 using Horker.OxyPlotCli.Initializers;
 using Horker.OxyPlotCli.SeriesBuilders;
 using Horker.OxyPlotCli.Styles;
@@ -141,8 +142,7 @@ namespace Horker.OxyPlotCli.Cmdlets
             if (asPlotView)
             {
                 OxyPlot.Wpf.PlotView e = null;
-                var rootWindow = WpfWindow.RootWindow;
-                rootWindow.Dispatcher.Invoke(() => {
+                PlotViewDispatcherHolder.Get().Invoke(() => {
                     e = new OxyPlot.Wpf.PlotView() { Model = model };
                 });
                 WriteObject(e);

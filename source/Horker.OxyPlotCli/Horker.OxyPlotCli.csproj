@@ -95,8 +95,11 @@
     <Compile Include="Cmdlets\SeriesCmdletBase.cs" />
     <Compile Include="Cmdlets\StyleCmdlets\SetOxyDefaultStyle.cs" />
     <Compile Include="Cmdlets\WpfWindowCmdlets\AddOxyAxisShare.cs" />
+    <Compile Include="Cmdlets\WpfWindowCmdlets\GetOxyPlotViewDispatcher.cs" />
+    <Compile Include="Cmdlets\WpfWindowCmdlets\SetOxyPlotViewDispatcher.cs" />
     <Compile Include="Helpers\BoxPlotSeriesHelpers.cs" />
     <Compile Include="Helpers\HistogramSeriesHelpers.cs" />
+    <Compile Include="Helpers\PlotViewDispatcherHolder.cs" />
     <Compile Include="Initializers\AxisKind.cs" />
     <Compile Include="SeriesBuilders\HistogramSeriesBuilder.cs" />
     <Compile Include="Wpf\WpfWindow.cs" />
