@@ -235,8 +235,8 @@ PrivateData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
         Tags = @(
-            'OxyPlot', 'cli',
-            'chart', 'plot', 'graphic', 'line', 'bar', 'column', 'pie', 'histogram',
+            'OxyPlot',
+            'chart', 'plot', 'graphic', 'bar', 'pie', 'histogram',
             'visualization', 'interactive', 'data', 'analysis',
             'wpf', 'window',
             'ggplot', 'matplotlib'
@@ -253,15 +253,15 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = @"
-v2.0.0.beta2
-v2 beta2 release
+v2.0.0
+version 2 release
 
 v2.0.0-beta
 v2 beta release
 "@
 
         # Prerelease
-        Prerelease = 'beta'
+        Prerelease = ''
 
     } # End of PSData hashtable
 
