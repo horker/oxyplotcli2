@@ -18,6 +18,5 @@ packages/
 *.log
 *.json
 *.dat
-*.png
 *.html
 *.svg
