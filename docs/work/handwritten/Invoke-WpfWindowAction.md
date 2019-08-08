@@ -1,7 +1,7 @@
 ---
 external help file: Horker.OxyPlotCli.dll-Help.xml
 Module Name: oxyplotcli
-online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/Invoke-WpfWindowAction.md https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/Invoke-WpfWindowAction.md https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/Invoke-WpfWindowAction.md
+online version: https://github.com/horker/oxyplotcli2/blob/master/docs/cmdlets/Invoke-WpfWindowAction.md
 schema: 2.0.0
 ---
 
