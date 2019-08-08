@@ -138,6 +138,11 @@ CmdletsToExport = @(
     "New-OxyVolumeSeries"
     "Remove-OxyStyle"
     "Set-OxyDefaultStyle"
+    "Close-WpfWindow"
+    "Get-WpfWindowList"
+    "Invoke-WpfWindowAction"
+    "New-WpfWindow"
+    "Test-WpfWindowClosed"
     "Get-OxyPlotViewDispatcher"
     "Set-OxyPlotViewDispatcher"
 )
