@@ -10,7 +10,7 @@
 RootModule = 'oxyplotcli.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.0'
+ModuleVersion = '2.0.1'
 
 # Supported PSEditions
 #CompatiblePSEditions = ''
@@ -258,6 +258,9 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = @"
+v2.0.1
+Several bug fixes
+
 v2.0.0
 version 2 release
 
