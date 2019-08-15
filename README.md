@@ -4,9 +4,9 @@ OxyPlot CLI is a PowerShell module to use [OxyPlot](http://www.oxyplot.org) via 
 
 <table>
 <tr>
-<td><img src="examples\images\BoxPlotSeries.png"></td>
-<td><img src="examples\images\HistogramSeries2.png"></td>
-<td><img src="examples\images\ScatterSeries.png"></td>
+<td><img src="https://github.com/horker/oxyplotcli2/blob/master/examples/images/BoxPlotSeries.png"></td>
+<td><img src="https://github.com/horker/oxyplotcli2/blob/master/examples/images/HistogramSeries2.png"></td>
+<td><img src="https://github.com/horker/oxyplotcli2/blob/master/examples/images/ScatterSeries.png"></td>
 </table>
 
 ## Installation
