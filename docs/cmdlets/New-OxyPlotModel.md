@@ -18,7 +18,7 @@ Returns an object that represents a plot.
 ```
 New-OxyPlotModel [-InputObject <Object>] [[-Series] <Series[]>] [[-SeriesInfo] <ISeriesInfo[]>]
  [-PlotModel <PlotModel>] [[-Axis] <Axis[]>] [[-Annotation] <Annotation[]>] [[-OutFile] <String>]
- [[-OutWidth] <Int32>] [[-OutHeight] <Int32>] [-SvgIsDocument] [-PassThru] [[-Style] <String>] [-AsUIElement]
+ [[-OutWidth] <Int32>] [[-OutHeight] <Int32>] [-SvgIsDocument] [-PassThru] [[-Style] <String>] [-AsPlotView]
  [-Show] [-ReuseWindow] [[-DefaultFont] <String>] [[-DefaultFontSize] <Double>] [[-Background] <OxyColor>]
  [[-Culture] <CultureInfo>] [[-DefaultColors] <System.Collections.Generic.IList`1[OxyPlot.OxyColor]>]
  [[-IsLegendVisible] <Bool>] [[-LegendBackground] <OxyColor>] [[-LegendBorder] <OxyColor>]
@@ -125,22 +125,6 @@ Aliases:
 Required: False
 Position: 3
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AsUIElement
-
-Returns an object as a PlotView object.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 10
-Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -4333,6 +4317,22 @@ Accept wildcard characters: False
 
 ```yaml
 Type: OxyPlot.PlotModel
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AsPlotView
+
+Returns an object as a PlotView object.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases:
 

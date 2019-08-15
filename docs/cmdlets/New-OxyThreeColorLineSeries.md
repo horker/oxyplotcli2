@@ -4260,7 +4260,7 @@ Accept wildcard characters: False
 
 ### -AsPlotView
 
-
+Returns an object as a PlotView object.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -4269,7 +4269,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
